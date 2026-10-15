@@ -1,25 +1,30 @@
 # mechcore-replay
 
-The native Mechabellum replays that [mechcore](https://github.com/qbisi/mechcore)
-is held to. One directory per game version, and nothing else:
+Collected Mechabellum match documents for
+[mechcore](https://github.com/qbisi/mechcore), partitioned by game version:
 
 ```
-replays/<version>/<name>.grbr     the replay, byte for byte as the game wrote it
+matches/<version>/<BattleID>-rN.yaml
 ```
 
-`<version>` is the game's own version string, `Application.version`, the one a
-replay's header carries (`2.0.0.1.2324`). The game matches players and admits
-spectators by it, and every client of a match runs the same simulation in
-lockstep, so replays of one version are replays of one set of rules. Steam can
-ship new files under an unchanged version, and replays from before and after
-such an update share a directory.
+`<version>` is the game's `Application.version`, as pinned by mechcore's
+`GAME_VERSION`. `BattleID` comes from the native battle record and `N` is the
+last captured spectator round, which can lag the lobby's displayed round.
 
-**A replay is evidence and is never edited.** It is copied from the Steam
-installation's replay directory, and only a locally recorded one is admitted:
-the downloaded class is a server-side reconstruction whose fields do not agree
-with the game's state. mechcore's `replay/README.md` says how the two are
-told apart.
+A document can hold a complete prefix or start at an available `state(N)`.
+It contains only the captured contiguous rounds and their recorded decisions;
+missing opening choices and earlier rounds are not invented. One file does
+not imply a complete match or a final settlement.
 
-**The repository only grows.** A replay is added and never rewritten, renamed
-or removed, so mechcore reads it at `master`. Nothing is generated here:
-mechcore converts a replay itself when it needs to read one.
+Files are generated from locally recorded native GRBR caches by
+`mechcore convert --to match`. The collector leaves the room before converting
+and publishes `BattleID-rN.yaml` atomically. Documents are never hand-edited.
+See mechcore's [corpus tools](https://github.com/qbisi/mechcore/blob/master/scripts/corpus/README.md)
+for collection, conversion and publication commands.
+
+**The repository only grows after the format migration.** New match files are
+added without rewriting, renaming or removing existing ones. An existing name
+must contain identical bytes. The one-time migration removed the native GRBR
+files from the current tree and replaced them with collected match documents;
+the earlier native archive remains available in Git history. New GRBR files
+are not published here.
