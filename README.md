@@ -41,3 +41,60 @@ must contain identical bytes. The one-time migration removed the native GRBR
 files from the current tree and replaced them with collected match documents;
 the earlier native archive remains available in Git history. New GRBR files
 are not published here.
+
+## Tournament verification
+
+The `Tournament matches` workflow runs on additions under `tournaments/` on
+master. It compares the push's before and after trees and checks only added
+YAML files; modified files and spectator captures are not reverified. It
+fetches only the required Git trees, leaving the old native archive's history
+unfetched. Empty selections skip the build and verification jobs.
+
+Every run checks out **qbisi/mechcore master**, records its exact commit and
+`GAME_VERSION`, and builds `cargo build --release -p mechcore
+--no-default-features`. All shards use that one binary. The corpus never
+selects a release tag, a PR build, the match's historical simulator version,
+or a game backend. Different match versions retain the CLI's warning behavior.
+
+The run checks whole matches using `mechcore verify --backend simulator`.
+Complete stdout, stderr, exit codes, JSON reports, input hashes and build
+provenance are uploaded as `tournament-reports-*` artifacts, even when a
+match fails. Divergences make the run red, but do not cancel the other matches.
+Crashes, timeouts or malformed process output fail CI without fabricating a
+simulator divergence or resolving an existing issue.
+
+Failures create **one issue per BattleID** in qbisi/mechcore with the `match`
+label, including pinned source and simulator commits, first failure, failing
+rounds, reproduction commands and the full report artifact link. Further
+failures update the same issue. Repeated creation after an uncertain network
+response first checks the stable match marker. Human comments and notes
+outside the generated report block are preserved. A closed issue is reopened
+if the match fails again.
+
+**Resolution requires the entire match to verify.** Fixing one round is not a
+resolution when later rounds still fail. CI closes an issue only after the
+whole command exits 0 and returns a `kind: match`, `valid: true` report.
+Explicit warnings follow the CLI's existing contract; their skipped fight
+comparisons remain visible in the complete reports.
+
+### Setup and rechecks
+
+Add an Actions repository secret named `MECHCORE_ISSUES_TOKEN` here. Use a
+fine-grained token restricted to qbisi/mechcore, with Issues read/write; no
+code-writing permission is needed. The normal workflow token only reads this
+corpus. Only the issue-reporting step receives the cross-repository token.
+The target repository must have a `match` label.
+
+New tournament uploads trigger verification automatically. After a simulator
+repair, use Actions → Tournament matches → Run workflow, with **match** set
+to the complete `tournaments/YYYY-MM-DD-region/BattleID.yaml` path. It checks
+current mechcore master and updates or resolves the existing match issue.
+
+To backfill an earlier upload, set **since** to the full corpus commit SHA
+immediately before that upload. The workflow selects only YAML additions
+between that commit and the selected corpus revision. Supply either **since**
+or **match**, not both. Simulator updates alone never recheck the corpus.
+
+`.github/scripts/test_tournaments.py` tests selection, process-result handling
+and issue lifecycle using temporary files and fake verify output; it does not
+simulate corpus matches. Automation changes run these checks in pull requests.

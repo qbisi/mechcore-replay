@@ -1,0 +1,115 @@
+name: Tournament matches
+
+on:
+  push:
+    branches: [master]
+    paths: ['tournaments/**/*.yaml']
+  workflow_dispatch:
+    inputs:
+      since:
+        description: 'Check files added after this full corpus commit SHA (backfill)'
+        type: string
+      match:
+        description: 'Recheck one tournaments/YYYY-MM-DD-region/BattleID.yaml against current master'
+        type: string
+
+permissions:
+  contents: read
+
+# Independent additions keep independent runs. Repeated requests for the same
+# batch can wait without interrupting an issue reconciliation already running.
+concurrency:
+  group: tournaments-${{ github.event_name }}-${{ github.event.before || inputs.since || inputs.match }}
+  cancel-in-progress: false
+
+jobs:
+  select:
+    runs-on: ubuntu-latest
+    outputs:
+      any: ${{ steps.matches.outputs.any }}
+      matrix: ${{ steps.matches.outputs.matrix }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@07a047e608db84b3d8c06cd9a7c7dcc9c355c18e # v10.3.2
+      - name: Select only added tournament YAML files, or the requested recheck
+        id: matches
+        env:
+          BASE: ${{ github.event.before || inputs.since }}
+          MATCH: ${{ inputs.match }}
+        run: uv run --with pyyaml python .github/scripts/tournaments.py select --base "$BASE" --match "$MATCH"
+
+  build:
+    needs: select
+    if: needs.select.outputs.any == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          repository: qbisi/mechcore
+          ref: master
+          path: mechcore
+          persist-credentials: false
+      - name: Pin the master commit used by every shard
+        id: source
+        run: echo "sha=$(git -C mechcore rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+      - uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cargo/registry
+            ~/.cargo/git
+            mechcore/target
+          key: mechcore-release-${{ runner.os }}-${{ hashFiles('mechcore/Cargo.lock', 'mechcore/rust-toolchain.toml') }}-${{ steps.source.outputs.sha }}
+          restore-keys: mechcore-release-${{ runner.os }}-${{ hashFiles('mechcore/Cargo.lock', 'mechcore/rust-toolchain.toml') }}-
+      - name: Build current master in release mode, without the macOS Adapter
+        working-directory: mechcore
+        run: cargo build --release -p mechcore --no-default-features
+      - name: Package binary and provenance
+        run: |
+          mkdir release
+          cp mechcore/target/release/mechcore mechcore/GAME_VERSION release/
+          git -C mechcore rev-parse HEAD > release/mechcore-commit
+      - uses: actions/upload-artifact@v4
+        with:
+          name: mechcore-master-release
+          path: release/
+          retention-days: 14
+
+  verify:
+    needs: [select, build]
+    if: needs.select.outputs.any == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    strategy:
+      fail-fast: false
+      max-parallel: 8
+      matrix: ${{ fromJSON(needs.select.outputs.matrix) }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: astral-sh/setup-uv@07a047e608db84b3d8c06cd9a7c7dcc9c355c18e # v10.3.2
+      - uses: actions/download-artifact@v4
+        with:
+          name: mechcore-master-release
+          path: .build
+      - name: Verify every selected match in full
+        id: verify
+        env:
+          MATCHES: ${{ toJSON(matrix.matches) }}
+        run: |
+          chmod +x .build/mechcore
+          uv run --with pyyaml python .github/scripts/tournaments.py verify --binary .build/mechcore --build-dir .build --matches "$MATCHES"
+      - name: Open or update one match issue, closing only a complete passing match
+        if: ${{ !cancelled() && hashFiles('reports/results.json') != '' }}
+        env:
+          MECHCORE_ISSUES_TOKEN: ${{ secrets.MECHCORE_ISSUES_TOKEN }}
+        run: uv run --with pyyaml python .github/scripts/tournaments.py report
+      - name: Preserve complete reports, including failures and warnings
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: tournament-reports-${{ matrix.shard }}
+          path: reports/
+          retention-days: 30
+          if-no-files-found: error
