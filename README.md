@@ -60,6 +60,24 @@ The run checks whole matches using `mechcore verify --backend simulator`.
 Complete stdout, stderr, exit codes, JSON reports, input hashes and build
 provenance are uploaded as `tournament-reports-*` artifacts, even when a
 match fails. Divergences make the run red, but do not cancel the other matches.
+
+Every upload also produces a **Tournament batch report** in the workflow's
+Actions Summary and a `tournament-summary` artifact containing `summary.md`
+and `summary.json` (90-day retention). It records the selected corpus commit,
+exact master simulator commit, game version, batch totals and per-date/region
+counts, pass rates, warnings, missing reports, execution errors and associated
+match issues. Open Actions → Tournament matches → the upload's run to compare
+measurements over time. Manual rechecks produce separate reports; their rates
+refer only to the requested selection, not the full archive.
+
+The denominator is every selected match, including missing or failed process
+reports. Missing shards or incomplete issue reporting mark the batch report
+**INCOMPLETE**. Warning matches and rounds are counted separately because the
+verifier can accept a match while warning that some fight comparisons were
+skipped. A zero-match selection has no pass rate. The final summary still runs
+when a build or verification fails; raw shard artifacts keep the complete
+per-match diagnostics.
+
 Crashes, timeouts or malformed process output fail CI without fabricating a
 simulator divergence or resolving an existing issue.
 

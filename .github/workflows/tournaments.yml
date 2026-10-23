@@ -37,8 +37,15 @@ jobs:
           BASE: ${{ github.event.before || inputs.since }}
           MATCH: ${{ inputs.match }}
         run: uv run --with pyyaml python .github/scripts/tournaments.py select --base "$BASE" --match "$MATCH"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: tournament-selection
+          path: reports/selection.json
+          retention-days: 90
 
   build:
+    outputs:
+      sha: ${{ steps.source.outputs.sha }}
     needs: select
     if: needs.select.outputs.any == 'true'
     runs-on: ubuntu-latest
@@ -112,4 +119,43 @@ jobs:
           name: tournament-reports-${{ matrix.shard }}
           path: reports/
           retention-days: 30
+          if-no-files-found: error
+
+  summary:
+    name: Tournament batch report
+    if: always()
+    needs: [select, build, verify]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: astral-sh/setup-uv@07a047e608db84b3d8c06cd9a7c7dcc9c355c18e # v10.3.2
+      - name: Download selected batch
+        continue-on-error: true
+        uses: actions/download-artifact@v4
+        with:
+          name: tournament-selection
+          path: reports/
+      - name: Download completed shard reports
+        continue-on-error: true
+        uses: actions/download-artifact@v4
+        with:
+          pattern: tournament-reports-*
+          path: reports/shards/
+      - name: Summarize the complete selection, including missing evidence
+        env:
+          JOB_RESULTS: >-
+            {"select":{"result":"${{ needs.select.result }}"},
+             "build":{"result":"${{ needs.build.result }}"},
+             "verify":{"result":"${{ needs.verify.result }}"}}
+          MECHCORE_SHA: ${{ needs.build.outputs.sha }}
+        run: uv run --with pyyaml python .github/scripts/tournament_summary.py
+      - name: Preserve batch Markdown and machine-readable history
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: tournament-summary
+          path: reports/summary/
+          retention-days: 90
           if-no-files-found: error
