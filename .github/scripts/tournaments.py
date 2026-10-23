@@ -226,6 +226,7 @@ def reconcile(api, metadata):
             issue = api.create_issue(identity, identity + "\n\n" + block,
                                      f"match: {Path(result['match']).stem} does not verify")
             issues.append(issue)
+        result["issue_url"] = issue["html_url"]
         old = issue.get("body") or ""
         if BEGIN in old and END in old:
             body = old[:old.index(BEGIN)] + block + old[old.index(END) + len(END):]
@@ -236,6 +237,7 @@ def reconcile(api, metadata):
             api.request("PATCH", f"repos/{ISSUES}/issues/{issue['number']}",
                         {"body": body, "state": state,
                          "state_reason": "completed" if passed else "reopened"})
+        result["issue_state"] = state
         print(f"{'resolved' if passed else 'open'}: {issue['html_url']}", flush=True)
     return errors
 
@@ -259,14 +261,25 @@ def main():
         if args.base and args.match:
             raise ValueError("select either a base commit or a single match, not both")
         chosen = select(args.base, args.match)
+        chosen.update(base=args.base, single=args.match)
         print(json.dumps(chosen))
+        Path("reports").mkdir(exist_ok=True)
+        Path("reports/selection.json").write_text(json.dumps(chosen, indent=2) + "\n")
         if os.environ.get("GITHUB_OUTPUT"):
             with open(os.environ["GITHUB_OUTPUT"], "a") as output:
                 output.write(f"any={str(chosen['any']).lower()}\nmatrix={json.dumps(chosen['matrix'])}\n")
         return 0
     if args.command == "report":
-        return int(bool(reconcile(GitHub(os.environ.get("MECHCORE_ISSUES_TOKEN")),
-                                  json.loads(args.results.read_text()))))
+        metadata = json.loads(args.results.read_text())
+        try:
+            errors = reconcile(GitHub(os.environ.get("MECHCORE_ISSUES_TOKEN")), metadata)
+            metadata["issue_reporting"] = {"status": "complete"}
+            return int(bool(errors))
+        except Exception as error:
+            metadata["issue_reporting"] = {"status": "error", "error": str(error)}
+            raise
+        finally:
+            args.results.write_text(json.dumps(metadata, ensure_ascii=False, indent=2) + "\n")
     args.out.mkdir(parents=True, exist_ok=True)
     metadata = {"corpus_commit": os.environ["GITHUB_SHA"],
                 "mechcore_commit": (args.build_dir / "mechcore-commit").read_text().strip(),
