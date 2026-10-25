@@ -142,23 +142,27 @@ red:
 kind: action
 round: 1
 blue:
-- {type: unlock_unit, name: void_eye}
-- {type: buy_unit, name: void_eye, position: {x: 170, y: -100}}
-- {type: buy_unit, name: void_eye, position: {x: 170, y: -120}}
 - {type: move_unit, index: 0, position: {x: -215, y: -260}}
 - {type: move_unit, index: 1, position: {x: -165, y: -260}}
 - {type: move_unit, index: 2, position: {x: -115, y: -260}}
 - {type: move_unit, index: 3, position: {x: 220, y: -115}, rotated: true}
 - {type: move_unit, index: 4, position: {x: 200, y: -115}, rotated: true}
-red:
 - {type: unlock_unit, name: void_eye}
-- {type: buy_unit, name: void_eye, position: {x: -110, y: -180}}
-- {type: buy_unit, name: void_eye, position: {x: 110, y: -180}}
+- {type: buy_unit, name: void_eye, level: 1}
+- {type: move_unit, index: 5, position: {x: 170, y: -100}}
+- {type: buy_unit, name: void_eye, level: 1}
+- {type: move_unit, index: 6, position: {x: 170, y: -120}}
+red:
 - {type: move_unit, index: 0, position: {x: 170, y: -190}}
 - {type: move_unit, index: 2, position: {x: -170, y: -190}}
 - {type: move_unit, index: 3, position: {x: 105, y: -300}}
 - {type: move_unit, index: 4, position: {x: -115, y: -300}}
 - {type: move_unit, index: 1, position: {x: 0, y: -190}}
+- {type: unlock_unit, name: void_eye}
+- {type: buy_unit, name: void_eye, level: 2}
+- {type: move_unit, index: 5, position: {x: -110, y: -180}}
+- {type: buy_unit, name: void_eye, level: 2}
+- {type: move_unit, index: 6, position: {x: 110, y: -180}}
 ---
 kind: state
 round: 2
@@ -216,15 +220,18 @@ blue:
 - {type: choose_reinforce_item, index: 2, name: improved_wraith}
 - {type: active_blueprint, name: field_recovery}
 - {type: release_commander_skill, index: 0, name: field_recovery, target: {unit: 0}}
+- {type: upgrade_technology, unit: void_eye, tech: aerial_mode}
+- {type: buy_unit, name: void_eye, level: 1}
+- {type: move_unit, index: 7, position: {x: 120, y: -110}, rotated: true}
 - {type: release_contraption, name: missile, position: {x: -143, y: -41}}
 - {type: release_contraption, name: missile, position: {x: -145, y: -126}}
-- {type: upgrade_technology, unit: void_eye, tech: aerial_mode}
-- {type: buy_unit, name: void_eye, position: {x: 120, y: -110}, rotated: true}
 red:
 - {type: choose_reinforce_item, index: 3, name: rhino_assault}
 - {type: unlock_unit, name: fang}
-- {type: buy_unit, name: fang, position: {x: -175, y: -170}}
-- {type: buy_unit, name: void_eye, position: {x: -210, y: -200}}
+- {type: buy_unit, name: fang, level: 2}
+- {type: move_unit, index: 7, position: {x: -175, y: -170}}
+- {type: buy_unit, name: void_eye, level: 2}
+- {type: move_unit, index: 8, position: {x: -210, y: -200}}
 - {type: release_commander_skill, index: 0, name: rhino_assault, target: {area: [{x: 260, y: -273}]}}
 ---
 kind: state
@@ -290,21 +297,24 @@ kind: action
 round: 3
 blue:
 - {type: choose_reinforce_item, index: 2, name: tarantula_1x_lv3}
+- {type: release_commander_skill, index: 0, name: field_recovery, target: {construction: 0}}
+- {type: upgrade_technology, unit: void_eye, tech: energy_absorption}
+- {type: move_unit, index: 8, position: {x: -205, y: -295}}
+- {type: buy_unit, name: void_eye, level: 1}
+- {type: move_unit, index: 9, position: {x: 240, y: -110}, rotated: true}
 - {type: upgrade_unit, index: 6}
 - {type: upgrade_unit, index: 7}
-- {type: upgrade_technology, unit: void_eye, tech: energy_absorption}
-- {type: buy_unit, name: void_eye, position: {x: 240, y: -110}, rotated: true}
 - {type: release_contraption, name: missile, position: {x: -144, y: -34}}
-- {type: release_commander_skill, index: 0, name: field_recovery, target: {construction: 0}}
 - {type: release_contraption, name: missile, position: {x: -134, y: -119}}
-- {type: move_unit, index: 8, position: {x: -205, y: -295}}
 red:
 - {type: choose_reinforce_item, index: 0, name: mustang_2x_lv1}
-- {type: unlock_unit, name: marksman}
-- {type: buy_unit, name: marksman, position: {x: -140, y: -200}}
-- {type: buy_unit, name: marksman, position: {x: -240, y: -200}}
 - {type: move_unit, index: 9, position: {x: -245, y: -280}}
 - {type: move_unit, index: 10, position: {x: 195, y: -280}}
+- {type: unlock_unit, name: marksman}
+- {type: buy_unit, name: marksman, level: 2}
+- {type: move_unit, index: 11, position: {x: -140, y: -200}}
+- {type: buy_unit, name: marksman, level: 2}
+- {type: move_unit, index: 12, position: {x: -240, y: -200}}
 ---
 kind: state
 round: 4
@@ -375,19 +385,24 @@ round: 4
 blue:
 - {type: choose_reinforce_item, index: 1, name: supply_enhancement}
 - {type: release_commander_skill, index: 0, name: field_recovery, target: {construction: 1}}
-- {type: upgrade_unit, index: 5}
-- {type: buy_unit, name: tarantula, position: {x: 95, y: -105}}
 - {type: upgrade_technology, unit: tarantula, tech: spider_mine}
-- {type: buy_unit, name: tarantula, position: {x: 285, y: -105}}
+- {type: buy_unit, name: tarantula, level: 1}
+- {type: move_unit, index: 10, position: {x: 95, y: -105}}
+- {type: buy_unit, name: tarantula, level: 1}
+- {type: move_unit, index: 11, position: {x: 285, y: -105}}
 - {type: upgrade_unit, index: 1}
 - {type: upgrade_unit, index: 2}
+- {type: upgrade_unit, index: 5}
 - {type: active_blueprint, name: defense_enhancement}
 red:
 - {type: choose_reinforce_item, index: 2, name: intensive_training}
-- {type: buy_unit, name: marksman, position: {x: -180, y: -210}}
-- {type: buy_unit, name: fang, position: {x: 175, y: -140}}
+- {type: buy_unit, name: marksman, level: 2}
+- {type: move_unit, index: 13, position: {x: -180, y: -210}}
+- {type: buy_unit, name: fang, level: 2}
+- {type: move_unit, index: 14, position: {x: 175, y: -140}}
 - {type: active_energy_tower_skill, name: mass_recruitment}
-- {type: buy_unit, name: marksman, position: {x: -90, y: -200}}
+- {type: buy_unit, name: marksman, level: 2}
+- {type: move_unit, index: 15, position: {x: -90, y: -200}}
 - {type: upgrade_unit, index: 5}
 ---
 kind: state
@@ -464,17 +479,20 @@ round: 5
 blue:
 - {type: choose_reinforce_item, index: 0, name: overlord_1x_lv1}
 - {type: release_commander_skill, index: 0, name: field_recovery, target: {unit: 12}}
-- {type: active_blueprint, name: attack_enhancement}
 - {type: active_blueprint, name: sticky_oil_bomb}
+- {type: active_blueprint, name: attack_enhancement}
 - {type: release_commander_skill, index: 1, name: sticky_oil_bomb, target: {area: [{x: 238, y: 179}, {x: 133, y: 176}]}}
 red:
 - {type: choose_reinforce_item, index: 0, name: overlord_1x_lv1}
-- {type: upgrade_unit, index: 9}
-- {type: buy_unit, name: mustang, position: {x: -115, y: -280}}
-- {type: buy_unit, name: fang, position: {x: 80, y: -175}, rotated: true}
-- {type: active_energy_tower_skill, name: mass_recruitment}
-- {type: buy_unit, name: fang, position: {x: -105, y: -160}}
 - {type: move_unit, index: 16, position: {x: 245, y: -285}}
+- {type: buy_unit, name: mustang, level: 2}
+- {type: move_unit, index: 17, position: {x: -115, y: -280}}
+- {type: buy_unit, name: fang, level: 2}
+- {type: move_unit, index: 18, position: {x: 80, y: -175}, rotated: true}
+- {type: active_energy_tower_skill, name: mass_recruitment}
+- {type: buy_unit, name: fang, level: 2}
+- {type: move_unit, index: 19, position: {x: -105, y: -160}}
+- {type: upgrade_unit, index: 9}
 ---
 kind: state
 round: 6
@@ -554,25 +572,29 @@ kind: action
 round: 6
 blue:
 - {type: choose_reinforce_item, index: 3, name: incendiary_bomb}
-- {type: release_commander_skill, index: 2, name: incendiary_bomb, target: {area: [{x: 250, y: 117}, {x: 110, y: 120}]}}
 - {type: release_commander_skill, index: 0, name: field_recovery, target: {unit: 8}}
 - {type: unlock_unit, name: wraith}
-- {type: active_energy_tower_skill, name: rapid_resupply}
-- {type: active_energy_tower_skill, name: mass_recruitment}
 - {type: active_energy_tower_skill, name: elite_recruitment}
-- {type: buy_unit, name: wraith, position: {x: 55, y: -175}, rotated: true}
-- {type: buy_unit, name: wraith, position: {x: -35, y: -165}}
-- {type: buy_unit, name: wraith, position: {x: 225, y: -175}}
+- {type: buy_unit, name: wraith, level: 2}
+- {type: move_unit, index: 13, position: {x: 55, y: -175}, rotated: true}
+- {type: buy_unit, name: wraith, level: 2}
+- {type: move_unit, index: 14, position: {x: -35, y: -165}}
+- {type: active_energy_tower_skill, name: mass_recruitment}
+- {type: buy_unit, name: wraith, level: 2}
+- {type: move_unit, index: 15, position: {x: 225, y: -175}}
+- {type: active_energy_tower_skill, name: rapid_resupply}
+- {type: release_commander_skill, index: 2, name: incendiary_bomb, target: {area: [{x: 250, y: 117}, {x: 110, y: 120}]}}
 red:
 - {type: choose_reinforce_item, index: 3, name: incendiary_bomb}
-- {type: buy_unit, name: overlord, position: {x: -165, y: -285}}
-- {type: release_commander_skill, index: 2, name: incendiary_bomb, target: {area: [{x: -274, y: 61}, {x: -134, y: 66}]}}
-- {type: release_commander_skill, index: 0, name: rhino_assault, target: {area: [{x: -335, y: 284}]}}
+- {type: upgrade_technology, unit: overlord, tech: mothership}
+- {type: buy_unit, name: overlord, level: 2}
+- {type: move_unit, index: 20, position: {x: -165, y: -285}}
+- {type: upgrade_unit, index: 15}
+- {type: upgrade_unit, index: 16}
 - {type: release_commander_skill, index: 1, name: intensive_training, target: {unit: 20}}
 - {type: upgrade_unit, index: 20}
-- {type: upgrade_unit, index: 16}
-- {type: upgrade_technology, unit: overlord, tech: mothership}
-- {type: upgrade_unit, index: 15}
+- {type: release_commander_skill, index: 2, name: incendiary_bomb, target: {area: [{x: -274, y: 61}, {x: -134, y: 66}]}}
+- {type: release_commander_skill, index: 0, name: rhino_assault, target: {area: [{x: -335, y: 284}]}}
 ---
 kind: state
 round: 7
@@ -659,27 +681,32 @@ kind: action
 round: 7
 blue:
 - {type: choose_reinforce_item, index: 1, name: advanced_offensive_tactics}
-- {type: active_energy_tower_skill, name: rapid_resupply}
-- {type: active_energy_tower_skill, name: mass_recruitment}
-- {type: active_energy_tower_skill, name: elite_recruitment}
-- {type: active_energy_tower_skill, name: enhanced_range}
-- {type: active_energy_tower_skill, name: high_mobility}
-- {type: buy_unit, name: wraith, position: {x: 115, y: -175}}
-- {type: buy_unit, name: wraith, position: {x: 175, y: -175}}
-- {type: buy_unit, name: wraith, position: {x: 85, y: -175}}
-- {type: active_blueprint, name: defense_enhancement_ii}
 - {type: release_commander_skill, index: 0, name: field_recovery, target: {unit: 3}}
+- {type: active_energy_tower_skill, name: elite_recruitment}
+- {type: buy_unit, name: wraith, level: 2}
+- {type: move_unit, index: 16, position: {x: 115, y: -175}}
+- {type: buy_unit, name: wraith, level: 2}
+- {type: move_unit, index: 17, position: {x: 175, y: -175}}
+- {type: active_energy_tower_skill, name: mass_recruitment}
+- {type: buy_unit, name: wraith, level: 2}
+- {type: move_unit, index: 18, position: {x: 85, y: -175}}
 - {type: release_contraption, name: shield, position: {x: -142, y: -161}}
 - {type: release_contraption, name: missile, position: {x: -115, y: -31}}
 - {type: release_contraption, name: missile, position: {x: -249, y: -12}}
 - {type: release_contraption, name: missile, position: {x: -166, y: -136}}
+- {type: active_energy_tower_skill, name: rapid_resupply}
+- {type: active_energy_tower_skill, name: enhanced_range}
+- {type: active_energy_tower_skill, name: high_mobility}
+- {type: active_blueprint, name: defense_enhancement_ii}
 red:
 - {type: choose_reinforce_item, index: 2, name: intensive_training}
-- {type: buy_unit, name: overlord, position: {x: -65, y: -285}}
+- {type: buy_unit, name: overlord, level: 2}
+- {type: move_unit, index: 21, position: {x: -65, y: -285}}
+- {type: buy_unit, name: fang, level: 2}
+- {type: move_unit, index: 22, position: {x: -225, y: -180}}
 - {type: upgrade_unit, index: 16}
 - {type: release_commander_skill, index: 3, name: intensive_training, target: {unit: 21}}
 - {type: upgrade_unit, index: 21}
-- {type: buy_unit, name: fang, position: {x: -225, y: -180}}
 ---
 kind: state
 round: 8
@@ -774,22 +801,27 @@ kind: action
 round: 8
 blue:
 - {type: choose_reinforce_item, index: 4, name: decline_offer}
-- {type: unlock_unit, name: melting_point}
-- {type: buy_unit, name: melting_point, position: {x: 270, y: -140}}
-- {type: buy_unit, name: melting_point, position: {x: 90, y: -140}}
-- {type: upgrade_technology, unit: melting_point, tech: energy_absorption}
-- {type: active_energy_tower_skill, name: rapid_resupply}
 - {type: release_commander_skill, index: 0, name: field_recovery, target: {unit: 2}}
+- {type: unlock_unit, name: melting_point}
+- {type: buy_unit, name: melting_point, level: 1}
+- {type: upgrade_technology, unit: melting_point, tech: energy_absorption}
+- {type: move_unit, index: 19, position: {x: 270, y: -140}}
+- {type: buy_unit, name: melting_point, level: 1}
+- {type: move_unit, index: 20, position: {x: 90, y: -140}}
 - {type: active_energy_tower_skill, name: mass_recruitment}
-- {type: buy_unit, name: melting_point, position: {x: 260, y: -180}}
+- {type: active_energy_tower_skill, name: rapid_resupply}
+- {type: buy_unit, name: melting_point, level: 1}
+- {type: move_unit, index: 21, position: {x: 260, y: -180}}
 - {type: active_energy_tower_skill, name: enhanced_range}
 red:
 - {type: choose_reinforce_item, index: 3, name: advanced_targeting_system}
-- {type: buy_unit, name: overlord, position: {x: -215, y: -245}}
-- {type: release_commander_skill, index: 1, name: intensive_training, target: {unit: 23}}
-- {type: upgrade_unit, index: 23}
+- {type: buy_unit, name: overlord, level: 2}
+- {type: move_unit, index: 23, position: {x: -215, y: -245}}
+- {type: buy_unit, name: fang, level: 2}
+- {type: move_unit, index: 24, position: {x: -275, y: -180}}
 - {type: upgrade_unit, index: 11}
 - {type: upgrade_unit, index: 12}
 - {type: upgrade_unit, index: 13}
+- {type: release_commander_skill, index: 1, name: intensive_training, target: {unit: 23}}
 - {type: active_energy_tower_skill, name: rapid_resupply}
-- {type: buy_unit, name: fang, position: {x: -275, y: -180}}
+- {type: upgrade_unit, index: 23}
