@@ -35,12 +35,18 @@ tournament metadata stay local. Documents are never hand-edited.
 See mechcore's [corpus tools](https://github.com/qbisi/mechcore/blob/master/scripts/corpus/README.md)
 for collection, conversion and publication commands.
 
-**The repository only grows after the format migration.** New match files are
+**Ordinary publication is append-only.** New match files are
 added without rewriting, renaming or removing existing ones. An existing name
 must contain identical bytes. The one-time migration removed the native GRBR
 files from the current tree and replaced them with collected match documents;
 the earlier native archive remains available in Git history. New GRBR files
 are not published here.
+
+The separately authorized, one-time action-normalization refresh regenerated
+the 2026-10-24 Saturday tournaments in place: Asia under `2026-10-24-asia`,
+Europe under `2026-10-25-europe`, and Americas under `2026-10-25-americas`.
+It replaced 734 generated matches and added the previously unconvertible
+`20261025--436` match. This exception does not change ordinary publication.
 
 ## Tournament verification
 
