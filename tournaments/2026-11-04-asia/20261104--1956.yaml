@@ -1,5 +1,7 @@
 kind: match
 build: 2.0.0.5.2340
+source: game
+rules: {reinforcements: true, full_tech_loadout: false}
 map_id: 1012
 seed: 639622347
 blue:
@@ -108,7 +110,7 @@ random_state: [1614912448451248575, 6952478826416694366, 6341099144698638139, 12
 blue:
   random_state: [1278758145994031528, 5526785254759011272, 9563318389617754767, 10252856056824990764]
   reactor_core: 5300
-  supply: 250
+  supply: 450
   unlocked_units: [mustang, crawler]
   tower_strengthen_levels: [0, 0]
   battle_skills:
@@ -127,7 +129,7 @@ blue:
 red:
   random_state: [6318246993545972300, 1413712218311899936, 15693622174758698811, 13992323411202026192]
   reactor_core: 4600
-  supply: 200
+  supply: 400
   unlocked_units: [fang, sabertooth, tarantula]
   tower_strengthen_levels: [0, 0]
   next_index: {unit: 5, contraption: 0}
@@ -157,8 +159,8 @@ blue:
 - {type: move_unit, index: 6, position: {x: 100, y: -200}}
 - {type: release_commander_skill, index: 0, name: intensive_training, target: {unit: 5}}
 - {type: upgrade_unit, index: 5}
+- {type: active_energy_tower_skill, name: deposit_supply}
 red:
-- {type: active_energy_tower_skill, name: rapid_resupply}
 - {type: buy_unit, name: sabertooth}
 - {type: buy_unit, name: fang}
 - {type: move_unit, index: 1, position: {x: 140, y: -215}, rotated: true}
@@ -179,7 +181,7 @@ reinforce_offers: [assault_melting_point, mass_produced_wraith, haste_module, as
 blue:
   random_state: [1278758145994031528, 5526785254759011272, 9563318389617754767, 10252856056824990764]
   reactor_core: 4804
-  supply: 400
+  supply: 600
   unlocked_units: [marksman, mustang, crawler]
   tower_strengthen_levels: [0, 0]
   battle_skills:
@@ -200,7 +202,7 @@ blue:
 red:
   random_state: [6318246993545972300, 1413712218311899936, 15693622174758698811, 13992323411202026192]
   reactor_core: 4600
-  supply: 100
+  supply: 300
   unlocked_units: [fang, sabertooth, tarantula]
   tower_strengthen_levels: [0, 1]
   next_index: {unit: 7, contraption: 0}
@@ -229,9 +231,9 @@ blue:
 - {type: move_unit, index: 8, position: {x: -210, y: -140}}
 - {type: move_unit, index: 9, position: {x: -160, y: -140}}
 - {type: active_blueprint, name: attack_enhancement}
+- {type: active_energy_tower_skill, name: deposit_supply}
 red:
 - {type: choose_reinforce_item, index: 2, name: haste_module}
-- {type: active_energy_tower_skill, name: rapid_resupply}
 - {type: buy_unit, name: fang}
 - {type: use_equipment, name: haste_module, index: 5}
 - {type: move_unit, index: 7, position: {x: -100, y: -285}, rotated: true}
@@ -247,7 +249,7 @@ reinforce_offers: [arclight_2x_lv2, stormcaller_1x_lv2, rhino_2x_lv1, typhoon_1x
 blue:
   random_state: [1278758145994031528, 5526785254759011272, 9563318389617754767, 10252856056824990764]
   reactor_core: 4804
-  supply: 600
+  supply: 800
   unlocked_units: [marksman, mustang, crawler]
   blueprints: [attack_enhancement]
   tower_strengthen_levels: [0, 0]
@@ -272,7 +274,7 @@ blue:
 red:
   random_state: [6318246993545972300, 1413712218311899936, 15693622174758698811, 13992323411202026192]
   reactor_core: 4100
-  supply: 300
+  supply: 500
   unlocked_units: [fang, sabertooth, tarantula]
   tower_strengthen_levels: [0, 2]
   next_index: {unit: 9, contraption: 0}
@@ -295,7 +297,6 @@ kind: action
 round: 3
 blue:
 - {type: choose_reinforce_item, index: 2, name: rhino_2x_lv1}
-- {type: active_energy_tower_skill, name: rapid_resupply}
 - {type: unlock_unit, name: hound}
 - {type: buy_unit, name: hound}
 - {type: buy_unit, name: hound}
@@ -310,7 +311,6 @@ blue:
 - {type: active_blueprint, name: defense_enhancement}
 red:
 - {type: choose_reinforce_item, index: 1, name: stormcaller_1x_lv2}
-- {type: active_energy_tower_skill, name: rapid_resupply}
 - {type: buy_unit, name: fang}
 - {type: buy_unit, name: sabertooth}
 - {type: upgrade_technology, unit: tarantula, tech: spider_mine}
@@ -328,7 +328,7 @@ reinforce_offers: [super_supply_enhancement, advanced_defensive_tactics, lightni
 blue:
   random_state: [1278758145994031528, 5526785254759011272, 9563318389617754767, 10252856056824990764]
   reactor_core: 4804
-  supply: 500
+  supply: 700
   unlocked_units: [marksman, rhino, mustang, crawler, hound]
   blueprints: [attack_enhancement, defense_enhancement]
   tower_strengthen_levels: [0, 0]
@@ -359,7 +359,7 @@ blue:
 red:
   random_state: [6318246993545972300, 1413712218311899936, 15693622174758698811, 13992323411202026192]
   reactor_core: 3489
-  supply: 500
+  supply: 700
   unlocked_units: [fang, stormcaller, sabertooth, tarantula]
   tower_strengthen_levels: [0, 2]
   next_index: {unit: 12, contraption: 0}
@@ -391,10 +391,12 @@ blue:
 - {type: buy_unit, name: crawler}
 - {type: move_unit, index: 14, position: {x: 350, y: 285}}
 - {type: move_unit, index: 15, position: {x: 350, y: 205}}
+- {type: active_energy_tower_skill, name: deposit_supply}
 red:
 - {type: choose_reinforce_item, index: 2, name: lightning_storm}
 - {type: upgrade_technology, unit: sabertooth, tech: field_maintenance}
 - {type: release_contraption, name: shield, position: {x: 172, y: -113}}
+- {type: active_energy_tower_skill, name: deposit_supply}
 ---
 kind: state
 round: 5
@@ -405,7 +407,7 @@ reinforce_offers: [barrier, rhino_assault, shield_airdrop, mustang_production_li
 blue:
   random_state: [1278758145994031528, 5526785254759011272, 9563318389617754767, 10252856056824990764]
   reactor_core: 4060
-  supply: 1000
+  supply: 1200
   unlocked_units: [marksman, rhino, mustang, crawler, hound]
   blueprints: [attack_enhancement, defense_enhancement]
   tower_strengthen_levels: [0, 0]
@@ -438,7 +440,7 @@ blue:
 red:
   random_state: [6318246993545972300, 1413712218311899936, 15693622174758698811, 13992323411202026192]
   reactor_core: 3489
-  supply: 1000
+  supply: 1200
   unlocked_units: [fang, stormcaller, sabertooth, tarantula]
   tower_strengthen_levels: [0, 2]
   battle_skills:
@@ -469,7 +471,6 @@ kind: action
 round: 5
 blue:
 - {type: choose_reinforce_item, index: 2, name: shield_airdrop}
-- {type: active_energy_tower_skill, name: rapid_resupply}
 - {type: buy_unit, name: hound}
 - {type: upgrade_technology, unit: marksman, tech: electromagnetic_shot}
 - {type: upgrade_technology, unit: mustang, tech: missile_interceptor}
@@ -487,7 +488,6 @@ blue:
 - {type: release_commander_skill, index: 1, name: shield_airdrop, target: {area: [{x: 340, y: 243}]}}
 red:
 - {type: choose_reinforce_item, index: 1, name: rhino_assault}
-- {type: active_energy_tower_skill, name: rapid_resupply}
 - {type: unlock_unit, name: mustang}
 - {type: buy_unit, name: mustang}
 - {type: buy_unit, name: tarantula}
@@ -509,7 +509,7 @@ reinforce_offers: [fortified_arclight, mass_produced_farseer, extended_range_pho
 blue:
   random_state: [1278758145994031528, 5526785254759011272, 9563318389617754767, 10252856056824990764]
   reactor_core: 3364
-  supply: 900
+  supply: 1100
   unlocked_units: [marksman, rhino, mustang, crawler, hound]
   blueprints: [attack_enhancement, defense_enhancement]
   tower_strengthen_levels: [0, 0]
@@ -546,7 +546,7 @@ blue:
 red:
   random_state: [6318246993545972300, 1413712218311899936, 15693622174758698811, 13992323411202026192]
   reactor_core: 3489
-  supply: 900
+  supply: 1100
   unlocked_units: [mustang, fang, stormcaller, sabertooth, tarantula]
   tower_strengthen_levels: [0, 2]
   battle_skills:
@@ -593,9 +593,9 @@ blue:
 - {type: upgrade_unit, index: 7}
 - {type: release_contraption, name: shield, position: {x: -208, y: -82}}
 - {type: unlock_unit, name: phoenix}
+- {type: active_energy_tower_skill, name: deposit_supply}
 red:
 - {type: choose_reinforce_item, index: 4, name: refund_50}
-- {type: active_energy_tower_skill, name: rapid_resupply}
 - {type: unlock_unit, name: phantom_ray}
 - {type: active_energy_tower_skill, name: elite_recruitment}
 - {type: buy_unit, name: phantom_ray}
@@ -616,7 +616,7 @@ reinforce_offers: [arclight_2x_lv4, farseer_2x_lv1, centurion_1x_lv3, scorpion_1
 blue:
   random_state: [1278758145994031528, 5526785254759011272, 9563318389617754767, 10252856056824990764]
   reactor_core: 3364
-  supply: 1450
+  supply: 1650
   unlocked_units: [marksman, rhino, mustang, crawler, phoenix, hound]
   blueprints: [attack_enhancement, defense_enhancement]
   tower_strengthen_levels: [0, 0]
@@ -656,7 +656,7 @@ blue:
 red:
   random_state: [6318246993545972300, 1413712218311899936, 15693622174758698811, 13992323411202026192]
   reactor_core: 2537
-  supply: 1100
+  supply: 1300
   unlocked_units: [mustang, fang, stormcaller, sabertooth, tarantula, phantom_ray]
   tower_strengthen_levels: [0, 2]
   battle_skills:
@@ -707,6 +707,7 @@ blue:
 - {type: upgrade_unit, index: 4}
 - {type: upgrade_unit, index: 10}
 - {type: release_contraption, name: shield, position: {x: -214, y: -93}}
+- {type: active_energy_tower_skill, name: deposit_supply}
 red:
 - {type: choose_reinforce_item, index: 1, name: farseer_2x_lv1}
 - {type: buy_unit, name: sabertooth}
@@ -719,6 +720,7 @@ red:
 - {type: move_unit, index: 19, position: {x: 245, y: -225}}
 - {type: move_unit, index: 20, position: {x: -180, y: -165}, rotated: true}
 - {type: release_contraption, name: missile, position: {x: -275, y: -23}}
+- {type: active_energy_tower_skill, name: deposit_supply}
 ---
 kind: state
 round: 8
@@ -729,7 +731,7 @@ reinforce_offers: [haste_module, wasp_swarm, mobilize_battleship, steel_ball_pro
 blue:
   random_state: [1278758145994031528, 5526785254759011272, 9563318389617754767, 10252856056824990764]
   reactor_core: 2052
-  supply: 1600
+  supply: 1800
   unlocked_units: [marksman, rhino, mustang, crawler, phoenix, farseer, hound]
   blueprints: [attack_enhancement, defense_enhancement]
   tower_strengthen_levels: [0, 0]
@@ -776,7 +778,7 @@ blue:
 red:
   random_state: [6318246993545972300, 1413712218311899936, 15693622174758698811, 13992323411202026192]
   reactor_core: 2537
-  supply: 1600
+  supply: 1800
   unlocked_units: [mustang, fang, stormcaller, sabertooth, tarantula, phantom_ray, farseer]
   tower_strengthen_levels: [0, 2]
   battle_skills:
@@ -819,7 +821,6 @@ kind: action
 round: 8
 blue:
 - {type: choose_reinforce_item, index: 2, name: mobilize_battleship}
-- {type: active_energy_tower_skill, name: rapid_resupply}
 - {type: buy_unit, name: marksman}
 - {type: buy_unit, name: marksman}
 - {type: upgrade_technology, unit: marksman, tech: range_enhancement}
@@ -854,6 +855,7 @@ red:
 - {type: upgrade_unit, index: 17}
 - {type: release_contraption, name: shield, position: {x: 180, y: -108}}
 - {type: release_commander_skill, index: 2, name: wasp_swarm, target: {area: [{x: -328, y: -257}]}}
+- {type: active_energy_tower_skill, name: deposit_supply}
 ---
 kind: state
 round: 9
@@ -864,7 +866,7 @@ reinforce_offers: [tank_production_line, rhino_assault, efficient_light_manufact
 blue:
   random_state: [1278758145994031528, 5526785254759011272, 9563318389617754767, 10252856056824990764]
   reactor_core: 2052
-  supply: 1500
+  supply: 1700
   unlocked_units: [marksman, rhino, mustang, crawler, phoenix, farseer, hound]
   blueprints: [attack_enhancement, defense_enhancement]
   tower_strengthen_levels: [0, 0]
@@ -917,7 +919,7 @@ blue:
 red:
   random_state: [6318246993545972300, 1413712218311899936, 15693622174758698811, 13992323411202026192]
   reactor_core: 583
-  supply: 1800
+  supply: 2000
   unlocked_units: [mustang, fang, stormcaller, sabertooth, tarantula, phantom_ray, farseer, raiden]
   tower_strengthen_levels: [0, 2]
   battle_skills:
@@ -963,7 +965,6 @@ kind: action
 round: 9
 blue:
 - {type: choose_reinforce_item, index: 1, name: rhino_assault}
-- {type: active_energy_tower_skill, name: rapid_resupply}
 - {type: buy_unit, name: marksman}
 - {type: buy_unit, name: marksman}
 - {type: move_unit, index: 26, position: {x: 210, y: -120}}
@@ -984,7 +985,6 @@ blue:
 - {type: release_commander_skill, index: 3, name: rhino_assault, target: {area: [{x: 32, y: 289}]}}
 red:
 - {type: choose_reinforce_item, index: 1, name: rhino_assault}
-- {type: active_energy_tower_skill, name: rapid_resupply}
 - {type: unlock_unit, name: abyss}
 - {type: buy_unit, name: abyss}
 - {type: buy_unit, name: phantom_ray}

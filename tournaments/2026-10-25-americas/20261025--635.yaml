@@ -1,5 +1,7 @@
 kind: match
 build: 2.0.0.5.2340
+source: game
+rules: {reinforcements: true, full_tech_loadout: false}
 map_id: 1012
 seed: 1218556013
 blue:
@@ -108,7 +110,7 @@ random_state: [12271556112372939262, 6619418939586640533, 9281627060536022434, 4
 blue:
   random_state: [12101103987314400916, 15118624074348092174, 10079104499424489712, 16480697914501912993]
   reactor_core: 5400
-  supply: 200
+  supply: 400
   unlocked_units: [mustang, crawler]
   tower_strengthen_levels: [0, 0]
   next_index: {unit: 5, contraption: 0}
@@ -125,7 +127,7 @@ blue:
 red:
   random_state: [10047591837310863993, 6470980659788743014, 9878374007461348395, 14195456760588468236]
   reactor_core: 4600
-  supply: 200
+  supply: 400
   unlocked_units: [fang, fire_badger]
   tower_strengthen_levels: [0, 0]
   next_index: {unit: 5, contraption: 0}
@@ -153,8 +155,8 @@ blue:
 - {type: move_unit, index: 4, position: {x: 275, y: -300}}
 - {type: move_unit, index: 5, position: {x: -190, y: -210}}
 - {type: move_unit, index: 6, position: {x: -170, y: -210}}
+- {type: active_energy_tower_skill, name: deposit_supply}
 red:
-- {type: active_energy_tower_skill, name: rapid_resupply}
 - {type: unlock_unit, name: melting_point}
 - {type: buy_unit, name: melting_point}
 - {type: move_unit, index: 0, position: {x: 115, y: -100}}
@@ -171,7 +173,7 @@ reinforce_offers: [hound_2x_lv1, stormcaller_1x_lv1, void_eye_2x_lv1, phoenix_1x
 blue:
   random_state: [12101103987314400916, 15118624074348092174, 10079104499424489712, 16480697914501912993]
   reactor_core: 4862
-  supply: 400
+  supply: 600
   unlocked_units: [marksman, mustang, crawler]
   tower_strengthen_levels: [0, 0]
   next_index: {unit: 7, contraption: 0}
@@ -190,7 +192,7 @@ blue:
 red:
   random_state: [10047591837310863993, 6470980659788743014, 9878374007461348395, 14195456760588468236]
   reactor_core: 4600
-  supply: 100
+  supply: 300
   unlocked_units: [melting_point, fang, fire_badger]
   tower_strengthen_levels: [0, 0]
   next_index: {unit: 6, contraption: 0}
@@ -210,16 +212,16 @@ kind: action
 round: 2
 blue:
 - {type: choose_reinforce_item, index: 2, name: void_eye_2x_lv1}
-- {type: buy_unit, name: void_eye}
+- {type: buy_unit, name: void_eye, position: {x: 0, y: -140}}
 - {type: upgrade_technology, unit: void_eye, tech: aerial_mode}
 - {type: move_unit, index: 7, position: {x: 310, y: 290}}
 - {type: move_unit, index: 8, position: {x: 170, y: -20}}
 - {type: move_unit, index: 9, position: {x: 130, y: -20}}
 - {type: release_contraption, name: missile, position: {x: 140, y: -16}}
 - {type: release_contraption, name: missile, position: {x: -108, y: -112}}
+- {type: active_energy_tower_skill, name: deposit_supply}
 red:
 - {type: choose_reinforce_item, index: 2, name: void_eye_2x_lv1}
-- {type: active_energy_tower_skill, name: rapid_resupply}
 - {type: upgrade_technology, unit: melting_point, tech: energy_diffraction}
 - {type: move_unit, index: 6, position: {x: 280, y: -60}}
 - {type: move_unit, index: 7, position: {x: 230, y: -60}}
@@ -235,7 +237,7 @@ reinforce_offers: [electromagnetic_impact, wasp_swarm, amplifying_core, extended
 blue:
   random_state: [12101103987314400916, 15118624074348092174, 10079104499424489712, 16480697914501912993]
   reactor_core: 4862
-  supply: 600
+  supply: 800
   unlocked_units: [marksman, mustang, crawler, void_eye]
   tower_strengthen_levels: [0, 0]
   next_index: {unit: 10, contraption: 2}
@@ -259,7 +261,7 @@ blue:
 red:
   random_state: [10047591837310863993, 6470980659788743014, 9878374007461348395, 14195456760588468236]
   reactor_core: 4075
-  supply: 300
+  supply: 500
   unlocked_units: [melting_point, mustang, fang, fire_badger, void_eye]
   tower_strengthen_levels: [0, 0]
   next_index: {unit: 8, contraption: 0}
@@ -296,12 +298,14 @@ blue:
 - {type: release_contraption, name: missile, position: {x: -136, y: -12}}
 - {type: release_contraption, name: missile, position: {x: -119, y: -72}}
 - {type: release_commander_skill, index: 0, name: wasp_swarm, target: {area: [{x: 306, y: 186}]}}
+- {type: active_energy_tower_skill, name: deposit_supply}
 red:
 - {type: choose_reinforce_item, index: 1, name: wasp_swarm}
 - {type: upgrade_unit, index: 5}
 - {type: release_contraption, name: missile, position: {x: -152, y: -25}}
 - {type: unlock_unit, name: steel_ball}
 - {type: release_commander_skill, index: 0, name: wasp_swarm, target: {area: [{x: 0, y: -282}]}}
+- {type: active_energy_tower_skill, name: deposit_supply}
 ---
 kind: state
 round: 4
@@ -312,7 +316,7 @@ reinforce_offers: [mass_produced_farseer, smoke_bomb, dominion_core, mustang_pro
 blue:
   random_state: [12101103987314400916, 15118624074348092174, 10079104499424489712, 16480697914501912993]
   reactor_core: 4862
-  supply: 850
+  supply: 1050
   unlocked_units: [marksman, mustang, crawler, void_eye]
   blueprints: [field_recovery]
   tower_strengthen_levels: [0, 0]
@@ -341,7 +345,7 @@ blue:
 red:
   random_state: [10047591837310863993, 6470980659788743014, 9878374007461348395, 14195456760588468236]
   reactor_core: 3286
-  supply: 800
+  supply: 1000
   unlocked_units: [melting_point, mustang, steel_ball, fang, fire_badger, void_eye]
   tower_strengthen_levels: [0, 0]
   battle_skills:
@@ -367,7 +371,6 @@ kind: action
 round: 4
 blue:
 - {type: choose_reinforce_item, index: 2, name: dominion_core}
-- {type: active_energy_tower_skill, name: rapid_resupply}
 - {type: release_commander_skill, index: 1, name: field_recovery, target: {construction: 0}}
 - {type: unlock_unit, name: overlord}
 - {type: buy_unit, name: overlord}
@@ -391,6 +394,7 @@ red:
 - {type: move_unit, index: 9, position: {x: 280, y: -90}}
 - {type: release_contraption, name: missile, position: {x: -137, y: -17}}
 - {type: unlock_unit, name: sledgehammer}
+- {type: active_energy_tower_skill, name: deposit_supply}
 ---
 kind: state
 round: 5
@@ -401,7 +405,7 @@ reinforce_offers: [mass_produced_farseer, barrier, underground_threat, improved_
 blue:
   random_state: [12101103987314400916, 15118624074348092174, 10079104499424489712, 16480697914501912993]
   reactor_core: 4862
-  supply: 750
+  supply: 950
   unlocked_units: [marksman, mustang, crawler, overlord, void_eye]
   blueprints: [field_recovery, attack_enhancement, defense_enhancement]
   tower_strengthen_levels: [0, 0]
@@ -433,7 +437,7 @@ blue:
 red:
   random_state: [10047591837310863993, 6470980659788743014, 9878374007461348395, 14195456760588468236]
   reactor_core: 2141
-  supply: 1000
+  supply: 1200
   unlocked_units: [melting_point, mustang, steel_ball, fang, sledgehammer, fire_badger, void_eye]
   tower_strengthen_levels: [0, 0]
   battle_skills:
@@ -462,7 +466,6 @@ kind: action
 round: 5
 blue:
 - {type: choose_reinforce_item, index: 2, name: underground_threat}
-- {type: active_energy_tower_skill, name: rapid_resupply}
 - {type: release_commander_skill, index: 1, name: field_recovery, target: {construction: 1}}
 - {type: buy_unit, name: void_eye}
 - {type: buy_unit, name: mustang}
@@ -491,6 +494,7 @@ red:
 - {type: release_contraption, name: missile, position: {x: -166, y: -17}}
 - {type: active_energy_tower_skill, name: enhanced_range}
 - {type: unlock_unit, name: sabertooth}
+- {type: active_energy_tower_skill, name: deposit_supply}
 ---
 kind: state
 round: 6
@@ -501,7 +505,7 @@ reinforce_offers: [farseer_2x_lv1, vortex_3x_lv2, tarantula_2x_lv2, scorpion_1x_
 blue:
   random_state: [12101103987314400916, 15118624074348092174, 10079104499424489712, 16480697914501912993]
   reactor_core: 4862
-  supply: 950
+  supply: 1150
   unlocked_units: [marksman, mustang, crawler, overlord, void_eye]
   blueprints: [field_recovery, attack_enhancement, defense_enhancement]
   tower_strengthen_levels: [0, 0]
@@ -535,7 +539,7 @@ blue:
 red:
   random_state: [10047591837310863993, 6470980659788743014, 9878374007461348395, 14195456760588468236]
   reactor_core: 927
-  supply: 1200
+  supply: 1400
   unlocked_units: [melting_point, mustang, steel_ball, fang, sledgehammer, fire_badger, sabertooth, void_eye]
   tower_strengthen_levels: [0, 0]
   battle_skills:
@@ -565,7 +569,6 @@ kind: action
 round: 6
 blue:
 - {type: choose_reinforce_item, index: 2, name: tarantula_2x_lv2}
-- {type: active_energy_tower_skill, name: rapid_resupply}
 - {type: buy_unit, name: crawler}
 - {type: buy_unit, name: void_eye}
 - {type: upgrade_technology, unit: tarantula, tech: spider_mine}
@@ -592,6 +595,7 @@ red:
 - {type: move_unit, index: 14, position: {x: -245, y: -130}}
 - {type: active_energy_tower_skill, name: enhanced_range}
 - {type: active_blueprint, name: attack_enhancement}
+- {type: active_energy_tower_skill, name: deposit_supply}
 ---
 kind: result
 round: 6

@@ -48,6 +48,16 @@ Europe under `2026-10-25-europe`, and Americas under `2026-10-25-americas`.
 It replaced 734 generated matches and added the previously unconvertible
 `20261025--436` match. This exception does not change ordinary publication.
 
+The separately authorized, one-time supply-deposit and match-header migration
+regenerated every existing tournament document through the previous GRBR
+writer, the supply-deposit converter and the current canonical writer. Migrated
+headers state `source: game` and `rules: {reinforcements: true, full_tech_loadout: false}`, retaining each
+player's recorded technology choices. Rapid Resupply decisions use the inverse
+Deposit Supply convention, with the corresponding supply checkpoints. Opening
+Elo labels and final results are retained from the collected documents because
+native GRBR does not carry those labels. This exception does not change
+ordinary append-only publication.
+
 ## Tournament verification
 
 The `Tournament matches` workflow runs on additions under `tournaments/` on

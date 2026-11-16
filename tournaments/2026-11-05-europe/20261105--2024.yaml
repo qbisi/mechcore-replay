@@ -1,5 +1,7 @@
 kind: match
 build: 2.0.0.5.2340
+source: game
+rules: {reinforcements: true, full_tech_loadout: false}
 map_id: 1012
 seed: 1909825047
 blue:
@@ -106,7 +108,7 @@ random_state: [4137170768807410021, 4133949060455478235, 12153707869132447297, 1
 blue:
   random_state: [9577518892782905988, 12523141161737884012, 14717225485361897160, 3735032033488046461]
   reactor_core: 5000
-  supply: 200
+  supply: 400
   unlocked_units: [sledgehammer, hound]
   tower_strengthen_levels: [0, 0]
   next_index: {unit: 5, contraption: 0}
@@ -122,7 +124,7 @@ blue:
 red:
   random_state: [17773288573688861189, 16625547007837726746, 12262005716712011849, 11468249987363150661]
   reactor_core: 5300
-  supply: 250
+  supply: 450
   unlocked_units: [tarantula, vortex]
   tower_strengthen_levels: [0, 0]
   battle_skills:
@@ -141,7 +143,6 @@ red:
 kind: action
 round: 1
 blue:
-- {type: active_energy_tower_skill, name: rapid_resupply}
 - {type: unlock_unit, name: marksman}
 - {type: buy_unit, name: marksman}
 - {type: buy_unit, name: marksman}
@@ -163,6 +164,7 @@ red:
 - {type: move_unit, index: 4, position: {x: -95, y: -75}}
 - {type: release_commander_skill, index: 0, name: intensive_training, target: {unit: 3}}
 - {type: upgrade_unit, index: 3}
+- {type: active_energy_tower_skill, name: deposit_supply}
 ---
 kind: state
 round: 2
@@ -173,7 +175,7 @@ reinforce_offers: [mass_produced_sabertooth, electromagnetic_impact, missile_str
 blue:
   random_state: [9577518892782905988, 12523141161737884012, 14717225485361897160, 3735032033488046461]
   reactor_core: 5000
-  supply: 100
+  supply: 300
   unlocked_units: [marksman, sledgehammer, hound]
   tower_strengthen_levels: [0, 0]
   next_index: {unit: 7, contraption: 0}
@@ -193,7 +195,7 @@ blue:
 red:
   random_state: [17773288573688861189, 16625547007837726746, 12262005716712011849, 11468249987363150661]
   reactor_core: 4800
-  supply: 400
+  supply: 600
   unlocked_units: [tarantula, vortex]
   tower_strengthen_levels: [0, 0]
   battle_skills:
@@ -215,7 +217,6 @@ kind: action
 round: 2
 blue:
 - {type: choose_reinforce_item, index: 1, name: electromagnetic_impact}
-- {type: active_energy_tower_skill, name: rapid_resupply}
 - {type: buy_unit, name: marksman}
 - {type: buy_unit, name: marksman}
 - {type: move_unit, index: 7, position: {x: 100, y: -150}}
@@ -230,6 +231,7 @@ red:
 - {type: move_unit, index: 5, position: {x: 145, y: -150}}
 - {type: move_unit, index: 6, position: {x: -205, y: -20}}
 - {type: release_contraption, name: shield, position: {x: -96, y: -80}}
+- {type: active_energy_tower_skill, name: deposit_supply}
 ---
 kind: state
 round: 3
@@ -240,7 +242,7 @@ reinforce_offers: [phoenix_2x_lv1, stormcaller_1x_lv2, crawler_3x_lv1, arclight_
 blue:
   random_state: [9577518892782905988, 12523141161737884012, 14717225485361897160, 3735032033488046461]
   reactor_core: 5000
-  supply: 300
+  supply: 500
   unlocked_units: [marksman, sledgehammer, hound]
   tower_strengthen_levels: [0, 0]
   battle_skills:
@@ -264,7 +266,7 @@ blue:
 red:
   random_state: [17773288573688861189, 16625547007837726746, 12262005716712011849, 11468249987363150661]
   reactor_core: 4220
-  supply: 600
+  supply: 800
   unlocked_units: [fang, tarantula, vortex]
   tower_strengthen_levels: [0, 0]
   battle_skills:
@@ -288,7 +290,6 @@ kind: action
 round: 3
 blue:
 - {type: choose_reinforce_item, index: 0, name: phoenix_2x_lv1}
-- {type: active_energy_tower_skill, name: rapid_resupply}
 - {type: buy_unit, name: phoenix}
 - {type: upgrade_technology, unit: phoenix, tech: quantum_reassembly}
 - {type: move_unit, index: 9, position: {x: 50, y: -200}}
@@ -296,7 +297,6 @@ blue:
 - {type: move_unit, index: 11, position: {x: 200, y: -200}}
 red:
 - {type: choose_reinforce_item, index: 0, name: phoenix_2x_lv1}
-- {type: active_energy_tower_skill, name: rapid_resupply}
 - {type: buy_unit, name: fang}
 - {type: upgrade_technology, unit: tarantula, tech: field_maintenance}
 - {type: move_unit, index: 7, position: {x: -270, y: -230}, rotated: true}
@@ -315,7 +315,7 @@ reinforce_offers: [enhancement_module, improved_firepower_control_system, effici
 blue:
   random_state: [9577518892782905988, 12523141161737884012, 14717225485361897160, 3735032033488046461]
   reactor_core: 4142
-  supply: 500
+  supply: 700
   unlocked_units: [marksman, sledgehammer, phoenix, hound]
   tower_strengthen_levels: [0, 0]
   battle_skills:
@@ -343,7 +343,7 @@ blue:
 red:
   random_state: [17773288573688861189, 16625547007837726746, 12262005716712011849, 11468249987363150661]
   reactor_core: 4220
-  supply: 500
+  supply: 700
   unlocked_units: [fang, phoenix, tarantula, vortex]
   tower_strengthen_levels: [0, 0]
   battle_skills:
@@ -370,7 +370,6 @@ kind: action
 round: 4
 blue:
 - {type: choose_reinforce_item, index: 4, name: refund_50}
-- {type: active_energy_tower_skill, name: rapid_resupply}
 - {type: buy_unit, name: marksman}
 - {type: buy_unit, name: marksman}
 - {type: upgrade_technology, unit: marksman, tech: electromagnetic_shot}
@@ -383,7 +382,6 @@ blue:
 - {type: active_energy_tower_skill, name: enhanced_range}
 red:
 - {type: choose_reinforce_item, index: 3, name: lightning_storm}
-- {type: active_energy_tower_skill, name: rapid_resupply}
 - {type: buy_unit, name: fang}
 - {type: unlock_unit, name: crawler}
 - {type: buy_unit, name: crawler}
@@ -401,7 +399,7 @@ reinforce_offers: [super_supply_enhancement, photon_coating, mass_production_fir
 blue:
   random_state: [9577518892782905988, 12523141161737884012, 14717225485361897160, 3735032033488046461]
   reactor_core: 4142
-  supply: 700
+  supply: 900
   unlocked_units: [marksman, sledgehammer, phoenix, hound]
   tower_strengthen_levels: [0, 0]
   battle_skills:
@@ -432,7 +430,7 @@ blue:
 red:
   random_state: [17773288573688861189, 16625547007837726746, 12262005716712011849, 11468249987363150661]
   reactor_core: 2920
-  supply: 700
+  supply: 900
   unlocked_units: [fang, crawler, phoenix, tarantula, vortex]
   tower_strengthen_levels: [0, 0]
   battle_skills:
@@ -464,7 +462,6 @@ kind: action
 round: 5
 blue:
 - {type: choose_reinforce_item, index: 2, name: mass_production_fire_control_system}
-- {type: active_energy_tower_skill, name: rapid_resupply}
 - {type: buy_unit, name: phoenix}
 - {type: upgrade_technology, unit: sledgehammer, tech: armor_enhancement}
 - {type: use_equipment, name: secondary_fire_control_system, index: 6}
@@ -491,6 +488,7 @@ red:
 - {type: active_blueprint, name: mobile_beacon}
 - {type: release_commander_skill, index: 2, name: mobile_beacon, target: {area: [{x: 260, y: -40}, {x: 236, y: 96}, {x: 138, y: 178}]}}
 - {type: release_commander_skill, index: 1, name: lightning_storm, target: {area: [{x: -99, y: 168}]}}
+- {type: active_energy_tower_skill, name: deposit_supply}
 ---
 kind: state
 round: 6
@@ -501,7 +499,7 @@ reinforce_offers: [mobilize_battleship, advanced_targeting_system, efficient_tec
 blue:
   random_state: [9577518892782905988, 12523141161737884012, 14717225485361897160, 3735032033488046461]
   reactor_core: 3115
-  supply: 900
+  supply: 1100
   unlocked_units: [marksman, sledgehammer, phoenix, hound]
   tower_strengthen_levels: [0, 0]
   battle_skills:
@@ -533,7 +531,7 @@ blue:
 red:
   random_state: [17773288573688861189, 16625547007837726746, 12262005716712011849, 11468249987363150661]
   reactor_core: 2920
-  supply: 1200
+  supply: 1400
   unlocked_units: [fang, crawler, phoenix, tarantula, vortex]
   blueprints: [mobile_beacon]
   tower_strengthen_levels: [0, 0]
@@ -570,7 +568,6 @@ kind: action
 round: 6
 blue:
 - {type: choose_reinforce_item, index: 0, name: mobilize_battleship}
-- {type: active_energy_tower_skill, name: rapid_resupply}
 - {type: buy_unit, name: hound}
 - {type: buy_unit, name: hound}
 - {type: active_energy_tower_skill, name: mass_recruitment}
@@ -586,7 +583,6 @@ blue:
 - {type: release_commander_skill, index: 1, name: mobilize_battleship, target: {area: [{x: -2, y: 282}]}}
 red:
 - {type: choose_reinforce_item, index: 3, name: advanced_offensive_tactics}
-- {type: active_energy_tower_skill, name: rapid_resupply}
 - {type: buy_unit, name: phoenix}
 - {type: buy_unit, name: phoenix}
 - {type: upgrade_technology, unit: phoenix, tech: energy_shield}
@@ -607,7 +603,7 @@ reinforce_offers: [centurion_1x_lv3, vulcan_1x_lv2, phantom_ray_2x_lv2, steel_ba
 blue:
   random_state: [9577518892782905988, 12523141161737884012, 14717225485361897160, 3735032033488046461]
   reactor_core: 3115
-  supply: 1100
+  supply: 1300
   unlocked_units: [marksman, sledgehammer, phoenix, hound]
   tower_strengthen_levels: [0, 0]
   battle_skills:
@@ -644,7 +640,7 @@ blue:
 red:
   random_state: [17773288573688861189, 16625547007837726746, 12262005716712011849, 11468249987363150661]
   reactor_core: 1040
-  supply: 1100
+  supply: 1300
   unlocked_units: [fang, crawler, phoenix, tarantula, vortex]
   blueprints: [mobile_beacon]
   tower_strengthen_levels: [0, 0]
@@ -682,7 +678,6 @@ kind: action
 round: 7
 blue:
 - {type: choose_reinforce_item, index: 1, name: vulcan_1x_lv2}
-- {type: active_energy_tower_skill, name: rapid_resupply}
 - {type: buy_unit, name: vulcan}
 - {type: buy_unit, name: marksman}
 - {type: active_energy_tower_skill, name: mass_recruitment}
@@ -696,7 +691,6 @@ blue:
 - {type: active_energy_tower_skill, name: enhanced_range}
 red:
 - {type: choose_reinforce_item, index: 2, name: phantom_ray_2x_lv2}
-- {type: active_energy_tower_skill, name: rapid_resupply}
 - {type: buy_unit, name: phantom_ray}
 - {type: buy_unit, name: phantom_ray}
 - {type: upgrade_technology, unit: phantom_ray, tech: ground_targeting}
@@ -720,7 +714,7 @@ reinforce_offers: [efficient_tech_research, portable_shield, steel_ball_producti
 blue:
   random_state: [9577518892782905988, 12523141161737884012, 14717225485361897160, 3735032033488046461]
   reactor_core: 2981
-  supply: 1300
+  supply: 1500
   unlocked_units: [marksman, vulcan, sledgehammer, phoenix, hound]
   tower_strengthen_levels: [0, 0]
   battle_skills:
@@ -762,7 +756,7 @@ blue:
 red:
   random_state: [17773288573688861189, 16625547007837726746, 12262005716712011849, 11468249987363150661]
   reactor_core: 1040
-  supply: 1300
+  supply: 1500
   unlocked_units: [fang, crawler, phoenix, tarantula, phantom_ray, vortex]
   blueprints: [mobile_beacon]
   tower_strengthen_levels: [0, 0]
@@ -808,7 +802,6 @@ kind: action
 round: 8
 blue:
 - {type: choose_reinforce_item, index: 0, name: efficient_tech_research}
-- {type: active_energy_tower_skill, name: rapid_resupply}
 - {type: buy_unit, name: phoenix}
 - {type: buy_unit, name: phoenix}
 - {type: active_energy_tower_skill, name: mass_recruitment}
@@ -823,7 +816,6 @@ blue:
 - {type: release_commander_skill, index: 0, name: electromagnetic_impact, target: {area: [{x: 151, y: 55}]}}
 red:
 - {type: choose_reinforce_item, index: 1, name: portable_shield}
-- {type: active_energy_tower_skill, name: rapid_resupply}
 - {type: buy_unit, name: crawler}
 - {type: upgrade_technology, unit: tarantula, tech: range_enhancement}
 - {type: use_equipment, name: portable_shield, index: 4}

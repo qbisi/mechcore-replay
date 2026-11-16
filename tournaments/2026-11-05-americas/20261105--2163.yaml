@@ -1,5 +1,7 @@
 kind: match
 build: 2.0.0.5.2340
+source: game
+rules: {reinforcements: true, full_tech_loadout: false}
 map_id: 1012
 seed: 331070795
 blue:
@@ -108,7 +110,7 @@ random_state: [4911240450956348827, 9300486626551079942, 4527532316332046192, 13
 blue:
   random_state: [9225816705608258532, 16076926446694604728, 2916150533902873193, 4952519386145067783]
   reactor_core: 4400
-  supply: 200
+  supply: 400
   unlocked_units: [marksman, fire_badger]
   tower_strengthen_levels: [0, 0]
   next_index: {unit: 5, contraption: 0}
@@ -125,7 +127,7 @@ blue:
 red:
   random_state: [13782142042731181139, 15146170735415721966, 12021531756526567175, 7840029171345188044]
   reactor_core: 4200
-  supply: 200
+  supply: 400
   unlocked_units: [crawler, sledgehammer]
   tower_strengthen_levels: [0, 0]
   equipment:
@@ -145,7 +147,6 @@ red:
 kind: action
 round: 1
 blue:
-- {type: active_energy_tower_skill, name: rapid_resupply}
 - {type: buy_unit, name: marksman}
 - {type: buy_unit, name: marksman}
 - {type: move_unit, index: 0, position: {x: -270, y: -90}}
@@ -165,6 +166,7 @@ red:
 - {type: move_unit, index: 2, position: {x: 235, y: -20}}
 - {type: move_unit, index: 3, position: {x: -15, y: -50}}
 - {type: move_unit, index: 4, position: {x: 35, y: -50}}
+- {type: active_energy_tower_skill, name: deposit_supply}
 ---
 kind: state
 round: 2
@@ -173,7 +175,7 @@ reinforce_offers: [mustang_1x_lv1, tarantula_1x_lv1, stormcaller_1x_lv1, rhino_1
 blue:
   random_state: [9225816705608258532, 16076926446694604728, 2916150533902873193, 4952519386145067783]
   reactor_core: 4252
-  supply: 100
+  supply: 300
   unlocked_units: [marksman, mustang, fire_badger]
   blueprints: [attack_enhancement, defense_enhancement]
   tower_strengthen_levels: [0, 0]
@@ -194,7 +196,7 @@ blue:
 red:
   random_state: [124803218501005169, 14673585561944388794, 2126651097320524628, 9467788935894589868]
   reactor_core: 4200
-  supply: 400
+  supply: 600
   unlocked_units: [crawler, sledgehammer]
   tower_strengthen_levels: [0, 0]
   equipment:
@@ -218,7 +220,6 @@ kind: action
 round: 2
 blue:
 - {type: choose_reinforce_item, index: 1, name: tarantula_1x_lv1}
-- {type: active_energy_tower_skill, name: rapid_resupply}
 - {type: buy_unit, name: marksman}
 - {type: buy_unit, name: marksman}
 - {type: move_unit, index: 7, position: {x: -140, y: -140}}
@@ -234,6 +235,7 @@ red:
 - {type: use_equipment, name: secondary_laser_sight, index: 4}
 - {type: use_equipment, name: secondary_heavy_armor, index: 5}
 - {type: move_unit, index: 5, position: {x: 145, y: -25}}
+- {type: active_energy_tower_skill, name: deposit_supply}
 ---
 kind: state
 round: 3
@@ -244,7 +246,7 @@ reinforce_offers: [improved_firepower_control_system, orbital_bombardment, missi
 blue:
   random_state: [9225816705608258532, 16076926446694604728, 2916150533902873193, 4952519386145067783]
   reactor_core: 4252
-  supply: 300
+  supply: 500
   unlocked_units: [marksman, mustang, steel_ball, fire_badger, tarantula]
   blueprints: [attack_enhancement, defense_enhancement]
   tower_strengthen_levels: [0, 0]
@@ -268,7 +270,7 @@ blue:
 red:
   random_state: [5295169183585401447, 15536027185718562975, 332760354547033125, 189935243169472148]
   reactor_core: 3032
-  supply: 600
+  supply: 800
   unlocked_units: [rhino, crawler, sledgehammer]
   tower_strengthen_levels: [0, 0]
   equipment:
@@ -295,6 +297,7 @@ blue:
 - {type: buy_unit, name: marksman}
 - {type: move_unit, index: 11, position: {x: -180, y: -140}}
 - {type: release_contraption, name: missile, position: {x: -210, y: -99}}
+- {type: active_energy_tower_skill, name: deposit_supply}
 red:
 - {type: choose_reinforce_item, index: 0, name: improved_firepower_control_system}
 - {type: buy_unit, name: rhino}
@@ -305,6 +308,7 @@ red:
 - {type: move_unit, index: 7, position: {x: 85, y: -50}}
 - {type: upgrade_unit, index: 0}
 - {type: active_blueprint, name: defense_enhancement}
+- {type: active_energy_tower_skill, name: deposit_supply}
 ---
 kind: state
 round: 4
@@ -315,7 +319,7 @@ reinforce_offers: [efficient_tech_research, missile_strike, mobilize_battleship,
 blue:
   random_state: [9225816705608258532, 16076926446694604728, 2916150533902873193, 4952519386145067783]
   reactor_core: 4252
-  supply: 800
+  supply: 1000
   unlocked_units: [marksman, mustang, steel_ball, fire_badger, tarantula]
   blueprints: [attack_enhancement, defense_enhancement]
   tower_strengthen_levels: [0, 0]
@@ -342,7 +346,7 @@ blue:
 red:
   random_state: [11260686959834788972, 11130934549829717725, 5850449371892948546, 1279438627783193180]
   reactor_core: 2432
-  supply: 800
+  supply: 1000
   unlocked_units: [rhino, crawler, sledgehammer]
   blueprints: [defense_enhancement]
   tower_strengthen_levels: [0, 0]
@@ -378,12 +382,14 @@ blue:
 - {type: move_unit, index: 13, position: {x: -105, y: -210}}
 - {type: move_unit, index: 14, position: {x: -185, y: -210}}
 - {type: release_commander_skill, index: 0, name: orbital_bombardment, target: {area: [{x: -77, y: 87}]}}
+- {type: active_energy_tower_skill, name: deposit_supply}
 red:
 - {type: choose_reinforce_item, index: 0, name: efficient_tech_research}
 - {type: upgrade_technology, unit: sledgehammer, tech: damage_sharing}
 - {type: use_equipment, name: secondary_heavy_armor, index: 6}
 - {type: upgrade_unit, index: 3}
 - {type: release_contraption, name: missile, position: {x: 132, y: -17}}
+- {type: active_energy_tower_skill, name: deposit_supply}
 ---
 kind: state
 round: 5
@@ -394,7 +400,7 @@ reinforce_offers: [efficient_light_manufacturing, smoke_bomb, mustang_production
 blue:
   random_state: [9225816705608258532, 16076926446694604728, 2916150533902873193, 4952519386145067783]
   reactor_core: 3652
-  supply: 1000
+  supply: 1200
   unlocked_units: [marksman, wasp, mustang, steel_ball, fire_badger, tarantula]
   blueprints: [attack_enhancement, defense_enhancement]
   tower_strengthen_levels: [0, 0]
@@ -424,7 +430,7 @@ blue:
 red:
   random_state: [1728679086399965421, 6272391042012308723, 14306369101063219758, 16685891006845620618]
   reactor_core: 1820
-  supply: 1000
+  supply: 1200
   unlocked_units: [rhino, crawler, sledgehammer]
   blueprints: [defense_enhancement]
   tower_strengthen_levels: [0, 0]
@@ -451,7 +457,6 @@ kind: action
 round: 5
 blue:
 - {type: choose_reinforce_item, index: 3, name: rhino_assault}
-- {type: active_energy_tower_skill, name: rapid_resupply}
 - {type: unlock_unit, name: melting_point}
 - {type: buy_unit, name: melting_point}
 - {type: buy_unit, name: marksman}
@@ -469,6 +474,7 @@ red:
 - {type: upgrade_unit, index: 7}
 - {type: release_contraption, name: missile, position: {x: 113, y: -24}}
 - {type: release_commander_skill, index: 0, name: rhino_assault, target: {area: [{x: -329, y: 196}]}}
+- {type: active_energy_tower_skill, name: deposit_supply}
 ---
 kind: state
 round: 6
@@ -479,7 +485,7 @@ reinforce_offers: [extended_range_war_factory, equipment_expansion, barrier, mas
 blue:
   random_state: [9225816705608258532, 16076926446694604728, 2916150533902873193, 4952519386145067783]
   reactor_core: 3652
-  supply: 900
+  supply: 1100
   unlocked_units: [marksman, melting_point, wasp, mustang, steel_ball, fire_badger, tarantula]
   blueprints: [attack_enhancement, defense_enhancement]
   tower_strengthen_levels: [0, 0]
@@ -515,7 +521,7 @@ blue:
 red:
   random_state: [12061118522828471700, 9690599564297848368, 15393567850251494083, 17199024959438163986]
   reactor_core: 1447
-  supply: 1200
+  supply: 1400
   unlocked_units: [rhino, crawler, overlord, sledgehammer]
   blueprints: [defense_enhancement]
   tower_strengthen_levels: [0, 0]
@@ -546,7 +552,6 @@ kind: action
 round: 6
 blue:
 - {type: choose_reinforce_item, index: 3, name: mass_production_heavy_armor}
-- {type: active_energy_tower_skill, name: rapid_resupply}
 - {type: buy_unit, name: melting_point}
 - {type: buy_unit, name: melting_point}
 - {type: use_equipment, name: secondary_heavy_armor, index: 15}
@@ -565,6 +570,7 @@ red:
 - {type: use_equipment, name: secondary_fire_control_system, index: 8}
 - {type: upgrade_unit, index: 0}
 - {type: upgrade_unit, index: 3}
+- {type: active_energy_tower_skill, name: deposit_supply}
 ---
 kind: result
 round: 6
