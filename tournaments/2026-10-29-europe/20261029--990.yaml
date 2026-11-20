@@ -110,24 +110,24 @@ random_state: [1353888400176285937, 3731651343095069574, 6789257548786793944, 58
 blue:
   random_state: [10975146685952115563, 4375265945259328290, 111668291018060278, 17557340338474578325]
   reactor_core: 4400
-  supply: 400
+  supply: 200
   unlocked_units: [marksman, steel_ball, hound]
   tower_strengthen_levels: [0, 0]
   next_index: {unit: 5, contraption: 0}
   officers: [marksman_specialist]
   units:
-  - {name: hound, index: 0, position: {x: 0, y: -160}, source: joined, value: 100}
-  - {name: hound, index: 1, position: {x: 0, y: -180}, source: joined, value: 100}
-  - {name: hound, index: 2, position: {x: 0, y: -140}, source: joined, value: 100}
-  - {name: steel_ball, index: 3, position: {x: 5, y: -200}, source: joined, value: 200}
-  - {name: steel_ball, index: 4, position: {x: 5, y: -120}, source: joined, value: 200}
+  - {name: hound, index: 0, value: 100, source: joined, position: {x: 0, y: -160}}
+  - {name: hound, index: 1, value: 100, source: joined, position: {x: 0, y: -180}}
+  - {name: hound, index: 2, value: 100, source: joined, position: {x: 0, y: -140}}
+  - {name: steel_ball, index: 3, value: 200, source: joined, position: {x: 5, y: -200}}
+  - {name: steel_ball, index: 4, value: 200, source: joined, position: {x: 5, y: -120}}
   constructions:
   - {name: defensive_wall, index: 0, position: {x: 140, y: -55}}
   - {name: anti_armor_turret, index: 1, position: {x: -140, y: -100}}
 red:
   random_state: [9779913775142702813, 12284099207519801616, 7675028220652065443, 10456035909770940839]
   reactor_core: 4900
-  supply: 450
+  supply: 250
   unlocked_units: [marksman, fire_badger]
   tower_strengthen_levels: [0, 0]
   battle_skills:
@@ -135,11 +135,11 @@ red:
   next_index: {unit: 5, contraption: 0}
   officers: [training_specialist]
   units:
-  - {name: marksman, index: 0, position: {x: 0, y: -160}, source: joined, value: 100}
-  - {name: marksman, index: 1, position: {x: 20, y: -160}, source: joined, value: 100}
-  - {name: marksman, index: 2, position: {x: 0, y: -140}, source: joined, value: 100}
-  - {name: fire_badger, index: 3, position: {x: -5, y: -180}, source: joined, value: 200}
-  - {name: fire_badger, index: 4, position: {x: -35, y: -160}, source: joined, value: 200}
+  - {name: marksman, index: 0, value: 100, source: joined, position: {x: 0, y: -160}}
+  - {name: marksman, index: 1, value: 100, source: joined, position: {x: 20, y: -160}}
+  - {name: marksman, index: 2, value: 100, source: joined, position: {x: 0, y: -140}}
+  - {name: fire_badger, index: 3, value: 200, source: joined, position: {x: -5, y: -180}}
+  - {name: fire_badger, index: 4, value: 200, source: joined, position: {x: -35, y: -160}}
   constructions:
   - {name: defensive_wall, index: 0, position: {x: -140, y: -55}}
   - {name: anti_armor_turret, index: 1, position: {x: 140, y: -100}}
@@ -159,7 +159,6 @@ blue:
 - {type: move_unit, index: 1, position: {x: -10, y: -110}}
 - {type: move_unit, index: 5, position: {x: -110, y: -145}, rotated: true}
 - {type: move_unit, index: 6, position: {x: -110, y: -245}, rotated: true}
-- {type: active_energy_tower_skill, name: deposit_supply}
 red:
 - {type: unlock_unit, name: fang}
 - {type: buy_unit, name: fang}
@@ -173,7 +172,6 @@ red:
 - {type: move_unit, index: 6, position: {x: -140, y: -135}, rotated: true}
 - {type: release_commander_skill, index: 0, name: intensive_training, target: {unit: 1}}
 - {type: upgrade_unit, index: 1}
-- {type: active_energy_tower_skill, name: deposit_supply}
 ---
 kind: state
 round: 2
@@ -184,7 +182,8 @@ reinforce_offers: [mass_produced_sandworm, assault_vulcan, intensive_training, q
 blue:
   random_state: [10975146685952115563, 4375265945259328290, 111668291018060278, 17557340338474578325]
   reactor_core: 4400
-  supply: 600
+  supply: 400
+  reinforce_choice: -1
   unlocked_units: [marksman, steel_ball, crawler, hound]
   blueprints: [field_recovery]
   tower_strengthen_levels: [0, 0]
@@ -193,20 +192,21 @@ blue:
   next_index: {unit: 8, contraption: 0}
   officers: [marksman_specialist]
   units:
-  - {name: hound, index: 0, position: {x: -110, y: -110}, exp: 467/750, value: 100}
-  - {name: hound, index: 1, position: {x: -10, y: -110}, value: 100}
-  - {name: hound, index: 2, position: {x: 110, y: -110}, exp: 48/750, value: 100}
-  - {name: steel_ball, index: 3, position: {x: -185, y: -160}, exp: 770/1000, value: 200}
-  - {name: steel_ball, index: 4, position: {x: -55, y: -160}, exp: 625/1000, value: 200}
-  - {name: crawler, index: 5, position: {x: -110, y: -145}, exp: 34/450, rotated: true, value: 100}
-  - {name: crawler, index: 6, position: {x: -110, y: -245}, exp: 450/450, rotated: true, value: 100}
-  - {name: marksman, index: 7, position: {x: 0, y: -160}, level: 3, source: delivered, value: 100}
+  - {name: hound, index: 0, value: 100, position: {x: -110, y: -110}, exp: 467/750}
+  - {name: hound, index: 1, value: 100, position: {x: -10, y: -110}}
+  - {name: hound, index: 2, value: 100, position: {x: 110, y: -110}, exp: 48/750}
+  - {name: steel_ball, index: 3, value: 200, position: {x: -185, y: -160}, exp: 770/1000}
+  - {name: steel_ball, index: 4, value: 200, position: {x: -55, y: -160}, exp: 625/1000}
+  - {name: crawler, index: 5, value: 100, position: {x: -110, y: -145}, exp: 34/450, rotated: true}
+  - {name: crawler, index: 6, value: 100, position: {x: -110, y: -245}, exp: 450/450, rotated: true}
+  - {name: marksman, index: 7, value: 100, level: 3, source: delivered, position: {x: 0, y: -160}}
   constructions:
   - {name: defensive_wall, index: 0, position: {x: 140, y: -55}}
 red:
   random_state: [9779913775142702813, 12284099207519801616, 7675028220652065443, 10456035909770940839]
   reactor_core: 4760
-  supply: 600
+  supply: 400
+  reinforce_choice: -1
   unlocked_units: [marksman, fang, fire_badger]
   tower_strengthen_levels: [0, 0]
   battle_skills:
@@ -214,13 +214,13 @@ red:
   next_index: {unit: 7, contraption: 0}
   officers: [training_specialist]
   units:
-  - {name: marksman, index: 0, position: {x: -120, y: -160}, exp: 397/650, value: 100}
-  - {name: marksman, index: 1, position: {x: 120, y: -160}, level: 2, exp: 181/1465, value: 100}
-  - {name: marksman, index: 2, position: {x: 50, y: -160}, exp: 158/650, value: 100}
-  - {name: fire_badger, index: 3, position: {x: 85, y: -140}, exp: 229/1400, value: 200}
-  - {name: fire_badger, index: 4, position: {x: -85, y: -140}, exp: 298/1400, value: 200}
-  - {name: fang, index: 5, position: {x: 140, y: -135}, exp: 137/600, rotated: true, value: 100}
-  - {name: fang, index: 6, position: {x: -140, y: -135}, exp: 99/600, rotated: true, value: 100}
+  - {name: marksman, index: 0, value: 100, position: {x: -120, y: -160}, exp: 397/650}
+  - {name: marksman, index: 1, value: 100, level: 2, position: {x: 120, y: -160}, exp: 181/1465}
+  - {name: marksman, index: 2, value: 100, position: {x: 50, y: -160}, exp: 158/650}
+  - {name: fire_badger, index: 3, value: 200, position: {x: 85, y: -140}, exp: 229/1400}
+  - {name: fire_badger, index: 4, value: 200, position: {x: -85, y: -140}, exp: 298/1400}
+  - {name: fang, index: 5, value: 100, position: {x: 140, y: -135}, exp: 137/600, rotated: true}
+  - {name: fang, index: 6, value: 100, position: {x: -140, y: -135}, exp: 99/600, rotated: true}
   constructions:
   - {name: defensive_wall, index: 0, position: {x: -140, y: -55}}
   - {name: anti_armor_turret, index: 1, position: {x: 140, y: -100}}
@@ -240,7 +240,6 @@ blue:
 - {type: move_unit, index: 10, position: {x: -280, y: -140}}
 - {type: active_blueprint, name: attack_enhancement}
 - {type: unlock_unit, name: fang}
-- {type: active_energy_tower_skill, name: deposit_supply}
 red:
 - {type: choose_reinforce_item, index: 2, name: intensive_training}
 - {type: buy_unit, name: fang}
@@ -252,7 +251,6 @@ red:
 - {type: move_unit, index: 8, position: {x: 290, y: -285}, rotated: true}
 - {type: move_unit, index: 9, position: {x: 140, y: -255}, rotated: true}
 - {type: release_commander_skill, index: 1, name: intensive_training, target: {unit: 3}}
-- {type: active_energy_tower_skill, name: deposit_supply}
 ---
 kind: state
 round: 3
@@ -263,7 +261,8 @@ reinforce_offers: [sledgehammer_1x_lv3, stormcaller_1x_lv2, scorpion_1x_lv1, pho
 blue:
   random_state: [10975146685952115563, 4375265945259328290, 111668291018060278, 17557340338474578325]
   reactor_core: 4400
-  supply: 800
+  supply: 600
+  reinforce_choice: -1
   unlocked_units: [marksman, steel_ball, fang, crawler, hound]
   blueprints: [field_recovery, attack_enhancement]
   tower_strengthen_levels: [0, 0]
@@ -272,21 +271,22 @@ blue:
   next_index: {unit: 11, contraption: 0}
   officers: [quick_teleport, marksman_specialist]
   units:
-  - {name: hound, index: 0, position: {x: -110, y: -110}, exp: 750/750, value: 100}
-  - {name: hound, index: 1, position: {x: -10, y: -110}, exp: 111/750, value: 100}
-  - {name: hound, index: 2, position: {x: 110, y: -110}, exp: 108/750, value: 100}
-  - {name: steel_ball, index: 3, position: {x: -185, y: -160}, exp: 1000/1000, value: 200}
-  - {name: steel_ball, index: 4, position: {x: -55, y: -160}, exp: 940/1000, value: 200}
-  - {name: crawler, index: 5, position: {x: -110, y: -145}, exp: 100/450, rotated: true, value: 100}
-  - {name: crawler, index: 6, position: {x: -110, y: -245}, exp: 450/450, rotated: true, value: 100}
-  - {name: marksman, index: 7, position: {x: -150, y: -120}, level: 3, exp: 404/2315, value: 100}
-  - {name: crawler, index: 8, position: {x: 260, y: -285}, exp: 204/450, rotated: true, value: 100}
-  - {name: hound, index: 9, position: {x: -350, y: 30}, exp: 540/750, value: 100}
-  - {name: hound, index: 10, position: {x: -280, y: -140}, exp: 184/750, value: 100}
+  - {name: hound, index: 0, value: 100, position: {x: -110, y: -110}, exp: 750/750}
+  - {name: hound, index: 1, value: 100, position: {x: -10, y: -110}, exp: 111/750}
+  - {name: hound, index: 2, value: 100, position: {x: 110, y: -110}, exp: 108/750}
+  - {name: steel_ball, index: 3, value: 200, position: {x: -185, y: -160}, exp: 1000/1000}
+  - {name: steel_ball, index: 4, value: 200, position: {x: -55, y: -160}, exp: 940/1000}
+  - {name: crawler, index: 5, value: 100, position: {x: -110, y: -145}, exp: 100/450, rotated: true}
+  - {name: crawler, index: 6, value: 100, position: {x: -110, y: -245}, exp: 450/450, rotated: true}
+  - {name: marksman, index: 7, value: 100, level: 3, position: {x: -150, y: -120}, exp: 404/2315}
+  - {name: crawler, index: 8, value: 100, position: {x: 260, y: -285}, exp: 204/450, rotated: true}
+  - {name: hound, index: 9, value: 100, position: {x: -350, y: 30}, exp: 540/750}
+  - {name: hound, index: 10, value: 100, position: {x: -280, y: -140}, exp: 184/750}
 red:
   random_state: [9779913775142702813, 12284099207519801616, 7675028220652065443, 10456035909770940839]
   reactor_core: 4166
-  supply: 800
+  supply: 600
+  reinforce_choice: -1
   unlocked_units: [marksman, fang, crawler, fire_badger]
   tower_strengthen_levels: [0, 0]
   battle_skills:
@@ -295,16 +295,16 @@ red:
   next_index: {unit: 10, contraption: 0}
   officers: [training_specialist]
   units:
-  - {name: marksman, index: 0, position: {x: -120, y: -160}, exp: 617/650, value: 100}
-  - {name: marksman, index: 1, position: {x: 120, y: -160}, level: 2, exp: 271/1465, value: 100}
-  - {name: marksman, index: 2, position: {x: 50, y: -160}, exp: 290/650, value: 100}
-  - {name: fire_badger, index: 3, position: {x: 85, y: -140}, exp: 1400/1400, value: 200}
-  - {name: fire_badger, index: 4, position: {x: -85, y: -140}, exp: 612/1400, value: 200}
-  - {name: fang, index: 5, position: {x: 140, y: -135}, exp: 417/600, rotated: true, value: 100}
-  - {name: fang, index: 6, position: {x: -140, y: -135}, exp: 269/600, rotated: true, value: 100}
-  - {name: fang, index: 7, position: {x: 140, y: -205}, exp: 2/600, rotated: true, value: 100}
-  - {name: crawler, index: 8, position: {x: 290, y: -285}, rotated: true, value: 100}
-  - {name: crawler, index: 9, position: {x: 140, y: -255}, exp: 40/450, rotated: true, value: 100}
+  - {name: marksman, index: 0, value: 100, position: {x: -120, y: -160}, exp: 617/650}
+  - {name: marksman, index: 1, value: 100, level: 2, position: {x: 120, y: -160}, exp: 271/1465}
+  - {name: marksman, index: 2, value: 100, position: {x: 50, y: -160}, exp: 290/650}
+  - {name: fire_badger, index: 3, value: 200, position: {x: 85, y: -140}, exp: 1400/1400}
+  - {name: fire_badger, index: 4, value: 200, position: {x: -85, y: -140}, exp: 612/1400}
+  - {name: fang, index: 5, value: 100, position: {x: 140, y: -135}, exp: 417/600, rotated: true}
+  - {name: fang, index: 6, value: 100, position: {x: -140, y: -135}, exp: 269/600, rotated: true}
+  - {name: fang, index: 7, value: 100, position: {x: 140, y: -205}, exp: 2/600, rotated: true}
+  - {name: crawler, index: 8, value: 100, position: {x: 290, y: -285}, rotated: true}
+  - {name: crawler, index: 9, value: 100, position: {x: 140, y: -255}, exp: 40/450, rotated: true}
   constructions:
   - {name: defensive_wall, index: 0, position: {x: -140, y: -55}}
   - {name: anti_armor_turret, index: 1, position: {x: 140, y: -100}}
@@ -323,7 +323,6 @@ blue:
 - {type: move_unit, index: 14, position: {x: -260, y: -285}, rotated: true}
 - {type: upgrade_unit, index: 0}
 - {type: upgrade_unit, index: 3}
-- {type: active_energy_tower_skill, name: deposit_supply}
 red:
 - {type: choose_reinforce_item, index: 2, name: scorpion_1x_lv1}
 - {type: buy_unit, name: fire_badger}
@@ -337,7 +336,6 @@ red:
 - {type: upgrade_unit, index: 3}
 - {type: release_commander_skill, index: 0, name: intensive_training, target: {unit: 3}}
 - {type: release_contraption, name: missile, position: {x: 62, y: -50}}
-- {type: active_energy_tower_skill, name: deposit_supply}
 ---
 kind: state
 round: 4
@@ -348,7 +346,8 @@ reinforce_offers: [super_supply_enhancement, haste_module, missile_strike, photo
 blue:
   random_state: [10975146685952115563, 4375265945259328290, 111668291018060278, 17557340338474578325]
   reactor_core: 3565
-  supply: 1050
+  supply: 850
+  reinforce_choice: -1
   unlocked_units: [marksman, steel_ball, fang, crawler, stormcaller, hound]
   blueprints: [field_recovery, attack_enhancement]
   tower_strengthen_levels: [0, 0]
@@ -357,25 +356,26 @@ blue:
   next_index: {unit: 15, contraption: 0}
   officers: [quick_teleport, marksman_specialist]
   units:
-  - {name: hound, index: 0, position: {x: -110, y: -110}, level: 2, exp: 908/1690, value: 100}
-  - {name: hound, index: 1, position: {x: -10, y: -110}, exp: 161/750, value: 100}
-  - {name: hound, index: 2, position: {x: 110, y: -110}, exp: 168/750, value: 100}
-  - {name: steel_ball, index: 3, position: {x: -185, y: -160}, level: 2, exp: 153/2253, value: 200}
-  - {name: steel_ball, index: 4, position: {x: -55, y: -160}, exp: 1000/1000, value: 200}
-  - {name: crawler, index: 5, position: {x: -110, y: -145}, exp: 191/450, rotated: true, value: 100}
-  - {name: crawler, index: 6, position: {x: -110, y: -245}, exp: 450/450, rotated: true, value: 100}
-  - {name: marksman, index: 7, position: {x: -150, y: -120}, level: 3, exp: 489/2315, value: 100}
-  - {name: crawler, index: 8, position: {x: 260, y: -285}, exp: 450/450, rotated: true, value: 100}
-  - {name: hound, index: 9, position: {x: -350, y: 30}, exp: 540/750, value: 100}
-  - {name: hound, index: 10, position: {x: -280, y: -140}, exp: 184/750, value: 100}
-  - {name: stormcaller, index: 11, position: {x: -155, y: -100}, level: 2, exp: 736/2479, value: 200}
-  - {name: fang, index: 12, position: {x: -110, y: -75}, rotated: true, value: 100}
-  - {name: marksman, index: 13, position: {x: 210, y: -190}, exp: 319/650, value: 100}
-  - {name: crawler, index: 14, position: {x: -260, y: -285}, exp: 50/450, rotated: true, value: 100}
+  - {name: hound, index: 0, value: 100, level: 2, position: {x: -110, y: -110}, exp: 908/1690}
+  - {name: hound, index: 1, value: 100, position: {x: -10, y: -110}, exp: 161/750}
+  - {name: hound, index: 2, value: 100, position: {x: 110, y: -110}, exp: 168/750}
+  - {name: steel_ball, index: 3, value: 200, level: 2, position: {x: -185, y: -160}, exp: 153/2253}
+  - {name: steel_ball, index: 4, value: 200, position: {x: -55, y: -160}, exp: 1000/1000}
+  - {name: crawler, index: 5, value: 100, position: {x: -110, y: -145}, exp: 191/450, rotated: true}
+  - {name: crawler, index: 6, value: 100, position: {x: -110, y: -245}, exp: 450/450, rotated: true}
+  - {name: marksman, index: 7, value: 100, level: 3, position: {x: -150, y: -120}, exp: 489/2315}
+  - {name: crawler, index: 8, value: 100, position: {x: 260, y: -285}, exp: 450/450, rotated: true}
+  - {name: hound, index: 9, value: 100, position: {x: -350, y: 30}, exp: 540/750}
+  - {name: hound, index: 10, value: 100, position: {x: -280, y: -140}, exp: 184/750}
+  - {name: stormcaller, index: 11, value: 200, level: 2, position: {x: -155, y: -100}, exp: 736/2479}
+  - {name: fang, index: 12, value: 100, position: {x: -110, y: -75}, rotated: true}
+  - {name: marksman, index: 13, value: 100, position: {x: 210, y: -190}, exp: 319/650}
+  - {name: crawler, index: 14, value: 100, position: {x: -260, y: -285}, exp: 50/450, rotated: true}
 red:
   random_state: [9779913775142702813, 12284099207519801616, 7675028220652065443, 10456035909770940839]
   reactor_core: 4166
-  supply: 1000
+  supply: 800
+  reinforce_choice: -1
   unlocked_units: [marksman, fang, crawler, scorpion, fire_badger]
   tower_strengthen_levels: [0, 0]
   battle_skills:
@@ -384,20 +384,20 @@ red:
   next_index: {unit: 14, contraption: 1}
   officers: [training_specialist]
   units:
-  - {name: marksman, index: 0, position: {x: -120, y: -160}, exp: 650/650, value: 100}
-  - {name: marksman, index: 1, position: {x: 120, y: -160}, level: 2, exp: 1456/1465, value: 100}
-  - {name: marksman, index: 2, position: {x: 50, y: -160}, exp: 574/650, value: 100}
-  - {name: fire_badger, index: 3, position: {x: 85, y: -140}, level: 2, exp: 3154/3154, value: 200}
-  - {name: fire_badger, index: 4, position: {x: -85, y: -140}, exp: 1105/1400, value: 200}
-  - {name: fang, index: 5, position: {x: 140, y: -135}, exp: 600/600, rotated: true, value: 100}
-  - {name: fang, index: 6, position: {x: -140, y: -135}, exp: 444/600, rotated: true, value: 100}
-  - {name: fang, index: 7, position: {x: 140, y: -205}, exp: 185/600, rotated: true, value: 100}
-  - {name: crawler, index: 8, position: {x: 290, y: -285}, exp: 450/450, rotated: true, value: 100}
-  - {name: crawler, index: 9, position: {x: 140, y: -255}, exp: 228/450, rotated: true, value: 100}
-  - {name: scorpion, index: 10, position: {x: 255, y: -135}, exp: 595/1500, value: 300}
-  - {name: fire_badger, index: 11, position: {x: 195, y: -140}, exp: 332/1400, value: 200}
-  - {name: marksman, index: 12, position: {x: 230, y: -160}, exp: 650/650, value: 100}
-  - {name: marksman, index: 13, position: {x: 160, y: -160}, exp: 339/650, value: 100}
+  - {name: marksman, index: 0, value: 100, position: {x: -120, y: -160}, exp: 650/650}
+  - {name: marksman, index: 1, value: 100, level: 2, position: {x: 120, y: -160}, exp: 1456/1465}
+  - {name: marksman, index: 2, value: 100, position: {x: 50, y: -160}, exp: 574/650}
+  - {name: fire_badger, index: 3, value: 200, level: 2, position: {x: 85, y: -140}, exp: 3154/3154}
+  - {name: fire_badger, index: 4, value: 200, position: {x: -85, y: -140}, exp: 1105/1400}
+  - {name: fang, index: 5, value: 100, position: {x: 140, y: -135}, exp: 600/600, rotated: true}
+  - {name: fang, index: 6, value: 100, position: {x: -140, y: -135}, exp: 444/600, rotated: true}
+  - {name: fang, index: 7, value: 100, position: {x: 140, y: -205}, exp: 185/600, rotated: true}
+  - {name: crawler, index: 8, value: 100, position: {x: 290, y: -285}, exp: 450/450, rotated: true}
+  - {name: crawler, index: 9, value: 100, position: {x: 140, y: -255}, exp: 228/450, rotated: true}
+  - {name: scorpion, index: 10, value: 300, position: {x: 255, y: -135}, exp: 595/1500}
+  - {name: fire_badger, index: 11, value: 200, position: {x: 195, y: -140}, exp: 332/1400}
+  - {name: marksman, index: 12, value: 100, position: {x: 230, y: -160}, exp: 650/650}
+  - {name: marksman, index: 13, value: 100, position: {x: 160, y: -160}, exp: 339/650}
   constructions:
   - {name: defensive_wall, index: 0, position: {x: -140, y: -55}}
   - {name: anti_armor_turret, index: 1, position: {x: 140, y: -100}}
@@ -416,7 +416,6 @@ blue:
 - {type: move_unit, index: 16, position: {x: -230, y: -65}, rotated: true}
 - {type: move_unit, index: 17, position: {x: -325, y: 80}, rotated: true}
 - {type: active_blueprint, name: defense_enhancement}
-- {type: active_energy_tower_skill, name: deposit_supply}
 red:
 - {type: choose_reinforce_item, index: 0, name: super_supply_enhancement}
 - {type: buy_unit, name: crawler}
@@ -430,7 +429,6 @@ red:
 - {type: upgrade_unit, index: 3}
 - {type: release_commander_skill, index: 1, name: intensive_training, target: {unit: 3}}
 - {type: upgrade_unit, index: 12}
-- {type: active_energy_tower_skill, name: deposit_supply}
 ---
 kind: state
 round: 5
@@ -441,7 +439,8 @@ reinforce_offers: [elite_phoenix, orbital_bombardment, advanced_targeting_system
 blue:
   random_state: [10975146685952115563, 4375265945259328290, 111668291018060278, 17557340338474578325]
   reactor_core: 2769
-  supply: 1400
+  supply: 1200
+  reinforce_choice: -1
   unlocked_units: [marksman, steel_ball, fang, crawler, stormcaller, hound]
   blueprints: [field_recovery, attack_enhancement, defense_enhancement]
   tower_strengthen_levels: [0, 0]
@@ -452,27 +451,28 @@ blue:
   techs:
     hound: [chamber_compression]
   units:
-  - {name: hound, index: 0, position: {x: -110, y: -110}, level: 2, exp: 1690/1690, value: 100}
-  - {name: hound, index: 1, position: {x: -10, y: -110}, exp: 379/750, value: 100}
-  - {name: hound, index: 2, position: {x: 110, y: -110}, exp: 264/750, value: 100}
-  - {name: steel_ball, index: 3, position: {x: -185, y: -160}, level: 2, exp: 405/2253, value: 200}
-  - {name: crawler, index: 5, position: {x: -110, y: -145}, exp: 213/450, rotated: true, value: 100}
-  - {name: crawler, index: 6, position: {x: -110, y: -245}, exp: 450/450, rotated: true, value: 100}
-  - {name: marksman, index: 7, position: {x: -150, y: -120}, level: 3, exp: 1024/2315, value: 100}
-  - {name: crawler, index: 8, position: {x: 260, y: -285}, exp: 450/450, rotated: true, value: 100}
-  - {name: hound, index: 9, position: {x: -350, y: 30}, exp: 586/750, value: 100}
-  - {name: hound, index: 10, position: {x: -280, y: -140}, exp: 326/750, value: 100}
-  - {name: stormcaller, index: 11, position: {x: -155, y: -100}, level: 2, exp: 1792/2479, value: 200}
-  - {name: fang, index: 12, position: {x: -110, y: -75}, exp: 313/600, rotated: true, value: 100}
-  - {name: marksman, index: 13, position: {x: 210, y: -190}, exp: 353/650, value: 100}
-  - {name: crawler, index: 14, position: {x: -260, y: -285}, exp: 82/450, rotated: true, value: 100}
-  - {name: crawler, index: 15, position: {x: -310, y: 245}, exp: 56/450, value: 100}
-  - {name: fang, index: 16, position: {x: -230, y: -65}, exp: 193/600, rotated: true, value: 100}
-  - {name: fang, index: 17, position: {x: -325, y: 80}, exp: 2/600, rotated: true, value: 100}
+  - {name: hound, index: 0, value: 100, level: 2, position: {x: -110, y: -110}, exp: 1690/1690}
+  - {name: hound, index: 1, value: 100, position: {x: -10, y: -110}, exp: 379/750}
+  - {name: hound, index: 2, value: 100, position: {x: 110, y: -110}, exp: 264/750}
+  - {name: steel_ball, index: 3, value: 200, level: 2, position: {x: -185, y: -160}, exp: 405/2253}
+  - {name: crawler, index: 5, value: 100, position: {x: -110, y: -145}, exp: 213/450, rotated: true}
+  - {name: crawler, index: 6, value: 100, position: {x: -110, y: -245}, exp: 450/450, rotated: true}
+  - {name: marksman, index: 7, value: 100, level: 3, position: {x: -150, y: -120}, exp: 1024/2315}
+  - {name: crawler, index: 8, value: 100, position: {x: 260, y: -285}, exp: 450/450, rotated: true}
+  - {name: hound, index: 9, value: 100, position: {x: -350, y: 30}, exp: 586/750}
+  - {name: hound, index: 10, value: 100, position: {x: -280, y: -140}, exp: 326/750}
+  - {name: stormcaller, index: 11, value: 200, level: 2, position: {x: -155, y: -100}, exp: 1792/2479}
+  - {name: fang, index: 12, value: 100, position: {x: -110, y: -75}, exp: 313/600, rotated: true}
+  - {name: marksman, index: 13, value: 100, position: {x: 210, y: -190}, exp: 353/650}
+  - {name: crawler, index: 14, value: 100, position: {x: -260, y: -285}, exp: 82/450, rotated: true}
+  - {name: crawler, index: 15, value: 100, position: {x: -310, y: 245}, exp: 56/450}
+  - {name: fang, index: 16, value: 100, position: {x: -230, y: -65}, exp: 193/600, rotated: true}
+  - {name: fang, index: 17, value: 100, position: {x: -325, y: 80}, exp: 2/600, rotated: true}
 red:
   random_state: [9779913775142702813, 12284099207519801616, 7675028220652065443, 10456035909770940839]
   reactor_core: 4166
-  supply: 1350
+  supply: 1150
+  reinforce_choice: -1
   unlocked_units: [marksman, fang, crawler, scorpion, fire_badger]
   tower_strengthen_levels: [0, 0]
   battle_skills:
@@ -481,23 +481,23 @@ red:
   next_index: {unit: 17, contraption: 1}
   officers: [super_supply_enhancement, training_specialist]
   units:
-  - {name: marksman, index: 0, position: {x: -120, y: -160}, level: 2, exp: 156/1465, value: 100}
-  - {name: marksman, index: 1, position: {x: 120, y: -160}, level: 2, exp: 1465/1465, value: 100}
-  - {name: marksman, index: 2, position: {x: 50, y: -160}, exp: 650/650, value: 100}
-  - {name: fire_badger, index: 3, position: {x: 85, y: -140}, level: 3, exp: 4987/4987, value: 200}
-  - {name: fire_badger, index: 4, position: {x: -85, y: -140}, exp: 1400/1400, value: 200}
-  - {name: fang, index: 5, position: {x: 140, y: -135}, exp: 600/600, rotated: true, value: 100}
-  - {name: fang, index: 6, position: {x: -140, y: -135}, exp: 529/600, rotated: true, value: 100}
-  - {name: fang, index: 7, position: {x: 140, y: -205}, exp: 322/600, rotated: true, value: 100}
-  - {name: crawler, index: 8, position: {x: 290, y: -285}, exp: 450/450, rotated: true, value: 100}
-  - {name: crawler, index: 9, position: {x: 140, y: -255}, exp: 302/450, rotated: true, value: 100}
-  - {name: scorpion, index: 10, position: {x: 255, y: -135}, exp: 1500/1500, value: 300}
-  - {name: fire_badger, index: 11, position: {x: 195, y: -140}, exp: 786/1400, value: 200}
-  - {name: marksman, index: 12, position: {x: 230, y: -160}, level: 2, exp: 712/1465, value: 100}
-  - {name: marksman, index: 13, position: {x: 160, y: -160}, exp: 650/650, value: 100}
-  - {name: crawler, index: 14, position: {x: 210, y: -175}, exp: 161/450, rotated: true, value: 100}
-  - {name: crawler, index: 15, position: {x: 70, y: -175}, exp: 55/450, rotated: true, value: 100}
-  - {name: crawler, index: 16, position: {x: -290, y: -285}, exp: 450/450, rotated: true, value: 100}
+  - {name: marksman, index: 0, value: 100, level: 2, position: {x: -120, y: -160}, exp: 156/1465}
+  - {name: marksman, index: 1, value: 100, level: 2, position: {x: 120, y: -160}, exp: 1465/1465}
+  - {name: marksman, index: 2, value: 100, position: {x: 50, y: -160}, exp: 650/650}
+  - {name: fire_badger, index: 3, value: 200, level: 3, position: {x: 85, y: -140}, exp: 4987/4987}
+  - {name: fire_badger, index: 4, value: 200, position: {x: -85, y: -140}, exp: 1400/1400}
+  - {name: fang, index: 5, value: 100, position: {x: 140, y: -135}, exp: 600/600, rotated: true}
+  - {name: fang, index: 6, value: 100, position: {x: -140, y: -135}, exp: 529/600, rotated: true}
+  - {name: fang, index: 7, value: 100, position: {x: 140, y: -205}, exp: 322/600, rotated: true}
+  - {name: crawler, index: 8, value: 100, position: {x: 290, y: -285}, exp: 450/450, rotated: true}
+  - {name: crawler, index: 9, value: 100, position: {x: 140, y: -255}, exp: 302/450, rotated: true}
+  - {name: scorpion, index: 10, value: 300, position: {x: 255, y: -135}, exp: 1500/1500}
+  - {name: fire_badger, index: 11, value: 200, position: {x: 195, y: -140}, exp: 786/1400}
+  - {name: marksman, index: 12, value: 100, level: 2, position: {x: 230, y: -160}, exp: 712/1465}
+  - {name: marksman, index: 13, value: 100, position: {x: 160, y: -160}, exp: 650/650}
+  - {name: crawler, index: 14, value: 100, position: {x: 210, y: -175}, exp: 161/450, rotated: true}
+  - {name: crawler, index: 15, value: 100, position: {x: 70, y: -175}, exp: 55/450, rotated: true}
+  - {name: crawler, index: 16, value: 100, position: {x: -290, y: -285}, exp: 450/450, rotated: true}
   constructions:
   - {name: defensive_wall, index: 0, position: {x: -140, y: -55}}
   - {name: anti_armor_turret, index: 1, position: {x: 140, y: -100}}
@@ -520,7 +520,6 @@ blue:
 - {type: release_contraption, name: shield, position: {x: -63, y: -85}}
 - {type: strengthen_tower, tower: 1}
 - {type: release_commander_skill, index: 1, name: orbital_bombardment, target: {area: [{x: -147, y: 144}]}}
-- {type: active_energy_tower_skill, name: deposit_supply}
 red:
 - {type: choose_reinforce_item, index: 1, name: orbital_bombardment}
 - {type: buy_unit, name: fang}
@@ -536,7 +535,6 @@ red:
 - {type: upgrade_unit, index: 10}
 - {type: upgrade_unit, index: 13}
 - {type: release_commander_skill, index: 2, name: orbital_bombardment, target: {area: [{x: 174, y: 124}]}}
-- {type: active_energy_tower_skill, name: deposit_supply}
 ---
 kind: state
 round: 6
@@ -547,7 +545,8 @@ reinforce_offers: [wraith_1x_lv2, arclight_2x_lv4, rhino_2x_lv2, sandworm_1x_lv1
 blue:
   random_state: [10975146685952115563, 4375265945259328290, 111668291018060278, 17557340338474578325]
   reactor_core: 2005
-  supply: 1600
+  supply: 1400
+  reinforce_choice: -1
   unlocked_units: [marksman, steel_ball, fang, crawler, stormcaller, hound]
   blueprints: [field_recovery, attack_enhancement, defense_enhancement]
   tower_strengthen_levels: [0, 1]
@@ -559,29 +558,30 @@ blue:
   techs:
     hound: [range_enhancement, chamber_compression]
   units:
-  - {name: hound, index: 0, position: {x: -110, y: -110}, level: 3, exp: 1466/2671, value: 100}
-  - {name: hound, index: 1, position: {x: -10, y: -110}, exp: 584/750, value: 100}
-  - {name: hound, index: 2, position: {x: 110, y: -110}, exp: 423/750, value: 100}
-  - {name: crawler, index: 5, position: {x: -110, y: -145}, exp: 327/450, rotated: true, value: 100}
-  - {name: crawler, index: 6, position: {x: -110, y: -245}, exp: 450/450, rotated: true, value: 100}
-  - {name: marksman, index: 7, position: {x: -150, y: -120}, level: 3, exp: 1179/2315, value: 100}
-  - {name: crawler, index: 8, position: {x: 260, y: -285}, exp: 450/450, rotated: true, value: 100}
-  - {name: hound, index: 9, position: {x: -350, y: 30}, exp: 673/750, value: 100}
-  - {name: hound, index: 10, position: {x: -280, y: -140}, exp: 741/750, value: 100}
-  - {name: stormcaller, index: 11, position: {x: -155, y: -100}, level: 2, exp: 2479/2479, value: 200}
-  - {name: fang, index: 12, position: {x: -110, y: -75}, exp: 533/600, rotated: true, value: 100}
-  - {name: marksman, index: 13, position: {x: 210, y: -190}, exp: 540/650, value: 100}
-  - {name: crawler, index: 14, position: {x: -260, y: -285}, exp: 229/450, rotated: true, value: 100}
-  - {name: crawler, index: 15, position: {x: -310, y: 245}, exp: 325/450, value: 100}
-  - {name: fang, index: 16, position: {x: -230, y: -65}, exp: 340/600, rotated: true, value: 100}
-  - {name: fang, index: 17, position: {x: -325, y: 80}, exp: 12/600, rotated: true, value: 100}
-  - {name: hound, index: 18, position: {x: -350, y: 290}, exp: 507/750, value: 100}
-  - {name: hound, index: 19, position: {x: -350, y: 210}, exp: 287/750, value: 100}
-  - {name: stormcaller, index: 20, position: {x: -55, y: -100}, exp: 1100/1100, value: 200}
+  - {name: hound, index: 0, value: 100, level: 3, position: {x: -110, y: -110}, exp: 1466/2671}
+  - {name: hound, index: 1, value: 100, position: {x: -10, y: -110}, exp: 584/750}
+  - {name: hound, index: 2, value: 100, position: {x: 110, y: -110}, exp: 423/750}
+  - {name: crawler, index: 5, value: 100, position: {x: -110, y: -145}, exp: 327/450, rotated: true}
+  - {name: crawler, index: 6, value: 100, position: {x: -110, y: -245}, exp: 450/450, rotated: true}
+  - {name: marksman, index: 7, value: 100, level: 3, position: {x: -150, y: -120}, exp: 1179/2315}
+  - {name: crawler, index: 8, value: 100, position: {x: 260, y: -285}, exp: 450/450, rotated: true}
+  - {name: hound, index: 9, value: 100, position: {x: -350, y: 30}, exp: 673/750}
+  - {name: hound, index: 10, value: 100, position: {x: -280, y: -140}, exp: 741/750}
+  - {name: stormcaller, index: 11, value: 200, level: 2, position: {x: -155, y: -100}, exp: 2479/2479}
+  - {name: fang, index: 12, value: 100, position: {x: -110, y: -75}, exp: 533/600, rotated: true}
+  - {name: marksman, index: 13, value: 100, position: {x: 210, y: -190}, exp: 540/650}
+  - {name: crawler, index: 14, value: 100, position: {x: -260, y: -285}, exp: 229/450, rotated: true}
+  - {name: crawler, index: 15, value: 100, position: {x: -310, y: 245}, exp: 325/450}
+  - {name: fang, index: 16, value: 100, position: {x: -230, y: -65}, exp: 340/600, rotated: true}
+  - {name: fang, index: 17, value: 100, position: {x: -325, y: 80}, exp: 12/600, rotated: true}
+  - {name: hound, index: 18, value: 100, position: {x: -350, y: 290}, exp: 507/750}
+  - {name: hound, index: 19, value: 100, position: {x: -350, y: 210}, exp: 287/750}
+  - {name: stormcaller, index: 20, value: 200, position: {x: -55, y: -100}, exp: 1100/1100}
 red:
   random_state: [9779913775142702813, 12284099207519801616, 7675028220652065443, 10456035909770940839]
   reactor_core: 4166
-  supply: 1550
+  supply: 1350
+  reinforce_choice: -1
   unlocked_units: [marksman, fang, crawler, scorpion, fire_badger]
   tower_strengthen_levels: [0, 0]
   battle_skills:
@@ -593,25 +593,25 @@ red:
   techs:
     fire_badger: [range_enhancement]
   units:
-  - {name: marksman, index: 0, position: {x: -120, y: -160}, level: 2, exp: 453/1465, value: 100}
-  - {name: marksman, index: 1, position: {x: 120, y: -160}, level: 3, exp: 42/2315, value: 100}
-  - {name: marksman, index: 2, position: {x: 50, y: -160}, level: 2, exp: 162/1465, value: 100}
-  - {name: fire_badger, index: 3, position: {x: 85, y: -140}, level: 4, exp: 1777/6286, value: 200}
-  - {name: fire_badger, index: 4, position: {x: -85, y: -140}, level: 2, exp: 3154/3154, value: 200}
-  - {name: fang, index: 5, position: {x: 140, y: -135}, exp: 600/600, rotated: true, value: 100}
-  - {name: fang, index: 6, position: {x: -140, y: -135}, exp: 600/600, rotated: true, value: 100}
-  - {name: fang, index: 7, position: {x: 140, y: -205}, exp: 478/600, rotated: true, value: 100}
-  - {name: crawler, index: 8, position: {x: 290, y: -285}, exp: 450/450, rotated: true, value: 100}
-  - {name: crawler, index: 9, position: {x: 140, y: -255}, exp: 440/450, rotated: true, value: 100}
-  - {name: scorpion, index: 10, position: {x: 255, y: -135}, level: 2, exp: 793/3380, value: 300}
-  - {name: fire_badger, index: 11, position: {x: 195, y: -140}, exp: 1297/1400, value: 200}
-  - {name: marksman, index: 12, position: {x: 230, y: -160}, level: 2, exp: 837/1465, value: 100}
-  - {name: marksman, index: 13, position: {x: 160, y: -160}, level: 2, exp: 587/1465, value: 100}
-  - {name: crawler, index: 14, position: {x: 210, y: -175}, exp: 255/450, rotated: true, value: 100}
-  - {name: crawler, index: 15, position: {x: 70, y: -175}, exp: 133/450, rotated: true, value: 100}
-  - {name: crawler, index: 16, position: {x: -290, y: -285}, exp: 450/450, rotated: true, value: 100}
-  - {name: fang, index: 17, position: {x: -140, y: -205}, exp: 156/600, rotated: true, value: 100}
-  - {name: crawler, index: 18, position: {x: 55, y: -40}, value: 100}
+  - {name: marksman, index: 0, value: 100, level: 2, position: {x: -120, y: -160}, exp: 453/1465}
+  - {name: marksman, index: 1, value: 100, level: 3, position: {x: 120, y: -160}, exp: 42/2315}
+  - {name: marksman, index: 2, value: 100, level: 2, position: {x: 50, y: -160}, exp: 162/1465}
+  - {name: fire_badger, index: 3, value: 200, level: 4, position: {x: 85, y: -140}, exp: 1777/6286}
+  - {name: fire_badger, index: 4, value: 200, level: 2, position: {x: -85, y: -140}, exp: 3154/3154}
+  - {name: fang, index: 5, value: 100, position: {x: 140, y: -135}, exp: 600/600, rotated: true}
+  - {name: fang, index: 6, value: 100, position: {x: -140, y: -135}, exp: 600/600, rotated: true}
+  - {name: fang, index: 7, value: 100, position: {x: 140, y: -205}, exp: 478/600, rotated: true}
+  - {name: crawler, index: 8, value: 100, position: {x: 290, y: -285}, exp: 450/450, rotated: true}
+  - {name: crawler, index: 9, value: 100, position: {x: 140, y: -255}, exp: 440/450, rotated: true}
+  - {name: scorpion, index: 10, value: 300, level: 2, position: {x: 255, y: -135}, exp: 793/3380}
+  - {name: fire_badger, index: 11, value: 200, position: {x: 195, y: -140}, exp: 1297/1400}
+  - {name: marksman, index: 12, value: 100, level: 2, position: {x: 230, y: -160}, exp: 837/1465}
+  - {name: marksman, index: 13, value: 100, level: 2, position: {x: 160, y: -160}, exp: 587/1465}
+  - {name: crawler, index: 14, value: 100, position: {x: 210, y: -175}, exp: 255/450, rotated: true}
+  - {name: crawler, index: 15, value: 100, position: {x: 70, y: -175}, exp: 133/450, rotated: true}
+  - {name: crawler, index: 16, value: 100, position: {x: -290, y: -285}, exp: 450/450, rotated: true}
+  - {name: fang, index: 17, value: 100, position: {x: -140, y: -205}, exp: 156/600, rotated: true}
+  - {name: crawler, index: 18, value: 100, position: {x: 55, y: -40}}
   constructions:
   - {name: defensive_wall, index: 0, position: {x: -140, y: -55}}
   - {name: anti_armor_turret, index: 1, position: {x: 140, y: -100}}
@@ -633,7 +633,6 @@ blue:
 - {type: move_unit, index: 25, position: {x: -310, y: 155}}
 - {type: upgrade_unit, index: 8}
 - {type: active_energy_tower_skill, name: high_mobility}
-- {type: active_energy_tower_skill, name: deposit_supply}
 red:
 - {type: choose_reinforce_item, index: 2, name: rhino_2x_lv2}
 - {type: buy_unit, name: marksman}
@@ -648,7 +647,6 @@ red:
 - {type: release_contraption, name: missile, position: {x: -299, y: -196}}
 - {type: active_blueprint, name: mobile_beacon}
 - {type: release_commander_skill, index: 3, name: mobile_beacon, target: {area: [{x: 52, y: -43}, {x: -32, y: -39}, {x: 167, y: -34}]}}
-- {type: active_energy_tower_skill, name: deposit_supply}
 ---
 kind: state
 round: 7
@@ -659,7 +657,8 @@ reinforce_offers: [mass_produced_sandworm, mobilize_battleship, improved_tarantu
 blue:
   random_state: [10975146685952115563, 4375265945259328290, 111668291018060278, 17557340338474578325]
   reactor_core: 2005
-  supply: 1750
+  supply: 1550
+  reinforce_choice: -1
   unlocked_units: [marksman, rhino, steel_ball, fang, crawler, stormcaller, hound]
   blueprints: [field_recovery, attack_enhancement, defense_enhancement]
   tower_strengthen_levels: [0, 1]
@@ -672,34 +671,35 @@ blue:
     rhino: [armor_enhancement]
     hound: [range_enhancement, chamber_compression]
   units:
-  - {name: hound, index: 0, position: {x: -110, y: -110}, level: 3, exp: 2671/2671, value: 100}
-  - {name: hound, index: 1, position: {x: -10, y: -110}, exp: 750/750, value: 100}
-  - {name: hound, index: 2, position: {x: 110, y: -110}, exp: 495/750, value: 100}
-  - {name: crawler, index: 5, position: {x: -110, y: -145}, exp: 450/450, rotated: true, value: 100}
-  - {name: crawler, index: 6, position: {x: -110, y: -245}, exp: 450/450, rotated: true, value: 100}
-  - {name: marksman, index: 7, position: {x: -150, y: -120}, level: 3, exp: 2315/2315, value: 100}
-  - {name: crawler, index: 8, position: {x: 260, y: -285}, level: 2, exp: 11/1014, rotated: true, value: 100}
-  - {name: hound, index: 9, position: {x: -350, y: 30}, exp: 673/750, value: 100}
-  - {name: hound, index: 10, position: {x: -280, y: -140}, exp: 750/750, value: 100}
-  - {name: stormcaller, index: 11, position: {x: -155, y: -100}, level: 2, exp: 2479/2479, value: 200}
-  - {name: fang, index: 12, position: {x: -110, y: -75}, exp: 600/600, rotated: true, value: 100}
-  - {name: marksman, index: 13, position: {x: 210, y: -190}, exp: 581/650, value: 100}
-  - {name: crawler, index: 14, position: {x: -260, y: -285}, exp: 229/450, rotated: true, value: 100}
-  - {name: crawler, index: 15, position: {x: -310, y: 245}, exp: 353/450, value: 100}
-  - {name: fang, index: 16, position: {x: -230, y: -65}, exp: 340/600, rotated: true, value: 100}
-  - {name: fang, index: 17, position: {x: -325, y: 80}, exp: 12/600, rotated: true, value: 100}
-  - {name: hound, index: 18, position: {x: -350, y: 290}, exp: 750/750, value: 100}
-  - {name: hound, index: 19, position: {x: -350, y: 210}, exp: 653/750, value: 100}
-  - {name: stormcaller, index: 20, position: {x: -55, y: -100}, exp: 1100/1100, value: 200}
-  - {name: rhino, index: 21, position: {x: -145, y: -145}, level: 2, exp: 2529/2591, value: 200}
-  - {name: rhino, index: 22, position: {x: -345, y: 245}, level: 2, exp: 990/2591, value: 200}
-  - {name: rhino, index: 23, position: {x: -75, y: -145}, level: 2, exp: 2006/2591, value: 200}
-  - {name: rhino, index: 24, position: {x: -345, y: 155}, level: 2, exp: 99/2591, value: 200}
-  - {name: fang, index: 25, position: {x: -310, y: 155}, level: 2, value: 100}
+  - {name: hound, index: 0, value: 100, level: 3, position: {x: -110, y: -110}, exp: 2671/2671}
+  - {name: hound, index: 1, value: 100, position: {x: -10, y: -110}, exp: 750/750}
+  - {name: hound, index: 2, value: 100, position: {x: 110, y: -110}, exp: 495/750}
+  - {name: crawler, index: 5, value: 100, position: {x: -110, y: -145}, exp: 450/450, rotated: true}
+  - {name: crawler, index: 6, value: 100, position: {x: -110, y: -245}, exp: 450/450, rotated: true}
+  - {name: marksman, index: 7, value: 100, level: 3, position: {x: -150, y: -120}, exp: 2315/2315}
+  - {name: crawler, index: 8, value: 100, level: 2, position: {x: 260, y: -285}, exp: 11/1014, rotated: true}
+  - {name: hound, index: 9, value: 100, position: {x: -350, y: 30}, exp: 673/750}
+  - {name: hound, index: 10, value: 100, position: {x: -280, y: -140}, exp: 750/750}
+  - {name: stormcaller, index: 11, value: 200, level: 2, position: {x: -155, y: -100}, exp: 2479/2479}
+  - {name: fang, index: 12, value: 100, position: {x: -110, y: -75}, exp: 600/600, rotated: true}
+  - {name: marksman, index: 13, value: 100, position: {x: 210, y: -190}, exp: 581/650}
+  - {name: crawler, index: 14, value: 100, position: {x: -260, y: -285}, exp: 229/450, rotated: true}
+  - {name: crawler, index: 15, value: 100, position: {x: -310, y: 245}, exp: 353/450}
+  - {name: fang, index: 16, value: 100, position: {x: -230, y: -65}, exp: 340/600, rotated: true}
+  - {name: fang, index: 17, value: 100, position: {x: -325, y: 80}, exp: 12/600, rotated: true}
+  - {name: hound, index: 18, value: 100, position: {x: -350, y: 290}, exp: 750/750}
+  - {name: hound, index: 19, value: 100, position: {x: -350, y: 210}, exp: 653/750}
+  - {name: stormcaller, index: 20, value: 200, position: {x: -55, y: -100}, exp: 1100/1100}
+  - {name: rhino, index: 21, value: 200, level: 2, position: {x: -145, y: -145}, exp: 2529/2591}
+  - {name: rhino, index: 22, value: 200, level: 2, position: {x: -345, y: 245}, exp: 990/2591}
+  - {name: rhino, index: 23, value: 200, level: 2, position: {x: -75, y: -145}, exp: 2006/2591}
+  - {name: rhino, index: 24, value: 200, level: 2, position: {x: -345, y: 155}, exp: 99/2591}
+  - {name: fang, index: 25, value: 100, level: 2, position: {x: -310, y: 155}}
 red:
   random_state: [9779913775142702813, 12284099207519801616, 7675028220652065443, 10456035909770940839]
   reactor_core: 3562
-  supply: 1750
+  supply: 1550
+  reinforce_choice: -1
   unlocked_units: [marksman, rhino, fang, crawler, scorpion, fire_badger]
   blueprints: [mobile_beacon]
   tower_strengthen_levels: [0, 0]
@@ -715,28 +715,28 @@ red:
     rhino: [whirlwind]
     fire_badger: [field_maintenance, range_enhancement]
   units:
-  - {name: marksman, index: 0, position: {x: -120, y: -160}, level: 2, exp: 1465/1465, value: 100}
-  - {name: marksman, index: 1, position: {x: 120, y: -160}, level: 3, exp: 79/2315, value: 100}
-  - {name: marksman, index: 2, position: {x: 50, y: -160}, level: 2, exp: 191/1465, value: 100}
-  - {name: fire_badger, index: 3, position: {x: 85, y: -140}, level: 4, exp: 2077/6286, value: 200}
-  - {name: fire_badger, index: 4, position: {x: -85, y: -140}, level: 3, exp: 4987/4987, value: 200}
-  - {name: fang, index: 5, position: {x: 140, y: -135}, exp: 600/600, rotated: true, value: 100}
-  - {name: fang, index: 6, position: {x: -140, y: -135}, exp: 600/600, rotated: true, value: 100}
-  - {name: fang, index: 7, position: {x: 140, y: -205}, exp: 600/600, rotated: true, value: 100}
-  - {name: crawler, index: 8, position: {x: 290, y: -285}, exp: 450/450, rotated: true, value: 100}
-  - {name: crawler, index: 9, position: {x: 140, y: -255}, exp: 441/450, rotated: true, value: 100}
-  - {name: scorpion, index: 10, position: {x: 255, y: -135}, level: 2, exp: 2371/3380, value: 300}
-  - {name: fire_badger, index: 11, position: {x: 195, y: -140}, exp: 1400/1400, value: 200}
-  - {name: marksman, index: 12, position: {x: 230, y: -160}, level: 2, exp: 1270/1465, value: 100}
-  - {name: marksman, index: 13, position: {x: 160, y: -160}, level: 2, exp: 1465/1465, value: 100}
-  - {name: crawler, index: 14, position: {x: 210, y: -175}, exp: 442/450, rotated: true, value: 100}
-  - {name: crawler, index: 15, position: {x: 70, y: -175}, exp: 151/450, rotated: true, value: 100}
-  - {name: crawler, index: 16, position: {x: -290, y: -285}, exp: 450/450, rotated: true, value: 100}
-  - {name: fang, index: 17, position: {x: -140, y: -205}, exp: 175/600, rotated: true, value: 100}
-  - {name: crawler, index: 18, position: {x: 55, y: -40}, exp: 1/450, value: 100}
-  - {name: rhino, index: 19, position: {x: 285, y: -245}, level: 2, exp: 160/2591, value: 200}
-  - {name: rhino, index: 20, position: {x: 285, y: -105}, level: 2, exp: 909/2591, value: 200}
-  - {name: marksman, index: 21, position: {x: -160, y: -160}, exp: 359/650, value: 100}
+  - {name: marksman, index: 0, value: 100, level: 2, position: {x: -120, y: -160}, exp: 1465/1465}
+  - {name: marksman, index: 1, value: 100, level: 3, position: {x: 120, y: -160}, exp: 79/2315}
+  - {name: marksman, index: 2, value: 100, level: 2, position: {x: 50, y: -160}, exp: 191/1465}
+  - {name: fire_badger, index: 3, value: 200, level: 4, position: {x: 85, y: -140}, exp: 2077/6286}
+  - {name: fire_badger, index: 4, value: 200, level: 3, position: {x: -85, y: -140}, exp: 4987/4987}
+  - {name: fang, index: 5, value: 100, position: {x: 140, y: -135}, exp: 600/600, rotated: true}
+  - {name: fang, index: 6, value: 100, position: {x: -140, y: -135}, exp: 600/600, rotated: true}
+  - {name: fang, index: 7, value: 100, position: {x: 140, y: -205}, exp: 600/600, rotated: true}
+  - {name: crawler, index: 8, value: 100, position: {x: 290, y: -285}, exp: 450/450, rotated: true}
+  - {name: crawler, index: 9, value: 100, position: {x: 140, y: -255}, exp: 441/450, rotated: true}
+  - {name: scorpion, index: 10, value: 300, level: 2, position: {x: 255, y: -135}, exp: 2371/3380}
+  - {name: fire_badger, index: 11, value: 200, position: {x: 195, y: -140}, exp: 1400/1400}
+  - {name: marksman, index: 12, value: 100, level: 2, position: {x: 230, y: -160}, exp: 1270/1465}
+  - {name: marksman, index: 13, value: 100, level: 2, position: {x: 160, y: -160}, exp: 1465/1465}
+  - {name: crawler, index: 14, value: 100, position: {x: 210, y: -175}, exp: 442/450, rotated: true}
+  - {name: crawler, index: 15, value: 100, position: {x: 70, y: -175}, exp: 151/450, rotated: true}
+  - {name: crawler, index: 16, value: 100, position: {x: -290, y: -285}, exp: 450/450, rotated: true}
+  - {name: fang, index: 17, value: 100, position: {x: -140, y: -205}, exp: 175/600, rotated: true}
+  - {name: crawler, index: 18, value: 100, position: {x: 55, y: -40}, exp: 1/450}
+  - {name: rhino, index: 19, value: 200, level: 2, position: {x: 285, y: -245}, exp: 160/2591}
+  - {name: rhino, index: 20, value: 200, level: 2, position: {x: 285, y: -105}, exp: 909/2591}
+  - {name: marksman, index: 21, value: 100, position: {x: -160, y: -160}, exp: 359/650}
   constructions:
   - {name: defensive_wall, index: 0, position: {x: -140, y: -55}}
   - {name: anti_armor_turret, index: 1, position: {x: 140, y: -100}}
@@ -763,7 +763,6 @@ blue:
 - {type: upgrade_unit, index: 20}
 - {type: release_contraption, name: missile, position: {x: -53, y: -15}}
 - {type: active_energy_tower_skill, name: high_mobility}
-- {type: active_energy_tower_skill, name: deposit_supply}
 red:
 - {type: choose_reinforce_item, index: 3, name: advanced_offensive_tactics}
 - {type: buy_unit, name: scorpion}
@@ -780,7 +779,6 @@ red:
 - {type: upgrade_unit, index: 13}
 - {type: release_contraption, name: missile, position: {x: 4, y: -11}}
 - {type: release_commander_skill, index: 3, name: mobile_beacon, target: {area: [{x: 54, y: -39}, {x: -72, y: -40}, {x: 75, y: -39}]}}
-- {type: active_energy_tower_skill, name: deposit_supply}
 ---
 kind: state
 round: 8
@@ -792,7 +790,8 @@ reinforce_offers: [photon_emission, missile_strike, improved_firepower_control_s
 blue:
   random_state: [10975146685952115563, 4375265945259328290, 111668291018060278, 17557340338474578325]
   reactor_core: 2005
-  supply: 1950
+  supply: 1750
+  reinforce_choice: -1
   unlocked_units: [marksman, rhino, wasp, steel_ball, fang, crawler, stormcaller, hound]
   blueprints: [field_recovery, attack_enhancement, defense_enhancement]
   tower_strengthen_levels: [0, 1]
@@ -805,37 +804,38 @@ blue:
     rhino: [armor_enhancement]
     hound: [range_enhancement, chamber_compression]
   units:
-  - {name: hound, index: 0, position: {x: -110, y: -110}, level: 4, exp: 3201/3368, value: 100}
-  - {name: hound, index: 1, position: {x: -10, y: -110}, level: 2, exp: 8/1690, value: 100}
-  - {name: hound, index: 2, position: {x: 110, y: -110}, exp: 587/750, value: 100}
-  - {name: crawler, index: 5, position: {x: -110, y: -145}, exp: 450/450, rotated: true, value: 100}
-  - {name: crawler, index: 6, position: {x: -110, y: -245}, exp: 450/450, rotated: true, value: 100}
-  - {name: marksman, index: 7, position: {x: -150, y: -120}, level: 3, exp: 2315/2315, value: 100}
-  - {name: crawler, index: 8, position: {x: 260, y: -285}, level: 2, exp: 35/1014, rotated: true, value: 100}
-  - {name: hound, index: 9, position: {x: -350, y: 30}, exp: 750/750, value: 100}
-  - {name: hound, index: 10, position: {x: -280, y: -140}, level: 2, exp: 1690/1690, value: 100}
-  - {name: stormcaller, index: 11, position: {x: -155, y: -100}, level: 3, exp: 1571/3918, value: 200}
-  - {name: fang, index: 12, position: {x: -110, y: -75}, exp: 600/600, rotated: true, value: 100}
-  - {name: marksman, index: 13, position: {x: 210, y: -190}, exp: 621/650, value: 100}
-  - {name: crawler, index: 14, position: {x: -260, y: -285}, exp: 450/450, rotated: true, value: 100}
-  - {name: crawler, index: 15, position: {x: -310, y: 245}, exp: 387/450, value: 100}
-  - {name: fang, index: 16, position: {x: -230, y: -65}, exp: 600/600, rotated: true, value: 100}
-  - {name: fang, index: 17, position: {x: -325, y: 80}, exp: 20/600, rotated: true, value: 100}
-  - {name: hound, index: 18, position: {x: -350, y: 290}, level: 2, exp: 1178/1690, value: 100}
-  - {name: hound, index: 19, position: {x: -350, y: 210}, exp: 750/750, value: 100}
-  - {name: stormcaller, index: 20, position: {x: -55, y: -100}, level: 2, exp: 8/2479, value: 200}
-  - {name: rhino, index: 21, position: {x: -145, y: -145}, level: 2, exp: 2591/2591, value: 200}
-  - {name: rhino, index: 22, position: {x: -345, y: 245}, level: 2, exp: 1362/2591, value: 200}
-  - {name: rhino, index: 23, position: {x: -75, y: -145}, level: 2, exp: 2591/2591, value: 200}
-  - {name: rhino, index: 24, position: {x: -345, y: 155}, level: 2, exp: 107/2591, value: 200}
-  - {name: fang, index: 25, position: {x: -310, y: 155}, level: 2, exp: 10/1352, value: 100}
-  - {name: wasp, index: 26, position: {x: -330, y: 205}, exp: 900/900, value: 200}
-  - {name: wasp, index: 27, position: {x: -185, y: -120}, exp: 900/900, value: 200}
-  - {name: wasp, index: 28, position: {x: -65, y: -120}, exp: 900/900, value: 200}
+  - {name: hound, index: 0, value: 100, level: 4, position: {x: -110, y: -110}, exp: 3201/3368}
+  - {name: hound, index: 1, value: 100, level: 2, position: {x: -10, y: -110}, exp: 8/1690}
+  - {name: hound, index: 2, value: 100, position: {x: 110, y: -110}, exp: 587/750}
+  - {name: crawler, index: 5, value: 100, position: {x: -110, y: -145}, exp: 450/450, rotated: true}
+  - {name: crawler, index: 6, value: 100, position: {x: -110, y: -245}, exp: 450/450, rotated: true}
+  - {name: marksman, index: 7, value: 100, level: 3, position: {x: -150, y: -120}, exp: 2315/2315}
+  - {name: crawler, index: 8, value: 100, level: 2, position: {x: 260, y: -285}, exp: 35/1014, rotated: true}
+  - {name: hound, index: 9, value: 100, position: {x: -350, y: 30}, exp: 750/750}
+  - {name: hound, index: 10, value: 100, level: 2, position: {x: -280, y: -140}, exp: 1690/1690}
+  - {name: stormcaller, index: 11, value: 200, level: 3, position: {x: -155, y: -100}, exp: 1571/3918}
+  - {name: fang, index: 12, value: 100, position: {x: -110, y: -75}, exp: 600/600, rotated: true}
+  - {name: marksman, index: 13, value: 100, position: {x: 210, y: -190}, exp: 621/650}
+  - {name: crawler, index: 14, value: 100, position: {x: -260, y: -285}, exp: 450/450, rotated: true}
+  - {name: crawler, index: 15, value: 100, position: {x: -310, y: 245}, exp: 387/450}
+  - {name: fang, index: 16, value: 100, position: {x: -230, y: -65}, exp: 600/600, rotated: true}
+  - {name: fang, index: 17, value: 100, position: {x: -325, y: 80}, exp: 20/600, rotated: true}
+  - {name: hound, index: 18, value: 100, level: 2, position: {x: -350, y: 290}, exp: 1178/1690}
+  - {name: hound, index: 19, value: 100, position: {x: -350, y: 210}, exp: 750/750}
+  - {name: stormcaller, index: 20, value: 200, level: 2, position: {x: -55, y: -100}, exp: 8/2479}
+  - {name: rhino, index: 21, value: 200, level: 2, position: {x: -145, y: -145}, exp: 2591/2591}
+  - {name: rhino, index: 22, value: 200, level: 2, position: {x: -345, y: 245}, exp: 1362/2591}
+  - {name: rhino, index: 23, value: 200, level: 2, position: {x: -75, y: -145}, exp: 2591/2591}
+  - {name: rhino, index: 24, value: 200, level: 2, position: {x: -345, y: 155}, exp: 107/2591}
+  - {name: fang, index: 25, value: 100, level: 2, position: {x: -310, y: 155}, exp: 10/1352}
+  - {name: wasp, index: 26, value: 200, position: {x: -330, y: 205}, exp: 900/900}
+  - {name: wasp, index: 27, value: 200, position: {x: -185, y: -120}, exp: 900/900}
+  - {name: wasp, index: 28, value: 200, position: {x: -65, y: -120}, exp: 900/900}
 red:
   random_state: [9779913775142702813, 12284099207519801616, 7675028220652065443, 10456035909770940839]
   reactor_core: 2262
-  supply: 1950
+  supply: 1750
+  reinforce_choice: -1
   unlocked_units: [marksman, rhino, fang, crawler, scorpion, fire_badger]
   blueprints: [mobile_beacon]
   tower_strengthen_levels: [0, 0]
@@ -852,31 +852,31 @@ red:
     scorpion: [convergent_fire]
     fire_badger: [field_maintenance, range_enhancement]
   units:
-  - {name: marksman, index: 0, position: {x: -120, y: -160}, level: 3, exp: 262/2315, value: 100}
-  - {name: marksman, index: 1, position: {x: 120, y: -160}, level: 3, exp: 523/2315, value: 100}
-  - {name: marksman, index: 2, position: {x: 50, y: -160}, level: 2, exp: 451/1465, value: 100}
-  - {name: fire_badger, index: 3, position: {x: 85, y: -140}, level: 4, exp: 2628/6286, value: 200}
-  - {name: fire_badger, index: 4, position: {x: -85, y: -140}, level: 4, exp: 932/6286, value: 200}
-  - {name: fang, index: 5, position: {x: 140, y: -135}, exp: 600/600, rotated: true, value: 100}
-  - {name: fang, index: 6, position: {x: -140, y: -135}, exp: 600/600, rotated: true, value: 100}
-  - {name: fang, index: 7, position: {x: 140, y: -205}, exp: 600/600, rotated: true, value: 100}
-  - {name: crawler, index: 8, position: {x: 290, y: -285}, exp: 450/450, rotated: true, value: 100}
-  - {name: crawler, index: 9, position: {x: 140, y: -255}, exp: 450/450, rotated: true, value: 100}
-  - {name: scorpion, index: 10, position: {x: 255, y: -135}, level: 2, exp: 2893/3380, value: 300}
-  - {name: fire_badger, index: 11, position: {x: 195, y: -140}, level: 2, exp: 815/3154, value: 200}
-  - {name: marksman, index: 12, position: {x: 230, y: -160}, level: 2, exp: 1465/1465, value: 100}
-  - {name: marksman, index: 13, position: {x: 160, y: -160}, level: 3, exp: 1064/2315, value: 100}
-  - {name: crawler, index: 14, position: {x: 210, y: -175}, exp: 450/450, rotated: true, value: 100}
-  - {name: crawler, index: 15, position: {x: 70, y: -175}, exp: 307/450, rotated: true, value: 100}
-  - {name: crawler, index: 16, position: {x: -290, y: -285}, exp: 450/450, rotated: true, value: 100}
-  - {name: fang, index: 17, position: {x: -140, y: -205}, exp: 382/600, rotated: true, value: 100}
-  - {name: crawler, index: 18, position: {x: 55, y: -40}, exp: 1/450, value: 100}
-  - {name: rhino, index: 19, position: {x: 285, y: -245}, level: 2, exp: 416/2591, value: 200}
-  - {name: rhino, index: 20, position: {x: 285, y: -105}, level: 2, exp: 2003/2591, value: 200}
-  - {name: marksman, index: 21, position: {x: -160, y: -160}, exp: 650/650, value: 100}
-  - {name: scorpion, index: 22, position: {x: 25, y: -155}, exp: 935/1500, value: 300}
-  - {name: scorpion, index: 23, position: {x: -25, y: -155}, exp: 303/1500, value: 300}
-  - {name: crawler, index: 24, position: {x: -70, y: -175}, exp: 433/450, rotated: true, value: 100}
+  - {name: marksman, index: 0, value: 100, level: 3, position: {x: -120, y: -160}, exp: 262/2315}
+  - {name: marksman, index: 1, value: 100, level: 3, position: {x: 120, y: -160}, exp: 523/2315}
+  - {name: marksman, index: 2, value: 100, level: 2, position: {x: 50, y: -160}, exp: 451/1465}
+  - {name: fire_badger, index: 3, value: 200, level: 4, position: {x: 85, y: -140}, exp: 2628/6286}
+  - {name: fire_badger, index: 4, value: 200, level: 4, position: {x: -85, y: -140}, exp: 932/6286}
+  - {name: fang, index: 5, value: 100, position: {x: 140, y: -135}, exp: 600/600, rotated: true}
+  - {name: fang, index: 6, value: 100, position: {x: -140, y: -135}, exp: 600/600, rotated: true}
+  - {name: fang, index: 7, value: 100, position: {x: 140, y: -205}, exp: 600/600, rotated: true}
+  - {name: crawler, index: 8, value: 100, position: {x: 290, y: -285}, exp: 450/450, rotated: true}
+  - {name: crawler, index: 9, value: 100, position: {x: 140, y: -255}, exp: 450/450, rotated: true}
+  - {name: scorpion, index: 10, value: 300, level: 2, position: {x: 255, y: -135}, exp: 2893/3380}
+  - {name: fire_badger, index: 11, value: 200, level: 2, position: {x: 195, y: -140}, exp: 815/3154}
+  - {name: marksman, index: 12, value: 100, level: 2, position: {x: 230, y: -160}, exp: 1465/1465}
+  - {name: marksman, index: 13, value: 100, level: 3, position: {x: 160, y: -160}, exp: 1064/2315}
+  - {name: crawler, index: 14, value: 100, position: {x: 210, y: -175}, exp: 450/450, rotated: true}
+  - {name: crawler, index: 15, value: 100, position: {x: 70, y: -175}, exp: 307/450, rotated: true}
+  - {name: crawler, index: 16, value: 100, position: {x: -290, y: -285}, exp: 450/450, rotated: true}
+  - {name: fang, index: 17, value: 100, position: {x: -140, y: -205}, exp: 382/600, rotated: true}
+  - {name: crawler, index: 18, value: 100, position: {x: 55, y: -40}, exp: 1/450}
+  - {name: rhino, index: 19, value: 200, level: 2, position: {x: 285, y: -245}, exp: 416/2591}
+  - {name: rhino, index: 20, value: 200, level: 2, position: {x: 285, y: -105}, exp: 2003/2591}
+  - {name: marksman, index: 21, value: 100, position: {x: -160, y: -160}, exp: 650/650}
+  - {name: scorpion, index: 22, value: 300, position: {x: 25, y: -155}, exp: 935/1500}
+  - {name: scorpion, index: 23, value: 300, position: {x: -25, y: -155}, exp: 303/1500}
+  - {name: crawler, index: 24, value: 100, position: {x: -70, y: -175}, exp: 433/450, rotated: true}
   constructions:
   - {name: defensive_wall, index: 0, position: {x: -140, y: -55}}
   - {name: anti_armor_turret, index: 1, position: {x: 140, y: -100}}
@@ -887,6 +887,7 @@ kind: action
 round: 8
 blue:
 - {type: choose_reinforce_item, index: 0, name: photon_emission}
+- {type: active_energy_tower_skill, name: rapid_resupply}
 - {type: buy_unit, name: fang}
 - {type: buy_unit, name: wasp}
 - {type: active_energy_tower_skill, name: mass_recruitment}
@@ -926,7 +927,6 @@ red:
 - {type: release_contraption, name: shield, position: {x: 139, y: -160}}
 - {type: active_energy_tower_skill, name: mass_recruitment}
 - {type: active_energy_tower_skill, name: enhanced_range}
-- {type: active_energy_tower_skill, name: deposit_supply}
 ---
 kind: state
 round: 9
@@ -938,7 +938,8 @@ reinforce_offers: [phoenix_2x_lv2, fortress_2x_lv1, overlord_1x_lv2, raiden_2x_l
 blue:
   random_state: [10975146685952115563, 4375265945259328290, 111668291018060278, 17557340338474578325]
   reactor_core: 2005
-  supply: 1900
+  supply: 1700
+  reinforce_choice: -1
   unlocked_units: [marksman, rhino, wasp, steel_ball, fang, crawler, stormcaller, hound]
   blueprints: [field_recovery, attack_enhancement, defense_enhancement]
   tower_strengthen_levels: [0, 1]
@@ -952,43 +953,46 @@ blue:
     rhino: [whirlwind, armor_enhancement]
     hound: [range_enhancement, chamber_compression]
   units:
-  - {name: hound, index: 0, position: {x: -110, y: -110}, level: 4, exp: 3368/3368, value: 100}
-  - {name: hound, index: 1, position: {x: -10, y: -110}, level: 2, exp: 323/1690, value: 100}
-  - {name: hound, index: 2, position: {x: 110, y: -110}, exp: 665/750, value: 100}
-  - {name: crawler, index: 5, position: {x: -110, y: -145}, exp: 450/450, rotated: true, value: 100}
-  - {name: crawler, index: 6, position: {x: -110, y: -245}, exp: 450/450, rotated: true, value: 100}
-  - {name: marksman, index: 7, position: {x: -150, y: -120}, level: 4, exp: 1921/2919, value: 100}
-  - {name: crawler, index: 8, position: {x: 260, y: -285}, level: 2, exp: 47/1014, rotated: true, value: 100}
-  - {name: hound, index: 9, position: {x: -350, y: 30}, level: 2, exp: 1690/1690, value: 100}
-  - {name: hound, index: 10, position: {x: -280, y: -140}, level: 3, exp: 2258/2671, value: 100}
-  - {name: stormcaller, index: 11, position: {x: -155, y: -100}, level: 3, exp: 2238/3918, value: 200}
-  - {name: fang, index: 12, position: {x: -110, y: -75}, exp: 600/600, rotated: true, value: 100}
-  - {name: marksman, index: 13, position: {x: 210, y: -190}, exp: 650/650, value: 100}
-  - {name: crawler, index: 14, position: {x: -260, y: -285}, exp: 450/450, rotated: true, value: 100}
-  - {name: crawler, index: 15, position: {x: -310, y: 245}, exp: 420/450, value: 100}
-  - {name: fang, index: 16, position: {x: -230, y: -65}, exp: 600/600, rotated: true, value: 100}
-  - {name: fang, index: 17, position: {x: -325, y: 80}, exp: 26/600, rotated: true, value: 100}
-  - {name: hound, index: 18, position: {x: -350, y: 290}, level: 2, exp: 1690/1690, value: 100}
-  - {name: hound, index: 19, position: {x: -350, y: 210}, level: 2, exp: 211/1690, value: 100}
-  - {name: stormcaller, index: 20, position: {x: -55, y: -100}, level: 2, exp: 926/2479, value: 200}
-  - {name: rhino, index: 21, position: {x: -145, y: -145}, level: 3, exp: 2610/4096, value: 200}
-  - {name: rhino, index: 22, position: {x: -345, y: 245}, level: 2, exp: 1629/2591, value: 200}
-  - {name: rhino, index: 23, position: {x: -75, y: -145}, level: 3, exp: 1559/4096, value: 200}
-  - {name: rhino, index: 24, position: {x: -345, y: 155}, level: 2, exp: 113/2591, value: 200}
-  - {name: fang, index: 25, position: {x: -310, y: 155}, level: 2, exp: 16/1352, value: 100}
-  - {name: wasp, index: 26, position: {x: -330, y: 205}, level: 2, exp: 178/2028, value: 200}
-  - {name: wasp, index: 27, position: {x: -185, y: -120}, level: 2, exp: 981/2028, value: 200}
-  - {name: wasp, index: 28, position: {x: -65, y: -120}, level: 2, exp: 1387/2028, value: 200}
-  - {name: fang, index: 29, position: {x: 190, y: -205}, exp: 168/600, rotated: true, value: 100}
-  - {name: wasp, index: 30, position: {x: -350, y: 115}, exp: 815/900, value: 200}
-  - {name: fang, index: 31, position: {x: -10, y: -65}, exp: 22/600, rotated: true, value: 100}
+  - {name: hound, index: 0, value: 100, level: 4, position: {x: -110, y: -110}, exp: 3368/3368}
+  - {name: hound, index: 1, value: 100, level: 2, position: {x: -10, y: -110}, exp: 323/1690}
+  - {name: hound, index: 2, value: 100, position: {x: 110, y: -110}, exp: 665/750}
+  - {name: crawler, index: 5, value: 100, position: {x: -110, y: -145}, exp: 450/450, rotated: true}
+  - {name: crawler, index: 6, value: 100, position: {x: -110, y: -245}, exp: 450/450, rotated: true}
+  - {name: marksman, index: 7, value: 100, level: 4, position: {x: -150, y: -120}, exp: 1921/2919}
+  - {name: crawler, index: 8, value: 100, level: 2, position: {x: 260, y: -285}, exp: 47/1014, rotated: true}
+  - {name: hound, index: 9, value: 100, level: 2, position: {x: -350, y: 30}, exp: 1690/1690}
+  - {name: hound, index: 10, value: 100, level: 3, position: {x: -280, y: -140}, exp: 2258/2671}
+  - {name: stormcaller, index: 11, value: 200, level: 3, position: {x: -155, y: -100}, exp: 2238/3918}
+  - {name: fang, index: 12, value: 100, position: {x: -110, y: -75}, exp: 600/600, rotated: true}
+  - {name: marksman, index: 13, value: 100, position: {x: 210, y: -190}, exp: 650/650}
+  - {name: crawler, index: 14, value: 100, position: {x: -260, y: -285}, exp: 450/450, rotated: true}
+  - {name: crawler, index: 15, value: 100, position: {x: -310, y: 245}, exp: 420/450}
+  - {name: fang, index: 16, value: 100, position: {x: -230, y: -65}, exp: 600/600, rotated: true}
+  - {name: fang, index: 17, value: 100, position: {x: -325, y: 80}, exp: 26/600, rotated: true}
+  - {name: hound, index: 18, value: 100, level: 2, position: {x: -350, y: 290}, exp: 1690/1690}
+  - {name: hound, index: 19, value: 100, level: 2, position: {x: -350, y: 210}, exp: 211/1690}
+  - {name: stormcaller, index: 20, value: 200, level: 2, position: {x: -55, y: -100}, exp: 926/2479}
+  - {name: rhino, index: 21, value: 200, level: 3, position: {x: -145, y: -145}, exp: 2610/4096}
+  - {name: rhino, index: 22, value: 200, level: 2, position: {x: -345, y: 245}, exp: 1629/2591}
+  - {name: rhino, index: 23, value: 200, level: 3, position: {x: -75, y: -145}, exp: 1559/4096}
+  - {name: rhino, index: 24, value: 200, level: 2, position: {x: -345, y: 155}, exp: 113/2591}
+  - {name: fang, index: 25, value: 100, level: 2, position: {x: -310, y: 155}, exp: 16/1352}
+  - {name: wasp, index: 26, value: 200, level: 2, position: {x: -330, y: 205}, exp: 178/2028}
+  - {name: wasp, index: 27, value: 200, level: 2, position: {x: -185, y: -120}, exp: 981/2028}
+  - {name: wasp, index: 28, value: 200, level: 2, position: {x: -65, y: -120}, exp: 1387/2028}
+  - {name: fang, index: 29, value: 100, position: {x: 190, y: -205}, exp: 168/600, rotated: true}
+  - {name: wasp, index: 30, value: 200, position: {x: -350, y: 115}, exp: 815/900}
+  - {name: fang, index: 31, value: 100, position: {x: -10, y: -65}, exp: 22/600, rotated: true}
 red:
   random_state: [9779913775142702813, 12284099207519801616, 7675028220652065443, 10456035909770940839]
   reactor_core: 1390
-  supply: 2150
+  supply: 1950
+  reinforce_choice: -1
   unlocked_units: [marksman, rhino, fang, crawler, wraith, scorpion, fire_badger]
   blueprints: [mobile_beacon]
   tower_strengthen_levels: [0, 0]
+  equipment:
+  - {name: improved_firepower_control_system, fitted: {unit: 22, slot: 0}}
   battle_skills:
   - {index: 0, name: intensive_training, cooldown: 1}
   - {index: 1, name: intensive_training, cooldown: 1}
@@ -1003,33 +1007,33 @@ red:
     scorpion: [convergent_fire]
     fire_badger: [field_maintenance, range_enhancement]
   units:
-  - {name: marksman, index: 0, position: {x: -120, y: -160}, level: 3, exp: 979/2315, value: 100}
-  - {name: marksman, index: 1, position: {x: 120, y: -160}, level: 3, exp: 635/2315, value: 100}
-  - {name: marksman, index: 2, position: {x: 50, y: -160}, level: 2, exp: 811/1465, value: 100}
-  - {name: fire_badger, index: 3, position: {x: 85, y: -140}, level: 4, exp: 2763/6286, value: 200}
-  - {name: fire_badger, index: 4, position: {x: -85, y: -140}, level: 4, exp: 2309/6286, value: 200}
-  - {name: fang, index: 5, position: {x: 140, y: -135}, exp: 600/600, rotated: true, value: 100}
-  - {name: fang, index: 6, position: {x: -140, y: -135}, exp: 600/600, rotated: true, value: 100}
-  - {name: fang, index: 7, position: {x: 140, y: -205}, exp: 600/600, rotated: true, value: 100}
-  - {name: crawler, index: 8, position: {x: 290, y: -285}, exp: 450/450, rotated: true, value: 100}
-  - {name: crawler, index: 9, position: {x: 140, y: -255}, exp: 450/450, rotated: true, value: 100}
-  - {name: scorpion, index: 10, position: {x: 255, y: -135}, level: 2, exp: 3380/3380, value: 300}
-  - {name: fire_badger, index: 11, position: {x: 195, y: -140}, level: 2, exp: 1636/3154, value: 200}
-  - {name: marksman, index: 12, position: {x: 230, y: -160}, level: 2, exp: 1465/1465, value: 100}
-  - {name: marksman, index: 13, position: {x: 160, y: -160}, level: 3, exp: 1222/2315, value: 100}
-  - {name: crawler, index: 14, position: {x: 210, y: -175}, exp: 450/450, rotated: true, value: 100}
-  - {name: crawler, index: 15, position: {x: 70, y: -175}, exp: 416/450, rotated: true, value: 100}
-  - {name: crawler, index: 16, position: {x: -290, y: -285}, exp: 450/450, rotated: true, value: 100}
-  - {name: fang, index: 17, position: {x: -140, y: -205}, exp: 560/600, rotated: true, value: 100}
-  - {name: crawler, index: 18, position: {x: 55, y: -40}, exp: 1/450, value: 100}
-  - {name: rhino, index: 19, position: {x: 285, y: -245}, level: 2, exp: 594/2591, value: 200}
-  - {name: rhino, index: 20, position: {x: 285, y: -105}, level: 2, exp: 2591/2591, value: 200}
-  - {name: marksman, index: 21, position: {x: -160, y: -160}, exp: 650/650, value: 100}
-  - {name: scorpion, index: 22, position: {x: 25, y: -155}, level: 2, exp: 1243/3380, equipment: [improved_firepower_control_system], value: 300}
-  - {name: scorpion, index: 23, position: {x: -25, y: -155}, exp: 645/1500, value: 300}
-  - {name: crawler, index: 24, position: {x: -70, y: -175}, exp: 450/450, rotated: true, value: 100}
-  - {name: wraith, index: 25, position: {x: 95, y: -165}, level: 2, exp: 593/5070, value: 300}
-  - {name: wraith, index: 26, position: {x: 255, y: -215}, level: 2, exp: 5070/5070, value: 300}
+  - {name: marksman, index: 0, value: 100, level: 3, position: {x: -120, y: -160}, exp: 979/2315}
+  - {name: marksman, index: 1, value: 100, level: 3, position: {x: 120, y: -160}, exp: 635/2315}
+  - {name: marksman, index: 2, value: 100, level: 2, position: {x: 50, y: -160}, exp: 811/1465}
+  - {name: fire_badger, index: 3, value: 200, level: 4, position: {x: 85, y: -140}, exp: 2763/6286}
+  - {name: fire_badger, index: 4, value: 200, level: 4, position: {x: -85, y: -140}, exp: 2309/6286}
+  - {name: fang, index: 5, value: 100, position: {x: 140, y: -135}, exp: 600/600, rotated: true}
+  - {name: fang, index: 6, value: 100, position: {x: -140, y: -135}, exp: 600/600, rotated: true}
+  - {name: fang, index: 7, value: 100, position: {x: 140, y: -205}, exp: 600/600, rotated: true}
+  - {name: crawler, index: 8, value: 100, position: {x: 290, y: -285}, exp: 450/450, rotated: true}
+  - {name: crawler, index: 9, value: 100, position: {x: 140, y: -255}, exp: 450/450, rotated: true}
+  - {name: scorpion, index: 10, value: 300, level: 2, position: {x: 255, y: -135}, exp: 3380/3380}
+  - {name: fire_badger, index: 11, value: 200, level: 2, position: {x: 195, y: -140}, exp: 1636/3154}
+  - {name: marksman, index: 12, value: 100, level: 2, position: {x: 230, y: -160}, exp: 1465/1465}
+  - {name: marksman, index: 13, value: 100, level: 3, position: {x: 160, y: -160}, exp: 1222/2315}
+  - {name: crawler, index: 14, value: 100, position: {x: 210, y: -175}, exp: 450/450, rotated: true}
+  - {name: crawler, index: 15, value: 100, position: {x: 70, y: -175}, exp: 416/450, rotated: true}
+  - {name: crawler, index: 16, value: 100, position: {x: -290, y: -285}, exp: 450/450, rotated: true}
+  - {name: fang, index: 17, value: 100, position: {x: -140, y: -205}, exp: 560/600, rotated: true}
+  - {name: crawler, index: 18, value: 100, position: {x: 55, y: -40}, exp: 1/450}
+  - {name: rhino, index: 19, value: 200, level: 2, position: {x: 285, y: -245}, exp: 594/2591}
+  - {name: rhino, index: 20, value: 200, level: 2, position: {x: 285, y: -105}, exp: 2591/2591}
+  - {name: marksman, index: 21, value: 100, position: {x: -160, y: -160}, exp: 650/650}
+  - {name: scorpion, index: 22, value: 300, level: 2, position: {x: 25, y: -155}, exp: 1243/3380}
+  - {name: scorpion, index: 23, value: 300, position: {x: -25, y: -155}, exp: 645/1500}
+  - {name: crawler, index: 24, value: 100, position: {x: -70, y: -175}, exp: 450/450, rotated: true}
+  - {name: wraith, index: 25, value: 300, level: 2, position: {x: 95, y: -165}, exp: 593/5070}
+  - {name: wraith, index: 26, value: 300, level: 2, position: {x: 255, y: -215}, exp: 5070/5070}
   constructions:
   - {name: defensive_wall, index: 0, position: {x: -140, y: -55}}
   - {name: anti_armor_turret, index: 1, position: {x: 140, y: -100}}
@@ -1040,6 +1044,7 @@ kind: action
 round: 9
 blue:
 - {type: choose_reinforce_item, index: 0, name: phoenix_2x_lv2}
+- {type: active_energy_tower_skill, name: rapid_resupply}
 - {type: release_commander_skill, index: 0, name: field_recovery, target: {unit: 11}}
 - {type: buy_unit, name: crawler}
 - {type: buy_unit, name: phoenix}
@@ -1086,7 +1091,6 @@ red:
 - {type: active_blueprint, name: defense_enhancement}
 - {type: release_commander_skill, index: 4, name: sticky_oil_bomb, target: {area: [{x: 69, y: -26}, {x: 174, y: -26}]}}
 - {type: release_commander_skill, index: 3, name: mobile_beacon, target: {area: [{x: 56, y: -41}, {x: -49, y: -41}, {x: 123, y: -40}]}}
-- {type: active_energy_tower_skill, name: deposit_supply}
 ---
 kind: state
 round: 10
@@ -1098,7 +1102,8 @@ reinforce_offers: [ion_blast, improved_sabertooth, advanced_offensive_tactics, a
 blue:
   random_state: [10975146685952115563, 4375265945259328290, 111668291018060278, 17557340338474578325]
   reactor_core: 1011
-  supply: 2050
+  supply: 1850
+  reinforce_choice: -1
   unlocked_units: [marksman, rhino, wasp, steel_ball, fang, crawler, stormcaller, phoenix, hound]
   blueprints: [field_recovery, mobile_beacon, attack_enhancement, defense_enhancement]
   tower_strengthen_levels: [0, 1]
@@ -1116,50 +1121,53 @@ blue:
     phoenix: [charged_shot]
     hound: [range_enhancement, chamber_compression]
   units:
-  - {name: hound, index: 0, position: {x: -110, y: -110}, level: 5, exp: 614/3908, value: 100}
-  - {name: hound, index: 1, position: {x: -10, y: -110}, level: 2, exp: 1079/1690, value: 100}
-  - {name: hound, index: 2, position: {x: 110, y: -110}, exp: 742/750, value: 100}
-  - {name: crawler, index: 5, position: {x: -110, y: -145}, exp: 450/450, rotated: true, value: 100}
-  - {name: crawler, index: 6, position: {x: -110, y: -245}, exp: 450/450, rotated: true, value: 100}
-  - {name: marksman, index: 7, position: {x: -150, y: -120}, level: 4, exp: 2919/2919, value: 100}
-  - {name: crawler, index: 8, position: {x: 260, y: -285}, level: 2, exp: 59/1014, rotated: true, value: 100}
-  - {name: hound, index: 9, position: {x: -350, y: 30}, level: 3, exp: 1274/2671, value: 100}
-  - {name: hound, index: 10, position: {x: -280, y: -140}, level: 3, exp: 2671/2671, value: 100}
-  - {name: fang, index: 12, position: {x: -110, y: -75}, level: 2, exp: 217/1352, rotated: true, value: 100}
-  - {name: marksman, index: 13, position: {x: 210, y: -190}, level: 2, exp: 54/1465, value: 100}
-  - {name: crawler, index: 14, position: {x: -260, y: -285}, exp: 450/450, rotated: true, value: 100}
-  - {name: crawler, index: 15, position: {x: -310, y: 245}, exp: 450/450, value: 100}
-  - {name: fang, index: 16, position: {x: -230, y: -65}, level: 2, exp: 815/1352, rotated: true, value: 100}
-  - {name: fang, index: 17, position: {x: -325, y: 80}, exp: 31/600, rotated: true, value: 100}
-  - {name: hound, index: 18, position: {x: -350, y: 290}, level: 3, exp: 1318/2671, value: 100}
-  - {name: hound, index: 19, position: {x: -350, y: 210}, level: 2, exp: 277/1690, value: 100}
-  - {name: stormcaller, index: 20, position: {x: -55, y: -100}, level: 2, exp: 2085/2479, value: 200}
-  - {name: rhino, index: 21, position: {x: -145, y: -145}, level: 3, exp: 3755/4096, value: 200}
-  - {name: rhino, index: 22, position: {x: -345, y: 245}, level: 2, exp: 1708/2591, value: 200}
-  - {name: rhino, index: 23, position: {x: -75, y: -145}, level: 3, exp: 1756/4096, value: 200}
-  - {name: rhino, index: 24, position: {x: -345, y: 155}, level: 2, exp: 175/2591, value: 200}
-  - {name: fang, index: 25, position: {x: -310, y: 155}, level: 2, exp: 55/1352, value: 100}
-  - {name: wasp, index: 26, position: {x: -330, y: 205}, level: 2, exp: 219/2028, value: 200}
-  - {name: wasp, index: 27, position: {x: -185, y: -120}, level: 2, exp: 1395/2028, value: 200}
-  - {name: wasp, index: 28, position: {x: -65, y: -120}, level: 2, exp: 1413/2028, value: 200}
-  - {name: fang, index: 29, position: {x: 190, y: -205}, exp: 229/600, rotated: true, value: 100}
-  - {name: wasp, index: 30, position: {x: -350, y: 115}, exp: 900/900, value: 200}
-  - {name: fang, index: 31, position: {x: -10, y: -65}, exp: 70/600, rotated: true, value: 100}
-  - {name: phoenix, index: 32, position: {x: -10, y: -130}, level: 2, exp: 2929/2929, value: 200}
-  - {name: phoenix, index: 33, position: {x: -80, y: -170}, level: 2, exp: 2690/2929, value: 200}
-  - {name: crawler, index: 34, position: {x: 20, y: -165}, exp: 26/450, rotated: true, value: 100}
-  - {name: phoenix, index: 35, position: {x: -190, y: -140}, exp: 1300/1300, value: 200}
-  - {name: rhino, index: 36, position: {x: -285, y: -115}, level: 2, exp: 308/2591, value: 200}
+  - {name: hound, index: 0, value: 100, level: 5, position: {x: -110, y: -110}, exp: 614/3908}
+  - {name: hound, index: 1, value: 100, level: 2, position: {x: -10, y: -110}, exp: 1079/1690}
+  - {name: hound, index: 2, value: 100, position: {x: 110, y: -110}, exp: 742/750}
+  - {name: crawler, index: 5, value: 100, position: {x: -110, y: -145}, exp: 450/450, rotated: true}
+  - {name: crawler, index: 6, value: 100, position: {x: -110, y: -245}, exp: 450/450, rotated: true}
+  - {name: marksman, index: 7, value: 100, level: 4, position: {x: -150, y: -120}, exp: 2919/2919}
+  - {name: crawler, index: 8, value: 100, level: 2, position: {x: 260, y: -285}, exp: 59/1014, rotated: true}
+  - {name: hound, index: 9, value: 100, level: 3, position: {x: -350, y: 30}, exp: 1274/2671}
+  - {name: hound, index: 10, value: 100, level: 3, position: {x: -280, y: -140}, exp: 2671/2671}
+  - {name: fang, index: 12, value: 100, level: 2, position: {x: -110, y: -75}, exp: 217/1352, rotated: true}
+  - {name: marksman, index: 13, value: 100, level: 2, position: {x: 210, y: -190}, exp: 54/1465}
+  - {name: crawler, index: 14, value: 100, position: {x: -260, y: -285}, exp: 450/450, rotated: true}
+  - {name: crawler, index: 15, value: 100, position: {x: -310, y: 245}, exp: 450/450}
+  - {name: fang, index: 16, value: 100, level: 2, position: {x: -230, y: -65}, exp: 815/1352, rotated: true}
+  - {name: fang, index: 17, value: 100, position: {x: -325, y: 80}, exp: 31/600, rotated: true}
+  - {name: hound, index: 18, value: 100, level: 3, position: {x: -350, y: 290}, exp: 1318/2671}
+  - {name: hound, index: 19, value: 100, level: 2, position: {x: -350, y: 210}, exp: 277/1690}
+  - {name: stormcaller, index: 20, value: 200, level: 2, position: {x: -55, y: -100}, exp: 2085/2479}
+  - {name: rhino, index: 21, value: 200, level: 3, position: {x: -145, y: -145}, exp: 3755/4096}
+  - {name: rhino, index: 22, value: 200, level: 2, position: {x: -345, y: 245}, exp: 1708/2591}
+  - {name: rhino, index: 23, value: 200, level: 3, position: {x: -75, y: -145}, exp: 1756/4096}
+  - {name: rhino, index: 24, value: 200, level: 2, position: {x: -345, y: 155}, exp: 175/2591}
+  - {name: fang, index: 25, value: 100, level: 2, position: {x: -310, y: 155}, exp: 55/1352}
+  - {name: wasp, index: 26, value: 200, level: 2, position: {x: -330, y: 205}, exp: 219/2028}
+  - {name: wasp, index: 27, value: 200, level: 2, position: {x: -185, y: -120}, exp: 1395/2028}
+  - {name: wasp, index: 28, value: 200, level: 2, position: {x: -65, y: -120}, exp: 1413/2028}
+  - {name: fang, index: 29, value: 100, position: {x: 190, y: -205}, exp: 229/600, rotated: true}
+  - {name: wasp, index: 30, value: 200, position: {x: -350, y: 115}, exp: 900/900}
+  - {name: fang, index: 31, value: 100, position: {x: -10, y: -65}, exp: 70/600, rotated: true}
+  - {name: phoenix, index: 32, value: 200, level: 2, position: {x: -10, y: -130}, exp: 2929/2929}
+  - {name: phoenix, index: 33, value: 200, level: 2, position: {x: -80, y: -170}, exp: 2690/2929}
+  - {name: crawler, index: 34, value: 100, position: {x: 20, y: -165}, exp: 26/450, rotated: true}
+  - {name: phoenix, index: 35, value: 200, position: {x: -190, y: -140}, exp: 1300/1300}
+  - {name: rhino, index: 36, value: 200, level: 2, position: {x: -285, y: -115}, exp: 308/2591}
   contraptions:
   - {name: shield, index: 5, position: {x: -120, y: -109}}
   - {name: shield, index: 7, position: {x: -222, y: -85}}
 red:
   random_state: [9779913775142702813, 12284099207519801616, 7675028220652065443, 10456035909770940839]
   reactor_core: 1390
-  supply: 2350
+  supply: 2150
+  reinforce_choice: -1
   unlocked_units: [marksman, rhino, fang, crawler, wraith, scorpion, fire_badger, raiden]
   blueprints: [sticky_oil_bomb, mobile_beacon, attack_enhancement, defense_enhancement]
   tower_strengthen_levels: [0, 0]
+  equipment:
+  - {name: improved_firepower_control_system, fitted: {unit: 22, slot: 0}}
   battle_skills:
   - {index: 0, name: intensive_training, cooldown: 0}
   - {index: 1, name: intensive_training, cooldown: 0}
@@ -1175,37 +1183,37 @@ red:
     scorpion: [convergent_fire]
     fire_badger: [field_maintenance, range_enhancement]
   units:
-  - {name: marksman, index: 0, position: {x: -120, y: -160}, level: 3, exp: 2315/2315, value: 100}
-  - {name: marksman, index: 1, position: {x: 120, y: -160}, level: 3, exp: 1542/2315, value: 100}
-  - {name: marksman, index: 2, position: {x: 50, y: -160}, level: 2, exp: 1465/1465, value: 100}
-  - {name: fire_badger, index: 3, position: {x: 85, y: -140}, level: 4, exp: 3662/6286, value: 200}
-  - {name: fire_badger, index: 4, position: {x: -85, y: -140}, level: 4, exp: 3711/6286, value: 200}
-  - {name: fang, index: 5, position: {x: 140, y: -135}, exp: 600/600, rotated: true, value: 100}
-  - {name: fang, index: 6, position: {x: -140, y: -135}, exp: 600/600, rotated: true, value: 100}
-  - {name: fang, index: 7, position: {x: 140, y: -205}, exp: 600/600, rotated: true, value: 100}
-  - {name: crawler, index: 8, position: {x: 290, y: -285}, exp: 450/450, rotated: true, value: 100}
-  - {name: crawler, index: 9, position: {x: 140, y: -255}, exp: 450/450, rotated: true, value: 100}
-  - {name: scorpion, index: 10, position: {x: 255, y: -135}, level: 2, exp: 3380/3380, value: 300}
-  - {name: fire_badger, index: 11, position: {x: 195, y: -140}, level: 2, exp: 3026/3154, value: 200}
-  - {name: marksman, index: 12, position: {x: 230, y: -160}, level: 3, exp: 2153/2315, value: 100}
-  - {name: marksman, index: 13, position: {x: 160, y: -160}, level: 3, exp: 1513/2315, value: 100}
-  - {name: crawler, index: 14, position: {x: 210, y: -175}, exp: 450/450, rotated: true, value: 100}
-  - {name: crawler, index: 15, position: {x: 70, y: -175}, exp: 450/450, rotated: true, value: 100}
-  - {name: crawler, index: 16, position: {x: -290, y: -285}, exp: 450/450, rotated: true, value: 100}
-  - {name: fang, index: 17, position: {x: -140, y: -205}, exp: 600/600, rotated: true, value: 100}
-  - {name: crawler, index: 18, position: {x: 55, y: -40}, exp: 1/450, value: 100}
-  - {name: rhino, index: 19, position: {x: 285, y: -245}, level: 2, exp: 1721/2591, value: 200}
-  - {name: rhino, index: 20, position: {x: 285, y: -105}, level: 2, exp: 2591/2591, value: 200}
-  - {name: marksman, index: 21, position: {x: -160, y: -160}, level: 2, exp: 921/1465, value: 100}
-  - {name: scorpion, index: 22, position: {x: 25, y: -155}, level: 2, exp: 3380/3380, equipment: [improved_firepower_control_system], value: 300}
-  - {name: scorpion, index: 23, position: {x: -25, y: -155}, exp: 1111/1500, value: 300}
-  - {name: crawler, index: 24, position: {x: -70, y: -175}, exp: 450/450, rotated: true, value: 100}
-  - {name: wraith, index: 25, position: {x: 95, y: -165}, level: 2, exp: 1952/5070, value: 300}
-  - {name: wraith, index: 26, position: {x: 255, y: -215}, level: 3, exp: 2538/8014, value: 300}
-  - {name: raiden, index: 27, position: {x: 100, y: -200}, exp: 1305/2400, value: 400}
-  - {name: raiden, index: 28, position: {x: 220, y: -250}, exp: 1995/2400, value: 400}
-  - {name: crawler, index: 29, position: {x: 290, y: -185}, exp: 130/450, rotated: true, value: 100}
-  - {name: scorpion, index: 30, position: {x: 165, y: -185}, exp: 903/1500, value: 300}
+  - {name: marksman, index: 0, value: 100, level: 3, position: {x: -120, y: -160}, exp: 2315/2315}
+  - {name: marksman, index: 1, value: 100, level: 3, position: {x: 120, y: -160}, exp: 1542/2315}
+  - {name: marksman, index: 2, value: 100, level: 2, position: {x: 50, y: -160}, exp: 1465/1465}
+  - {name: fire_badger, index: 3, value: 200, level: 4, position: {x: 85, y: -140}, exp: 3662/6286}
+  - {name: fire_badger, index: 4, value: 200, level: 4, position: {x: -85, y: -140}, exp: 3711/6286}
+  - {name: fang, index: 5, value: 100, position: {x: 140, y: -135}, exp: 600/600, rotated: true}
+  - {name: fang, index: 6, value: 100, position: {x: -140, y: -135}, exp: 600/600, rotated: true}
+  - {name: fang, index: 7, value: 100, position: {x: 140, y: -205}, exp: 600/600, rotated: true}
+  - {name: crawler, index: 8, value: 100, position: {x: 290, y: -285}, exp: 450/450, rotated: true}
+  - {name: crawler, index: 9, value: 100, position: {x: 140, y: -255}, exp: 450/450, rotated: true}
+  - {name: scorpion, index: 10, value: 300, level: 2, position: {x: 255, y: -135}, exp: 3380/3380}
+  - {name: fire_badger, index: 11, value: 200, level: 2, position: {x: 195, y: -140}, exp: 3026/3154}
+  - {name: marksman, index: 12, value: 100, level: 3, position: {x: 230, y: -160}, exp: 2153/2315}
+  - {name: marksman, index: 13, value: 100, level: 3, position: {x: 160, y: -160}, exp: 1513/2315}
+  - {name: crawler, index: 14, value: 100, position: {x: 210, y: -175}, exp: 450/450, rotated: true}
+  - {name: crawler, index: 15, value: 100, position: {x: 70, y: -175}, exp: 450/450, rotated: true}
+  - {name: crawler, index: 16, value: 100, position: {x: -290, y: -285}, exp: 450/450, rotated: true}
+  - {name: fang, index: 17, value: 100, position: {x: -140, y: -205}, exp: 600/600, rotated: true}
+  - {name: crawler, index: 18, value: 100, position: {x: 55, y: -40}, exp: 1/450}
+  - {name: rhino, index: 19, value: 200, level: 2, position: {x: 285, y: -245}, exp: 1721/2591}
+  - {name: rhino, index: 20, value: 200, level: 2, position: {x: 285, y: -105}, exp: 2591/2591}
+  - {name: marksman, index: 21, value: 100, level: 2, position: {x: -160, y: -160}, exp: 921/1465}
+  - {name: scorpion, index: 22, value: 300, level: 2, position: {x: 25, y: -155}, exp: 3380/3380}
+  - {name: scorpion, index: 23, value: 300, position: {x: -25, y: -155}, exp: 1111/1500}
+  - {name: crawler, index: 24, value: 100, position: {x: -70, y: -175}, exp: 450/450, rotated: true}
+  - {name: wraith, index: 25, value: 300, level: 2, position: {x: 95, y: -165}, exp: 1952/5070}
+  - {name: wraith, index: 26, value: 300, level: 3, position: {x: 255, y: -215}, exp: 2538/8014}
+  - {name: raiden, index: 27, value: 400, position: {x: 100, y: -200}, exp: 1305/2400}
+  - {name: raiden, index: 28, value: 400, position: {x: 220, y: -250}, exp: 1995/2400}
+  - {name: crawler, index: 29, value: 100, position: {x: 290, y: -185}, exp: 130/450, rotated: true}
+  - {name: scorpion, index: 30, value: 300, position: {x: 165, y: -185}, exp: 903/1500}
   constructions:
   - {name: defensive_wall, index: 0, position: {x: -140, y: -55}}
   - {name: anti_armor_turret, index: 1, position: {x: 140, y: -100}}
@@ -1216,6 +1224,7 @@ kind: action
 round: 10
 blue:
 - {type: choose_reinforce_item, index: 2, name: advanced_offensive_tactics}
+- {type: active_energy_tower_skill, name: rapid_resupply}
 - {type: release_commander_skill, index: 0, name: field_recovery, target: {unit: 33}}
 - {type: buy_unit, name: crawler}
 - {type: active_energy_tower_skill, name: elite_recruitment}
@@ -1236,6 +1245,7 @@ blue:
 - {type: release_commander_skill, index: 3, name: mobile_beacon, target: {area: [{x: -281, y: -53}, {x: -179, y: 119}, {x: -145, y: 169}]}}
 red:
 - {type: choose_reinforce_item, index: 2, name: advanced_offensive_tactics}
+- {type: active_energy_tower_skill, name: rapid_resupply}
 - {type: unlock_unit, name: phantom_ray}
 - {type: buy_unit, name: phantom_ray}
 - {type: buy_unit, name: phantom_ray}

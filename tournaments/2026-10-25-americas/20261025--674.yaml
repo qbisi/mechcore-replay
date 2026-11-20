@@ -108,7 +108,7 @@ random_state: [5996385340492591738, 6090986832833560020, 6280837591705204402, 14
 blue:
   random_state: [12358332493099096300, 13902517358491044654, 18266618340577821518, 9991897577128476181]
   reactor_core: 5000
-  supply: 400
+  supply: 200
   unlocked_units: [mustang, void_eye]
   tower_strengthen_levels: [0, 0]
   equipment:
@@ -116,27 +116,27 @@ blue:
   next_index: {unit: 5, contraption: 0}
   officers: [secondary_equipment_expert]
   units:
-  - {name: void_eye, index: 0, position: {x: 0, y: -160}, source: joined, value: 100}
-  - {name: void_eye, index: 1, position: {x: 0, y: -180}, source: joined, value: 100}
-  - {name: void_eye, index: 2, position: {x: 0, y: -140}, source: joined, value: 100}
-  - {name: mustang, index: 3, position: {x: 5, y: -200}, source: joined, value: 200}
-  - {name: mustang, index: 4, position: {x: 5, y: -120}, source: joined, value: 200}
+  - {name: void_eye, index: 0, value: 100, source: joined, position: {x: 0, y: -160}}
+  - {name: void_eye, index: 1, value: 100, source: joined, position: {x: 0, y: -180}}
+  - {name: void_eye, index: 2, value: 100, source: joined, position: {x: 0, y: -140}}
+  - {name: mustang, index: 3, value: 200, source: joined, position: {x: 5, y: -200}}
+  - {name: mustang, index: 4, value: 200, source: joined, position: {x: 5, y: -120}}
   constructions:
   - {name: defensive_wall, index: 0, position: {x: 140, y: -55}}
 red:
   random_state: [11149437638517282940, 9170917381342155112, 16603424150290658460, 16714979795732211176]
   reactor_core: 5300
-  supply: 400
+  supply: 200
   unlocked_units: [mustang, hound]
   tower_strengthen_levels: [0, 0]
   next_index: {unit: 5, contraption: 0}
   officers: [aerial_specialist]
   units:
-  - {name: hound, index: 0, position: {x: 0, y: -160}, source: joined, value: 100}
-  - {name: hound, index: 1, position: {x: 0, y: -140}, source: joined, value: 100}
-  - {name: hound, index: 2, position: {x: 0, y: -180}, source: joined, value: 100}
-  - {name: mustang, index: 3, position: {x: -5, y: -120}, source: joined, value: 200}
-  - {name: mustang, index: 4, position: {x: -5, y: -200}, source: joined, value: 200}
+  - {name: hound, index: 0, value: 100, source: joined, position: {x: 0, y: -160}}
+  - {name: hound, index: 1, value: 100, source: joined, position: {x: 0, y: -140}}
+  - {name: hound, index: 2, value: 100, source: joined, position: {x: 0, y: -180}}
+  - {name: mustang, index: 3, value: 200, source: joined, position: {x: -5, y: -120}}
+  - {name: mustang, index: 4, value: 200, source: joined, position: {x: -5, y: -200}}
   constructions:
   - {name: defensive_wall, index: 0, position: {x: -140, y: -55}}
 ---
@@ -154,7 +154,6 @@ blue:
 - {type: move_unit, index: 4, position: {x: 165, y: -300}}
 - {type: move_unit, index: 5, position: {x: -290, y: -285}, rotated: true}
 - {type: move_unit, index: 6, position: {x: 290, y: -285}, rotated: true}
-- {type: active_energy_tower_skill, name: deposit_supply}
 red:
 - {type: buy_unit, name: mustang}
 - {type: move_unit, index: 2, position: {x: 50, y: -170}}
@@ -163,7 +162,6 @@ red:
 - {type: move_unit, index: 4, position: {x: 55, y: -220}}
 - {type: move_unit, index: 5, position: {x: -10, y: -205}, rotated: true}
 - {type: move_unit, index: 1, position: {x: -50, y: -170}}
-- {type: active_energy_tower_skill, name: deposit_supply}
 ---
 kind: state
 round: 2
@@ -174,38 +172,41 @@ reinforce_offers: [improved_war_factory, wasp_swarm, missile_strike, extended_ra
 blue:
   random_state: [16268248580308692439, 10875670375637684364, 414459165688994722, 8549918178732480779]
   reactor_core: 5000
-  supply: 600
+  supply: 400
+  reinforce_choice: -1
   unlocked_units: [mustang, crawler, void_eye]
   tower_strengthen_levels: [0, 0]
   equipment:
+  - {name: small_amplifying_core, fitted: {unit: 3, slot: 0}}
   - {name: secondary_fire_control_system}
   next_index: {unit: 7, contraption: 0}
   officers: [secondary_equipment_expert]
   units:
-  - {name: void_eye, index: 0, position: {x: -110, y: -170}, exp: 235/650, value: 100}
-  - {name: void_eye, index: 1, position: {x: -10, y: -180}, exp: 195/650, value: 100}
-  - {name: void_eye, index: 2, position: {x: 110, y: -170}, exp: 112/650, value: 100}
-  - {name: mustang, index: 3, position: {x: -155, y: -300}, exp: 533/1200, equipment: [small_amplifying_core], value: 200}
-  - {name: mustang, index: 4, position: {x: 165, y: -300}, exp: 475/1200, value: 200}
-  - {name: crawler, index: 5, position: {x: -290, y: -285}, exp: 164/450, rotated: true, value: 100}
-  - {name: crawler, index: 6, position: {x: 290, y: -285}, exp: 107/450, rotated: true, value: 100}
+  - {name: void_eye, index: 0, value: 100, position: {x: -110, y: -170}, exp: 235/650}
+  - {name: void_eye, index: 1, value: 100, position: {x: -10, y: -180}, exp: 195/650}
+  - {name: void_eye, index: 2, value: 100, position: {x: 110, y: -170}, exp: 112/650}
+  - {name: mustang, index: 3, value: 200, position: {x: -155, y: -300}, exp: 533/1200}
+  - {name: mustang, index: 4, value: 200, position: {x: 165, y: -300}, exp: 475/1200}
+  - {name: crawler, index: 5, value: 100, position: {x: -290, y: -285}, exp: 164/450, rotated: true}
+  - {name: crawler, index: 6, value: 100, position: {x: 290, y: -285}, exp: 107/450, rotated: true}
   constructions:
   - {name: defensive_wall, index: 0, position: {x: 140, y: -55}}
 red:
   random_state: [11149437638517282940, 9170917381342155112, 16603424150290658460, 16714979795732211176]
   reactor_core: 4909
-  supply: 600
+  supply: 400
+  reinforce_choice: -1
   unlocked_units: [mustang, hound]
   tower_strengthen_levels: [0, 0]
   next_index: {unit: 6, contraption: 0}
   officers: [aerial_specialist]
   units:
-  - {name: hound, index: 0, position: {x: 0, y: -170}, exp: 154/750, value: 100}
-  - {name: hound, index: 1, position: {x: -50, y: -170}, exp: 26/750, value: 100}
-  - {name: hound, index: 2, position: {x: 50, y: -170}, exp: 149/750, value: 100}
-  - {name: mustang, index: 3, position: {x: -55, y: -220}, exp: 244/1200, value: 200}
-  - {name: mustang, index: 4, position: {x: 55, y: -220}, exp: 143/1200, value: 200}
-  - {name: mustang, index: 5, position: {x: -10, y: -205}, exp: 216/1200, rotated: true, value: 200}
+  - {name: hound, index: 0, value: 100, position: {x: 0, y: -170}, exp: 154/750}
+  - {name: hound, index: 1, value: 100, position: {x: -50, y: -170}, exp: 26/750}
+  - {name: hound, index: 2, value: 100, position: {x: 50, y: -170}, exp: 149/750}
+  - {name: mustang, index: 3, value: 200, position: {x: -55, y: -220}, exp: 244/1200}
+  - {name: mustang, index: 4, value: 200, position: {x: 55, y: -220}, exp: 143/1200}
+  - {name: mustang, index: 5, value: 200, position: {x: -10, y: -205}, exp: 216/1200, rotated: true}
   constructions:
   - {name: defensive_wall, index: 0, position: {x: -140, y: -55}}
 ---
@@ -220,7 +221,6 @@ blue:
 - {type: move_unit, index: 7, position: {x: 55, y: -170}}
 - {type: move_unit, index: 8, position: {x: 0, y: -235}, rotated: true}
 - {type: release_commander_skill, index: 0, name: missile_strike, target: {area: [{x: 37, y: 170}]}}
-- {type: active_energy_tower_skill, name: deposit_supply}
 red:
 - {type: choose_reinforce_item, index: 1, name: wasp_swarm}
 - {type: buy_unit, name: hound}
@@ -231,7 +231,6 @@ red:
 - {type: release_contraption, name: missile, position: {x: -265, y: -279}}
 - {type: release_contraption, name: missile, position: {x: 280, y: -269}}
 - {type: release_commander_skill, index: 0, name: wasp_swarm, target: {area: [{x: 197, y: -267}]}}
-- {type: active_energy_tower_skill, name: deposit_supply}
 ---
 kind: state
 round: 3
@@ -242,31 +241,35 @@ reinforce_offers: [efficient_tech_research, portable_shield, heavy_armor, elite_
 blue:
   random_state: [111780995326534736, 8280498055239624441, 12479313701101991541, 15073825069094117507]
   reactor_core: 5000
-  supply: 800
+  supply: 600
+  reinforce_choice: -1
   unlocked_units: [mustang, crawler, stormcaller, void_eye]
   tower_strengthen_levels: [0, 0]
   equipment:
+  - {name: small_amplifying_core, fitted: {unit: 3, slot: 0}}
   - {name: secondary_laser_sight}
+  - {name: secondary_fire_control_system, fitted: {unit: 7, slot: 0}}
   battle_skills:
   - {index: 0, name: missile_strike, cooldown: 2}
   next_index: {unit: 9, contraption: 0}
   officers: [secondary_equipment_expert]
   units:
-  - {name: void_eye, index: 0, position: {x: -110, y: -170}, exp: 650/650, value: 100}
-  - {name: void_eye, index: 1, position: {x: -10, y: -180}, exp: 498/650, value: 100}
-  - {name: void_eye, index: 2, position: {x: 110, y: -170}, exp: 327/650, value: 100}
-  - {name: mustang, index: 3, position: {x: -155, y: -300}, exp: 1200/1200, equipment: [small_amplifying_core], value: 200}
-  - {name: mustang, index: 4, position: {x: 165, y: -300}, exp: 717/1200, value: 200}
-  - {name: crawler, index: 5, position: {x: -290, y: -285}, exp: 316/450, rotated: true, value: 100}
-  - {name: crawler, index: 6, position: {x: 290, y: -285}, exp: 240/450, rotated: true, value: 100}
-  - {name: stormcaller, index: 7, position: {x: 55, y: -170}, exp: 338/1100, equipment: [secondary_fire_control_system], value: 200}
-  - {name: crawler, index: 8, position: {x: 0, y: -235}, exp: 127/450, rotated: true, value: 100}
+  - {name: void_eye, index: 0, value: 100, position: {x: -110, y: -170}, exp: 650/650}
+  - {name: void_eye, index: 1, value: 100, position: {x: -10, y: -180}, exp: 498/650}
+  - {name: void_eye, index: 2, value: 100, position: {x: 110, y: -170}, exp: 327/650}
+  - {name: mustang, index: 3, value: 200, position: {x: -155, y: -300}, exp: 1200/1200}
+  - {name: mustang, index: 4, value: 200, position: {x: 165, y: -300}, exp: 717/1200}
+  - {name: crawler, index: 5, value: 100, position: {x: -290, y: -285}, exp: 316/450, rotated: true}
+  - {name: crawler, index: 6, value: 100, position: {x: 290, y: -285}, exp: 240/450, rotated: true}
+  - {name: stormcaller, index: 7, value: 200, position: {x: 55, y: -170}, exp: 338/1100}
+  - {name: crawler, index: 8, value: 100, position: {x: 0, y: -235}, exp: 127/450, rotated: true}
   constructions:
   - {name: defensive_wall, index: 0, position: {x: 140, y: -55}}
 red:
   random_state: [11149437638517282940, 9170917381342155112, 16603424150290658460, 16714979795732211176]
   reactor_core: 3976
-  supply: 800
+  supply: 600
+  reinforce_choice: -1
   unlocked_units: [mustang, hound]
   tower_strengthen_levels: [0, 0]
   battle_skills:
@@ -276,14 +279,14 @@ red:
   techs:
     mustang: [high_explosive_ammo]
   units:
-  - {name: hound, index: 0, position: {x: 0, y: -170}, exp: 194/750, value: 100}
-  - {name: hound, index: 1, position: {x: -50, y: -170}, exp: 26/750, value: 100}
-  - {name: hound, index: 2, position: {x: 50, y: -170}, exp: 199/750, value: 100}
-  - {name: mustang, index: 3, position: {x: -55, y: -220}, exp: 244/1200, value: 200}
-  - {name: mustang, index: 4, position: {x: 55, y: -220}, exp: 267/1200, value: 200}
-  - {name: mustang, index: 5, position: {x: -10, y: -205}, exp: 244/1200, rotated: true, value: 200}
-  - {name: hound, index: 6, position: {x: 100, y: -220}, exp: 137/750, value: 100}
-  - {name: hound, index: 7, position: {x: -100, y: -220}, exp: 68/750, value: 100}
+  - {name: hound, index: 0, value: 100, position: {x: 0, y: -170}, exp: 194/750}
+  - {name: hound, index: 1, value: 100, position: {x: -50, y: -170}, exp: 26/750}
+  - {name: hound, index: 2, value: 100, position: {x: 50, y: -170}, exp: 199/750}
+  - {name: mustang, index: 3, value: 200, position: {x: -55, y: -220}, exp: 244/1200}
+  - {name: mustang, index: 4, value: 200, position: {x: 55, y: -220}, exp: 267/1200}
+  - {name: mustang, index: 5, value: 200, position: {x: -10, y: -205}, exp: 244/1200, rotated: true}
+  - {name: hound, index: 6, value: 100, position: {x: 100, y: -220}, exp: 137/750}
+  - {name: hound, index: 7, value: 100, position: {x: -100, y: -220}, exp: 68/750}
   constructions:
   - {name: defensive_wall, index: 0, position: {x: -140, y: -55}}
   contraptions:
@@ -302,7 +305,6 @@ blue:
 - {type: upgrade_unit, index: 0}
 - {type: upgrade_unit, index: 3}
 - {type: release_contraption, name: missile, position: {x: -4, y: -12}}
-- {type: active_energy_tower_skill, name: deposit_supply}
 red:
 - {type: choose_reinforce_item, index: 1, name: portable_shield}
 - {type: unlock_unit, name: sabertooth}
@@ -311,7 +313,6 @@ red:
 - {type: use_equipment, name: portable_shield, index: 8}
 - {type: move_unit, index: 8, position: {x: -105, y: -135}}
 - {type: release_contraption, name: missile, position: {x: 122, y: -58}}
-- {type: active_energy_tower_skill, name: deposit_supply}
 ---
 kind: state
 round: 4
@@ -322,35 +323,42 @@ reinforce_offers: [raiden_1x_lv1, phoenix_2x_lv1, marksman_2x_lv3, wasp_2x_lv1, 
 blue:
   random_state: [11698066135264436778, 16017175853755823324, 15462474033579725349, 12164034007287355916]
   reactor_core: 5000
-  supply: 1000
+  supply: 800
+  reinforce_choice: -1
   unlocked_units: [mustang, crawler, stormcaller, void_eye]
   tower_strengthen_levels: [0, 0]
   equipment:
+  - {name: small_amplifying_core, fitted: {unit: 3, slot: 0}}
+  - {name: secondary_laser_sight, fitted: {unit: 4, slot: 0}}
+  - {name: secondary_fire_control_system, fitted: {unit: 7, slot: 0}}
   - {name: secondary_heavy_armor}
   battle_skills:
   - {index: 0, name: missile_strike, cooldown: 1}
   next_index: {unit: 11, contraption: 1}
   officers: [secondary_equipment_expert, efficient_tech_research]
   units:
-  - {name: void_eye, index: 0, position: {x: -110, y: -170}, level: 2, exp: 229/1465, value: 100}
-  - {name: void_eye, index: 1, position: {x: -10, y: -180}, exp: 650/650, value: 100}
-  - {name: void_eye, index: 2, position: {x: 110, y: -170}, exp: 544/650, value: 100}
-  - {name: mustang, index: 3, position: {x: -155, y: -300}, level: 2, exp: 516/2704, equipment: [small_amplifying_core], value: 200}
-  - {name: mustang, index: 4, position: {x: 165, y: -300}, exp: 872/1200, equipment: [secondary_laser_sight], value: 200}
-  - {name: crawler, index: 5, position: {x: -290, y: -285}, exp: 425/450, rotated: true, value: 100}
-  - {name: crawler, index: 6, position: {x: 290, y: -285}, exp: 362/450, rotated: true, value: 100}
-  - {name: stormcaller, index: 7, position: {x: 55, y: -170}, exp: 809/1100, equipment: [secondary_fire_control_system], value: 200}
-  - {name: crawler, index: 8, position: {x: 0, y: -235}, exp: 180/450, rotated: true, value: 100}
-  - {name: mustang, index: 9, position: {x: -55, y: -300}, exp: 352/1200, value: 200}
-  - {name: crawler, index: 10, position: {x: -140, y: -205}, exp: 61/450, rotated: true, value: 100}
+  - {name: void_eye, index: 0, value: 100, level: 2, position: {x: -110, y: -170}, exp: 229/1465}
+  - {name: void_eye, index: 1, value: 100, position: {x: -10, y: -180}, exp: 650/650}
+  - {name: void_eye, index: 2, value: 100, position: {x: 110, y: -170}, exp: 544/650}
+  - {name: mustang, index: 3, value: 200, level: 2, position: {x: -155, y: -300}, exp: 516/2704}
+  - {name: mustang, index: 4, value: 200, position: {x: 165, y: -300}, exp: 872/1200}
+  - {name: crawler, index: 5, value: 100, position: {x: -290, y: -285}, exp: 425/450, rotated: true}
+  - {name: crawler, index: 6, value: 100, position: {x: 290, y: -285}, exp: 362/450, rotated: true}
+  - {name: stormcaller, index: 7, value: 200, position: {x: 55, y: -170}, exp: 809/1100}
+  - {name: crawler, index: 8, value: 100, position: {x: 0, y: -235}, exp: 180/450, rotated: true}
+  - {name: mustang, index: 9, value: 200, position: {x: -55, y: -300}, exp: 352/1200}
+  - {name: crawler, index: 10, value: 100, position: {x: -140, y: -205}, exp: 61/450, rotated: true}
   constructions:
   - {name: defensive_wall, index: 0, position: {x: 140, y: -55}}
 red:
   random_state: [11149437638517282940, 9170917381342155112, 16603424150290658460, 16714979795732211176]
   reactor_core: 3059
-  supply: 1000
+  supply: 800
+  reinforce_choice: -1
   unlocked_units: [mustang, sabertooth, hound]
   tower_strengthen_levels: [0, 0]
+  equipment:
+  - {name: portable_shield, fitted: {unit: 8, slot: 0}}
   battle_skills:
   - {index: 0, name: wasp_swarm, cooldown: 2}
   next_index: {unit: 9, contraption: 3}
@@ -359,15 +367,15 @@ red:
     mustang: [high_explosive_ammo]
     sabertooth: [field_maintenance]
   units:
-  - {name: hound, index: 0, position: {x: 0, y: -170}, exp: 239/750, value: 100}
-  - {name: hound, index: 1, position: {x: -50, y: -170}, exp: 26/750, value: 100}
-  - {name: hound, index: 2, position: {x: 50, y: -170}, exp: 297/750, value: 100}
-  - {name: mustang, index: 3, position: {x: -55, y: -220}, exp: 531/1200, value: 200}
-  - {name: mustang, index: 4, position: {x: 55, y: -220}, exp: 487/1200, value: 200}
-  - {name: mustang, index: 5, position: {x: -10, y: -205}, exp: 490/1200, rotated: true, value: 200}
-  - {name: hound, index: 6, position: {x: 100, y: -220}, exp: 201/750, value: 100}
-  - {name: hound, index: 7, position: {x: -100, y: -220}, exp: 136/750, value: 100}
-  - {name: sabertooth, index: 8, position: {x: -105, y: -135}, exp: 176/1300, equipment: [portable_shield], value: 200}
+  - {name: hound, index: 0, value: 100, position: {x: 0, y: -170}, exp: 239/750}
+  - {name: hound, index: 1, value: 100, position: {x: -50, y: -170}, exp: 26/750}
+  - {name: hound, index: 2, value: 100, position: {x: 50, y: -170}, exp: 297/750}
+  - {name: mustang, index: 3, value: 200, position: {x: -55, y: -220}, exp: 531/1200}
+  - {name: mustang, index: 4, value: 200, position: {x: 55, y: -220}, exp: 487/1200}
+  - {name: mustang, index: 5, value: 200, position: {x: -10, y: -205}, exp: 490/1200, rotated: true}
+  - {name: hound, index: 6, value: 100, position: {x: 100, y: -220}, exp: 201/750}
+  - {name: hound, index: 7, value: 100, position: {x: -100, y: -220}, exp: 136/750}
+  - {name: sabertooth, index: 8, value: 200, position: {x: -105, y: -135}, exp: 176/1300}
   constructions:
   - {name: defensive_wall, index: 0, position: {x: -140, y: -55}}
   contraptions:
@@ -387,7 +395,6 @@ blue:
 - {type: move_unit, index: 13, position: {x: -65, y: -170}}
 - {type: move_unit, index: 14, position: {x: 255, y: -300}}
 - {type: upgrade_unit, index: 1}
-- {type: active_energy_tower_skill, name: deposit_supply}
 red:
 - {type: choose_reinforce_item, index: 3, name: wasp_2x_lv1}
 - {type: buy_unit, name: mustang}
@@ -396,7 +403,6 @@ red:
 - {type: move_unit, index: 10, position: {x: 65, y: -300}}
 - {type: move_unit, index: 11, position: {x: 10, y: -205}, rotated: true}
 - {type: release_contraption, name: shield, position: {x: 3, y: -81}}
-- {type: active_energy_tower_skill, name: deposit_supply}
 ---
 kind: state
 round: 5
@@ -407,11 +413,16 @@ reinforce_offers: [rhino_assault, nano_repair_kit, improved_tarantula, missile_s
 blue:
   random_state: [15334974172828830970, 12288686819953493203, 10801117581104525327, 14256723860746214022]
   reactor_core: 5000
-  supply: 1200
+  supply: 1000
+  reinforce_choice: -1
   unlocked_units: [marksman, mustang, crawler, stormcaller, void_eye]
   tower_strengthen_levels: [0, 0]
   equipment:
+  - {name: small_amplifying_core, fitted: {unit: 3, slot: 0}}
+  - {name: secondary_laser_sight, fitted: {unit: 4, slot: 0}}
+  - {name: secondary_fire_control_system, fitted: {unit: 7, slot: 0}}
   - {name: secondary_heavy_armor}
+  - {name: secondary_heavy_armor, fitted: {unit: 0, slot: 0}}
   battle_skills:
   - {index: 0, name: missile_strike, cooldown: 0}
   next_index: {unit: 15, contraption: 1}
@@ -419,29 +430,32 @@ blue:
   techs:
     mustang: [range_enhancement]
   units:
-  - {name: void_eye, index: 0, position: {x: -110, y: -170}, level: 2, exp: 315/1465, equipment: [secondary_heavy_armor], value: 100}
-  - {name: void_eye, index: 1, position: {x: -10, y: -180}, level: 2, exp: 154/1465, value: 100}
-  - {name: void_eye, index: 2, position: {x: 110, y: -170}, exp: 602/650, value: 100}
-  - {name: mustang, index: 3, position: {x: -155, y: -300}, level: 2, exp: 1663/2704, equipment: [small_amplifying_core], value: 200}
-  - {name: mustang, index: 4, position: {x: 165, y: -300}, exp: 1154/1200, equipment: [secondary_laser_sight], value: 200}
-  - {name: crawler, index: 5, position: {x: -290, y: -285}, exp: 450/450, rotated: true, value: 100}
-  - {name: crawler, index: 6, position: {x: 290, y: -285}, exp: 396/450, rotated: true, value: 100}
-  - {name: stormcaller, index: 7, position: {x: 55, y: -170}, exp: 1100/1100, equipment: [secondary_fire_control_system], value: 200}
-  - {name: crawler, index: 8, position: {x: 0, y: -235}, exp: 184/450, rotated: true, value: 100}
-  - {name: mustang, index: 9, position: {x: -55, y: -300}, exp: 1012/1200, value: 200}
-  - {name: crawler, index: 10, position: {x: -140, y: -205}, exp: 65/450, rotated: true, value: 100}
-  - {name: marksman, index: 11, position: {x: 170, y: -190}, level: 3, exp: 81/2315, value: 100}
-  - {name: marksman, index: 12, position: {x: 80, y: -190}, level: 3, exp: 78/2315, value: 100}
-  - {name: stormcaller, index: 13, position: {x: -65, y: -170}, exp: 273/1100, value: 200}
-  - {name: mustang, index: 14, position: {x: 255, y: -300}, exp: 492/1200, value: 200}
+  - {name: void_eye, index: 0, value: 100, level: 2, position: {x: -110, y: -170}, exp: 315/1465}
+  - {name: void_eye, index: 1, value: 100, level: 2, position: {x: -10, y: -180}, exp: 154/1465}
+  - {name: void_eye, index: 2, value: 100, position: {x: 110, y: -170}, exp: 602/650}
+  - {name: mustang, index: 3, value: 200, level: 2, position: {x: -155, y: -300}, exp: 1663/2704}
+  - {name: mustang, index: 4, value: 200, position: {x: 165, y: -300}, exp: 1154/1200}
+  - {name: crawler, index: 5, value: 100, position: {x: -290, y: -285}, exp: 450/450, rotated: true}
+  - {name: crawler, index: 6, value: 100, position: {x: 290, y: -285}, exp: 396/450, rotated: true}
+  - {name: stormcaller, index: 7, value: 200, position: {x: 55, y: -170}, exp: 1100/1100}
+  - {name: crawler, index: 8, value: 100, position: {x: 0, y: -235}, exp: 184/450, rotated: true}
+  - {name: mustang, index: 9, value: 200, position: {x: -55, y: -300}, exp: 1012/1200}
+  - {name: crawler, index: 10, value: 100, position: {x: -140, y: -205}, exp: 65/450, rotated: true}
+  - {name: marksman, index: 11, value: 100, level: 3, position: {x: 170, y: -190}, exp: 81/2315}
+  - {name: marksman, index: 12, value: 100, level: 3, position: {x: 80, y: -190}, exp: 78/2315}
+  - {name: stormcaller, index: 13, value: 200, position: {x: -65, y: -170}, exp: 273/1100}
+  - {name: mustang, index: 14, value: 200, position: {x: 255, y: -300}, exp: 492/1200}
   constructions:
   - {name: defensive_wall, index: 0, position: {x: 140, y: -55}}
 red:
   random_state: [11149437638517282940, 9170917381342155112, 16603424150290658460, 16714979795732211176]
   reactor_core: 1711
-  supply: 1200
+  supply: 1000
+  reinforce_choice: -1
   unlocked_units: [wasp, mustang, sabertooth, hound]
   tower_strengthen_levels: [0, 0]
+  equipment:
+  - {name: portable_shield, fitted: {unit: 8, slot: 0}}
   battle_skills:
   - {index: 0, name: wasp_swarm, cooldown: 1}
   next_index: {unit: 12, contraption: 4}
@@ -450,18 +464,18 @@ red:
     mustang: [high_explosive_ammo, range_enhancement]
     sabertooth: [field_maintenance]
   units:
-  - {name: hound, index: 0, position: {x: 0, y: -170}, exp: 250/750, value: 100}
-  - {name: hound, index: 1, position: {x: -50, y: -170}, exp: 26/750, value: 100}
-  - {name: hound, index: 2, position: {x: 50, y: -170}, exp: 314/750, value: 100}
-  - {name: mustang, index: 3, position: {x: -55, y: -220}, exp: 1020/1200, value: 200}
-  - {name: mustang, index: 4, position: {x: 55, y: -220}, exp: 831/1200, value: 200}
-  - {name: mustang, index: 5, position: {x: -10, y: -205}, exp: 936/1200, rotated: true, value: 200}
-  - {name: hound, index: 6, position: {x: 100, y: -220}, exp: 279/750, value: 100}
-  - {name: hound, index: 7, position: {x: -100, y: -220}, exp: 238/750, value: 100}
-  - {name: sabertooth, index: 8, position: {x: -105, y: -135}, exp: 200/1300, equipment: [portable_shield], value: 200}
-  - {name: wasp, index: 9, position: {x: -55, y: -300}, exp: 247/900, value: 200}
-  - {name: wasp, index: 10, position: {x: 65, y: -300}, exp: 22/900, value: 200}
-  - {name: mustang, index: 11, position: {x: 10, y: -205}, exp: 525/1200, rotated: true, value: 200}
+  - {name: hound, index: 0, value: 100, position: {x: 0, y: -170}, exp: 250/750}
+  - {name: hound, index: 1, value: 100, position: {x: -50, y: -170}, exp: 26/750}
+  - {name: hound, index: 2, value: 100, position: {x: 50, y: -170}, exp: 314/750}
+  - {name: mustang, index: 3, value: 200, position: {x: -55, y: -220}, exp: 1020/1200}
+  - {name: mustang, index: 4, value: 200, position: {x: 55, y: -220}, exp: 831/1200}
+  - {name: mustang, index: 5, value: 200, position: {x: -10, y: -205}, exp: 936/1200, rotated: true}
+  - {name: hound, index: 6, value: 100, position: {x: 100, y: -220}, exp: 279/750}
+  - {name: hound, index: 7, value: 100, position: {x: -100, y: -220}, exp: 238/750}
+  - {name: sabertooth, index: 8, value: 200, position: {x: -105, y: -135}, exp: 200/1300}
+  - {name: wasp, index: 9, value: 200, position: {x: -55, y: -300}, exp: 247/900}
+  - {name: wasp, index: 10, value: 200, position: {x: 65, y: -300}, exp: 22/900}
+  - {name: mustang, index: 11, value: 200, position: {x: 10, y: -205}, exp: 525/1200, rotated: true}
   constructions:
   - {name: defensive_wall, index: 0, position: {x: -140, y: -55}}
   contraptions:
@@ -472,6 +486,7 @@ kind: action
 round: 5
 blue:
 - {type: choose_reinforce_item, index: 3, name: missile_strike}
+- {type: active_energy_tower_skill, name: rapid_resupply}
 - {type: unlock_unit, name: scorpion}
 - {type: buy_unit, name: scorpion}
 - {type: buy_unit, name: scorpion}
@@ -498,7 +513,6 @@ red:
 - {type: active_blueprint, name: attack_enhancement}
 - {type: active_blueprint, name: defense_enhancement}
 - {type: release_commander_skill, index: 1, name: rhino_assault, target: {area: [{x: 256, y: 286}]}}
-- {type: active_energy_tower_skill, name: deposit_supply}
 ---
 kind: result
 round: 5

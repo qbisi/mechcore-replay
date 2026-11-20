@@ -108,7 +108,7 @@ random_state: [6435075756224288379, 9077962077164785411, 16706243030086588514, 1
 blue:
   random_state: [16908580036766480195, 9838420532142790120, 6287877700131140426, 16574732942839953853]
   reactor_core: 4500
-  supply: 450
+  supply: 250
   unlocked_units: [sabertooth, hound]
   tower_strengthen_levels: [0, 0]
   battle_skills:
@@ -116,17 +116,17 @@ blue:
   next_index: {unit: 5, contraption: 0}
   officers: [training_specialist]
   units:
-  - {name: hound, index: 0, position: {x: 0, y: -160}, source: joined, value: 100}
-  - {name: hound, index: 1, position: {x: 0, y: -180}, source: joined, value: 100}
-  - {name: hound, index: 2, position: {x: 0, y: -140}, source: joined, value: 100}
-  - {name: sabertooth, index: 3, position: {x: -35, y: -165}, source: joined, value: 200}
-  - {name: sabertooth, index: 4, position: {x: -5, y: -205}, source: joined, value: 200}
+  - {name: hound, index: 0, value: 100, source: joined, position: {x: 0, y: -160}}
+  - {name: hound, index: 1, value: 100, source: joined, position: {x: 0, y: -180}}
+  - {name: hound, index: 2, value: 100, source: joined, position: {x: 0, y: -140}}
+  - {name: sabertooth, index: 3, value: 200, source: joined, position: {x: -35, y: -165}}
+  - {name: sabertooth, index: 4, value: 200, source: joined, position: {x: -5, y: -205}}
   constructions:
   - {name: defensive_wall, index: 0, position: {x: 140, y: -55}}
 red:
   random_state: [1117855186618845436, 16688152106095098936, 5957677879284748616, 12822425561978274805]
   reactor_core: 4600
-  supply: 400
+  supply: 200
   unlocked_units: [marksman, fire_badger]
   tower_strengthen_levels: [0, 0]
   equipment:
@@ -134,17 +134,18 @@ red:
   next_index: {unit: 5, contraption: 0}
   officers: [secondary_equipment_expert]
   units:
-  - {name: marksman, index: 0, position: {x: 0, y: -160}, source: joined, value: 100}
-  - {name: marksman, index: 1, position: {x: 20, y: -160}, source: joined, value: 100}
-  - {name: marksman, index: 2, position: {x: 0, y: -140}, source: joined, value: 100}
-  - {name: fire_badger, index: 3, position: {x: -5, y: -180}, source: joined, value: 200}
-  - {name: fire_badger, index: 4, position: {x: -35, y: -160}, source: joined, value: 200}
+  - {name: marksman, index: 0, value: 100, source: joined, position: {x: 0, y: -160}}
+  - {name: marksman, index: 1, value: 100, source: joined, position: {x: 20, y: -160}}
+  - {name: marksman, index: 2, value: 100, source: joined, position: {x: 0, y: -140}}
+  - {name: fire_badger, index: 3, value: 200, source: joined, position: {x: -5, y: -180}}
+  - {name: fire_badger, index: 4, value: 200, source: joined, position: {x: -35, y: -160}}
   constructions:
   - {name: defensive_wall, index: 0, position: {x: -140, y: -55}}
 ---
 kind: action
 round: 1
 blue:
+- {type: active_energy_tower_skill, name: rapid_resupply}
 - {type: unlock_unit, name: crawler}
 - {type: buy_unit, name: crawler}
 - {type: buy_unit, name: crawler}
@@ -167,7 +168,6 @@ red:
 - {type: move_unit, index: 3, position: {x: 85, y: -90}}
 - {type: move_unit, index: 4, position: {x: -135, y: -80}}
 - {type: move_unit, index: 5, position: {x: -5, y: -20}}
-- {type: active_energy_tower_skill, name: deposit_supply}
 ---
 kind: state
 round: 2
@@ -176,7 +176,8 @@ reinforce_offers: [arclight_1x_lv3, tarantula_1x_lv1, phoenix_1x_lv1, vortex_2x_
 blue:
   random_state: [16908580036766480195, 9838420532142790120, 6287877700131140426, 16574732942839953853]
   reactor_core: 4032
-  supply: 350
+  supply: 150
+  reinforce_choice: -1
   unlocked_units: [crawler, sabertooth, hound]
   tower_strengthen_levels: [0, 0]
   battle_skills:
@@ -186,19 +187,20 @@ blue:
   techs:
     crawler: [impact_drill]
   units:
-  - {name: hound, index: 0, position: {x: -40, y: -170}, exp: 89/750, value: 100}
-  - {name: hound, index: 1, position: {x: 40, y: -170}, exp: 39/750, value: 100}
-  - {name: hound, index: 2, position: {x: 0, y: -170}, exp: 39/750, value: 100}
-  - {name: sabertooth, index: 3, position: {x: -75, y: -165}, exp: 284/1300, value: 200}
-  - {name: sabertooth, index: 4, position: {x: 75, y: -165}, exp: 307/1300, value: 200}
-  - {name: crawler, index: 5, position: {x: -35, y: -150}, level: 2, exp: 72/1014, value: 100}
-  - {name: crawler, index: 6, position: {x: 35, y: -150}, exp: 39/450, value: 100}
+  - {name: hound, index: 0, value: 100, position: {x: -40, y: -170}, exp: 89/750}
+  - {name: hound, index: 1, value: 100, position: {x: 40, y: -170}, exp: 39/750}
+  - {name: hound, index: 2, value: 100, position: {x: 0, y: -170}, exp: 39/750}
+  - {name: sabertooth, index: 3, value: 200, position: {x: -75, y: -165}, exp: 284/1300}
+  - {name: sabertooth, index: 4, value: 200, position: {x: 75, y: -165}, exp: 307/1300}
+  - {name: crawler, index: 5, value: 100, level: 2, position: {x: -35, y: -150}, exp: 72/1014}
+  - {name: crawler, index: 6, value: 100, position: {x: 35, y: -150}, exp: 39/450}
   constructions:
   - {name: defensive_wall, index: 0, position: {x: 140, y: -55}}
 red:
   random_state: [6478774058238883633, 13454150692503217548, 3383898568245303732, 15562657786046058940]
   reactor_core: 4600
-  supply: 600
+  supply: 400
+  reinforce_choice: -1
   unlocked_units: [marksman, fire_badger]
   tower_strengthen_levels: [0, 0]
   equipment:
@@ -207,12 +209,12 @@ red:
   next_index: {unit: 6, contraption: 0}
   officers: [secondary_equipment_expert]
   units:
-  - {name: marksman, index: 0, position: {x: 80, y: -20}, exp: 84/650, value: 100}
-  - {name: marksman, index: 1, position: {x: 290, y: -20}, exp: 500/650, value: 100}
-  - {name: marksman, index: 2, position: {x: -260, y: -30}, exp: 336/650, value: 100}
-  - {name: fire_badger, index: 3, position: {x: 85, y: -90}, exp: 700/1400, value: 200}
-  - {name: fire_badger, index: 4, position: {x: -135, y: -80}, exp: 536/1400, value: 200}
-  - {name: fire_badger, index: 5, position: {x: -5, y: -20}, exp: 448/1400, value: 200}
+  - {name: marksman, index: 0, value: 100, position: {x: 80, y: -20}, exp: 84/650}
+  - {name: marksman, index: 1, value: 100, position: {x: 290, y: -20}, exp: 500/650}
+  - {name: marksman, index: 2, value: 100, position: {x: -260, y: -30}, exp: 336/650}
+  - {name: fire_badger, index: 3, value: 200, position: {x: 85, y: -90}, exp: 700/1400}
+  - {name: fire_badger, index: 4, value: 200, position: {x: -135, y: -80}, exp: 536/1400}
+  - {name: fire_badger, index: 5, value: 200, position: {x: -5, y: -20}, exp: 448/1400}
   constructions:
   - {name: defensive_wall, index: 0, position: {x: -140, y: -55}}
 ---
@@ -220,6 +222,7 @@ kind: action
 round: 2
 blue:
 - {type: choose_reinforce_item, index: 2, name: phoenix_1x_lv1}
+- {type: active_energy_tower_skill, name: rapid_resupply}
 - {type: buy_unit, name: crawler}
 - {type: buy_unit, name: phoenix}
 - {type: move_unit, index: 7, position: {x: 280, y: -100}}
@@ -233,7 +236,6 @@ red:
 - {type: move_unit, index: 8, position: {x: 90, y: -120}}
 - {type: release_contraption, name: missile, position: {x: 196, y: -90}}
 - {type: release_contraption, name: shield, position: {x: -138, y: -163}}
-- {type: active_energy_tower_skill, name: deposit_supply}
 ---
 kind: state
 round: 3
@@ -244,7 +246,8 @@ reinforce_offers: [improved_fortress, extended_range_phantom_ray, elite_tarantul
 blue:
   random_state: [16908580036766480195, 9838420532142790120, 6287877700131140426, 16574732942839953853]
   reactor_core: 3832
-  supply: 500
+  supply: 300
+  reinforce_choice: -1
   unlocked_units: [crawler, phoenix, sabertooth, hound]
   tower_strengthen_levels: [0, 0]
   battle_skills:
@@ -254,22 +257,23 @@ blue:
   techs:
     crawler: [impact_drill]
   units:
-  - {name: hound, index: 0, position: {x: -40, y: -170}, exp: 169/750, value: 100}
-  - {name: hound, index: 1, position: {x: 40, y: -170}, exp: 111/750, value: 100}
-  - {name: hound, index: 2, position: {x: 0, y: -170}, exp: 136/750, value: 100}
-  - {name: sabertooth, index: 3, position: {x: -75, y: -165}, exp: 1032/1300, value: 200}
-  - {name: sabertooth, index: 4, position: {x: 75, y: -165}, exp: 669/1300, value: 200}
-  - {name: crawler, index: 5, position: {x: -35, y: -150}, level: 2, exp: 174/1014, value: 100}
-  - {name: crawler, index: 6, position: {x: 35, y: -150}, exp: 74/450, value: 100}
-  - {name: phoenix, index: 7, position: {x: 280, y: -100}, exp: 546/1300, value: 200}
-  - {name: crawler, index: 8, position: {x: 5, y: -130}, value: 100}
-  - {name: phoenix, index: 9, position: {x: -280, y: -80}, exp: 372/1300, value: 200}
+  - {name: hound, index: 0, value: 100, position: {x: -40, y: -170}, exp: 169/750}
+  - {name: hound, index: 1, value: 100, position: {x: 40, y: -170}, exp: 111/750}
+  - {name: hound, index: 2, value: 100, position: {x: 0, y: -170}, exp: 136/750}
+  - {name: sabertooth, index: 3, value: 200, position: {x: -75, y: -165}, exp: 1032/1300}
+  - {name: sabertooth, index: 4, value: 200, position: {x: 75, y: -165}, exp: 669/1300}
+  - {name: crawler, index: 5, value: 100, level: 2, position: {x: -35, y: -150}, exp: 174/1014}
+  - {name: crawler, index: 6, value: 100, position: {x: 35, y: -150}, exp: 74/450}
+  - {name: phoenix, index: 7, value: 200, position: {x: 280, y: -100}, exp: 546/1300}
+  - {name: crawler, index: 8, value: 100, position: {x: 5, y: -130}}
+  - {name: phoenix, index: 9, value: 200, position: {x: -280, y: -80}, exp: 372/1300}
   constructions:
   - {name: defensive_wall, index: 0, position: {x: 140, y: -55}}
 red:
   random_state: [3793771030202073857, 14819518685379824393, 762274963665645189, 11422832528172587232]
   reactor_core: 4600
-  supply: 800
+  supply: 600
+  reinforce_choice: -1
   unlocked_units: [marksman, phoenix, fire_badger]
   tower_strengthen_levels: [0, 0]
   equipment:
@@ -279,15 +283,15 @@ red:
   next_index: {unit: 9, contraption: 2}
   officers: [secondary_equipment_expert]
   units:
-  - {name: marksman, index: 0, position: {x: 80, y: -20}, exp: 124/650, value: 100}
-  - {name: marksman, index: 1, position: {x: 290, y: -20}, exp: 650/650, value: 100}
-  - {name: marksman, index: 2, position: {x: -260, y: -30}, exp: 536/650, value: 100}
-  - {name: fire_badger, index: 3, position: {x: 85, y: -90}, exp: 1119/1400, value: 200}
-  - {name: fire_badger, index: 4, position: {x: -135, y: -80}, exp: 697/1400, value: 200}
-  - {name: fire_badger, index: 5, position: {x: -5, y: -20}, exp: 991/1400, value: 200}
-  - {name: phoenix, index: 6, position: {x: 20, y: -280}, exp: 1230/1300, value: 200}
-  - {name: marksman, index: 7, position: {x: -100, y: -90}, exp: 116/650, value: 100}
-  - {name: marksman, index: 8, position: {x: 90, y: -120}, exp: 198/650, value: 100}
+  - {name: marksman, index: 0, value: 100, position: {x: 80, y: -20}, exp: 124/650}
+  - {name: marksman, index: 1, value: 100, position: {x: 290, y: -20}, exp: 650/650}
+  - {name: marksman, index: 2, value: 100, position: {x: -260, y: -30}, exp: 536/650}
+  - {name: fire_badger, index: 3, value: 200, position: {x: 85, y: -90}, exp: 1119/1400}
+  - {name: fire_badger, index: 4, value: 200, position: {x: -135, y: -80}, exp: 697/1400}
+  - {name: fire_badger, index: 5, value: 200, position: {x: -5, y: -20}, exp: 991/1400}
+  - {name: phoenix, index: 6, value: 200, position: {x: 20, y: -280}, exp: 1230/1300}
+  - {name: marksman, index: 7, value: 100, position: {x: -100, y: -90}, exp: 116/650}
+  - {name: marksman, index: 8, value: 100, position: {x: 90, y: -120}, exp: 198/650}
   constructions:
   - {name: defensive_wall, index: 0, position: {x: -140, y: -55}}
   contraptions:
@@ -297,6 +301,7 @@ kind: action
 round: 3
 blue:
 - {type: choose_reinforce_item, index: 2, name: elite_tarantula}
+- {type: active_energy_tower_skill, name: rapid_resupply}
 - {type: upgrade_technology, unit: phoenix, tech: launcher_overload}
 - {type: upgrade_technology, unit: crawler, tech: mechanical_rage}
 red:
@@ -309,7 +314,6 @@ red:
 - {type: release_contraption, name: missile, position: {x: -239, y: -30}}
 - {type: release_contraption, name: missile, position: {x: -252, y: -78}}
 - {type: release_contraption, name: interceptor, position: {x: 5, y: -145}}
-- {type: active_energy_tower_skill, name: deposit_supply}
 ---
 kind: state
 round: 4
@@ -320,7 +324,8 @@ reinforce_offers: [subsidized_arclight, mobilize_battleship, mass_production_hea
 blue:
   random_state: [16908580036766480195, 9838420532142790120, 6287877700131140426, 16574732942839953853]
   reactor_core: 3165
-  supply: 700
+  supply: 500
+  reinforce_choice: -1
   unlocked_units: [crawler, phoenix, sabertooth, hound]
   tower_strengthen_levels: [0, 0]
   battle_skills:
@@ -331,22 +336,23 @@ blue:
     crawler: [mechanical_rage, impact_drill]
     phoenix: [launcher_overload]
   units:
-  - {name: hound, index: 0, position: {x: -40, y: -170}, exp: 191/750, value: 100}
-  - {name: hound, index: 1, position: {x: 40, y: -170}, exp: 267/750, value: 100}
-  - {name: hound, index: 2, position: {x: 0, y: -170}, exp: 158/750, value: 100}
-  - {name: sabertooth, index: 3, position: {x: -75, y: -165}, exp: 1300/1300, value: 200}
-  - {name: sabertooth, index: 4, position: {x: 75, y: -165}, exp: 959/1300, value: 200}
-  - {name: crawler, index: 5, position: {x: -35, y: -150}, level: 2, exp: 296/1014, value: 100}
-  - {name: crawler, index: 6, position: {x: 35, y: -150}, exp: 129/450, value: 100}
-  - {name: phoenix, index: 7, position: {x: 280, y: -100}, exp: 746/1300, value: 200}
-  - {name: crawler, index: 8, position: {x: 5, y: -130}, value: 100}
-  - {name: phoenix, index: 9, position: {x: -280, y: -80}, exp: 572/1300, value: 200}
+  - {name: hound, index: 0, value: 100, position: {x: -40, y: -170}, exp: 191/750}
+  - {name: hound, index: 1, value: 100, position: {x: 40, y: -170}, exp: 267/750}
+  - {name: hound, index: 2, value: 100, position: {x: 0, y: -170}, exp: 158/750}
+  - {name: sabertooth, index: 3, value: 200, position: {x: -75, y: -165}, exp: 1300/1300}
+  - {name: sabertooth, index: 4, value: 200, position: {x: 75, y: -165}, exp: 959/1300}
+  - {name: crawler, index: 5, value: 100, level: 2, position: {x: -35, y: -150}, exp: 296/1014}
+  - {name: crawler, index: 6, value: 100, position: {x: 35, y: -150}, exp: 129/450}
+  - {name: phoenix, index: 7, value: 200, position: {x: 280, y: -100}, exp: 746/1300}
+  - {name: crawler, index: 8, value: 100, position: {x: 5, y: -130}}
+  - {name: phoenix, index: 9, value: 200, position: {x: -280, y: -80}, exp: 572/1300}
   constructions:
   - {name: defensive_wall, index: 0, position: {x: 140, y: -55}}
 red:
   random_state: [7460673156467511528, 17553775802124740237, 4415316560344264068, 11708561223565080922]
   reactor_core: 4600
-  supply: 1000
+  supply: 800
+  reinforce_choice: -1
   unlocked_units: [marksman, phoenix, fire_badger]
   tower_strengthen_levels: [0, 0]
   equipment:
@@ -357,16 +363,16 @@ red:
   next_index: {unit: 10, contraption: 8}
   officers: [secondary_equipment_expert, improved_fortress]
   units:
-  - {name: marksman, index: 0, position: {x: 80, y: -20}, exp: 258/650, value: 100}
-  - {name: marksman, index: 1, position: {x: 290, y: -20}, exp: 650/650, value: 100}
-  - {name: marksman, index: 2, position: {x: -260, y: -30}, exp: 650/650, value: 100}
-  - {name: fire_badger, index: 3, position: {x: 85, y: -90}, exp: 1400/1400, value: 200}
-  - {name: fire_badger, index: 4, position: {x: -135, y: -80}, exp: 1044/1400, value: 200}
-  - {name: fire_badger, index: 5, position: {x: -5, y: -20}, exp: 1400/1400, value: 200}
-  - {name: phoenix, index: 6, position: {x: 20, y: -280}, exp: 1300/1300, value: 200}
-  - {name: marksman, index: 7, position: {x: -100, y: -90}, exp: 315/650, value: 100}
-  - {name: marksman, index: 8, position: {x: 90, y: -120}, exp: 562/650, value: 100}
-  - {name: phoenix, index: 9, position: {x: -260, y: -160}, exp: 709/1300, value: 200}
+  - {name: marksman, index: 0, value: 100, position: {x: 80, y: -20}, exp: 258/650}
+  - {name: marksman, index: 1, value: 100, position: {x: 290, y: -20}, exp: 650/650}
+  - {name: marksman, index: 2, value: 100, position: {x: -260, y: -30}, exp: 650/650}
+  - {name: fire_badger, index: 3, value: 200, position: {x: 85, y: -90}, exp: 1400/1400}
+  - {name: fire_badger, index: 4, value: 200, position: {x: -135, y: -80}, exp: 1044/1400}
+  - {name: fire_badger, index: 5, value: 200, position: {x: -5, y: -20}, exp: 1400/1400}
+  - {name: phoenix, index: 6, value: 200, position: {x: 20, y: -280}, exp: 1300/1300}
+  - {name: marksman, index: 7, value: 100, position: {x: -100, y: -90}, exp: 315/650}
+  - {name: marksman, index: 8, value: 100, position: {x: 90, y: -120}, exp: 562/650}
+  - {name: phoenix, index: 9, value: 200, position: {x: -260, y: -160}, exp: 709/1300}
   constructions:
   - {name: defensive_wall, index: 0, position: {x: -140, y: -55}}
   contraptions:
@@ -379,6 +385,7 @@ kind: action
 round: 4
 blue:
 - {type: choose_reinforce_item, index: 4, name: refund_50}
+- {type: active_energy_tower_skill, name: rapid_resupply}
 - {type: upgrade_technology, unit: sabertooth, tech: range_enhancement}
 - {type: release_contraption, name: missile, position: {x: 7, y: -19}}
 - {type: active_blueprint, name: attack_enhancement}
@@ -395,7 +402,6 @@ red:
 - {type: release_contraption, name: missile, position: {x: 229, y: -48}}
 - {type: release_contraption, name: missile, position: {x: -177, y: -41}}
 - {type: release_contraption, name: missile, position: {x: -70, y: -15}}
-- {type: active_energy_tower_skill, name: deposit_supply}
 ---
 kind: state
 round: 5
@@ -406,7 +412,8 @@ reinforce_offers: [subsidized_arclight, advanced_offensive_tactics, assault_raid
 blue:
   random_state: [16908580036766480195, 9838420532142790120, 6287877700131140426, 16574732942839953853]
   reactor_core: 2231
-  supply: 900
+  supply: 700
+  reinforce_choice: -1
   unlocked_units: [crawler, phoenix, sabertooth, hound]
   blueprints: [attack_enhancement_ii]
   tower_strengthen_levels: [0, 0]
@@ -419,22 +426,23 @@ blue:
     phoenix: [launcher_overload]
     sabertooth: [range_enhancement]
   units:
-  - {name: hound, index: 0, position: {x: -40, y: -170}, exp: 503/750, value: 100}
-  - {name: hound, index: 1, position: {x: 40, y: -170}, exp: 311/750, value: 100}
-  - {name: hound, index: 2, position: {x: 0, y: -170}, exp: 202/750, value: 100}
-  - {name: sabertooth, index: 3, position: {x: -75, y: -165}, exp: 1300/1300, value: 200}
-  - {name: sabertooth, index: 4, position: {x: 75, y: -165}, exp: 1300/1300, value: 200}
-  - {name: crawler, index: 5, position: {x: -35, y: -150}, level: 2, exp: 340/1014, value: 100}
-  - {name: crawler, index: 6, position: {x: 35, y: -150}, exp: 173/450, value: 100}
-  - {name: phoenix, index: 7, position: {x: 280, y: -100}, exp: 990/1300, value: 200}
-  - {name: crawler, index: 8, position: {x: 5, y: -130}, exp: 44/450, value: 100}
-  - {name: phoenix, index: 9, position: {x: -280, y: -80}, exp: 816/1300, value: 200}
+  - {name: hound, index: 0, value: 100, position: {x: -40, y: -170}, exp: 503/750}
+  - {name: hound, index: 1, value: 100, position: {x: 40, y: -170}, exp: 311/750}
+  - {name: hound, index: 2, value: 100, position: {x: 0, y: -170}, exp: 202/750}
+  - {name: sabertooth, index: 3, value: 200, position: {x: -75, y: -165}, exp: 1300/1300}
+  - {name: sabertooth, index: 4, value: 200, position: {x: 75, y: -165}, exp: 1300/1300}
+  - {name: crawler, index: 5, value: 100, level: 2, position: {x: -35, y: -150}, exp: 340/1014}
+  - {name: crawler, index: 6, value: 100, position: {x: 35, y: -150}, exp: 173/450}
+  - {name: phoenix, index: 7, value: 200, position: {x: 280, y: -100}, exp: 990/1300}
+  - {name: crawler, index: 8, value: 100, position: {x: 5, y: -130}, exp: 44/450}
+  - {name: phoenix, index: 9, value: 200, position: {x: -280, y: -80}, exp: 816/1300}
   constructions:
   - {name: defensive_wall, index: 0, position: {x: 140, y: -55}}
 red:
   random_state: [3922356851994627903, 12201504452134296545, 5684344608720158060, 10086631862426299455]
   reactor_core: 4600
-  supply: 1200
+  supply: 1000
+  reinforce_choice: -1
   unlocked_units: [marksman, phoenix, fire_badger]
   tower_strengthen_levels: [0, 0]
   equipment:
@@ -449,18 +457,18 @@ red:
   next_index: {unit: 12, contraption: 14}
   officers: [secondary_equipment_expert, mass_production_heavy_armor, improved_fortress]
   units:
-  - {name: marksman, index: 0, position: {x: 80, y: -20}, exp: 274/650, value: 100}
-  - {name: marksman, index: 1, position: {x: 290, y: -20}, exp: 650/650, value: 100}
-  - {name: marksman, index: 2, position: {x: -260, y: -30}, exp: 650/650, value: 100}
-  - {name: fire_badger, index: 3, position: {x: 85, y: -90}, exp: 1400/1400, value: 200}
-  - {name: fire_badger, index: 4, position: {x: -135, y: -80}, exp: 1278/1400, value: 200}
-  - {name: fire_badger, index: 5, position: {x: -5, y: -20}, exp: 1400/1400, value: 200}
-  - {name: phoenix, index: 6, position: {x: 20, y: -280}, exp: 1300/1300, value: 200}
-  - {name: marksman, index: 7, position: {x: -100, y: -90}, exp: 650/650, value: 100}
-  - {name: marksman, index: 8, position: {x: 90, y: -120}, exp: 650/650, value: 100}
-  - {name: phoenix, index: 9, position: {x: -260, y: -160}, exp: 1300/1300, value: 200}
-  - {name: fire_badger, index: 10, position: {x: 185, y: -30}, exp: 274/1400, value: 200}
-  - {name: phoenix, index: 11, position: {x: 0, y: -170}, exp: 606/1300, value: 200}
+  - {name: marksman, index: 0, value: 100, position: {x: 80, y: -20}, exp: 274/650}
+  - {name: marksman, index: 1, value: 100, position: {x: 290, y: -20}, exp: 650/650}
+  - {name: marksman, index: 2, value: 100, position: {x: -260, y: -30}, exp: 650/650}
+  - {name: fire_badger, index: 3, value: 200, position: {x: 85, y: -90}, exp: 1400/1400}
+  - {name: fire_badger, index: 4, value: 200, position: {x: -135, y: -80}, exp: 1278/1400}
+  - {name: fire_badger, index: 5, value: 200, position: {x: -5, y: -20}, exp: 1400/1400}
+  - {name: phoenix, index: 6, value: 200, position: {x: 20, y: -280}, exp: 1300/1300}
+  - {name: marksman, index: 7, value: 100, position: {x: -100, y: -90}, exp: 650/650}
+  - {name: marksman, index: 8, value: 100, position: {x: 90, y: -120}, exp: 650/650}
+  - {name: phoenix, index: 9, value: 200, position: {x: -260, y: -160}, exp: 1300/1300}
+  - {name: fire_badger, index: 10, value: 200, position: {x: 185, y: -30}, exp: 274/1400}
+  - {name: phoenix, index: 11, value: 200, position: {x: 0, y: -170}, exp: 606/1300}
   constructions:
   - {name: defensive_wall, index: 0, position: {x: -140, y: -55}}
   contraptions:
@@ -474,6 +482,7 @@ kind: action
 round: 5
 blue:
 - {type: choose_reinforce_item, index: 1, name: advanced_offensive_tactics}
+- {type: active_energy_tower_skill, name: rapid_resupply}
 - {type: buy_unit, name: crawler}
 - {type: buy_unit, name: crawler}
 - {type: upgrade_unit, index: 3}
@@ -491,7 +500,6 @@ red:
 - {type: release_contraption, name: missile, position: {x: -282, y: -24}}
 - {type: release_contraption, name: missile, position: {x: -279, y: -18}}
 - {type: release_contraption, name: missile, position: {x: 0, y: -45}}
-- {type: active_energy_tower_skill, name: deposit_supply}
 ---
 kind: state
 round: 6
@@ -502,7 +510,8 @@ reinforce_offers: [explosive_ammo, steel_ball_production_line, mass_produced_las
 blue:
   random_state: [16908580036766480195, 9838420532142790120, 6287877700131140426, 16574732942839953853]
   reactor_core: 1231
-  supply: 1100
+  supply: 900
+  reinforce_choice: -1
   unlocked_units: [crawler, phoenix, sabertooth, hound]
   blueprints: [defense_enhancement, attack_enhancement_ii]
   tower_strengthen_levels: [0, 0]
@@ -515,24 +524,25 @@ blue:
     phoenix: [launcher_overload]
     sabertooth: [range_enhancement]
   units:
-  - {name: hound, index: 0, position: {x: -40, y: -170}, exp: 585/750, value: 100}
-  - {name: hound, index: 1, position: {x: 40, y: -170}, exp: 337/750, value: 100}
-  - {name: hound, index: 2, position: {x: 0, y: -170}, exp: 228/750, value: 100}
-  - {name: sabertooth, index: 3, position: {x: -75, y: -165}, level: 2, exp: 773/2929, value: 200}
-  - {name: sabertooth, index: 4, position: {x: 75, y: -165}, level: 2, exp: 973/2929, value: 200}
-  - {name: crawler, index: 5, position: {x: -35, y: -150}, level: 2, exp: 411/1014, value: 100}
-  - {name: crawler, index: 6, position: {x: 35, y: -150}, exp: 199/450, value: 100}
-  - {name: phoenix, index: 7, position: {x: 280, y: -100}, exp: 1016/1300, value: 200}
-  - {name: crawler, index: 8, position: {x: 5, y: -130}, exp: 103/450, value: 100}
-  - {name: phoenix, index: 9, position: {x: -280, y: -80}, exp: 1042/1300, value: 200}
-  - {name: crawler, index: 10, position: {x: 5, y: -190}, exp: 93/450, value: 100}
-  - {name: crawler, index: 11, position: {x: 5, y: -210}, exp: 71/450, value: 100}
+  - {name: hound, index: 0, value: 100, position: {x: -40, y: -170}, exp: 585/750}
+  - {name: hound, index: 1, value: 100, position: {x: 40, y: -170}, exp: 337/750}
+  - {name: hound, index: 2, value: 100, position: {x: 0, y: -170}, exp: 228/750}
+  - {name: sabertooth, index: 3, value: 200, level: 2, position: {x: -75, y: -165}, exp: 773/2929}
+  - {name: sabertooth, index: 4, value: 200, level: 2, position: {x: 75, y: -165}, exp: 973/2929}
+  - {name: crawler, index: 5, value: 100, level: 2, position: {x: -35, y: -150}, exp: 411/1014}
+  - {name: crawler, index: 6, value: 100, position: {x: 35, y: -150}, exp: 199/450}
+  - {name: phoenix, index: 7, value: 200, position: {x: 280, y: -100}, exp: 1016/1300}
+  - {name: crawler, index: 8, value: 100, position: {x: 5, y: -130}, exp: 103/450}
+  - {name: phoenix, index: 9, value: 200, position: {x: -280, y: -80}, exp: 1042/1300}
+  - {name: crawler, index: 10, value: 100, position: {x: 5, y: -190}, exp: 93/450}
+  - {name: crawler, index: 11, value: 100, position: {x: 5, y: -210}, exp: 71/450}
   constructions:
   - {name: defensive_wall, index: 0, position: {x: 140, y: -55}}
 red:
   random_state: [1495647377341823201, 15121302133490690482, 11512218882116710995, 3961976170097114840]
   reactor_core: 4600
-  supply: 1400
+  supply: 1200
+  reinforce_choice: -1
   unlocked_units: [marksman, phoenix, fire_badger]
   tower_strengthen_levels: [0, 0]
   equipment:
@@ -548,20 +558,20 @@ red:
   next_index: {unit: 14, contraption: 20}
   officers: [secondary_equipment_expert, mass_production_heavy_armor, advanced_offensive_tactics, improved_fortress]
   units:
-  - {name: marksman, index: 0, position: {x: 80, y: -20}, exp: 364/650, value: 100}
-  - {name: marksman, index: 1, position: {x: 290, y: -20}, exp: 650/650, value: 100}
-  - {name: marksman, index: 2, position: {x: -260, y: -30}, exp: 650/650, value: 100}
-  - {name: fire_badger, index: 3, position: {x: 85, y: -90}, exp: 1400/1400, value: 200}
-  - {name: fire_badger, index: 4, position: {x: -135, y: -80}, exp: 1400/1400, value: 200}
-  - {name: fire_badger, index: 5, position: {x: -5, y: -20}, exp: 1400/1400, value: 200}
-  - {name: phoenix, index: 6, position: {x: 20, y: -280}, exp: 1300/1300, value: 200}
-  - {name: marksman, index: 7, position: {x: -100, y: -90}, exp: 650/650, value: 100}
-  - {name: marksman, index: 8, position: {x: 90, y: -120}, exp: 650/650, value: 100}
-  - {name: phoenix, index: 9, position: {x: -260, y: -160}, exp: 1300/1300, value: 200}
-  - {name: fire_badger, index: 10, position: {x: 185, y: -30}, exp: 387/1400, value: 200}
-  - {name: phoenix, index: 11, position: {x: 0, y: -170}, exp: 1300/1300, value: 200}
-  - {name: phoenix, index: 12, position: {x: 150, y: -70}, exp: 811/1300, value: 200}
-  - {name: marksman, index: 13, position: {x: -20, y: -150}, exp: 452/650, value: 100}
+  - {name: marksman, index: 0, value: 100, position: {x: 80, y: -20}, exp: 364/650}
+  - {name: marksman, index: 1, value: 100, position: {x: 290, y: -20}, exp: 650/650}
+  - {name: marksman, index: 2, value: 100, position: {x: -260, y: -30}, exp: 650/650}
+  - {name: fire_badger, index: 3, value: 200, position: {x: 85, y: -90}, exp: 1400/1400}
+  - {name: fire_badger, index: 4, value: 200, position: {x: -135, y: -80}, exp: 1400/1400}
+  - {name: fire_badger, index: 5, value: 200, position: {x: -5, y: -20}, exp: 1400/1400}
+  - {name: phoenix, index: 6, value: 200, position: {x: 20, y: -280}, exp: 1300/1300}
+  - {name: marksman, index: 7, value: 100, position: {x: -100, y: -90}, exp: 650/650}
+  - {name: marksman, index: 8, value: 100, position: {x: 90, y: -120}, exp: 650/650}
+  - {name: phoenix, index: 9, value: 200, position: {x: -260, y: -160}, exp: 1300/1300}
+  - {name: fire_badger, index: 10, value: 200, position: {x: 185, y: -30}, exp: 387/1400}
+  - {name: phoenix, index: 11, value: 200, position: {x: 0, y: -170}, exp: 1300/1300}
+  - {name: phoenix, index: 12, value: 200, position: {x: 150, y: -70}, exp: 811/1300}
+  - {name: marksman, index: 13, value: 100, position: {x: -20, y: -150}, exp: 452/650}
   constructions:
   - {name: defensive_wall, index: 0, position: {x: -140, y: -55}}
   contraptions:
@@ -577,6 +587,7 @@ kind: action
 round: 6
 blue:
 - {type: choose_reinforce_item, index: 4, name: refund_50}
+- {type: active_energy_tower_skill, name: rapid_resupply}
 - {type: unlock_unit, name: mustang}
 - {type: buy_unit, name: mustang}
 - {type: buy_unit, name: mustang}
@@ -598,7 +609,6 @@ red:
 - {type: release_contraption, name: missile, position: {x: 260, y: -43}}
 - {type: release_contraption, name: missile, position: {x: 143, y: -36}}
 - {type: release_contraption, name: interceptor, position: {x: -5, y: -95}}
-- {type: active_energy_tower_skill, name: deposit_supply}
 ---
 kind: state
 round: 7
@@ -609,7 +619,8 @@ reinforce_offers: [sledgehammer_2x_lv2, arclight_2x_lv4, farseer_1x_lv3, typhoon
 blue:
   random_state: [16908580036766480195, 9838420532142790120, 6287877700131140426, 16574732942839953853]
   reactor_core: 531
-  supply: 1350
+  supply: 1150
+  reinforce_choice: -1
   unlocked_units: [mustang, crawler, phoenix, sabertooth, hound]
   blueprints: [defense_enhancement, attack_enhancement_ii]
   tower_strengthen_levels: [0, 0]
@@ -622,26 +633,27 @@ blue:
     phoenix: [launcher_overload]
     sabertooth: [range_enhancement]
   units:
-  - {name: hound, index: 0, position: {x: -40, y: -170}, exp: 718/750, value: 100}
-  - {name: hound, index: 1, position: {x: 40, y: -170}, exp: 526/750, value: 100}
-  - {name: hound, index: 2, position: {x: 0, y: -170}, exp: 294/750, value: 100}
-  - {name: sabertooth, index: 3, position: {x: -75, y: -165}, level: 2, exp: 1948/2929, value: 200}
-  - {name: sabertooth, index: 4, position: {x: 75, y: -165}, level: 2, exp: 1709/2929, value: 200}
-  - {name: crawler, index: 5, position: {x: -35, y: -150}, level: 2, exp: 427/1014, value: 100}
-  - {name: crawler, index: 6, position: {x: 35, y: -150}, exp: 232/450, value: 100}
-  - {name: phoenix, index: 7, position: {x: 280, y: -100}, exp: 1016/1300, value: 200}
-  - {name: crawler, index: 8, position: {x: 5, y: -130}, exp: 136/450, value: 100}
-  - {name: phoenix, index: 9, position: {x: -280, y: -80}, exp: 1192/1300, value: 200}
-  - {name: crawler, index: 10, position: {x: 5, y: -190}, exp: 126/450, value: 100}
-  - {name: crawler, index: 11, position: {x: 5, y: -210}, exp: 160/450, value: 100}
-  - {name: mustang, index: 12, position: {x: 275, y: -120}, exp: 600/1200, value: 200}
-  - {name: mustang, index: 13, position: {x: -275, y: -100}, exp: 50/1200, value: 200}
+  - {name: hound, index: 0, value: 100, position: {x: -40, y: -170}, exp: 718/750}
+  - {name: hound, index: 1, value: 100, position: {x: 40, y: -170}, exp: 526/750}
+  - {name: hound, index: 2, value: 100, position: {x: 0, y: -170}, exp: 294/750}
+  - {name: sabertooth, index: 3, value: 200, level: 2, position: {x: -75, y: -165}, exp: 1948/2929}
+  - {name: sabertooth, index: 4, value: 200, level: 2, position: {x: 75, y: -165}, exp: 1709/2929}
+  - {name: crawler, index: 5, value: 100, level: 2, position: {x: -35, y: -150}, exp: 427/1014}
+  - {name: crawler, index: 6, value: 100, position: {x: 35, y: -150}, exp: 232/450}
+  - {name: phoenix, index: 7, value: 200, position: {x: 280, y: -100}, exp: 1016/1300}
+  - {name: crawler, index: 8, value: 100, position: {x: 5, y: -130}, exp: 136/450}
+  - {name: phoenix, index: 9, value: 200, position: {x: -280, y: -80}, exp: 1192/1300}
+  - {name: crawler, index: 10, value: 100, position: {x: 5, y: -190}, exp: 126/450}
+  - {name: crawler, index: 11, value: 100, position: {x: 5, y: -210}, exp: 160/450}
+  - {name: mustang, index: 12, value: 200, position: {x: 275, y: -120}, exp: 600/1200}
+  - {name: mustang, index: 13, value: 200, position: {x: -275, y: -100}, exp: 50/1200}
   constructions:
   - {name: defensive_wall, index: 0, position: {x: 140, y: -55}}
 red:
   random_state: [17574161909091331979, 6547017133131948800, 15806303642745326258, 6551995168517467748]
   reactor_core: 4600
-  supply: 2050
+  supply: 1850
+  reinforce_choice: -1
   unlocked_units: [marksman, phoenix, fire_badger]
   tower_strengthen_levels: [0, 0]
   equipment:
@@ -659,22 +671,22 @@ red:
   next_index: {unit: 16, contraption: 28}
   officers: [secondary_equipment_expert, mass_production_heavy_armor, advanced_offensive_tactics, improved_fortress]
   units:
-  - {name: marksman, index: 0, position: {x: 80, y: -20}, exp: 575/650, value: 100}
-  - {name: marksman, index: 1, position: {x: 290, y: -20}, exp: 650/650, value: 100}
-  - {name: marksman, index: 2, position: {x: -260, y: -30}, exp: 650/650, value: 100}
-  - {name: fire_badger, index: 3, position: {x: 85, y: -90}, exp: 1400/1400, value: 200}
-  - {name: fire_badger, index: 4, position: {x: -135, y: -80}, exp: 1400/1400, value: 200}
-  - {name: fire_badger, index: 5, position: {x: -5, y: -20}, exp: 1400/1400, value: 200}
-  - {name: phoenix, index: 6, position: {x: 20, y: -280}, exp: 1300/1300, value: 200}
-  - {name: marksman, index: 7, position: {x: -100, y: -90}, exp: 650/650, value: 100}
-  - {name: marksman, index: 8, position: {x: 90, y: -120}, exp: 650/650, value: 100}
-  - {name: phoenix, index: 9, position: {x: -260, y: -160}, exp: 1300/1300, value: 200}
-  - {name: fire_badger, index: 10, position: {x: 185, y: -30}, exp: 647/1400, value: 200}
-  - {name: phoenix, index: 11, position: {x: 0, y: -170}, exp: 1300/1300, value: 200}
-  - {name: phoenix, index: 12, position: {x: 150, y: -70}, exp: 1300/1300, value: 200}
-  - {name: marksman, index: 13, position: {x: -20, y: -150}, exp: 650/650, value: 100}
-  - {name: marksman, index: 14, position: {x: 270, y: -80}, exp: 392/650, value: 100}
-  - {name: marksman, index: 15, position: {x: -280, y: -30}, exp: 426/650, value: 100}
+  - {name: marksman, index: 0, value: 100, position: {x: 80, y: -20}, exp: 575/650}
+  - {name: marksman, index: 1, value: 100, position: {x: 290, y: -20}, exp: 650/650}
+  - {name: marksman, index: 2, value: 100, position: {x: -260, y: -30}, exp: 650/650}
+  - {name: fire_badger, index: 3, value: 200, position: {x: 85, y: -90}, exp: 1400/1400}
+  - {name: fire_badger, index: 4, value: 200, position: {x: -135, y: -80}, exp: 1400/1400}
+  - {name: fire_badger, index: 5, value: 200, position: {x: -5, y: -20}, exp: 1400/1400}
+  - {name: phoenix, index: 6, value: 200, position: {x: 20, y: -280}, exp: 1300/1300}
+  - {name: marksman, index: 7, value: 100, position: {x: -100, y: -90}, exp: 650/650}
+  - {name: marksman, index: 8, value: 100, position: {x: 90, y: -120}, exp: 650/650}
+  - {name: phoenix, index: 9, value: 200, position: {x: -260, y: -160}, exp: 1300/1300}
+  - {name: fire_badger, index: 10, value: 200, position: {x: 185, y: -30}, exp: 647/1400}
+  - {name: phoenix, index: 11, value: 200, position: {x: 0, y: -170}, exp: 1300/1300}
+  - {name: phoenix, index: 12, value: 200, position: {x: 150, y: -70}, exp: 1300/1300}
+  - {name: marksman, index: 13, value: 100, position: {x: -20, y: -150}, exp: 650/650}
+  - {name: marksman, index: 14, value: 100, position: {x: 270, y: -80}, exp: 392/650}
+  - {name: marksman, index: 15, value: 100, position: {x: -280, y: -30}, exp: 426/650}
   constructions:
   - {name: defensive_wall, index: 0, position: {x: -140, y: -55}}
   contraptions:
@@ -692,7 +704,6 @@ blue:
 - {type: upgrade_technology, unit: crawler, tech: subterranean_blitz}
 - {type: move_unit, index: 14, position: {x: -265, y: -125}}
 - {type: move_unit, index: 15, position: {x: 5, y: -230}}
-- {type: active_energy_tower_skill, name: deposit_supply}
 red:
 - {type: choose_reinforce_item, index: 0, name: sledgehammer_2x_lv2}
 - {type: buy_unit, name: sledgehammer}
@@ -709,7 +720,6 @@ red:
 - {type: release_contraption, name: interceptor, position: {x: -5, y: -45}}
 - {type: release_contraption, name: interceptor, position: {x: 125, y: -25}}
 - {type: release_contraption, name: missile, position: {x: 234, y: -25}}
-- {type: active_energy_tower_skill, name: deposit_supply}
 ---
 kind: result
 round: 7

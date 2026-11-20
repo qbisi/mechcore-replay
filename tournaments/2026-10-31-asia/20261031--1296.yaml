@@ -108,7 +108,7 @@ random_state: [15970607278920851238, 2786162503008076750, 11222650174530257313, 
 blue:
   random_state: [15440635133979805115, 15227308320612192027, 3027791789019742300, 5568531746027986786]
   reactor_core: 4200
-  supply: 400
+  supply: 200
   unlocked_units: [arclight, sabertooth]
   tower_strengthen_levels: [0, 0]
   equipment:
@@ -116,27 +116,27 @@ blue:
   next_index: {unit: 5, contraption: 0}
   officers: [secondary_equipment_expert]
   units:
-  - {name: arclight, index: 0, position: {x: 0, y: -160}, source: joined, value: 100}
-  - {name: arclight, index: 1, position: {x: -20, y: -160}, source: joined, value: 100}
-  - {name: arclight, index: 2, position: {x: 0, y: -180}, source: joined, value: 100}
-  - {name: sabertooth, index: 3, position: {x: -25, y: -185}, source: joined, value: 200}
-  - {name: sabertooth, index: 4, position: {x: -5, y: -135}, source: joined, value: 200}
+  - {name: arclight, index: 0, value: 100, source: joined, position: {x: 0, y: -160}}
+  - {name: arclight, index: 1, value: 100, source: joined, position: {x: -20, y: -160}}
+  - {name: arclight, index: 2, value: 100, source: joined, position: {x: 0, y: -180}}
+  - {name: sabertooth, index: 3, value: 200, source: joined, position: {x: -25, y: -185}}
+  - {name: sabertooth, index: 4, value: 200, source: joined, position: {x: -5, y: -135}}
   constructions:
   - {name: defensive_wall, index: 0, position: {x: -140, y: -55}}
 red:
   random_state: [6871068337507301079, 14634374825760375856, 14893565628288825162, 6891505285779245497]
   reactor_core: 5300
-  supply: 400
+  supply: 200
   unlocked_units: [tarantula, vortex]
   tower_strengthen_levels: [0, 0]
   next_index: {unit: 5, contraption: 0}
   officers: [speed_specialist]
   units:
-  - {name: vortex, index: 0, position: {x: 0, y: -160}, source: joined, value: 100}
-  - {name: vortex, index: 1, position: {x: 20, y: -160}, source: joined, value: 100}
-  - {name: vortex, index: 2, position: {x: 0, y: -140}, source: joined, value: 100}
-  - {name: tarantula, index: 3, position: {x: 25, y: -135}, source: joined, value: 200}
-  - {name: tarantula, index: 4, position: {x: 5, y: -185}, source: joined, value: 200}
+  - {name: vortex, index: 0, value: 100, source: joined, position: {x: 0, y: -160}}
+  - {name: vortex, index: 1, value: 100, source: joined, position: {x: 20, y: -160}}
+  - {name: vortex, index: 2, value: 100, source: joined, position: {x: 0, y: -140}}
+  - {name: tarantula, index: 3, value: 200, source: joined, position: {x: 25, y: -135}}
+  - {name: tarantula, index: 4, value: 200, source: joined, position: {x: 5, y: -185}}
   constructions:
   - {name: defensive_wall, index: 0, position: {x: 140, y: -55}}
 ---
@@ -154,7 +154,6 @@ blue:
 - {type: move_unit, index: 4, position: {x: 145, y: -145}}
 - {type: move_unit, index: 5, position: {x: 170, y: -170}}
 - {type: move_unit, index: 6, position: {x: -170, y: -170}}
-- {type: active_energy_tower_skill, name: deposit_supply}
 red:
 - {type: unlock_unit, name: crawler}
 - {type: buy_unit, name: crawler}
@@ -166,7 +165,6 @@ red:
 - {type: move_unit, index: 5, position: {x: -90, y: -205}, rotated: true}
 - {type: move_unit, index: 2, position: {x: -20, y: -170}}
 - {type: move_unit, index: 6, position: {x: -270, y: -275}, rotated: true}
-- {type: active_energy_tower_skill, name: deposit_supply}
 ---
 kind: state
 round: 2
@@ -175,39 +173,42 @@ reinforce_offers: [rhino_1x_lv1, fire_badger_1x_lv1, void_eye_1x_lv3, wasp_1x_lv
 blue:
   random_state: [5214330521009722818, 3395295698397498108, 8373891202807989735, 7642384003743643809]
   reactor_core: 3600
-  supply: 600
+  supply: 400
+  reinforce_choice: -1
   unlocked_units: [arclight, sabertooth, hound]
   tower_strengthen_levels: [0, 0]
   equipment:
   - {name: small_amplifying_core}
+  - {name: small_amplifying_core, fitted: {unit: 3, slot: 0}}
   next_index: {unit: 7, contraption: 0}
   officers: [secondary_equipment_expert]
   units:
-  - {name: arclight, index: 0, position: {x: 0, y: -170}, exp: 8/750, value: 100}
-  - {name: arclight, index: 1, position: {x: -120, y: -170}, value: 100}
-  - {name: arclight, index: 2, position: {x: 120, y: -170}, exp: 229/750, value: 100}
-  - {name: sabertooth, index: 3, position: {x: -145, y: -145}, exp: 39/1300, equipment: [small_amplifying_core], value: 200}
-  - {name: sabertooth, index: 4, position: {x: 145, y: -145}, exp: 75/1300, value: 200}
-  - {name: hound, index: 5, position: {x: 170, y: -170}, exp: 69/750, value: 100}
-  - {name: hound, index: 6, position: {x: -170, y: -170}, exp: 421/750, value: 100}
+  - {name: arclight, index: 0, value: 100, position: {x: 0, y: -170}, exp: 8/750}
+  - {name: arclight, index: 1, value: 100, position: {x: -120, y: -170}}
+  - {name: arclight, index: 2, value: 100, position: {x: 120, y: -170}, exp: 229/750}
+  - {name: sabertooth, index: 3, value: 200, position: {x: -145, y: -145}, exp: 39/1300}
+  - {name: sabertooth, index: 4, value: 200, position: {x: 145, y: -145}, exp: 75/1300}
+  - {name: hound, index: 5, value: 100, position: {x: 170, y: -170}, exp: 69/750}
+  - {name: hound, index: 6, value: 100, position: {x: -170, y: -170}, exp: 421/750}
   constructions:
   - {name: defensive_wall, index: 0, position: {x: -140, y: -55}}
 red:
   random_state: [6871068337507301079, 14634374825760375856, 14893565628288825162, 6891505285779245497]
   reactor_core: 5300
-  supply: 600
+  supply: 400
+  reinforce_choice: -1
   unlocked_units: [crawler, tarantula, vortex]
   tower_strengthen_levels: [0, 0]
   next_index: {unit: 7, contraption: 0}
   officers: [speed_specialist]
   units:
-  - {name: vortex, index: 0, position: {x: -190, y: -170}, exp: 206/750, value: 100}
-  - {name: vortex, index: 1, position: {x: -90, y: -170}, exp: 363/750, value: 100}
-  - {name: vortex, index: 2, position: {x: -20, y: -170}, exp: 750/750, value: 100}
-  - {name: tarantula, index: 3, position: {x: -165, y: -145}, exp: 130/1500, value: 200}
-  - {name: tarantula, index: 4, position: {x: -115, y: -145}, exp: 540/1500, value: 200}
-  - {name: crawler, index: 5, position: {x: -90, y: -205}, exp: 26/450, rotated: true, value: 100}
-  - {name: crawler, index: 6, position: {x: -270, y: -275}, exp: 53/450, rotated: true, value: 100}
+  - {name: vortex, index: 0, value: 100, position: {x: -190, y: -170}, exp: 206/750}
+  - {name: vortex, index: 1, value: 100, position: {x: -90, y: -170}, exp: 363/750}
+  - {name: vortex, index: 2, value: 100, position: {x: -20, y: -170}, exp: 750/750}
+  - {name: tarantula, index: 3, value: 200, position: {x: -165, y: -145}, exp: 130/1500}
+  - {name: tarantula, index: 4, value: 200, position: {x: -115, y: -145}, exp: 540/1500}
+  - {name: crawler, index: 5, value: 100, position: {x: -90, y: -205}, exp: 26/450, rotated: true}
+  - {name: crawler, index: 6, value: 100, position: {x: -270, y: -275}, exp: 53/450, rotated: true}
   constructions:
   - {name: defensive_wall, index: 0, position: {x: 140, y: -55}}
 ---
@@ -223,7 +224,6 @@ blue:
 - {type: move_unit, index: 9, position: {x: 210, y: -170}}
 - {type: active_blueprint, name: attack_enhancement}
 - {type: unlock_unit, name: fang}
-- {type: active_energy_tower_skill, name: deposit_supply}
 red:
 - {type: choose_reinforce_item, index: 3, name: wasp_1x_lv1}
 - {type: buy_unit, name: crawler}
@@ -233,7 +233,6 @@ red:
 - {type: move_unit, index: 9, position: {x: 250, y: -275}, rotated: true}
 - {type: upgrade_unit, index: 2}
 - {type: unlock_unit, name: marksman}
-- {type: active_energy_tower_skill, name: deposit_supply}
 ---
 kind: state
 round: 3
@@ -244,46 +243,50 @@ reinforce_offers: [equipment_expansion, laser_sights, dominion_core, improved_st
 blue:
   random_state: [958340154725132191, 1402184257048517337, 4219512897565921317, 3335945363643568068]
   reactor_core: 2760
-  supply: 850
+  supply: 650
+  reinforce_choice: -1
   unlocked_units: [wasp, fang, arclight, sabertooth, hound]
   blueprints: [attack_enhancement]
   tower_strengthen_levels: [0, 0]
   equipment:
+  - {name: small_amplifying_core, fitted: {unit: 3, slot: 0}}
+  - {name: small_amplifying_core, fitted: {unit: 4, slot: 0}}
   - {name: secondary_laser_sight}
   next_index: {unit: 10, contraption: 0}
   officers: [secondary_equipment_expert]
   units:
-  - {name: arclight, index: 0, position: {x: 0, y: -170}, exp: 8/750, value: 100}
-  - {name: arclight, index: 1, position: {x: -120, y: -170}, exp: 17/750, value: 100}
-  - {name: arclight, index: 2, position: {x: 120, y: -170}, exp: 369/750, value: 100}
-  - {name: sabertooth, index: 3, position: {x: -145, y: -145}, exp: 106/1300, equipment: [small_amplifying_core], value: 200}
-  - {name: sabertooth, index: 4, position: {x: 145, y: -145}, exp: 400/1300, equipment: [small_amplifying_core], value: 200}
-  - {name: hound, index: 5, position: {x: 170, y: -170}, exp: 116/750, value: 100}
-  - {name: hound, index: 6, position: {x: -170, y: -170}, exp: 536/750, value: 100}
-  - {name: wasp, index: 7, position: {x: 145, y: -300}, exp: 183/900, value: 200}
-  - {name: hound, index: 8, position: {x: 90, y: -170}, exp: 158/750, value: 100}
-  - {name: hound, index: 9, position: {x: 210, y: -170}, exp: 47/750, value: 100}
+  - {name: arclight, index: 0, value: 100, position: {x: 0, y: -170}, exp: 8/750}
+  - {name: arclight, index: 1, value: 100, position: {x: -120, y: -170}, exp: 17/750}
+  - {name: arclight, index: 2, value: 100, position: {x: 120, y: -170}, exp: 369/750}
+  - {name: sabertooth, index: 3, value: 200, position: {x: -145, y: -145}, exp: 106/1300}
+  - {name: sabertooth, index: 4, value: 200, position: {x: 145, y: -145}, exp: 400/1300}
+  - {name: hound, index: 5, value: 100, position: {x: 170, y: -170}, exp: 116/750}
+  - {name: hound, index: 6, value: 100, position: {x: -170, y: -170}, exp: 536/750}
+  - {name: wasp, index: 7, value: 200, position: {x: 145, y: -300}, exp: 183/900}
+  - {name: hound, index: 8, value: 100, position: {x: 90, y: -170}, exp: 158/750}
+  - {name: hound, index: 9, value: 100, position: {x: 210, y: -170}, exp: 47/750}
   constructions:
   - {name: defensive_wall, index: 0, position: {x: -140, y: -55}}
 red:
   random_state: [6871068337507301079, 14634374825760375856, 14893565628288825162, 6891505285779245497]
   reactor_core: 5300
-  supply: 800
+  supply: 600
+  reinforce_choice: -1
   unlocked_units: [marksman, wasp, crawler, tarantula, vortex]
   tower_strengthen_levels: [0, 0]
   next_index: {unit: 10, contraption: 0}
   officers: [speed_specialist]
   units:
-  - {name: vortex, index: 0, position: {x: -190, y: -170}, exp: 356/750, value: 100}
-  - {name: vortex, index: 1, position: {x: -90, y: -170}, exp: 746/750, value: 100}
-  - {name: vortex, index: 2, position: {x: -20, y: -170}, level: 2, exp: 701/1690, value: 100}
-  - {name: tarantula, index: 3, position: {x: -165, y: -145}, exp: 350/1500, value: 200}
-  - {name: tarantula, index: 4, position: {x: -115, y: -145}, exp: 648/1500, value: 200}
-  - {name: crawler, index: 5, position: {x: -90, y: -205}, exp: 42/450, rotated: true, value: 100}
-  - {name: crawler, index: 6, position: {x: -270, y: -275}, exp: 122/450, rotated: true, value: 100}
-  - {name: wasp, index: 7, position: {x: -250, y: -275}, exp: 557/900, rotated: true, value: 200}
-  - {name: crawler, index: 8, position: {x: 270, y: -275}, rotated: true, value: 100}
-  - {name: wasp, index: 9, position: {x: 250, y: -275}, exp: 612/900, rotated: true, value: 200}
+  - {name: vortex, index: 0, value: 100, position: {x: -190, y: -170}, exp: 356/750}
+  - {name: vortex, index: 1, value: 100, position: {x: -90, y: -170}, exp: 746/750}
+  - {name: vortex, index: 2, value: 100, level: 2, position: {x: -20, y: -170}, exp: 701/1690}
+  - {name: tarantula, index: 3, value: 200, position: {x: -165, y: -145}, exp: 350/1500}
+  - {name: tarantula, index: 4, value: 200, position: {x: -115, y: -145}, exp: 648/1500}
+  - {name: crawler, index: 5, value: 100, position: {x: -90, y: -205}, exp: 42/450, rotated: true}
+  - {name: crawler, index: 6, value: 100, position: {x: -270, y: -275}, exp: 122/450, rotated: true}
+  - {name: wasp, index: 7, value: 200, position: {x: -250, y: -275}, exp: 557/900, rotated: true}
+  - {name: crawler, index: 8, value: 100, position: {x: 270, y: -275}, rotated: true}
+  - {name: wasp, index: 9, value: 200, position: {x: 250, y: -275}, exp: 612/900, rotated: true}
   constructions:
   - {name: defensive_wall, index: 0, position: {x: 140, y: -55}}
 ---
@@ -300,7 +303,6 @@ blue:
 - {type: use_equipment, name: small_amplifying_core, index: 10}
 - {type: move_unit, index: 10, position: {x: 135, y: -145}}
 - {type: move_unit, index: 11, position: {x: 75, y: -145}}
-- {type: active_energy_tower_skill, name: deposit_supply}
 red:
 - {type: choose_reinforce_item, index: 1, name: laser_sights}
 - {type: buy_unit, name: vortex}
@@ -310,7 +312,6 @@ red:
 - {type: move_unit, index: 10, position: {x: 50, y: -170}}
 - {type: move_unit, index: 11, position: {x: -250, y: -170}}
 - {type: unlock_unit, name: fang}
-- {type: active_energy_tower_skill, name: deposit_supply}
 ---
 kind: state
 round: 4
@@ -321,53 +322,60 @@ reinforce_offers: [improved_void_eye, acid_blast, assault_raiden, fortified_fars
 blue:
   random_state: [3491014075456025218, 2645727290050178403, 2993807297228634042, 8260630480533103650]
   reactor_core: 2071
-  supply: 1000
+  supply: 800
+  reinforce_choice: -1
   unlocked_units: [wasp, fang, arclight, sabertooth, hound, centurion]
   blueprints: [field_recovery, attack_enhancement]
   tower_strengthen_levels: [0, 0]
   equipment:
   - {name: small_amplifying_core}
+  - {name: small_amplifying_core, fitted: {unit: 3, slot: 0}}
+  - {name: small_amplifying_core, fitted: {unit: 10, slot: 1}}
+  - {name: secondary_laser_sight, fitted: {unit: 10, slot: 0}}
   battle_skills:
   - {index: 0, name: field_recovery, cooldown: 0}
   next_index: {unit: 12, contraption: 0}
   officers: [secondary_equipment_expert, equipment_expansion]
   units:
-  - {name: arclight, index: 0, position: {x: 0, y: -170}, exp: 28/750, value: 100}
-  - {name: arclight, index: 1, position: {x: -120, y: -170}, exp: 43/750, value: 100}
-  - {name: arclight, index: 2, position: {x: 120, y: -170}, exp: 443/750, value: 100}
-  - {name: sabertooth, index: 3, position: {x: -145, y: -145}, exp: 299/1300, equipment: [small_amplifying_core], value: 200}
-  - {name: hound, index: 5, position: {x: 170, y: -170}, exp: 277/750, value: 100}
-  - {name: hound, index: 6, position: {x: -170, y: -170}, exp: 719/750, value: 100}
-  - {name: wasp, index: 7, position: {x: 145, y: -300}, exp: 557/900, value: 200}
-  - {name: hound, index: 8, position: {x: 90, y: -170}, exp: 252/750, value: 100}
-  - {name: hound, index: 9, position: {x: 210, y: -170}, exp: 66/750, value: 100}
-  - {name: centurion, index: 10, position: {x: 135, y: -145}, exp: 421/2250, equipment: [secondary_laser_sight, small_amplifying_core], value: 300}
-  - {name: centurion, index: 11, position: {x: 75, y: -145}, exp: 54/2250, value: 300}
+  - {name: arclight, index: 0, value: 100, position: {x: 0, y: -170}, exp: 28/750}
+  - {name: arclight, index: 1, value: 100, position: {x: -120, y: -170}, exp: 43/750}
+  - {name: arclight, index: 2, value: 100, position: {x: 120, y: -170}, exp: 443/750}
+  - {name: sabertooth, index: 3, value: 200, position: {x: -145, y: -145}, exp: 299/1300}
+  - {name: hound, index: 5, value: 100, position: {x: 170, y: -170}, exp: 277/750}
+  - {name: hound, index: 6, value: 100, position: {x: -170, y: -170}, exp: 719/750}
+  - {name: wasp, index: 7, value: 200, position: {x: 145, y: -300}, exp: 557/900}
+  - {name: hound, index: 8, value: 100, position: {x: 90, y: -170}, exp: 252/750}
+  - {name: hound, index: 9, value: 100, position: {x: 210, y: -170}, exp: 66/750}
+  - {name: centurion, index: 10, value: 300, position: {x: 135, y: -145}, exp: 421/2250}
+  - {name: centurion, index: 11, value: 300, position: {x: 75, y: -145}, exp: 54/2250}
   constructions:
   - {name: defensive_wall, index: 0, position: {x: -140, y: -55}}
 red:
   random_state: [6871068337507301079, 14634374825760375856, 14893565628288825162, 6891505285779245497]
   reactor_core: 5300
-  supply: 1050
+  supply: 850
+  reinforce_choice: -1
   unlocked_units: [marksman, wasp, fang, crawler, tarantula, vortex]
   tower_strengthen_levels: [0, 0]
+  equipment:
+  - {name: laser_sights, fitted: {unit: 2, slot: 0}}
   next_index: {unit: 12, contraption: 0}
   officers: [speed_specialist]
   techs:
     vortex: [range_enhancement]
   units:
-  - {name: vortex, index: 0, position: {x: -190, y: -170}, exp: 750/750, value: 100}
-  - {name: vortex, index: 1, position: {x: -90, y: -170}, exp: 750/750, value: 100}
-  - {name: vortex, index: 2, position: {x: -20, y: -170}, level: 2, exp: 1690/1690, equipment: [laser_sights], value: 100}
-  - {name: tarantula, index: 3, position: {x: -165, y: -145}, exp: 450/1500, value: 200}
-  - {name: tarantula, index: 4, position: {x: -115, y: -145}, exp: 648/1500, value: 200}
-  - {name: crawler, index: 5, position: {x: -90, y: -205}, exp: 42/450, rotated: true, value: 100}
-  - {name: crawler, index: 6, position: {x: -270, y: -275}, exp: 326/450, rotated: true, value: 100}
-  - {name: wasp, index: 7, position: {x: -250, y: -275}, exp: 900/900, rotated: true, value: 200}
-  - {name: crawler, index: 8, position: {x: 270, y: -275}, rotated: true, value: 100}
-  - {name: wasp, index: 9, position: {x: 250, y: -275}, exp: 900/900, rotated: true, value: 200}
-  - {name: vortex, index: 10, position: {x: 50, y: -170}, exp: 24/750, value: 100}
-  - {name: vortex, index: 11, position: {x: -250, y: -170}, exp: 200/750, value: 100}
+  - {name: vortex, index: 0, value: 100, position: {x: -190, y: -170}, exp: 750/750}
+  - {name: vortex, index: 1, value: 100, position: {x: -90, y: -170}, exp: 750/750}
+  - {name: vortex, index: 2, value: 100, level: 2, position: {x: -20, y: -170}, exp: 1690/1690}
+  - {name: tarantula, index: 3, value: 200, position: {x: -165, y: -145}, exp: 450/1500}
+  - {name: tarantula, index: 4, value: 200, position: {x: -115, y: -145}, exp: 648/1500}
+  - {name: crawler, index: 5, value: 100, position: {x: -90, y: -205}, exp: 42/450, rotated: true}
+  - {name: crawler, index: 6, value: 100, position: {x: -270, y: -275}, exp: 326/450, rotated: true}
+  - {name: wasp, index: 7, value: 200, position: {x: -250, y: -275}, exp: 900/900, rotated: true}
+  - {name: crawler, index: 8, value: 100, position: {x: 270, y: -275}, rotated: true}
+  - {name: wasp, index: 9, value: 200, position: {x: 250, y: -275}, exp: 900/900, rotated: true}
+  - {name: vortex, index: 10, value: 100, position: {x: 50, y: -170}, exp: 24/750}
+  - {name: vortex, index: 11, value: 100, position: {x: -250, y: -170}, exp: 200/750}
   constructions:
   - {name: defensive_wall, index: 0, position: {x: 140, y: -55}}
 ---
@@ -385,7 +393,6 @@ blue:
 - {type: move_unit, index: 13, position: {x: 15, y: -145}}
 - {type: active_blueprint, name: defense_enhancement}
 - {type: unlock_unit, name: sledgehammer}
-- {type: active_energy_tower_skill, name: deposit_supply}
 red:
 - {type: choose_reinforce_item, index: 1, name: acid_blast}
 - {type: buy_unit, name: crawler}
@@ -401,7 +408,6 @@ red:
 - {type: active_blueprint, name: defense_enhancement}
 - {type: unlock_unit, name: mustang}
 - {type: release_commander_skill, index: 0, name: acid_blast, target: {area: [{x: -166, y: 82}, {x: -26, y: 82}]}}
-- {type: active_energy_tower_skill, name: deposit_supply}
 ---
 kind: state
 round: 5
@@ -412,11 +418,16 @@ reinforce_offers: [amplifying_core, laser_sights, portable_shield, supply_enhanc
 blue:
   random_state: [7378786912258898883, 4416117955700877403, 2024665927525532984, 17953646929450271585]
   reactor_core: 928
-  supply: 1250
+  supply: 1050
+  reinforce_choice: -1
   unlocked_units: [wasp, fang, sledgehammer, arclight, sabertooth, hound, centurion]
   blueprints: [field_recovery, attack_enhancement, defense_enhancement]
   tower_strengthen_levels: [0, 0]
   equipment:
+  - {name: small_amplifying_core, fitted: {unit: 10, slot: 1}}
+  - {name: small_amplifying_core, fitted: {unit: 11, slot: 0}}
+  - {name: small_amplifying_core, fitted: {unit: 13, slot: 0}}
+  - {name: secondary_laser_sight, fitted: {unit: 10, slot: 0}}
   - {name: secondary_heavy_armor}
   battle_skills:
   - {index: 0, name: field_recovery, cooldown: 0}
@@ -425,27 +436,30 @@ blue:
   techs:
     centurion: [range_enhancement]
   units:
-  - {name: arclight, index: 0, position: {x: 0, y: -170}, exp: 76/750, value: 100}
-  - {name: arclight, index: 1, position: {x: -120, y: -170}, exp: 73/750, value: 100}
-  - {name: arclight, index: 2, position: {x: 120, y: -170}, exp: 508/750, value: 100}
-  - {name: hound, index: 5, position: {x: 170, y: -170}, exp: 277/750, value: 100}
-  - {name: hound, index: 6, position: {x: -170, y: -170}, exp: 750/750, value: 100}
-  - {name: wasp, index: 7, position: {x: 145, y: -300}, exp: 726/900, value: 200}
-  - {name: hound, index: 8, position: {x: 90, y: -170}, exp: 262/750, value: 100}
-  - {name: hound, index: 9, position: {x: 210, y: -170}, exp: 66/750, value: 100}
-  - {name: centurion, index: 10, position: {x: 135, y: -145}, exp: 848/2250, equipment: [secondary_laser_sight, small_amplifying_core], value: 300}
-  - {name: centurion, index: 11, position: {x: 75, y: -145}, exp: 118/2250, equipment: [small_amplifying_core], value: 300}
-  - {name: centurion, index: 12, position: {x: 195, y: -145}, exp: 400/2250, value: 300}
-  - {name: centurion, index: 13, position: {x: 15, y: -145}, exp: 32/2250, equipment: [small_amplifying_core], value: 300}
+  - {name: arclight, index: 0, value: 100, position: {x: 0, y: -170}, exp: 76/750}
+  - {name: arclight, index: 1, value: 100, position: {x: -120, y: -170}, exp: 73/750}
+  - {name: arclight, index: 2, value: 100, position: {x: 120, y: -170}, exp: 508/750}
+  - {name: hound, index: 5, value: 100, position: {x: 170, y: -170}, exp: 277/750}
+  - {name: hound, index: 6, value: 100, position: {x: -170, y: -170}, exp: 750/750}
+  - {name: wasp, index: 7, value: 200, position: {x: 145, y: -300}, exp: 726/900}
+  - {name: hound, index: 8, value: 100, position: {x: 90, y: -170}, exp: 262/750}
+  - {name: hound, index: 9, value: 100, position: {x: 210, y: -170}, exp: 66/750}
+  - {name: centurion, index: 10, value: 300, position: {x: 135, y: -145}, exp: 848/2250}
+  - {name: centurion, index: 11, value: 300, position: {x: 75, y: -145}, exp: 118/2250}
+  - {name: centurion, index: 12, value: 300, position: {x: 195, y: -145}, exp: 400/2250}
+  - {name: centurion, index: 13, value: 300, position: {x: 15, y: -145}, exp: 32/2250}
   constructions:
   - {name: defensive_wall, index: 0, position: {x: -140, y: -55}}
 red:
   random_state: [6871068337507301079, 14634374825760375856, 14893565628288825162, 6891505285779245497]
   reactor_core: 5300
-  supply: 1200
+  supply: 1000
+  reinforce_choice: -1
   unlocked_units: [marksman, wasp, mustang, fang, crawler, tarantula, vortex]
   blueprints: [attack_enhancement, defense_enhancement]
   tower_strengthen_levels: [0, 0]
+  equipment:
+  - {name: laser_sights, fitted: {unit: 2, slot: 0}}
   battle_skills:
   - {index: 0, name: acid_blast, cooldown: 3}
   next_index: {unit: 14, contraption: 0}
@@ -453,20 +467,20 @@ red:
   techs:
     vortex: [range_enhancement]
   units:
-  - {name: vortex, index: 0, position: {x: -190, y: -170}, level: 2, exp: 495/1690, value: 100}
-  - {name: vortex, index: 1, position: {x: -90, y: -170}, level: 2, exp: 620/1690, value: 100}
-  - {name: vortex, index: 2, position: {x: -20, y: -170}, level: 3, exp: 1230/2671, equipment: [laser_sights], value: 100}
-  - {name: tarantula, index: 3, position: {x: -165, y: -145}, exp: 650/1500, value: 200}
-  - {name: tarantula, index: 4, position: {x: -115, y: -145}, exp: 708/1500, value: 200}
-  - {name: crawler, index: 5, position: {x: -90, y: -205}, exp: 182/450, rotated: true, value: 100}
-  - {name: crawler, index: 6, position: {x: -270, y: -275}, exp: 450/450, rotated: true, value: 100}
-  - {name: wasp, index: 7, position: {x: -250, y: -275}, level: 2, exp: 364/2028, rotated: true, value: 200}
-  - {name: crawler, index: 8, position: {x: 270, y: -275}, exp: 42/450, rotated: true, value: 100}
-  - {name: wasp, index: 9, position: {x: 250, y: -275}, level: 2, exp: 114/2028, rotated: true, value: 200}
-  - {name: vortex, index: 10, position: {x: 50, y: -170}, exp: 374/750, value: 100}
-  - {name: vortex, index: 11, position: {x: -250, y: -170}, exp: 355/750, value: 100}
-  - {name: crawler, index: 12, position: {x: 50, y: -205}, exp: 34/450, rotated: true, value: 100}
-  - {name: vortex, index: 13, position: {x: 120, y: -170}, exp: 152/750, value: 100}
+  - {name: vortex, index: 0, value: 100, level: 2, position: {x: -190, y: -170}, exp: 495/1690}
+  - {name: vortex, index: 1, value: 100, level: 2, position: {x: -90, y: -170}, exp: 620/1690}
+  - {name: vortex, index: 2, value: 100, level: 3, position: {x: -20, y: -170}, exp: 1230/2671}
+  - {name: tarantula, index: 3, value: 200, position: {x: -165, y: -145}, exp: 650/1500}
+  - {name: tarantula, index: 4, value: 200, position: {x: -115, y: -145}, exp: 708/1500}
+  - {name: crawler, index: 5, value: 100, position: {x: -90, y: -205}, exp: 182/450, rotated: true}
+  - {name: crawler, index: 6, value: 100, position: {x: -270, y: -275}, exp: 450/450, rotated: true}
+  - {name: wasp, index: 7, value: 200, level: 2, position: {x: -250, y: -275}, exp: 364/2028, rotated: true}
+  - {name: crawler, index: 8, value: 100, position: {x: 270, y: -275}, exp: 42/450, rotated: true}
+  - {name: wasp, index: 9, value: 200, level: 2, position: {x: 250, y: -275}, exp: 114/2028, rotated: true}
+  - {name: vortex, index: 10, value: 100, position: {x: 50, y: -170}, exp: 374/750}
+  - {name: vortex, index: 11, value: 100, position: {x: -250, y: -170}, exp: 355/750}
+  - {name: crawler, index: 12, value: 100, position: {x: 50, y: -205}, exp: 34/450, rotated: true}
+  - {name: vortex, index: 13, value: 100, position: {x: 120, y: -170}, exp: 152/750}
   constructions:
   - {name: defensive_wall, index: 0, position: {x: 140, y: -55}}
 ---
@@ -474,6 +488,7 @@ kind: action
 round: 5
 blue:
 - {type: choose_reinforce_item, index: 1, name: laser_sights}
+- {type: active_energy_tower_skill, name: rapid_resupply}
 - {type: buy_unit, name: centurion}
 - {type: buy_unit, name: centurion}
 - {type: active_energy_tower_skill, name: mass_recruitment}
@@ -500,7 +515,6 @@ red:
 - {type: upgrade_unit, index: 6}
 - {type: active_energy_tower_skill, name: enhanced_range}
 - {type: unlock_unit, name: hound}
-- {type: active_energy_tower_skill, name: deposit_supply}
 ---
 kind: result
 round: 5

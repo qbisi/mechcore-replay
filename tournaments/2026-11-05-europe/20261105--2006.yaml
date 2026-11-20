@@ -110,34 +110,34 @@ random_state: [9264624140555354422, 5214567525467804092, 4932852139215675199, 94
 blue:
   random_state: [11432977649429361469, 14076738130519565003, 10013021817455288242, 4123157175671036832]
   reactor_core: 3800
-  supply: 600
+  supply: 400
   unlocked_units: [marksman, sledgehammer]
   tower_strengthen_levels: [0, 0]
   next_index: {unit: 5, contraption: 0}
   officers: [quick_supply_specialist]
   units:
-  - {name: marksman, index: 0, position: {x: 0, y: -160}, source: joined, value: 100}
-  - {name: marksman, index: 1, position: {x: -20, y: -160}, source: joined, value: 100}
-  - {name: marksman, index: 2, position: {x: 0, y: -180}, source: joined, value: 100}
-  - {name: sledgehammer, index: 3, position: {x: 5, y: -140}, source: joined, value: 200}
-  - {name: sledgehammer, index: 4, position: {x: 35, y: -160}, source: joined, value: 200}
+  - {name: marksman, index: 0, value: 100, source: joined, position: {x: 0, y: -160}}
+  - {name: marksman, index: 1, value: 100, source: joined, position: {x: -20, y: -160}}
+  - {name: marksman, index: 2, value: 100, source: joined, position: {x: 0, y: -180}}
+  - {name: sledgehammer, index: 3, value: 200, source: joined, position: {x: 5, y: -140}}
+  - {name: sledgehammer, index: 4, value: 200, source: joined, position: {x: 35, y: -160}}
   constructions:
   - {name: defensive_wall, index: 0, position: {x: 140, y: -55}}
   - {name: anti_armor_turret, index: 1, position: {x: -140, y: -100}}
 red:
   random_state: [34621016567883197, 14608596306702404029, 13604730048349026707, 14366021194226358105]
   reactor_core: 4600
-  supply: 400
+  supply: 200
   unlocked_units: [fang, tarantula]
   tower_strengthen_levels: [0, 0]
   next_index: {unit: 5, contraption: 0}
   officers: [giant_specialist]
   units:
-  - {name: fang, index: 0, position: {x: -5, y: -160}, source: joined, value: 100}
-  - {name: fang, index: 1, position: {x: -5, y: -140}, source: joined, value: 100}
-  - {name: fang, index: 2, position: {x: -5, y: -180}, source: joined, value: 100}
-  - {name: tarantula, index: 3, position: {x: 35, y: -155}, source: joined, value: 200}
-  - {name: tarantula, index: 4, position: {x: 5, y: -115}, source: joined, value: 200}
+  - {name: fang, index: 0, value: 100, source: joined, position: {x: -5, y: -160}}
+  - {name: fang, index: 1, value: 100, source: joined, position: {x: -5, y: -140}}
+  - {name: fang, index: 2, value: 100, source: joined, position: {x: -5, y: -180}}
+  - {name: tarantula, index: 3, value: 200, source: joined, position: {x: 35, y: -155}}
+  - {name: tarantula, index: 4, value: 200, source: joined, position: {x: 5, y: -115}}
   constructions:
   - {name: defensive_wall, index: 0, position: {x: 140, y: -55}}
   - {name: anti_armor_turret, index: 1, position: {x: -140, y: -100}}
@@ -155,7 +155,6 @@ blue:
 - {type: move_unit, index: 4, position: {x: 85, y: -130}}
 - {type: move_unit, index: 5, position: {x: 145, y: -190}}
 - {type: move_unit, index: 6, position: {x: -135, y: -190}}
-- {type: active_energy_tower_skill, name: deposit_supply}
 red:
 - {type: active_blueprint, name: field_recovery}
 - {type: release_commander_skill, index: 0, name: field_recovery, target: {construction: 1}}
@@ -168,7 +167,6 @@ red:
 - {type: move_unit, index: 5, position: {x: 85, y: -90}}
 - {type: move_unit, index: 6, position: {x: -275, y: -90}}
 - {type: move_unit, index: 3, position: {x: -55, y: -115}}
-- {type: active_energy_tower_skill, name: deposit_supply}
 ---
 kind: state
 round: 2
@@ -179,26 +177,28 @@ reinforce_offers: [missile_strike, improved_wasp, mass_produced_sandworm, haste_
 blue:
   random_state: [11432977649429361469, 14076738130519565003, 10013021817455288242, 4123157175671036832]
   reactor_core: 3540
-  supply: 800
+  supply: 600
+  reinforce_choice: -1
   unlocked_units: [marksman, crawler, sledgehammer]
   tower_strengthen_levels: [0, 0]
   next_index: {unit: 7, contraption: 0}
   officers: [quick_supply_specialist]
   units:
-  - {name: marksman, index: 0, position: {x: -100, y: -170}, exp: 265/650, value: 100}
-  - {name: marksman, index: 1, position: {x: 110, y: -170}, exp: 72/650, value: 100}
-  - {name: marksman, index: 2, position: {x: 180, y: -170}, exp: 48/650, value: 100}
-  - {name: sledgehammer, index: 3, position: {x: -85, y: -130}, exp: 615/1300, value: 200}
-  - {name: sledgehammer, index: 4, position: {x: 85, y: -130}, exp: 216/1300, value: 200}
-  - {name: crawler, index: 5, position: {x: 145, y: -190}, exp: 12/450, value: 100}
-  - {name: crawler, index: 6, position: {x: -135, y: -190}, exp: 105/450, value: 100}
+  - {name: marksman, index: 0, value: 100, position: {x: -100, y: -170}, exp: 265/650}
+  - {name: marksman, index: 1, value: 100, position: {x: 110, y: -170}, exp: 72/650}
+  - {name: marksman, index: 2, value: 100, position: {x: 180, y: -170}, exp: 48/650}
+  - {name: sledgehammer, index: 3, value: 200, position: {x: -85, y: -130}, exp: 615/1300}
+  - {name: sledgehammer, index: 4, value: 200, position: {x: 85, y: -130}, exp: 216/1300}
+  - {name: crawler, index: 5, value: 100, position: {x: 145, y: -190}, exp: 12/450}
+  - {name: crawler, index: 6, value: 100, position: {x: -135, y: -190}, exp: 105/450}
   constructions:
   - {name: defensive_wall, index: 0, position: {x: 140, y: -55}}
   - {name: anti_armor_turret, index: 1, position: {x: -140, y: -100}}
 red:
   random_state: [34621016567883197, 14608596306702404029, 13604730048349026707, 14366021194226358105]
   reactor_core: 4600
-  supply: 600
+  supply: 400
+  reinforce_choice: -1
   unlocked_units: [fang, tarantula]
   blueprints: [field_recovery]
   tower_strengthen_levels: [0, 0]
@@ -207,13 +207,13 @@ red:
   next_index: {unit: 7, contraption: 0}
   officers: [giant_specialist]
   units:
-  - {name: fang, index: 0, position: {x: -95, y: -90}, exp: 40/600, value: 100}
-  - {name: fang, index: 1, position: {x: -185, y: -90}, exp: 199/600, value: 100}
-  - {name: fang, index: 2, position: {x: -5, y: -90}, exp: 162/600, value: 100}
-  - {name: tarantula, index: 3, position: {x: -55, y: -115}, exp: 337/1500, value: 200}
-  - {name: tarantula, index: 4, position: {x: -225, y: -115}, exp: 825/1500, value: 200}
-  - {name: fang, index: 5, position: {x: 85, y: -90}, exp: 38/600, value: 100}
-  - {name: fang, index: 6, position: {x: -275, y: -90}, exp: 436/600, value: 100}
+  - {name: fang, index: 0, value: 100, position: {x: -95, y: -90}, exp: 40/600}
+  - {name: fang, index: 1, value: 100, position: {x: -185, y: -90}, exp: 199/600}
+  - {name: fang, index: 2, value: 100, position: {x: -5, y: -90}, exp: 162/600}
+  - {name: tarantula, index: 3, value: 200, position: {x: -55, y: -115}, exp: 337/1500}
+  - {name: tarantula, index: 4, value: 200, position: {x: -225, y: -115}, exp: 825/1500}
+  - {name: fang, index: 5, value: 100, position: {x: 85, y: -90}, exp: 38/600}
+  - {name: fang, index: 6, value: 100, position: {x: -275, y: -90}, exp: 436/600}
   constructions:
   - {name: defensive_wall, index: 0, position: {x: 140, y: -55}}
 ---
@@ -228,7 +228,6 @@ blue:
 - {type: move_unit, index: 7, position: {x: 290, y: -155}, rotated: true}
 - {type: move_unit, index: 8, position: {x: -5, y: -300}}
 - {type: unlock_unit, name: vulcan}
-- {type: active_energy_tower_skill, name: deposit_supply}
 red:
 - {type: choose_reinforce_item, index: 0, name: missile_strike}
 - {type: release_commander_skill, index: 0, name: field_recovery, target: {unit: 3}}
@@ -239,7 +238,6 @@ red:
 - {type: move_unit, index: 8, position: {x: -140, y: -205}, rotated: true}
 - {type: unlock_unit, name: fortress}
 - {type: release_commander_skill, index: 1, name: missile_strike, target: {area: [{x: -142, y: 133}]}}
-- {type: active_energy_tower_skill, name: deposit_supply}
 ---
 kind: state
 round: 3
@@ -250,7 +248,8 @@ reinforce_offers: [phantom_ray_2x_lv1, farseer_1x_lv1, wasp_1x_lv2, steel_ball_2
 blue:
   random_state: [11432977649429361469, 14076738130519565003, 10013021817455288242, 4123157175671036832]
   reactor_core: 2896
-  supply: 1000
+  supply: 800
+  reinforce_choice: -1
   unlocked_units: [marksman, vulcan, crawler, sledgehammer]
   blueprints: [field_recovery]
   tower_strengthen_levels: [0, 0]
@@ -261,21 +260,22 @@ blue:
   next_index: {unit: 9, contraption: 0}
   officers: [quick_supply_specialist]
   units:
-  - {name: marksman, index: 0, position: {x: -100, y: -170}, exp: 319/650, value: 100}
-  - {name: marksman, index: 1, position: {x: 110, y: -170}, exp: 72/650, value: 100}
-  - {name: marksman, index: 2, position: {x: 180, y: -170}, exp: 48/650, value: 100}
-  - {name: sledgehammer, index: 3, position: {x: -85, y: -130}, exp: 816/1300, value: 200}
-  - {name: sledgehammer, index: 4, position: {x: 85, y: -130}, exp: 396/1300, value: 200}
-  - {name: crawler, index: 5, position: {x: 145, y: -190}, exp: 12/450, value: 100}
-  - {name: crawler, index: 6, position: {x: -135, y: -190}, exp: 216/450, value: 100}
-  - {name: crawler, index: 7, position: {x: 290, y: -155}, rotated: true, value: 100}
-  - {name: crawler, index: 8, position: {x: -5, y: -300}, exp: 78/450, value: 100}
+  - {name: marksman, index: 0, value: 100, position: {x: -100, y: -170}, exp: 319/650}
+  - {name: marksman, index: 1, value: 100, position: {x: 110, y: -170}, exp: 72/650}
+  - {name: marksman, index: 2, value: 100, position: {x: 180, y: -170}, exp: 48/650}
+  - {name: sledgehammer, index: 3, value: 200, position: {x: -85, y: -130}, exp: 816/1300}
+  - {name: sledgehammer, index: 4, value: 200, position: {x: 85, y: -130}, exp: 396/1300}
+  - {name: crawler, index: 5, value: 100, position: {x: 145, y: -190}, exp: 12/450}
+  - {name: crawler, index: 6, value: 100, position: {x: -135, y: -190}, exp: 216/450}
+  - {name: crawler, index: 7, value: 100, position: {x: 290, y: -155}, rotated: true}
+  - {name: crawler, index: 8, value: 100, position: {x: -5, y: -300}, exp: 78/450}
   constructions:
   - {name: defensive_wall, index: 0, position: {x: 140, y: -55}}
 red:
   random_state: [34621016567883197, 14608596306702404029, 13604730048349026707, 14366021194226358105]
   reactor_core: 4600
-  supply: 850
+  supply: 650
+  reinforce_choice: -1
   unlocked_units: [fortress, fang, tarantula]
   blueprints: [field_recovery]
   tower_strengthen_levels: [0, 0]
@@ -287,14 +287,14 @@ red:
   techs:
     fang: [range_enhancement]
   units:
-  - {name: fang, index: 0, position: {x: -95, y: -90}, exp: 477/600, value: 100}
-  - {name: fang, index: 1, position: {x: -185, y: -90}, exp: 517/600, value: 100}
-  - {name: fang, index: 2, position: {x: -5, y: -90}, exp: 372/600, value: 100}
-  - {name: tarantula, index: 4, position: {x: -225, y: -115}, exp: 1266/1500, value: 200}
-  - {name: fang, index: 5, position: {x: 85, y: -90}, exp: 179/600, value: 100}
-  - {name: fang, index: 6, position: {x: -275, y: -90}, exp: 580/600, value: 100}
-  - {name: fang, index: 7, position: {x: 140, y: -205}, exp: 311/600, rotated: true, value: 100}
-  - {name: fang, index: 8, position: {x: -140, y: -205}, exp: 172/600, rotated: true, value: 100}
+  - {name: fang, index: 0, value: 100, position: {x: -95, y: -90}, exp: 477/600}
+  - {name: fang, index: 1, value: 100, position: {x: -185, y: -90}, exp: 517/600}
+  - {name: fang, index: 2, value: 100, position: {x: -5, y: -90}, exp: 372/600}
+  - {name: tarantula, index: 4, value: 200, position: {x: -225, y: -115}, exp: 1266/1500}
+  - {name: fang, index: 5, value: 100, position: {x: 85, y: -90}, exp: 179/600}
+  - {name: fang, index: 6, value: 100, position: {x: -275, y: -90}, exp: 580/600}
+  - {name: fang, index: 7, value: 100, position: {x: 140, y: -205}, exp: 311/600, rotated: true}
+  - {name: fang, index: 8, value: 100, position: {x: -140, y: -205}, exp: 172/600, rotated: true}
   constructions:
   - {name: defensive_wall, index: 0, position: {x: 140, y: -55}}
 ---
@@ -313,7 +313,6 @@ blue:
 - {type: active_blueprint, name: attack_enhancement}
 - {type: active_blueprint, name: defense_enhancement}
 - {type: unlock_unit, name: fang}
-- {type: active_energy_tower_skill, name: deposit_supply}
 red:
 - {type: choose_reinforce_item, index: 1, name: farseer_1x_lv1}
 - {type: release_commander_skill, index: 0, name: field_recovery, target: {construction: 0}}
@@ -324,7 +323,6 @@ red:
 - {type: move_unit, index: 11, position: {x: 335, y: 300}, rotated: true}
 - {type: active_blueprint, name: attack_enhancement}
 - {type: unlock_unit, name: crawler}
-- {type: active_energy_tower_skill, name: deposit_supply}
 ---
 kind: state
 round: 4
@@ -335,10 +333,13 @@ reinforce_offers: [advanced_power_system, advanced_defensive_tactics, improved_w
 blue:
   random_state: [11432977649429361469, 14076738130519565003, 10013021817455288242, 4123157175671036832]
   reactor_core: 2896
-  supply: 1000
+  supply: 800
+  reinforce_choice: -1
   unlocked_units: [marksman, vulcan, fang, crawler, sledgehammer, farseer]
   blueprints: [field_recovery, attack_enhancement, defense_enhancement]
   tower_strengthen_levels: [0, 0]
+  equipment:
+  - {name: haste_module, fitted: {unit: 10, slot: 0}}
   battle_skills:
   - {index: 0, name: field_recovery, cooldown: 0}
   next_index: {unit: 12, contraption: 0}
@@ -346,23 +347,24 @@ blue:
   techs:
     vulcan: [range_enhancement]
   units:
-  - {name: marksman, index: 0, position: {x: -100, y: -170}, exp: 406/650, value: 100}
-  - {name: marksman, index: 1, position: {x: 110, y: -170}, exp: 105/650, value: 100}
-  - {name: marksman, index: 2, position: {x: 180, y: -170}, exp: 98/650, value: 100}
-  - {name: sledgehammer, index: 3, position: {x: -85, y: -130}, exp: 1140/1300, value: 200}
-  - {name: crawler, index: 5, position: {x: 145, y: -190}, exp: 122/450, value: 100}
-  - {name: crawler, index: 6, position: {x: -135, y: -190}, exp: 318/450, value: 100}
-  - {name: crawler, index: 7, position: {x: 290, y: -155}, exp: 66/450, rotated: true, value: 100}
-  - {name: crawler, index: 8, position: {x: -5, y: -300}, exp: 450/450, value: 100}
-  - {name: farseer, index: 9, position: {x: 205, y: -245}, exp: 496/1800, value: 300}
-  - {name: vulcan, index: 10, position: {x: 140, y: -140}, exp: 1466/2200, equipment: [haste_module], value: 400}
-  - {name: crawler, index: 11, position: {x: 245, y: -300}, exp: 153/450, value: 100}
+  - {name: marksman, index: 0, value: 100, position: {x: -100, y: -170}, exp: 406/650}
+  - {name: marksman, index: 1, value: 100, position: {x: 110, y: -170}, exp: 105/650}
+  - {name: marksman, index: 2, value: 100, position: {x: 180, y: -170}, exp: 98/650}
+  - {name: sledgehammer, index: 3, value: 200, position: {x: -85, y: -130}, exp: 1140/1300}
+  - {name: crawler, index: 5, value: 100, position: {x: 145, y: -190}, exp: 122/450}
+  - {name: crawler, index: 6, value: 100, position: {x: -135, y: -190}, exp: 318/450}
+  - {name: crawler, index: 7, value: 100, position: {x: 290, y: -155}, exp: 66/450, rotated: true}
+  - {name: crawler, index: 8, value: 100, position: {x: -5, y: -300}, exp: 450/450}
+  - {name: farseer, index: 9, value: 300, position: {x: 205, y: -245}, exp: 496/1800}
+  - {name: vulcan, index: 10, value: 400, position: {x: 140, y: -140}, exp: 1466/2200}
+  - {name: crawler, index: 11, value: 100, position: {x: 245, y: -300}, exp: 153/450}
   constructions:
   - {name: defensive_wall, index: 0, position: {x: 140, y: -55}}
 red:
   random_state: [34621016567883197, 14608596306702404029, 13604730048349026707, 14366021194226358105]
   reactor_core: 3312
-  supply: 1400
+  supply: 1200
+  reinforce_choice: -1
   unlocked_units: [fortress, fang, crawler, tarantula, farseer]
   blueprints: [field_recovery, attack_enhancement]
   tower_strengthen_levels: [0, 0]
@@ -374,17 +376,17 @@ red:
   techs:
     fang: [range_enhancement]
   units:
-  - {name: fang, index: 0, position: {x: -95, y: -90}, exp: 489/600, value: 100}
-  - {name: fang, index: 1, position: {x: -185, y: -90}, exp: 523/600, value: 100}
-  - {name: fang, index: 2, position: {x: -5, y: -90}, exp: 476/600, value: 100}
-  - {name: tarantula, index: 4, position: {x: -225, y: -115}, exp: 1318/1500, value: 200}
-  - {name: fang, index: 5, position: {x: 85, y: -90}, exp: 259/600, value: 100}
-  - {name: fang, index: 6, position: {x: -275, y: -90}, exp: 600/600, value: 100}
-  - {name: fang, index: 7, position: {x: 140, y: -205}, exp: 399/600, rotated: true, value: 100}
-  - {name: fang, index: 8, position: {x: -140, y: -205}, exp: 180/600, rotated: true, value: 100}
-  - {name: farseer, index: 9, position: {x: -165, y: -215}, exp: 40/1800, value: 300}
-  - {name: fang, index: 10, position: {x: -335, y: 300}, rotated: true, value: 100}
-  - {name: fang, index: 11, position: {x: 335, y: 300}, exp: 344/600, rotated: true, value: 100}
+  - {name: fang, index: 0, value: 100, position: {x: -95, y: -90}, exp: 489/600}
+  - {name: fang, index: 1, value: 100, position: {x: -185, y: -90}, exp: 523/600}
+  - {name: fang, index: 2, value: 100, position: {x: -5, y: -90}, exp: 476/600}
+  - {name: tarantula, index: 4, value: 200, position: {x: -225, y: -115}, exp: 1318/1500}
+  - {name: fang, index: 5, value: 100, position: {x: 85, y: -90}, exp: 259/600}
+  - {name: fang, index: 6, value: 100, position: {x: -275, y: -90}, exp: 600/600}
+  - {name: fang, index: 7, value: 100, position: {x: 140, y: -205}, exp: 399/600, rotated: true}
+  - {name: fang, index: 8, value: 100, position: {x: -140, y: -205}, exp: 180/600, rotated: true}
+  - {name: farseer, index: 9, value: 300, position: {x: -165, y: -215}, exp: 40/1800}
+  - {name: fang, index: 10, value: 100, position: {x: -335, y: 300}, rotated: true}
+  - {name: fang, index: 11, value: 100, position: {x: 335, y: 300}, exp: 344/600, rotated: true}
 ---
 kind: action
 round: 4
@@ -395,7 +397,6 @@ blue:
 - {type: move_unit, index: 12, position: {x: 200, y: -290}}
 - {type: move_unit, index: 13, position: {x: -245, y: -300}}
 - {type: unlock_unit, name: mustang}
-- {type: active_energy_tower_skill, name: deposit_supply}
 red:
 - {type: choose_reinforce_item, index: 3, name: super_heavy_armor}
 - {type: release_commander_skill, index: 0, name: field_recovery, target: {unit: 4}}
@@ -407,7 +408,6 @@ red:
 - {type: move_unit, index: 13, position: {x: 130, y: -100}}
 - {type: upgrade_unit, index: 6}
 - {type: unlock_unit, name: hound}
-- {type: active_energy_tower_skill, name: deposit_supply}
 ---
 kind: state
 round: 5
@@ -418,10 +418,13 @@ reinforce_offers: [assault_scorpion, deployment_module, mass_production_heavy_ar
 blue:
   random_state: [11432977649429361469, 14076738130519565003, 10013021817455288242, 4123157175671036832]
   reactor_core: 1418
-  supply: 1200
+  supply: 1000
+  reinforce_choice: -1
   unlocked_units: [marksman, vulcan, mustang, fang, crawler, sledgehammer, farseer]
   blueprints: [field_recovery, attack_enhancement, defense_enhancement]
   tower_strengthen_levels: [0, 0]
+  equipment:
+  - {name: haste_module, fitted: {unit: 10, slot: 0}}
   battle_skills:
   - {index: 0, name: field_recovery, cooldown: 0}
   next_index: {unit: 14, contraption: 0}
@@ -429,28 +432,31 @@ blue:
   techs:
     vulcan: [range_enhancement]
   units:
-  - {name: marksman, index: 0, position: {x: -100, y: -170}, exp: 442/650, value: 100}
-  - {name: marksman, index: 1, position: {x: 110, y: -170}, exp: 105/650, value: 100}
-  - {name: marksman, index: 2, position: {x: 180, y: -170}, exp: 158/650, value: 100}
-  - {name: sledgehammer, index: 3, position: {x: -85, y: -130}, exp: 1248/1300, value: 200}
-  - {name: crawler, index: 5, position: {x: 145, y: -190}, exp: 122/450, value: 100}
-  - {name: crawler, index: 6, position: {x: -135, y: -190}, exp: 318/450, value: 100}
-  - {name: crawler, index: 7, position: {x: 290, y: -155}, exp: 66/450, rotated: true, value: 100}
-  - {name: crawler, index: 8, position: {x: -5, y: -300}, exp: 450/450, value: 100}
-  - {name: farseer, index: 9, position: {x: 205, y: -245}, exp: 1324/1800, value: 300}
-  - {name: vulcan, index: 10, position: {x: 140, y: -140}, exp: 1490/2200, equipment: [haste_module], value: 400}
-  - {name: crawler, index: 11, position: {x: 245, y: -300}, exp: 171/450, value: 100}
-  - {name: vulcan, index: 12, position: {x: 200, y: -290}, exp: 246/2200, value: 400}
-  - {name: crawler, index: 13, position: {x: -245, y: -300}, value: 100}
+  - {name: marksman, index: 0, value: 100, position: {x: -100, y: -170}, exp: 442/650}
+  - {name: marksman, index: 1, value: 100, position: {x: 110, y: -170}, exp: 105/650}
+  - {name: marksman, index: 2, value: 100, position: {x: 180, y: -170}, exp: 158/650}
+  - {name: sledgehammer, index: 3, value: 200, position: {x: -85, y: -130}, exp: 1248/1300}
+  - {name: crawler, index: 5, value: 100, position: {x: 145, y: -190}, exp: 122/450}
+  - {name: crawler, index: 6, value: 100, position: {x: -135, y: -190}, exp: 318/450}
+  - {name: crawler, index: 7, value: 100, position: {x: 290, y: -155}, exp: 66/450, rotated: true}
+  - {name: crawler, index: 8, value: 100, position: {x: -5, y: -300}, exp: 450/450}
+  - {name: farseer, index: 9, value: 300, position: {x: 205, y: -245}, exp: 1324/1800}
+  - {name: vulcan, index: 10, value: 400, position: {x: 140, y: -140}, exp: 1490/2200}
+  - {name: crawler, index: 11, value: 100, position: {x: 245, y: -300}, exp: 171/450}
+  - {name: vulcan, index: 12, value: 400, position: {x: 200, y: -290}, exp: 246/2200}
+  - {name: crawler, index: 13, value: 100, position: {x: -245, y: -300}}
   constructions:
   - {name: defensive_wall, index: 0, position: {x: 140, y: -55}}
 red:
   random_state: [34621016567883197, 14608596306702404029, 13604730048349026707, 14366021194226358105]
   reactor_core: 3312
-  supply: 1200
+  supply: 1000
+  reinforce_choice: -1
   unlocked_units: [fortress, fang, crawler, tarantula, farseer, hound]
   blueprints: [field_recovery, attack_enhancement]
   tower_strengthen_levels: [0, 0]
+  equipment:
+  - {name: super_heavy_armor, fitted: {unit: 12, slot: 0}}
   battle_skills:
   - {index: 0, name: field_recovery, cooldown: 0}
   - {index: 1, name: missile_strike, cooldown: 0}
@@ -459,18 +465,18 @@ red:
   techs:
     fang: [grenade_launcher, range_enhancement]
   units:
-  - {name: fang, index: 0, position: {x: -95, y: -90}, exp: 600/600, value: 100}
-  - {name: fang, index: 1, position: {x: -185, y: -90}, exp: 600/600, value: 100}
-  - {name: fang, index: 2, position: {x: -5, y: -90}, exp: 600/600, value: 100}
-  - {name: fang, index: 5, position: {x: 85, y: -90}, exp: 508/600, value: 100}
-  - {name: fang, index: 6, position: {x: -275, y: -90}, level: 2, exp: 380/1352, value: 100}
-  - {name: fang, index: 7, position: {x: 140, y: -205}, exp: 406/600, rotated: true, value: 100}
-  - {name: fang, index: 8, position: {x: -140, y: -205}, exp: 463/600, rotated: true, value: 100}
-  - {name: farseer, index: 9, position: {x: -165, y: -215}, exp: 1006/1800, value: 300}
-  - {name: fang, index: 10, position: {x: -335, y: 300}, exp: 36/600, rotated: true, value: 100}
-  - {name: fang, index: 11, position: {x: 335, y: 300}, exp: 600/600, rotated: true, value: 100}
-  - {name: fortress, index: 12, position: {x: -140, y: -100}, exp: 1260/1600, equipment: [super_heavy_armor], value: 400}
-  - {name: fortress, index: 13, position: {x: 130, y: -100}, exp: 407/1600, value: 400}
+  - {name: fang, index: 0, value: 100, position: {x: -95, y: -90}, exp: 600/600}
+  - {name: fang, index: 1, value: 100, position: {x: -185, y: -90}, exp: 600/600}
+  - {name: fang, index: 2, value: 100, position: {x: -5, y: -90}, exp: 600/600}
+  - {name: fang, index: 5, value: 100, position: {x: 85, y: -90}, exp: 508/600}
+  - {name: fang, index: 6, value: 100, level: 2, position: {x: -275, y: -90}, exp: 380/1352}
+  - {name: fang, index: 7, value: 100, position: {x: 140, y: -205}, exp: 406/600, rotated: true}
+  - {name: fang, index: 8, value: 100, position: {x: -140, y: -205}, exp: 463/600, rotated: true}
+  - {name: farseer, index: 9, value: 300, position: {x: -165, y: -215}, exp: 1006/1800}
+  - {name: fang, index: 10, value: 100, position: {x: -335, y: 300}, exp: 36/600, rotated: true}
+  - {name: fang, index: 11, value: 100, position: {x: 335, y: 300}, exp: 600/600, rotated: true}
+  - {name: fortress, index: 12, value: 400, position: {x: -140, y: -100}, exp: 1260/1600}
+  - {name: fortress, index: 13, value: 400, position: {x: 130, y: -100}, exp: 407/1600}
 ---
 kind: action
 round: 5
@@ -487,7 +493,6 @@ blue:
 - {type: move_unit, index: 15, position: {x: 60, y: -140}}
 - {type: release_contraption, name: shield, position: {x: 127, y: -162}}
 - {type: strengthen_tower, tower: 0}
-- {type: active_energy_tower_skill, name: deposit_supply}
 red:
 - {type: choose_reinforce_item, index: 2, name: mass_production_heavy_armor}
 - {type: buy_unit, name: fang}
@@ -502,7 +507,6 @@ red:
 - {type: upgrade_unit, index: 2}
 - {type: unlock_unit, name: mustang}
 - {type: release_commander_skill, index: 1, name: missile_strike, target: {area: [{x: -202, y: 204}]}}
-- {type: active_energy_tower_skill, name: deposit_supply}
 ---
 kind: state
 round: 6
@@ -513,10 +517,16 @@ reinforce_offers: [stormcaller_2x_lv2, centurion_1x_lv3, fire_badger_2x_lv2, mus
 blue:
   random_state: [11432977649429361469, 14076738130519565003, 10013021817455288242, 4123157175671036832]
   reactor_core: 1032
-  supply: 1400
+  supply: 1200
+  reinforce_choice: -1
   unlocked_units: [marksman, vulcan, melting_point, mustang, fang, crawler, sledgehammer, farseer]
   blueprints: [field_recovery, attack_enhancement, defense_enhancement]
   tower_strengthen_levels: [1, 0]
+  equipment:
+  - {name: haste_module, fitted: {unit: 10, slot: 0}}
+  - {name: secondary_heavy_armor, fitted: {unit: 12, slot: 0}}
+  - {name: secondary_heavy_armor, fitted: {unit: 14, slot: 0}}
+  - {name: secondary_heavy_armor, fitted: {unit: 15, slot: 0}}
   battle_skills:
   - {index: 0, name: field_recovery, cooldown: 0}
   next_index: {unit: 16, contraption: 1}
@@ -524,31 +534,35 @@ blue:
   techs:
     vulcan: [range_enhancement]
   units:
-  - {name: marksman, index: 0, position: {x: -100, y: -170}, exp: 442/650, value: 100}
-  - {name: marksman, index: 1, position: {x: 110, y: -170}, exp: 274/650, value: 100}
-  - {name: marksman, index: 2, position: {x: 180, y: -170}, exp: 194/650, value: 100}
-  - {name: sledgehammer, index: 3, position: {x: -85, y: -130}, exp: 1248/1300, value: 200}
-  - {name: crawler, index: 5, position: {x: 145, y: -190}, exp: 122/450, value: 100}
-  - {name: crawler, index: 6, position: {x: -135, y: -190}, exp: 318/450, value: 100}
-  - {name: crawler, index: 7, position: {x: 290, y: -155}, exp: 66/450, rotated: true, value: 100}
-  - {name: crawler, index: 8, position: {x: -5, y: -300}, exp: 450/450, value: 100}
-  - {name: vulcan, index: 10, position: {x: 140, y: -140}, exp: 2200/2200, equipment: [haste_module], value: 400}
-  - {name: crawler, index: 11, position: {x: 245, y: -300}, exp: 189/450, value: 100}
-  - {name: vulcan, index: 12, position: {x: 200, y: -290}, exp: 1128/2200, equipment: [secondary_heavy_armor], value: 400}
-  - {name: crawler, index: 13, position: {x: -245, y: -300}, exp: 18/450, value: 100}
-  - {name: vulcan, index: 14, position: {x: -200, y: -290}, exp: 726/2200, equipment: [secondary_heavy_armor], value: 400}
-  - {name: melting_point, index: 15, position: {x: 60, y: -140}, exp: 848/1400, equipment: [secondary_heavy_armor], value: 400}
+  - {name: marksman, index: 0, value: 100, position: {x: -100, y: -170}, exp: 442/650}
+  - {name: marksman, index: 1, value: 100, position: {x: 110, y: -170}, exp: 274/650}
+  - {name: marksman, index: 2, value: 100, position: {x: 180, y: -170}, exp: 194/650}
+  - {name: sledgehammer, index: 3, value: 200, position: {x: -85, y: -130}, exp: 1248/1300}
+  - {name: crawler, index: 5, value: 100, position: {x: 145, y: -190}, exp: 122/450}
+  - {name: crawler, index: 6, value: 100, position: {x: -135, y: -190}, exp: 318/450}
+  - {name: crawler, index: 7, value: 100, position: {x: 290, y: -155}, exp: 66/450, rotated: true}
+  - {name: crawler, index: 8, value: 100, position: {x: -5, y: -300}, exp: 450/450}
+  - {name: vulcan, index: 10, value: 400, position: {x: 140, y: -140}, exp: 2200/2200}
+  - {name: crawler, index: 11, value: 100, position: {x: 245, y: -300}, exp: 189/450}
+  - {name: vulcan, index: 12, value: 400, position: {x: 200, y: -290}, exp: 1128/2200}
+  - {name: crawler, index: 13, value: 100, position: {x: -245, y: -300}, exp: 18/450}
+  - {name: vulcan, index: 14, value: 400, position: {x: -200, y: -290}, exp: 726/2200}
+  - {name: melting_point, index: 15, value: 400, position: {x: 60, y: -140}, exp: 848/1400}
   constructions:
   - {name: defensive_wall, index: 0, position: {x: 140, y: -55}}
 red:
   random_state: [34621016567883197, 14608596306702404029, 13604730048349026707, 14366021194226358105]
   reactor_core: 3312
-  supply: 1450
+  supply: 1250
+  reinforce_choice: -1
   unlocked_units: [fortress, mustang, fang, crawler, tarantula, farseer, hound]
   blueprints: [field_recovery, attack_enhancement]
   tower_strengthen_levels: [0, 0]
   equipment:
+  - {name: super_heavy_armor, fitted: {unit: 12, slot: 0}}
   - {name: secondary_heavy_armor}
+  - {name: secondary_heavy_armor, fitted: {unit: 9, slot: 0}}
+  - {name: secondary_heavy_armor, fitted: {unit: 13, slot: 0}}
   battle_skills:
   - {index: 0, name: field_recovery, cooldown: 0}
   - {index: 1, name: missile_strike, cooldown: 2}
@@ -558,25 +572,26 @@ red:
     fortress: [barrier]
     fang: [grenade_launcher, range_enhancement]
   units:
-  - {name: fang, index: 0, position: {x: -95, y: -90}, level: 2, exp: 198/1352, value: 100}
-  - {name: fang, index: 1, position: {x: -185, y: -90}, level: 2, exp: 176/1352, value: 100}
-  - {name: fang, index: 2, position: {x: -5, y: -90}, level: 2, exp: 655/1352, value: 100}
-  - {name: fang, index: 5, position: {x: 85, y: -90}, exp: 600/600, value: 100}
-  - {name: fang, index: 6, position: {x: -275, y: -90}, level: 2, exp: 755/1352, value: 100}
-  - {name: fang, index: 7, position: {x: 140, y: -205}, exp: 600/600, rotated: true, value: 100}
-  - {name: fang, index: 8, position: {x: -140, y: -205}, exp: 600/600, rotated: true, value: 100}
-  - {name: farseer, index: 9, position: {x: -165, y: -215}, exp: 1157/1800, equipment: [secondary_heavy_armor], value: 300}
-  - {name: fang, index: 10, position: {x: -335, y: 300}, exp: 72/600, rotated: true, value: 100}
-  - {name: fang, index: 11, position: {x: 335, y: 300}, exp: 600/600, rotated: true, value: 100}
-  - {name: fortress, index: 12, position: {x: -140, y: -100}, exp: 1289/1600, equipment: [super_heavy_armor], value: 400}
-  - {name: fortress, index: 13, position: {x: 130, y: -100}, exp: 1600/1600, equipment: [secondary_heavy_armor], value: 400}
-  - {name: fang, index: 14, position: {x: 175, y: -90}, exp: 274/600, value: 100}
-  - {name: fang, index: 15, position: {x: 265, y: -90}, exp: 156/600, value: 100}
+  - {name: fang, index: 0, value: 100, level: 2, position: {x: -95, y: -90}, exp: 198/1352}
+  - {name: fang, index: 1, value: 100, level: 2, position: {x: -185, y: -90}, exp: 176/1352}
+  - {name: fang, index: 2, value: 100, level: 2, position: {x: -5, y: -90}, exp: 655/1352}
+  - {name: fang, index: 5, value: 100, position: {x: 85, y: -90}, exp: 600/600}
+  - {name: fang, index: 6, value: 100, level: 2, position: {x: -275, y: -90}, exp: 755/1352}
+  - {name: fang, index: 7, value: 100, position: {x: 140, y: -205}, exp: 600/600, rotated: true}
+  - {name: fang, index: 8, value: 100, position: {x: -140, y: -205}, exp: 600/600, rotated: true}
+  - {name: farseer, index: 9, value: 300, position: {x: -165, y: -215}, exp: 1157/1800}
+  - {name: fang, index: 10, value: 100, position: {x: -335, y: 300}, exp: 72/600, rotated: true}
+  - {name: fang, index: 11, value: 100, position: {x: 335, y: 300}, exp: 600/600, rotated: true}
+  - {name: fortress, index: 12, value: 400, position: {x: -140, y: -100}, exp: 1289/1600}
+  - {name: fortress, index: 13, value: 400, position: {x: 130, y: -100}, exp: 1600/1600}
+  - {name: fang, index: 14, value: 100, position: {x: 175, y: -90}, exp: 274/600}
+  - {name: fang, index: 15, value: 100, position: {x: 265, y: -90}, exp: 156/600}
 ---
 kind: action
 round: 6
 blue:
 - {type: choose_reinforce_item, index: 0, name: stormcaller_2x_lv2}
+- {type: active_energy_tower_skill, name: rapid_resupply}
 - {type: release_commander_skill, index: 0, name: field_recovery, target: {unit: 3}}
 - {type: buy_unit, name: melting_point}
 - {type: buy_unit, name: vulcan}
@@ -587,6 +602,7 @@ blue:
 - {type: move_unit, index: 16, position: {x: -65, y: -170}}
 red:
 - {type: choose_reinforce_item, index: 0, name: stormcaller_2x_lv2}
+- {type: active_energy_tower_skill, name: rapid_resupply}
 - {type: buy_unit, name: fang}
 - {type: buy_unit, name: fang}
 - {type: upgrade_technology, unit: stormcaller, tech: electromagnetic_explosion}

@@ -108,23 +108,23 @@ random_state: [2999453750195555418, 5955094169140939222, 403223907893170220, 636
 blue:
   random_state: [12742635317758647728, 3982250764582410858, 7123474153662835930, 15000450711136119356]
   reactor_core: 4600
-  supply: 400
+  supply: 200
   unlocked_units: [fang, fire_badger]
   tower_strengthen_levels: [0, 0]
   next_index: {unit: 5, contraption: 0}
   officers: [giant_specialist]
   units:
-  - {name: fang, index: 0, position: {x: 5, y: -160}, source: joined, value: 100}
-  - {name: fang, index: 1, position: {x: 5, y: -180}, source: joined, value: 100}
-  - {name: fang, index: 2, position: {x: 5, y: -140}, source: joined, value: 100}
-  - {name: fire_badger, index: 3, position: {x: 5, y: -200}, source: joined, value: 200}
-  - {name: fire_badger, index: 4, position: {x: 5, y: -120}, source: joined, value: 200}
+  - {name: fang, index: 0, value: 100, source: joined, position: {x: 5, y: -160}}
+  - {name: fang, index: 1, value: 100, source: joined, position: {x: 5, y: -180}}
+  - {name: fang, index: 2, value: 100, source: joined, position: {x: 5, y: -140}}
+  - {name: fire_badger, index: 3, value: 200, source: joined, position: {x: 5, y: -200}}
+  - {name: fire_badger, index: 4, value: 200, source: joined, position: {x: 5, y: -120}}
   constructions:
   - {name: defensive_wall, index: 0, position: {x: 140, y: -55}}
 red:
   random_state: [12336063422788599733, 1507898781856087682, 12156871441442529134, 14627864759985260801]
   reactor_core: 5100
-  supply: 450
+  supply: 250
   unlocked_units: [sledgehammer, void_eye]
   tower_strengthen_levels: [0, 0]
   battle_skills:
@@ -132,17 +132,18 @@ red:
   next_index: {unit: 5, contraption: 0}
   officers: [training_specialist]
   units:
-  - {name: void_eye, index: 0, position: {x: 0, y: -160}, source: joined, value: 100}
-  - {name: void_eye, index: 1, position: {x: 0, y: -140}, source: joined, value: 100}
-  - {name: void_eye, index: 2, position: {x: 0, y: -180}, source: joined, value: 100}
-  - {name: sledgehammer, index: 3, position: {x: -5, y: -120}, source: joined, value: 200}
-  - {name: sledgehammer, index: 4, position: {x: -5, y: -200}, source: joined, value: 200}
+  - {name: void_eye, index: 0, value: 100, source: joined, position: {x: 0, y: -160}}
+  - {name: void_eye, index: 1, value: 100, source: joined, position: {x: 0, y: -140}}
+  - {name: void_eye, index: 2, value: 100, source: joined, position: {x: 0, y: -180}}
+  - {name: sledgehammer, index: 3, value: 200, source: joined, position: {x: -5, y: -120}}
+  - {name: sledgehammer, index: 4, value: 200, source: joined, position: {x: -5, y: -200}}
   constructions:
   - {name: defensive_wall, index: 0, position: {x: -140, y: -55}}
 ---
 kind: action
 round: 1
 blue:
+- {type: active_energy_tower_skill, name: rapid_resupply}
 - {type: unlock_unit, name: melting_point}
 - {type: buy_unit, name: melting_point}
 - {type: move_unit, index: 0, position: {x: -160, y: -175}, rotated: true}
@@ -164,7 +165,6 @@ red:
 - {type: move_unit, index: 6, position: {x: 140, y: -150}}
 - {type: release_commander_skill, index: 0, name: intensive_training, target: {unit: 4}}
 - {type: release_contraption, name: missile, position: {x: 2, y: -163}}
-- {type: active_energy_tower_skill, name: deposit_supply}
 ---
 kind: state
 round: 2
@@ -175,24 +175,26 @@ reinforce_offers: [redeployment, improved_scorpion, intensive_training, mobile_b
 blue:
   random_state: [12742635317758647728, 3982250764582410858, 7123474153662835930, 15000450711136119356]
   reactor_core: 4168
-  supply: 300
+  supply: 100
+  reinforce_choice: -1
   unlocked_units: [melting_point, fang, fire_badger]
   tower_strengthen_levels: [0, 0]
   next_index: {unit: 6, contraption: 0}
   officers: [giant_specialist]
   units:
-  - {name: fang, index: 0, position: {x: -160, y: -175}, rotated: true, value: 100}
-  - {name: fang, index: 1, position: {x: 0, y: -95}, rotated: true, value: 100}
-  - {name: fang, index: 2, position: {x: 160, y: -175}, rotated: true, value: 100}
-  - {name: fire_badger, index: 3, position: {x: -215, y: -20}, value: 200}
-  - {name: fire_badger, index: 4, position: {x: 215, y: -20}, exp: 12/1400, value: 200}
-  - {name: melting_point, index: 5, position: {x: 90, y: -100}, exp: 966/1400, value: 400}
+  - {name: fang, index: 0, value: 100, position: {x: -160, y: -175}, rotated: true}
+  - {name: fang, index: 1, value: 100, position: {x: 0, y: -95}, rotated: true}
+  - {name: fang, index: 2, value: 100, position: {x: 160, y: -175}, rotated: true}
+  - {name: fire_badger, index: 3, value: 200, position: {x: -215, y: -20}}
+  - {name: fire_badger, index: 4, value: 200, position: {x: 215, y: -20}, exp: 12/1400}
+  - {name: melting_point, index: 5, value: 400, position: {x: 90, y: -100}, exp: 966/1400}
   constructions:
   - {name: defensive_wall, index: 0, position: {x: 140, y: -55}}
 red:
   random_state: [12336063422788599733, 1507898781856087682, 12156871441442529134, 14627864759985260801]
   reactor_core: 5100
-  supply: 600
+  supply: 400
+  reinforce_choice: -1
   unlocked_units: [sledgehammer, arclight, void_eye]
   tower_strengthen_levels: [0, 0]
   battle_skills:
@@ -200,13 +202,13 @@ red:
   next_index: {unit: 7, contraption: 1}
   officers: [training_specialist]
   units:
-  - {name: void_eye, index: 0, position: {x: -110, y: -150}, exp: 303/650, value: 100}
-  - {name: void_eye, index: 1, position: {x: 0, y: -150}, exp: 650/650, value: 100}
-  - {name: void_eye, index: 2, position: {x: 110, y: -150}, exp: 329/650, value: 100}
-  - {name: sledgehammer, index: 3, position: {x: -75, y: -130}, exp: 152/1300, value: 200}
-  - {name: sledgehammer, index: 4, position: {x: 75, y: -130}, exp: 1300/1300, value: 200}
-  - {name: arclight, index: 5, position: {x: -140, y: -150}, exp: 246/750, value: 100}
-  - {name: arclight, index: 6, position: {x: 140, y: -150}, exp: 246/750, value: 100}
+  - {name: void_eye, index: 0, value: 100, position: {x: -110, y: -150}, exp: 303/650}
+  - {name: void_eye, index: 1, value: 100, position: {x: 0, y: -150}, exp: 650/650}
+  - {name: void_eye, index: 2, value: 100, position: {x: 110, y: -150}, exp: 329/650}
+  - {name: sledgehammer, index: 3, value: 200, position: {x: -75, y: -130}, exp: 152/1300}
+  - {name: sledgehammer, index: 4, value: 200, position: {x: 75, y: -130}, exp: 1300/1300}
+  - {name: arclight, index: 5, value: 100, position: {x: -140, y: -150}, exp: 246/750}
+  - {name: arclight, index: 6, value: 100, position: {x: 140, y: -150}, exp: 246/750}
   constructions:
   - {name: defensive_wall, index: 0, position: {x: -140, y: -55}}
   contraptions:
@@ -220,7 +222,6 @@ blue:
 - {type: move_unit, index: 6, position: {x: 155, y: -120}}
 - {type: release_contraption, name: missile, position: {x: -26, y: -14}}
 - {type: unlock_unit, name: mustang}
-- {type: active_energy_tower_skill, name: deposit_supply}
 red:
 - {type: choose_reinforce_item, index: 1, name: improved_scorpion}
 - {type: unlock_unit, name: crawler}
@@ -230,7 +231,6 @@ red:
 - {type: move_unit, index: 7, position: {x: -30, y: -285}, rotated: true}
 - {type: move_unit, index: 8, position: {x: 30, y: -285}, rotated: true}
 - {type: release_contraption, name: missile, position: {x: -250, y: -37}}
-- {type: active_energy_tower_skill, name: deposit_supply}
 ---
 kind: state
 round: 3
@@ -241,25 +241,27 @@ reinforce_offers: [mustang_2x_lv1, steel_ball_2x_lv1, sabertooth_1x_lv2, phantom
 blue:
   random_state: [12742635317758647728, 3982250764582410858, 7123474153662835930, 15000450711136119356]
   reactor_core: 3396
-  supply: 800
+  supply: 600
+  reinforce_choice: -1
   unlocked_units: [melting_point, mustang, fang, fire_badger]
   tower_strengthen_levels: [0, 0]
   next_index: {unit: 7, contraption: 1}
   officers: [giant_specialist]
   units:
-  - {name: fang, index: 0, position: {x: -160, y: -175}, exp: 37/600, rotated: true, value: 100}
-  - {name: fang, index: 1, position: {x: 0, y: -95}, exp: 95/600, rotated: true, value: 100}
-  - {name: fang, index: 2, position: {x: 160, y: -175}, exp: 93/600, rotated: true, value: 100}
-  - {name: fire_badger, index: 3, position: {x: -215, y: -20}, exp: 37/1400, value: 200}
-  - {name: fire_badger, index: 4, position: {x: 215, y: -20}, exp: 12/1400, value: 200}
-  - {name: melting_point, index: 5, position: {x: 90, y: -100}, exp: 1289/1400, value: 400}
-  - {name: fang, index: 6, position: {x: 155, y: -120}, exp: 37/600, value: 100}
+  - {name: fang, index: 0, value: 100, position: {x: -160, y: -175}, exp: 37/600, rotated: true}
+  - {name: fang, index: 1, value: 100, position: {x: 0, y: -95}, exp: 95/600, rotated: true}
+  - {name: fang, index: 2, value: 100, position: {x: 160, y: -175}, exp: 93/600, rotated: true}
+  - {name: fire_badger, index: 3, value: 200, position: {x: -215, y: -20}, exp: 37/1400}
+  - {name: fire_badger, index: 4, value: 200, position: {x: 215, y: -20}, exp: 12/1400}
+  - {name: melting_point, index: 5, value: 400, position: {x: 90, y: -100}, exp: 1289/1400}
+  - {name: fang, index: 6, value: 100, position: {x: 155, y: -120}, exp: 37/600}
   constructions:
   - {name: defensive_wall, index: 0, position: {x: 140, y: -55}}
 red:
   random_state: [12336063422788599733, 1507898781856087682, 12156871441442529134, 14627864759985260801]
   reactor_core: 5100
-  supply: 800
+  supply: 600
+  reinforce_choice: -1
   unlocked_units: [crawler, sledgehammer, arclight, void_eye]
   tower_strengthen_levels: [0, 0]
   battle_skills:
@@ -269,15 +271,15 @@ red:
   techs:
     void_eye: [suppression_shots]
   units:
-  - {name: void_eye, index: 0, position: {x: -110, y: -150}, exp: 477/650, value: 100}
-  - {name: void_eye, index: 1, position: {x: 0, y: -150}, exp: 650/650, value: 100}
-  - {name: void_eye, index: 2, position: {x: 110, y: -150}, exp: 650/650, value: 100}
-  - {name: sledgehammer, index: 3, position: {x: -75, y: -130}, exp: 355/1300, value: 200}
-  - {name: sledgehammer, index: 4, position: {x: 75, y: -130}, exp: 1300/1300, value: 200}
-  - {name: arclight, index: 5, position: {x: -140, y: -150}, exp: 750/750, value: 100}
-  - {name: arclight, index: 6, position: {x: 140, y: -150}, exp: 478/750, value: 100}
-  - {name: crawler, index: 7, position: {x: -30, y: -285}, exp: 277/450, rotated: true, value: 100}
-  - {name: crawler, index: 8, position: {x: 30, y: -285}, exp: 256/450, rotated: true, value: 100}
+  - {name: void_eye, index: 0, value: 100, position: {x: -110, y: -150}, exp: 477/650}
+  - {name: void_eye, index: 1, value: 100, position: {x: 0, y: -150}, exp: 650/650}
+  - {name: void_eye, index: 2, value: 100, position: {x: 110, y: -150}, exp: 650/650}
+  - {name: sledgehammer, index: 3, value: 200, position: {x: -75, y: -130}, exp: 355/1300}
+  - {name: sledgehammer, index: 4, value: 200, position: {x: 75, y: -130}, exp: 1300/1300}
+  - {name: arclight, index: 5, value: 100, position: {x: -140, y: -150}, exp: 750/750}
+  - {name: arclight, index: 6, value: 100, position: {x: 140, y: -150}, exp: 478/750}
+  - {name: crawler, index: 7, value: 100, position: {x: -30, y: -285}, exp: 277/450, rotated: true}
+  - {name: crawler, index: 8, value: 100, position: {x: 30, y: -285}, exp: 256/450, rotated: true}
   constructions:
   - {name: defensive_wall, index: 0, position: {x: -140, y: -55}}
   contraptions:
@@ -293,7 +295,6 @@ blue:
 - {type: move_unit, index: 7, position: {x: -155, y: -25}}
 - {type: move_unit, index: 8, position: {x: 30, y: -100}}
 - {type: move_unit, index: 9, position: {x: 105, y: -190}}
-- {type: active_energy_tower_skill, name: deposit_supply}
 red:
 - {type: choose_reinforce_item, index: 0, name: mustang_2x_lv1}
 - {type: upgrade_technology, unit: arclight, tech: armor_enhancement}
@@ -306,7 +307,6 @@ red:
 - {type: release_commander_skill, index: 0, name: intensive_training, target: {unit: 10}}
 - {type: upgrade_unit, index: 10}
 - {type: unlock_unit, name: scorpion}
-- {type: active_energy_tower_skill, name: deposit_supply}
 ---
 kind: state
 round: 4
@@ -318,28 +318,30 @@ reinforce_offers: [mobilize_battleship, enhancement_module, fortified_overlord, 
 blue:
   random_state: [12742635317758647728, 3982250764582410858, 7123474153662835930, 15000450711136119356]
   reactor_core: 2445
-  supply: 1000
+  supply: 800
+  reinforce_choice: -1
   unlocked_units: [vulcan, melting_point, mustang, fang, fire_badger, sabertooth]
   tower_strengthen_levels: [0, 0]
   next_index: {unit: 10, contraption: 1}
   officers: [giant_specialist]
   units:
-  - {name: fang, index: 0, position: {x: -160, y: -175}, exp: 109/600, rotated: true, value: 100}
-  - {name: fang, index: 1, position: {x: 0, y: -95}, exp: 200/600, rotated: true, value: 100}
-  - {name: fang, index: 2, position: {x: 160, y: -175}, exp: 93/600, rotated: true, value: 100}
-  - {name: fire_badger, index: 3, position: {x: -215, y: -20}, exp: 45/1400, value: 200}
-  - {name: fire_badger, index: 4, position: {x: 215, y: -20}, exp: 24/1400, value: 200}
-  - {name: melting_point, index: 5, position: {x: 90, y: -100}, exp: 1400/1400, value: 400}
-  - {name: fang, index: 6, position: {x: 155, y: -120}, exp: 40/600, value: 100}
-  - {name: sabertooth, index: 7, position: {x: -155, y: -25}, level: 2, exp: 240/2929, value: 200}
-  - {name: vulcan, index: 8, position: {x: 30, y: -100}, exp: 531/2200, value: 400}
-  - {name: mustang, index: 9, position: {x: 105, y: -190}, exp: 184/1200, value: 200}
+  - {name: fang, index: 0, value: 100, position: {x: -160, y: -175}, exp: 109/600, rotated: true}
+  - {name: fang, index: 1, value: 100, position: {x: 0, y: -95}, exp: 200/600, rotated: true}
+  - {name: fang, index: 2, value: 100, position: {x: 160, y: -175}, exp: 93/600, rotated: true}
+  - {name: fire_badger, index: 3, value: 200, position: {x: -215, y: -20}, exp: 45/1400}
+  - {name: fire_badger, index: 4, value: 200, position: {x: 215, y: -20}, exp: 24/1400}
+  - {name: melting_point, index: 5, value: 400, position: {x: 90, y: -100}, exp: 1400/1400}
+  - {name: fang, index: 6, value: 100, position: {x: 155, y: -120}, exp: 40/600}
+  - {name: sabertooth, index: 7, value: 200, level: 2, position: {x: -155, y: -25}, exp: 240/2929}
+  - {name: vulcan, index: 8, value: 400, position: {x: 30, y: -100}, exp: 531/2200}
+  - {name: mustang, index: 9, value: 200, position: {x: 105, y: -190}, exp: 184/1200}
   constructions:
   - {name: defensive_wall, index: 0, position: {x: 140, y: -55}}
 red:
   random_state: [12336063422788599733, 1507898781856087682, 12156871441442529134, 14627864759985260801]
   reactor_core: 5100
-  supply: 1000
+  supply: 800
+  reinforce_choice: -1
   unlocked_units: [mustang, crawler, sledgehammer, arclight, scorpion, void_eye]
   tower_strengthen_levels: [0, 0]
   battle_skills:
@@ -350,17 +352,17 @@ red:
     arclight: [armor_enhancement]
     void_eye: [suppression_shots]
   units:
-  - {name: void_eye, index: 0, position: {x: -110, y: -150}, exp: 650/650, value: 100}
-  - {name: void_eye, index: 1, position: {x: 0, y: -150}, level: 2, exp: 766/1465, value: 100}
-  - {name: void_eye, index: 2, position: {x: 110, y: -150}, level: 2, exp: 1422/1465, value: 100}
-  - {name: sledgehammer, index: 3, position: {x: -75, y: -130}, exp: 582/1300, value: 200}
-  - {name: sledgehammer, index: 4, position: {x: 75, y: -130}, level: 2, exp: 316/2929, value: 200}
-  - {name: arclight, index: 5, position: {x: -140, y: -150}, level: 2, exp: 495/1690, value: 100}
-  - {name: arclight, index: 6, position: {x: 140, y: -150}, exp: 711/750, value: 100}
-  - {name: crawler, index: 7, position: {x: -30, y: -285}, exp: 287/450, rotated: true, value: 100}
-  - {name: crawler, index: 8, position: {x: 30, y: -285}, exp: 412/450, rotated: true, value: 100}
-  - {name: mustang, index: 9, position: {x: -95, y: -270}, exp: 560/1200, value: 200}
-  - {name: mustang, index: 10, position: {x: 95, y: -270}, level: 2, exp: 616/2704, value: 200}
+  - {name: void_eye, index: 0, value: 100, position: {x: -110, y: -150}, exp: 650/650}
+  - {name: void_eye, index: 1, value: 100, level: 2, position: {x: 0, y: -150}, exp: 766/1465}
+  - {name: void_eye, index: 2, value: 100, level: 2, position: {x: 110, y: -150}, exp: 1422/1465}
+  - {name: sledgehammer, index: 3, value: 200, position: {x: -75, y: -130}, exp: 582/1300}
+  - {name: sledgehammer, index: 4, value: 200, level: 2, position: {x: 75, y: -130}, exp: 316/2929}
+  - {name: arclight, index: 5, value: 100, level: 2, position: {x: -140, y: -150}, exp: 495/1690}
+  - {name: arclight, index: 6, value: 100, position: {x: 140, y: -150}, exp: 711/750}
+  - {name: crawler, index: 7, value: 100, position: {x: -30, y: -285}, exp: 287/450, rotated: true}
+  - {name: crawler, index: 8, value: 100, position: {x: 30, y: -285}, exp: 412/450, rotated: true}
+  - {name: mustang, index: 9, value: 200, position: {x: -95, y: -270}, exp: 560/1200}
+  - {name: mustang, index: 10, value: 200, level: 2, position: {x: 95, y: -270}, exp: 616/2704}
   constructions:
   - {name: defensive_wall, index: 0, position: {x: -140, y: -55}}
   contraptions:
@@ -374,7 +376,6 @@ blue:
 - {type: upgrade_technology, unit: vulcan, tech: range_enhancement}
 - {type: move_unit, index: 10, position: {x: -40, y: -90}}
 - {type: unlock_unit, name: marksman}
-- {type: active_energy_tower_skill, name: deposit_supply}
 red:
 - {type: choose_reinforce_item, index: 0, name: mobilize_battleship}
 - {type: buy_unit, name: scorpion}
@@ -383,7 +384,6 @@ red:
 - {type: move_unit, index: 11, position: {x: -175, y: -145}}
 - {type: move_unit, index: 12, position: {x: 180, y: -150}}
 - {type: release_commander_skill, index: 1, name: mobilize_battleship, target: {area: [{x: 72, y: -179}]}}
-- {type: active_energy_tower_skill, name: deposit_supply}
 ---
 kind: state
 round: 5
@@ -395,7 +395,8 @@ reinforce_offers: [mass_production_fire_control_system, heavy_armor, amplifying_
 blue:
   random_state: [12742635317758647728, 3982250764582410858, 7123474153662835930, 15000450711136119356]
   reactor_core: 1215
-  supply: 1250
+  supply: 1050
+  reinforce_choice: -1
   unlocked_units: [marksman, vulcan, melting_point, mustang, fang, fire_badger, sabertooth]
   tower_strengthen_levels: [0, 0]
   next_index: {unit: 11, contraption: 1}
@@ -403,23 +404,24 @@ blue:
   techs:
     vulcan: [range_enhancement]
   units:
-  - {name: fang, index: 0, position: {x: -160, y: -175}, exp: 125/600, rotated: true, value: 100}
-  - {name: fang, index: 1, position: {x: 0, y: -95}, exp: 280/600, rotated: true, value: 100}
-  - {name: fang, index: 2, position: {x: 160, y: -175}, exp: 93/600, rotated: true, value: 100}
-  - {name: fire_badger, index: 3, position: {x: -215, y: -20}, exp: 45/1400, value: 200}
-  - {name: fire_badger, index: 4, position: {x: 215, y: -20}, exp: 24/1400, value: 200}
-  - {name: melting_point, index: 5, position: {x: 90, y: -100}, exp: 1400/1400, value: 400}
-  - {name: fang, index: 6, position: {x: 155, y: -120}, exp: 40/600, value: 100}
-  - {name: sabertooth, index: 7, position: {x: -155, y: -25}, level: 2, exp: 240/2929, value: 200}
-  - {name: vulcan, index: 8, position: {x: 30, y: -100}, exp: 1163/2200, value: 400}
-  - {name: mustang, index: 9, position: {x: 105, y: -190}, exp: 363/1200, value: 200}
-  - {name: vulcan, index: 10, position: {x: -40, y: -90}, exp: 877/2200, value: 350}
+  - {name: fang, index: 0, value: 100, position: {x: -160, y: -175}, exp: 125/600, rotated: true}
+  - {name: fang, index: 1, value: 100, position: {x: 0, y: -95}, exp: 280/600, rotated: true}
+  - {name: fang, index: 2, value: 100, position: {x: 160, y: -175}, exp: 93/600, rotated: true}
+  - {name: fire_badger, index: 3, value: 200, position: {x: -215, y: -20}, exp: 45/1400}
+  - {name: fire_badger, index: 4, value: 200, position: {x: 215, y: -20}, exp: 24/1400}
+  - {name: melting_point, index: 5, value: 400, position: {x: 90, y: -100}, exp: 1400/1400}
+  - {name: fang, index: 6, value: 100, position: {x: 155, y: -120}, exp: 40/600}
+  - {name: sabertooth, index: 7, value: 200, level: 2, position: {x: -155, y: -25}, exp: 240/2929}
+  - {name: vulcan, index: 8, value: 400, position: {x: 30, y: -100}, exp: 1163/2200}
+  - {name: mustang, index: 9, value: 200, position: {x: 105, y: -190}, exp: 363/1200}
+  - {name: vulcan, index: 10, value: 350, position: {x: -40, y: -90}, exp: 877/2200}
   constructions:
   - {name: defensive_wall, index: 0, position: {x: 140, y: -55}}
 red:
   random_state: [12336063422788599733, 1507898781856087682, 12156871441442529134, 14627864759985260801]
   reactor_core: 5100
-  supply: 1200
+  supply: 1000
+  reinforce_choice: -1
   unlocked_units: [mustang, crawler, sledgehammer, arclight, scorpion, void_eye]
   tower_strengthen_levels: [0, 0]
   battle_skills:
@@ -432,19 +434,19 @@ red:
     arclight: [armor_enhancement]
     void_eye: [suppression_shots]
   units:
-  - {name: void_eye, index: 0, position: {x: -110, y: -150}, exp: 650/650, value: 100}
-  - {name: void_eye, index: 1, position: {x: 0, y: -150}, level: 2, exp: 1107/1465, value: 100}
-  - {name: void_eye, index: 2, position: {x: 110, y: -150}, level: 2, exp: 1465/1465, value: 100}
-  - {name: sledgehammer, index: 3, position: {x: -75, y: -130}, exp: 830/1300, value: 200}
-  - {name: sledgehammer, index: 4, position: {x: 75, y: -130}, level: 2, exp: 1875/2929, value: 200}
-  - {name: arclight, index: 5, position: {x: -140, y: -150}, level: 2, exp: 923/1690, value: 100}
-  - {name: arclight, index: 6, position: {x: 140, y: -150}, exp: 750/750, value: 100}
-  - {name: crawler, index: 7, position: {x: -30, y: -285}, exp: 302/450, rotated: true, value: 100}
-  - {name: crawler, index: 8, position: {x: 30, y: -285}, exp: 450/450, rotated: true, value: 100}
-  - {name: mustang, index: 9, position: {x: -95, y: -270}, exp: 842/1200, value: 200}
-  - {name: mustang, index: 10, position: {x: 95, y: -270}, level: 2, exp: 1163/2704, value: 200}
-  - {name: scorpion, index: 11, position: {x: -175, y: -145}, exp: 966/1500, value: 350}
-  - {name: void_eye, index: 12, position: {x: 180, y: -150}, exp: 317/650, value: 100}
+  - {name: void_eye, index: 0, value: 100, position: {x: -110, y: -150}, exp: 650/650}
+  - {name: void_eye, index: 1, value: 100, level: 2, position: {x: 0, y: -150}, exp: 1107/1465}
+  - {name: void_eye, index: 2, value: 100, level: 2, position: {x: 110, y: -150}, exp: 1465/1465}
+  - {name: sledgehammer, index: 3, value: 200, position: {x: -75, y: -130}, exp: 830/1300}
+  - {name: sledgehammer, index: 4, value: 200, level: 2, position: {x: 75, y: -130}, exp: 1875/2929}
+  - {name: arclight, index: 5, value: 100, level: 2, position: {x: -140, y: -150}, exp: 923/1690}
+  - {name: arclight, index: 6, value: 100, position: {x: 140, y: -150}, exp: 750/750}
+  - {name: crawler, index: 7, value: 100, position: {x: -30, y: -285}, exp: 302/450, rotated: true}
+  - {name: crawler, index: 8, value: 100, position: {x: 30, y: -285}, exp: 450/450, rotated: true}
+  - {name: mustang, index: 9, value: 200, position: {x: -95, y: -270}, exp: 842/1200}
+  - {name: mustang, index: 10, value: 200, level: 2, position: {x: 95, y: -270}, exp: 1163/2704}
+  - {name: scorpion, index: 11, value: 350, position: {x: -175, y: -145}, exp: 966/1500}
+  - {name: void_eye, index: 12, value: 100, position: {x: 180, y: -150}, exp: 317/650}
   constructions:
   - {name: defensive_wall, index: 0, position: {x: -140, y: -55}}
   contraptions:
@@ -464,7 +466,6 @@ blue:
 - {type: move_unit, index: 11, position: {x: -30, y: -140}}
 - {type: release_contraption, name: missile, position: {x: -31, y: -11}}
 - {type: unlock_unit, name: tarantula}
-- {type: active_energy_tower_skill, name: deposit_supply}
 red:
 - {type: choose_reinforce_item, index: 3, name: advanced_missile_device}
 - {type: buy_unit, name: scorpion}
@@ -477,7 +478,6 @@ red:
 - {type: release_contraption, name: missile, position: {x: 40, y: -11}}
 - {type: release_contraption, name: missile, position: {x: -10, y: -16}}
 - {type: release_contraption, name: interceptor, position: {x: 25, y: -115}}
-- {type: active_energy_tower_skill, name: deposit_supply}
 ---
 kind: result
 round: 5

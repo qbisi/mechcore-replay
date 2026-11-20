@@ -110,7 +110,7 @@ random_state: [6666779507217991475, 4778725084075033019, 3478819561947807648, 25
 blue:
   random_state: [10035834862432194613, 11292098265340069118, 18369507724293959914, 17968047896640271682]
   reactor_core: 4900
-  supply: 450
+  supply: 250
   unlocked_units: [sledgehammer, hound]
   tower_strengthen_levels: [0, 0]
   battle_skills:
@@ -118,28 +118,28 @@ blue:
   next_index: {unit: 5, contraption: 0}
   officers: [training_specialist]
   units:
-  - {name: hound, index: 0, position: {x: 0, y: -160}, source: joined, value: 100}
-  - {name: hound, index: 1, position: {x: 0, y: -180}, source: joined, value: 100}
-  - {name: hound, index: 2, position: {x: 0, y: -140}, source: joined, value: 100}
-  - {name: sledgehammer, index: 3, position: {x: 5, y: -200}, source: joined, value: 200}
-  - {name: sledgehammer, index: 4, position: {x: 5, y: -120}, source: joined, value: 200}
+  - {name: hound, index: 0, value: 100, source: joined, position: {x: 0, y: -160}}
+  - {name: hound, index: 1, value: 100, source: joined, position: {x: 0, y: -180}}
+  - {name: hound, index: 2, value: 100, source: joined, position: {x: 0, y: -140}}
+  - {name: sledgehammer, index: 3, value: 200, source: joined, position: {x: 5, y: -200}}
+  - {name: sledgehammer, index: 4, value: 200, source: joined, position: {x: 5, y: -120}}
   constructions:
   - {name: defensive_wall, index: 0, position: {x: 140, y: -55}}
   - {name: anti_armor_turret, index: 1, position: {x: -140, y: -100}}
 red:
   random_state: [17798997197044485698, 3783338692217388454, 3648017871869376781, 7875338427099259428]
   reactor_core: 4900
-  supply: 400
+  supply: 200
   unlocked_units: [fang, tarantula]
   tower_strengthen_levels: [0, 0]
   next_index: {unit: 5, contraption: 0}
   officers: [fortified_specialist]
   units:
-  - {name: fang, index: 0, position: {x: -5, y: -160}, source: joined, value: 100}
-  - {name: fang, index: 1, position: {x: -5, y: -140}, source: joined, value: 100}
-  - {name: fang, index: 2, position: {x: -5, y: -180}, source: joined, value: 100}
-  - {name: tarantula, index: 3, position: {x: 35, y: -155}, source: joined, value: 200}
-  - {name: tarantula, index: 4, position: {x: 5, y: -115}, source: joined, value: 200}
+  - {name: fang, index: 0, value: 100, source: joined, position: {x: -5, y: -160}}
+  - {name: fang, index: 1, value: 100, source: joined, position: {x: -5, y: -140}}
+  - {name: fang, index: 2, value: 100, source: joined, position: {x: -5, y: -180}}
+  - {name: tarantula, index: 3, value: 200, source: joined, position: {x: 35, y: -155}}
+  - {name: tarantula, index: 4, value: 200, source: joined, position: {x: 5, y: -115}}
   constructions:
   - {name: defensive_wall, index: 0, position: {x: 140, y: -55}}
   - {name: anti_armor_turret, index: 1, position: {x: -140, y: -100}}
@@ -161,7 +161,6 @@ blue:
 - {type: move_unit, index: 6, position: {x: 0, y: -225}, rotated: true}
 - {type: release_commander_skill, index: 0, name: intensive_training, target: {unit: 0}}
 - {type: upgrade_unit, index: 0}
-- {type: active_energy_tower_skill, name: deposit_supply}
 red:
 - {type: active_blueprint, name: field_recovery}
 - {type: release_commander_skill, index: 0, name: field_recovery, target: {construction: 1}}
@@ -175,7 +174,6 @@ red:
 - {type: move_unit, index: 2, position: {x: 0, y: -105}, rotated: true}
 - {type: move_unit, index: 5, position: {x: -260, y: -285}, rotated: true}
 - {type: move_unit, index: 6, position: {x: 260, y: -285}, rotated: true}
-- {type: active_energy_tower_skill, name: deposit_supply}
 ---
 kind: state
 round: 2
@@ -186,7 +184,8 @@ reinforce_offers: [assault_scorpion, extended_range_vulcan, advanced_shield_devi
 blue:
   random_state: [10035834862432194613, 11292098265340069118, 18369507724293959914, 17968047896640271682]
   reactor_core: 4694
-  supply: 600
+  supply: 400
+  reinforce_choice: -1
   unlocked_units: [crawler, sledgehammer, hound]
   blueprints: [field_recovery]
   tower_strengthen_levels: [0, 0]
@@ -196,19 +195,20 @@ blue:
   next_index: {unit: 7, contraption: 0}
   officers: [training_specialist]
   units:
-  - {name: hound, index: 0, position: {x: -120, y: -190}, level: 2, exp: 195/1690, value: 100}
-  - {name: hound, index: 1, position: {x: 0, y: -190}, exp: 183/750, value: 100}
-  - {name: hound, index: 2, position: {x: 120, y: -190}, exp: 202/750, value: 100}
-  - {name: sledgehammer, index: 3, position: {x: -190, y: -155}, exp: 222/1300, rotated: true, value: 200}
-  - {name: sledgehammer, index: 4, position: {x: 210, y: -155}, exp: 112/1300, rotated: true, value: 200}
-  - {name: crawler, index: 5, position: {x: -120, y: -225}, exp: 450/450, rotated: true, value: 100}
-  - {name: crawler, index: 6, position: {x: 0, y: -225}, exp: 226/450, rotated: true, value: 100}
+  - {name: hound, index: 0, value: 100, level: 2, position: {x: -120, y: -190}, exp: 195/1690}
+  - {name: hound, index: 1, value: 100, position: {x: 0, y: -190}, exp: 183/750}
+  - {name: hound, index: 2, value: 100, position: {x: 120, y: -190}, exp: 202/750}
+  - {name: sledgehammer, index: 3, value: 200, position: {x: -190, y: -155}, exp: 222/1300, rotated: true}
+  - {name: sledgehammer, index: 4, value: 200, position: {x: 210, y: -155}, exp: 112/1300, rotated: true}
+  - {name: crawler, index: 5, value: 100, position: {x: -120, y: -225}, exp: 450/450, rotated: true}
+  - {name: crawler, index: 6, value: 100, position: {x: 0, y: -225}, exp: 226/450, rotated: true}
   constructions:
   - {name: defensive_wall, index: 0, position: {x: 140, y: -55}}
 red:
   random_state: [17798997197044485698, 3783338692217388454, 3648017871869376781, 7875338427099259428]
   reactor_core: 4900
-  supply: 600
+  supply: 400
+  reinforce_choice: -1
   unlocked_units: [fang, crawler, tarantula]
   blueprints: [field_recovery]
   tower_strengthen_levels: [0, 0]
@@ -217,13 +217,13 @@ red:
   next_index: {unit: 7, contraption: 0}
   officers: [fortified_specialist]
   units:
-  - {name: fang, index: 0, position: {x: 140, y: -225}, exp: 154/600, rotated: true, value: 100}
-  - {name: fang, index: 1, position: {x: -140, y: -225}, exp: 132/600, rotated: true, value: 100}
-  - {name: fang, index: 2, position: {x: 0, y: -105}, exp: 100/600, rotated: true, value: 100}
-  - {name: tarantula, index: 3, position: {x: -145, y: -145}, exp: 420/1500, value: 200}
-  - {name: tarantula, index: 4, position: {x: 145, y: -145}, exp: 1176/1500, value: 200}
-  - {name: crawler, index: 5, position: {x: -260, y: -285}, exp: 392/450, rotated: true, value: 100}
-  - {name: crawler, index: 6, position: {x: 260, y: -285}, exp: 150/450, rotated: true, value: 100}
+  - {name: fang, index: 0, value: 100, position: {x: 140, y: -225}, exp: 154/600, rotated: true}
+  - {name: fang, index: 1, value: 100, position: {x: -140, y: -225}, exp: 132/600, rotated: true}
+  - {name: fang, index: 2, value: 100, position: {x: 0, y: -105}, exp: 100/600, rotated: true}
+  - {name: tarantula, index: 3, value: 200, position: {x: -145, y: -145}, exp: 420/1500}
+  - {name: tarantula, index: 4, value: 200, position: {x: 145, y: -145}, exp: 1176/1500}
+  - {name: crawler, index: 5, value: 100, position: {x: -260, y: -285}, exp: 392/450, rotated: true}
+  - {name: crawler, index: 6, value: 100, position: {x: 260, y: -285}, exp: 150/450, rotated: true}
   constructions:
   - {name: defensive_wall, index: 0, position: {x: 140, y: -55}}
 ---
@@ -240,7 +240,6 @@ blue:
 - {type: move_unit, index: 7, position: {x: -165, y: -300}}
 - {type: move_unit, index: 8, position: {x: 235, y: -300}}
 - {type: move_unit, index: 9, position: {x: 290, y: -205}, rotated: true}
-- {type: active_energy_tower_skill, name: deposit_supply}
 red:
 - {type: choose_reinforce_item, index: 0, name: assault_scorpion}
 - {type: release_commander_skill, index: 0, name: field_recovery, target: {construction: 0}}
@@ -250,7 +249,6 @@ red:
 - {type: move_unit, index: 8, position: {x: 0, y: -245}, rotated: true}
 - {type: active_blueprint, name: defense_enhancement}
 - {type: unlock_unit, name: mustang}
-- {type: active_energy_tower_skill, name: deposit_supply}
 ---
 kind: state
 round: 3
@@ -261,7 +259,8 @@ reinforce_offers: [extended_range_vulcan, mass_production_fire_control_system, w
 blue:
   random_state: [10035834862432194613, 11292098265340069118, 18369507724293959914, 17968047896640271682]
   reactor_core: 3794
-  supply: 800
+  supply: 600
+  reinforce_choice: -1
   unlocked_units: [mustang, crawler, sledgehammer, hound]
   blueprints: [field_recovery]
   tower_strengthen_levels: [0, 0]
@@ -271,21 +270,22 @@ blue:
   next_index: {unit: 10, contraption: 0}
   officers: [training_specialist, assault_scorpion]
   units:
-  - {name: hound, index: 0, position: {x: -120, y: -190}, level: 2, exp: 286/1690, value: 100}
-  - {name: hound, index: 1, position: {x: 0, y: -190}, exp: 344/750, value: 100}
-  - {name: hound, index: 2, position: {x: 120, y: -190}, exp: 243/750, value: 100}
-  - {name: sledgehammer, index: 4, position: {x: 210, y: -155}, exp: 214/1300, rotated: true, value: 200}
-  - {name: crawler, index: 5, position: {x: -120, y: -225}, exp: 450/450, rotated: true, value: 100}
-  - {name: crawler, index: 6, position: {x: 0, y: -225}, exp: 271/450, rotated: true, value: 100}
-  - {name: mustang, index: 7, position: {x: -165, y: -300}, exp: 29/1200, value: 200}
-  - {name: mustang, index: 8, position: {x: 235, y: -300}, exp: 78/1200, value: 200}
-  - {name: crawler, index: 9, position: {x: 290, y: -205}, exp: 10/450, rotated: true, value: 100}
+  - {name: hound, index: 0, value: 100, level: 2, position: {x: -120, y: -190}, exp: 286/1690}
+  - {name: hound, index: 1, value: 100, position: {x: 0, y: -190}, exp: 344/750}
+  - {name: hound, index: 2, value: 100, position: {x: 120, y: -190}, exp: 243/750}
+  - {name: sledgehammer, index: 4, value: 200, position: {x: 210, y: -155}, exp: 214/1300, rotated: true}
+  - {name: crawler, index: 5, value: 100, position: {x: -120, y: -225}, exp: 450/450, rotated: true}
+  - {name: crawler, index: 6, value: 100, position: {x: 0, y: -225}, exp: 271/450, rotated: true}
+  - {name: mustang, index: 7, value: 200, position: {x: -165, y: -300}, exp: 29/1200}
+  - {name: mustang, index: 8, value: 200, position: {x: 235, y: -300}, exp: 78/1200}
+  - {name: crawler, index: 9, value: 100, position: {x: 290, y: -205}, exp: 10/450, rotated: true}
   constructions:
   - {name: defensive_wall, index: 0, position: {x: 140, y: -55}}
 red:
   random_state: [17798997197044485698, 3783338692217388454, 3648017871869376781, 7875338427099259428]
   reactor_core: 4900
-  supply: 800
+  supply: 600
+  reinforce_choice: -1
   unlocked_units: [mustang, fang, crawler, tarantula]
   blueprints: [field_recovery, defense_enhancement]
   tower_strengthen_levels: [0, 0]
@@ -294,15 +294,15 @@ red:
   next_index: {unit: 9, contraption: 0}
   officers: [fortified_specialist, assault_scorpion]
   units:
-  - {name: fang, index: 0, position: {x: 140, y: -225}, exp: 304/600, rotated: true, value: 100}
-  - {name: fang, index: 1, position: {x: -140, y: -225}, exp: 371/600, rotated: true, value: 100}
-  - {name: fang, index: 2, position: {x: 0, y: -105}, exp: 235/600, rotated: true, value: 100}
-  - {name: tarantula, index: 3, position: {x: -145, y: -145}, exp: 1210/1500, value: 200}
-  - {name: tarantula, index: 4, position: {x: 145, y: -145}, exp: 1500/1500, value: 200}
-  - {name: crawler, index: 5, position: {x: -260, y: -285}, exp: 420/450, rotated: true, value: 100}
-  - {name: crawler, index: 6, position: {x: 260, y: -285}, exp: 450/450, rotated: true, value: 100}
-  - {name: tarantula, index: 7, position: {x: -55, y: -145}, exp: 563/1500, value: 200}
-  - {name: crawler, index: 8, position: {x: 0, y: -245}, exp: 51/450, rotated: true, value: 100}
+  - {name: fang, index: 0, value: 100, position: {x: 140, y: -225}, exp: 304/600, rotated: true}
+  - {name: fang, index: 1, value: 100, position: {x: -140, y: -225}, exp: 371/600, rotated: true}
+  - {name: fang, index: 2, value: 100, position: {x: 0, y: -105}, exp: 235/600, rotated: true}
+  - {name: tarantula, index: 3, value: 200, position: {x: -145, y: -145}, exp: 1210/1500}
+  - {name: tarantula, index: 4, value: 200, position: {x: 145, y: -145}, exp: 1500/1500}
+  - {name: crawler, index: 5, value: 100, position: {x: -260, y: -285}, exp: 420/450, rotated: true}
+  - {name: crawler, index: 6, value: 100, position: {x: 260, y: -285}, exp: 450/450, rotated: true}
+  - {name: tarantula, index: 7, value: 200, position: {x: -55, y: -145}, exp: 563/1500}
+  - {name: crawler, index: 8, value: 100, position: {x: 0, y: -245}, exp: 51/450, rotated: true}
 ---
 kind: action
 round: 3
@@ -318,7 +318,6 @@ blue:
 - {type: upgrade_unit, index: 10}
 - {type: active_blueprint, name: defense_enhancement}
 - {type: release_commander_skill, index: 2, name: wasp_swarm, target: {area: [{x: -332, y: 274}]}}
-- {type: active_energy_tower_skill, name: deposit_supply}
 red:
 - {type: choose_reinforce_item, index: 1, name: mass_production_fire_control_system}
 - {type: buy_unit, name: tarantula}
@@ -331,7 +330,6 @@ red:
 - {type: upgrade_unit, index: 4}
 - {type: active_blueprint, name: attack_enhancement}
 - {type: unlock_unit, name: marksman}
-- {type: active_energy_tower_skill, name: deposit_supply}
 ---
 kind: state
 round: 4
@@ -342,7 +340,8 @@ reinforce_offers: [centurion_1x_lv2, phantom_ray_1x_lv3, wraith_1x_lv2, wasp_1x_
 blue:
   random_state: [10035834862432194613, 11292098265340069118, 18369507724293959914, 17968047896640271682]
   reactor_core: 3794
-  supply: 1050
+  supply: 850
+  reinforce_choice: -1
   unlocked_units: [mustang, crawler, sledgehammer, scorpion, hound]
   blueprints: [field_recovery, defense_enhancement]
   tower_strengthen_levels: [0, 0]
@@ -353,41 +352,46 @@ blue:
   next_index: {unit: 12, contraption: 0}
   officers: [training_specialist, assault_scorpion]
   units:
-  - {name: hound, index: 0, position: {x: -120, y: -190}, level: 2, exp: 680/1690, value: 100}
-  - {name: hound, index: 1, position: {x: 0, y: -190}, exp: 625/750, value: 100}
-  - {name: hound, index: 2, position: {x: 120, y: -190}, exp: 351/750, value: 100}
-  - {name: crawler, index: 5, position: {x: -120, y: -225}, exp: 450/450, rotated: true, value: 100}
-  - {name: crawler, index: 6, position: {x: 0, y: -225}, exp: 297/450, rotated: true, value: 100}
-  - {name: mustang, index: 7, position: {x: -165, y: -300}, exp: 489/1200, value: 200}
-  - {name: mustang, index: 8, position: {x: 235, y: -300}, exp: 285/1200, value: 200}
-  - {name: crawler, index: 9, position: {x: 290, y: -205}, exp: 49/450, rotated: true, value: 100}
-  - {name: scorpion, index: 10, position: {x: -165, y: -165}, level: 2, exp: 1666/3380, value: 300}
-  - {name: crawler, index: 11, position: {x: -290, y: -265}, exp: 450/450, rotated: true, value: 100}
+  - {name: hound, index: 0, value: 100, level: 2, position: {x: -120, y: -190}, exp: 680/1690}
+  - {name: hound, index: 1, value: 100, position: {x: 0, y: -190}, exp: 625/750}
+  - {name: hound, index: 2, value: 100, position: {x: 120, y: -190}, exp: 351/750}
+  - {name: crawler, index: 5, value: 100, position: {x: -120, y: -225}, exp: 450/450, rotated: true}
+  - {name: crawler, index: 6, value: 100, position: {x: 0, y: -225}, exp: 297/450, rotated: true}
+  - {name: mustang, index: 7, value: 200, position: {x: -165, y: -300}, exp: 489/1200}
+  - {name: mustang, index: 8, value: 200, position: {x: 235, y: -300}, exp: 285/1200}
+  - {name: crawler, index: 9, value: 100, position: {x: 290, y: -205}, exp: 49/450, rotated: true}
+  - {name: scorpion, index: 10, value: 300, level: 2, position: {x: -165, y: -165}, exp: 1666/3380}
+  - {name: crawler, index: 11, value: 100, position: {x: -290, y: -265}, exp: 450/450, rotated: true}
   constructions:
   - {name: defensive_wall, index: 0, position: {x: 140, y: -55}}
 red:
   random_state: [17798997197044485698, 3783338692217388454, 3648017871869376781, 7875338427099259428]
   reactor_core: 4515
-  supply: 1000
+  supply: 800
+  reinforce_choice: -1
   unlocked_units: [marksman, mustang, fang, crawler, tarantula]
   blueprints: [field_recovery, attack_enhancement, defense_enhancement]
   tower_strengthen_levels: [0, 0]
+  equipment:
+  - {name: secondary_fire_control_system, fitted: {unit: 3, slot: 0}}
+  - {name: secondary_fire_control_system, fitted: {unit: 4, slot: 0}}
+  - {name: secondary_fire_control_system, fitted: {unit: 7, slot: 0}}
   battle_skills:
   - {index: 0, name: field_recovery, cooldown: 0}
   next_index: {unit: 11, contraption: 0}
   officers: [mass_production_fire_control_system, fortified_specialist, assault_scorpion]
   units:
-  - {name: fang, index: 0, position: {x: 140, y: -225}, exp: 600/600, rotated: true, value: 100}
-  - {name: fang, index: 1, position: {x: -140, y: -225}, exp: 455/600, rotated: true, value: 100}
-  - {name: fang, index: 2, position: {x: 0, y: -105}, exp: 324/600, rotated: true, value: 100}
-  - {name: tarantula, index: 3, position: {x: -145, y: -145}, exp: 1500/1500, equipment: [secondary_fire_control_system], value: 200}
-  - {name: tarantula, index: 4, position: {x: 145, y: -145}, level: 2, exp: 8/3380, equipment: [secondary_fire_control_system], value: 200}
-  - {name: crawler, index: 5, position: {x: -260, y: -285}, exp: 450/450, rotated: true, value: 100}
-  - {name: crawler, index: 6, position: {x: 260, y: -285}, exp: 450/450, rotated: true, value: 100}
-  - {name: tarantula, index: 7, position: {x: -55, y: -145}, exp: 1160/1500, equipment: [secondary_fire_control_system], value: 200}
-  - {name: crawler, index: 8, position: {x: 0, y: -245}, exp: 102/450, rotated: true, value: 100}
-  - {name: tarantula, index: 9, position: {x: 55, y: -145}, exp: 487/1500, value: 200}
-  - {name: crawler, index: 10, position: {x: -135, y: -190}, exp: 65/450, value: 100}
+  - {name: fang, index: 0, value: 100, position: {x: 140, y: -225}, exp: 600/600, rotated: true}
+  - {name: fang, index: 1, value: 100, position: {x: -140, y: -225}, exp: 455/600, rotated: true}
+  - {name: fang, index: 2, value: 100, position: {x: 0, y: -105}, exp: 324/600, rotated: true}
+  - {name: tarantula, index: 3, value: 200, position: {x: -145, y: -145}, exp: 1500/1500}
+  - {name: tarantula, index: 4, value: 200, level: 2, position: {x: 145, y: -145}, exp: 8/3380}
+  - {name: crawler, index: 5, value: 100, position: {x: -260, y: -285}, exp: 450/450, rotated: true}
+  - {name: crawler, index: 6, value: 100, position: {x: 260, y: -285}, exp: 450/450, rotated: true}
+  - {name: tarantula, index: 7, value: 200, position: {x: -55, y: -145}, exp: 1160/1500}
+  - {name: crawler, index: 8, value: 100, position: {x: 0, y: -245}, exp: 102/450, rotated: true}
+  - {name: tarantula, index: 9, value: 200, position: {x: 55, y: -145}, exp: 487/1500}
+  - {name: crawler, index: 10, value: 100, position: {x: -135, y: -190}, exp: 65/450}
 ---
 kind: action
 round: 4
@@ -402,7 +406,6 @@ blue:
 - {type: move_unit, index: 14, position: {x: 5, y: -300}}
 - {type: move_unit, index: 15, position: {x: -170, y: -205}, rotated: true}
 - {type: active_blueprint, name: attack_enhancement}
-- {type: active_energy_tower_skill, name: deposit_supply}
 red:
 - {type: choose_reinforce_item, index: 1, name: phantom_ray_1x_lv3}
 - {type: buy_unit, name: crawler}
@@ -413,7 +416,6 @@ red:
 - {type: move_unit, index: 13, position: {x: -175, y: -210}}
 - {type: upgrade_unit, index: 3}
 - {type: unlock_unit, name: sledgehammer}
-- {type: active_energy_tower_skill, name: deposit_supply}
 ---
 kind: state
 round: 5
@@ -424,7 +426,8 @@ reinforce_offers: [equipment_expansion, mass_produced_farseer, mobilize_battlesh
 blue:
   random_state: [10035834862432194613, 11292098265340069118, 18369507724293959914, 17968047896640271682]
   reactor_core: 3303
-  supply: 1200
+  supply: 1000
+  reinforce_choice: -1
   unlocked_units: [wasp, mustang, crawler, sledgehammer, scorpion, hound]
   blueprints: [field_recovery, attack_enhancement, defense_enhancement]
   tower_strengthen_levels: [0, 0]
@@ -435,29 +438,34 @@ blue:
   next_index: {unit: 16, contraption: 0}
   officers: [training_specialist, assault_scorpion]
   units:
-  - {name: hound, index: 0, position: {x: -120, y: -190}, level: 2, exp: 758/1690, value: 100}
-  - {name: hound, index: 1, position: {x: 0, y: -190}, exp: 750/750, value: 100}
-  - {name: hound, index: 2, position: {x: 120, y: -190}, exp: 437/750, value: 100}
-  - {name: crawler, index: 5, position: {x: -120, y: -225}, exp: 450/450, rotated: true, value: 100}
-  - {name: crawler, index: 6, position: {x: 0, y: -225}, exp: 319/450, rotated: true, value: 100}
-  - {name: mustang, index: 7, position: {x: -165, y: -300}, exp: 532/1200, value: 200}
-  - {name: mustang, index: 8, position: {x: 235, y: -300}, exp: 1200/1200, value: 200}
-  - {name: crawler, index: 9, position: {x: 290, y: -205}, exp: 89/450, rotated: true, value: 100}
-  - {name: scorpion, index: 10, position: {x: -165, y: -165}, level: 2, exp: 1886/3380, value: 300}
-  - {name: crawler, index: 11, position: {x: -290, y: -265}, exp: 450/450, rotated: true, value: 100}
-  - {name: wasp, index: 12, position: {x: 185, y: -300}, level: 3, exp: 1726/3206, value: 200}
-  - {name: scorpion, index: 13, position: {x: 165, y: -155}, exp: 298/1500, value: 300}
-  - {name: mustang, index: 14, position: {x: 5, y: -300}, exp: 81/1200, value: 200}
-  - {name: crawler, index: 15, position: {x: -170, y: -205}, exp: 28/450, rotated: true, value: 100}
+  - {name: hound, index: 0, value: 100, level: 2, position: {x: -120, y: -190}, exp: 758/1690}
+  - {name: hound, index: 1, value: 100, position: {x: 0, y: -190}, exp: 750/750}
+  - {name: hound, index: 2, value: 100, position: {x: 120, y: -190}, exp: 437/750}
+  - {name: crawler, index: 5, value: 100, position: {x: -120, y: -225}, exp: 450/450, rotated: true}
+  - {name: crawler, index: 6, value: 100, position: {x: 0, y: -225}, exp: 319/450, rotated: true}
+  - {name: mustang, index: 7, value: 200, position: {x: -165, y: -300}, exp: 532/1200}
+  - {name: mustang, index: 8, value: 200, position: {x: 235, y: -300}, exp: 1200/1200}
+  - {name: crawler, index: 9, value: 100, position: {x: 290, y: -205}, exp: 89/450, rotated: true}
+  - {name: scorpion, index: 10, value: 300, level: 2, position: {x: -165, y: -165}, exp: 1886/3380}
+  - {name: crawler, index: 11, value: 100, position: {x: -290, y: -265}, exp: 450/450, rotated: true}
+  - {name: wasp, index: 12, value: 200, level: 3, position: {x: 185, y: -300}, exp: 1726/3206}
+  - {name: scorpion, index: 13, value: 300, position: {x: 165, y: -155}, exp: 298/1500}
+  - {name: mustang, index: 14, value: 200, position: {x: 5, y: -300}, exp: 81/1200}
+  - {name: crawler, index: 15, value: 100, position: {x: -170, y: -205}, exp: 28/450, rotated: true}
   constructions:
   - {name: defensive_wall, index: 0, position: {x: 140, y: -55}}
 red:
   random_state: [17798997197044485698, 3783338692217388454, 3648017871869376781, 7875338427099259428]
   reactor_core: 4515
-  supply: 1300
+  supply: 1100
+  reinforce_choice: -1
   unlocked_units: [marksman, mustang, fang, crawler, sledgehammer, tarantula, phantom_ray]
   blueprints: [field_recovery, attack_enhancement, defense_enhancement]
   tower_strengthen_levels: [0, 0]
+  equipment:
+  - {name: secondary_fire_control_system, fitted: {unit: 3, slot: 0}}
+  - {name: secondary_fire_control_system, fitted: {unit: 4, slot: 0}}
+  - {name: secondary_fire_control_system, fitted: {unit: 7, slot: 0}}
   battle_skills:
   - {index: 0, name: field_recovery, cooldown: 0}
   next_index: {unit: 14, contraption: 0}
@@ -465,20 +473,20 @@ red:
   techs:
     phantom_ray: [armor_enhancement]
   units:
-  - {name: fang, index: 0, position: {x: 140, y: -225}, exp: 600/600, rotated: true, value: 100}
-  - {name: fang, index: 1, position: {x: -140, y: -225}, exp: 600/600, rotated: true, value: 100}
-  - {name: fang, index: 2, position: {x: 0, y: -105}, exp: 427/600, rotated: true, value: 100}
-  - {name: tarantula, index: 3, position: {x: -145, y: -145}, level: 2, exp: 1058/3380, equipment: [secondary_fire_control_system], value: 200}
-  - {name: tarantula, index: 4, position: {x: 145, y: -145}, level: 2, exp: 1896/3380, equipment: [secondary_fire_control_system], value: 200}
-  - {name: crawler, index: 5, position: {x: -260, y: -285}, exp: 450/450, rotated: true, value: 100}
-  - {name: crawler, index: 6, position: {x: 260, y: -285}, exp: 450/450, rotated: true, value: 100}
-  - {name: tarantula, index: 7, position: {x: -55, y: -145}, exp: 1500/1500, equipment: [secondary_fire_control_system], value: 200}
-  - {name: crawler, index: 8, position: {x: 0, y: -245}, exp: 150/450, rotated: true, value: 100}
-  - {name: tarantula, index: 9, position: {x: 55, y: -145}, exp: 1487/1500, value: 200}
-  - {name: crawler, index: 10, position: {x: -135, y: -190}, exp: 88/450, value: 100}
-  - {name: phantom_ray, index: 11, position: {x: 175, y: -210}, level: 3, exp: 1616/3562, value: 200}
-  - {name: crawler, index: 12, position: {x: 135, y: -190}, exp: 33/450, value: 100}
-  - {name: phantom_ray, index: 13, position: {x: -175, y: -210}, exp: 714/1000, value: 200}
+  - {name: fang, index: 0, value: 100, position: {x: 140, y: -225}, exp: 600/600, rotated: true}
+  - {name: fang, index: 1, value: 100, position: {x: -140, y: -225}, exp: 600/600, rotated: true}
+  - {name: fang, index: 2, value: 100, position: {x: 0, y: -105}, exp: 427/600, rotated: true}
+  - {name: tarantula, index: 3, value: 200, level: 2, position: {x: -145, y: -145}, exp: 1058/3380}
+  - {name: tarantula, index: 4, value: 200, level: 2, position: {x: 145, y: -145}, exp: 1896/3380}
+  - {name: crawler, index: 5, value: 100, position: {x: -260, y: -285}, exp: 450/450, rotated: true}
+  - {name: crawler, index: 6, value: 100, position: {x: 260, y: -285}, exp: 450/450, rotated: true}
+  - {name: tarantula, index: 7, value: 200, position: {x: -55, y: -145}, exp: 1500/1500}
+  - {name: crawler, index: 8, value: 100, position: {x: 0, y: -245}, exp: 150/450, rotated: true}
+  - {name: tarantula, index: 9, value: 200, position: {x: 55, y: -145}, exp: 1487/1500}
+  - {name: crawler, index: 10, value: 100, position: {x: -135, y: -190}, exp: 88/450}
+  - {name: phantom_ray, index: 11, value: 200, level: 3, position: {x: 175, y: -210}, exp: 1616/3562}
+  - {name: crawler, index: 12, value: 100, position: {x: 135, y: -190}, exp: 33/450}
+  - {name: phantom_ray, index: 13, value: 200, position: {x: -175, y: -210}, exp: 714/1000}
 ---
 kind: action
 round: 5
@@ -497,7 +505,6 @@ blue:
 - {type: upgrade_unit, index: 8}
 - {type: upgrade_unit, index: 8}
 - {type: unlock_unit, name: fang}
-- {type: active_energy_tower_skill, name: deposit_supply}
 red:
 - {type: choose_reinforce_item, index: 3, name: laser_sights}
 - {type: buy_unit, name: crawler}
@@ -514,7 +521,6 @@ red:
 - {type: active_blueprint, name: sticky_oil_bomb}
 - {type: unlock_unit, name: fire_badger}
 - {type: release_commander_skill, index: 1, name: sticky_oil_bomb, target: {area: [{x: -123, y: 126}, {x: -227, y: 130}]}}
-- {type: active_energy_tower_skill, name: deposit_supply}
 ---
 kind: state
 round: 6
@@ -525,10 +531,13 @@ reinforce_offers: [farseer_1x_lv3, void_eye_3x_lv2, vortex_3x_lv2, sandworm_1x_l
 blue:
   random_state: [10035834862432194613, 11292098265340069118, 18369507724293959914, 17968047896640271682]
   reactor_core: 2842
-  supply: 1400
+  supply: 1200
+  reinforce_choice: -1
   unlocked_units: [wasp, mustang, fang, crawler, sledgehammer, scorpion, hound]
   blueprints: [field_recovery, attack_enhancement, defense_enhancement]
   tower_strengthen_levels: [0, 0]
+  equipment:
+  - {name: laser_sights, fitted: {unit: 12, slot: 0}}
   battle_skills:
   - {index: 0, name: intensive_training, cooldown: 1}
   - {index: 1, name: field_recovery, cooldown: 0}
@@ -538,31 +547,37 @@ blue:
   techs:
     mustang: [aerial_specialization]
   units:
-  - {name: hound, index: 0, position: {x: -120, y: -190}, level: 2, exp: 910/1690, value: 100}
-  - {name: hound, index: 1, position: {x: 0, y: -190}, exp: 750/750, value: 100}
-  - {name: crawler, index: 5, position: {x: -120, y: -225}, exp: 450/450, rotated: true, value: 100}
-  - {name: crawler, index: 6, position: {x: 0, y: -225}, exp: 379/450, rotated: true, value: 100}
-  - {name: mustang, index: 7, position: {x: -165, y: -300}, exp: 625/1200, value: 200}
-  - {name: mustang, index: 8, position: {x: 235, y: -300}, level: 3, exp: 1204/4274, value: 200}
-  - {name: crawler, index: 9, position: {x: 290, y: -205}, exp: 117/450, rotated: true, value: 100}
-  - {name: scorpion, index: 10, position: {x: -165, y: -165}, level: 2, exp: 2271/3380, value: 300}
-  - {name: crawler, index: 11, position: {x: -290, y: -265}, exp: 450/450, rotated: true, value: 100}
-  - {name: wasp, index: 12, position: {x: 185, y: -300}, level: 3, exp: 3206/3206, equipment: [laser_sights], value: 200}
-  - {name: scorpion, index: 13, position: {x: 165, y: -155}, exp: 852/1500, value: 300}
-  - {name: mustang, index: 14, position: {x: 5, y: -300}, exp: 159/1200, value: 200}
-  - {name: crawler, index: 15, position: {x: -170, y: -205}, exp: 79/450, rotated: true, value: 100}
-  - {name: scorpion, index: 16, position: {x: -5, y: -165}, exp: 248/1500, value: 300}
-  - {name: crawler, index: 17, position: {x: 170, y: -195}, exp: 38/450, rotated: true, value: 100}
-  - {name: crawler, index: 18, position: {x: 135, y: -190}, exp: 72/450, value: 100}
+  - {name: hound, index: 0, value: 100, level: 2, position: {x: -120, y: -190}, exp: 910/1690}
+  - {name: hound, index: 1, value: 100, position: {x: 0, y: -190}, exp: 750/750}
+  - {name: crawler, index: 5, value: 100, position: {x: -120, y: -225}, exp: 450/450, rotated: true}
+  - {name: crawler, index: 6, value: 100, position: {x: 0, y: -225}, exp: 379/450, rotated: true}
+  - {name: mustang, index: 7, value: 200, position: {x: -165, y: -300}, exp: 625/1200}
+  - {name: mustang, index: 8, value: 200, level: 3, position: {x: 235, y: -300}, exp: 1204/4274}
+  - {name: crawler, index: 9, value: 100, position: {x: 290, y: -205}, exp: 117/450, rotated: true}
+  - {name: scorpion, index: 10, value: 300, level: 2, position: {x: -165, y: -165}, exp: 2271/3380}
+  - {name: crawler, index: 11, value: 100, position: {x: -290, y: -265}, exp: 450/450, rotated: true}
+  - {name: wasp, index: 12, value: 200, level: 3, position: {x: 185, y: -300}, exp: 3206/3206}
+  - {name: scorpion, index: 13, value: 300, position: {x: 165, y: -155}, exp: 852/1500}
+  - {name: mustang, index: 14, value: 200, position: {x: 5, y: -300}, exp: 159/1200}
+  - {name: crawler, index: 15, value: 100, position: {x: -170, y: -205}, exp: 79/450, rotated: true}
+  - {name: scorpion, index: 16, value: 300, position: {x: -5, y: -165}, exp: 248/1500}
+  - {name: crawler, index: 17, value: 100, position: {x: 170, y: -195}, exp: 38/450, rotated: true}
+  - {name: crawler, index: 18, value: 100, position: {x: 135, y: -190}, exp: 72/450}
   constructions:
   - {name: defensive_wall, index: 0, position: {x: 140, y: -55}}
 red:
   random_state: [17798997197044485698, 3783338692217388454, 3648017871869376781, 7875338427099259428]
   reactor_core: 4515
-  supply: 1400
+  supply: 1200
+  reinforce_choice: -1
   unlocked_units: [marksman, mustang, fang, crawler, sledgehammer, fire_badger, tarantula, phantom_ray]
   blueprints: [sticky_oil_bomb, field_recovery, attack_enhancement, defense_enhancement]
   tower_strengthen_levels: [0, 0]
+  equipment:
+  - {name: laser_sights, fitted: {unit: 13, slot: 0}}
+  - {name: secondary_fire_control_system, fitted: {unit: 3, slot: 0}}
+  - {name: secondary_fire_control_system, fitted: {unit: 4, slot: 0}}
+  - {name: secondary_fire_control_system, fitted: {unit: 7, slot: 0}}
   battle_skills:
   - {index: 0, name: field_recovery, cooldown: 0}
   - {index: 1, name: sticky_oil_bomb, cooldown: 3, standing: [{control_points: [{x: -123, y: 126}, {x: -227, y: 130}]}]}
@@ -572,23 +587,23 @@ red:
     tarantula: [range_enhancement]
     phantom_ray: [armor_enhancement]
   units:
-  - {name: fang, index: 0, position: {x: 140, y: -225}, exp: 600/600, rotated: true, value: 100}
-  - {name: fang, index: 1, position: {x: -140, y: -225}, exp: 600/600, rotated: true, value: 100}
-  - {name: fang, index: 2, position: {x: 0, y: -105}, exp: 493/600, rotated: true, value: 100}
-  - {name: tarantula, index: 3, position: {x: -145, y: -145}, level: 2, exp: 1275/3380, equipment: [secondary_fire_control_system], value: 200}
-  - {name: tarantula, index: 4, position: {x: 145, y: -145}, level: 2, exp: 3380/3380, equipment: [secondary_fire_control_system], value: 200}
-  - {name: crawler, index: 5, position: {x: -260, y: -285}, exp: 450/450, rotated: true, value: 100}
-  - {name: crawler, index: 6, position: {x: 260, y: -285}, exp: 450/450, rotated: true, value: 100}
-  - {name: tarantula, index: 7, position: {x: -55, y: -145}, level: 2, exp: 3380/3380, equipment: [secondary_fire_control_system], value: 200}
-  - {name: crawler, index: 8, position: {x: 0, y: -245}, exp: 200/450, rotated: true, value: 100}
-  - {name: tarantula, index: 9, position: {x: 55, y: -145}, exp: 1500/1500, value: 200}
-  - {name: crawler, index: 10, position: {x: -135, y: -190}, exp: 145/450, value: 100}
-  - {name: phantom_ray, index: 11, position: {x: 175, y: -210}, level: 3, exp: 3562/3562, value: 200}
-  - {name: crawler, index: 12, position: {x: 135, y: -190}, exp: 75/450, value: 100}
-  - {name: phantom_ray, index: 13, position: {x: -175, y: -210}, exp: 956/1000, equipment: [laser_sights], value: 200}
-  - {name: crawler, index: 14, position: {x: 80, y: -285}, exp: 85/450, rotated: true, value: 100}
-  - {name: crawler, index: 15, position: {x: 260, y: -155}, exp: 53/450, rotated: true, value: 100}
-  - {name: mustang, index: 16, position: {x: -175, y: -300}, exp: 524/1200, value: 200}
+  - {name: fang, index: 0, value: 100, position: {x: 140, y: -225}, exp: 600/600, rotated: true}
+  - {name: fang, index: 1, value: 100, position: {x: -140, y: -225}, exp: 600/600, rotated: true}
+  - {name: fang, index: 2, value: 100, position: {x: 0, y: -105}, exp: 493/600, rotated: true}
+  - {name: tarantula, index: 3, value: 200, level: 2, position: {x: -145, y: -145}, exp: 1275/3380}
+  - {name: tarantula, index: 4, value: 200, level: 2, position: {x: 145, y: -145}, exp: 3380/3380}
+  - {name: crawler, index: 5, value: 100, position: {x: -260, y: -285}, exp: 450/450, rotated: true}
+  - {name: crawler, index: 6, value: 100, position: {x: 260, y: -285}, exp: 450/450, rotated: true}
+  - {name: tarantula, index: 7, value: 200, level: 2, position: {x: -55, y: -145}, exp: 3380/3380}
+  - {name: crawler, index: 8, value: 100, position: {x: 0, y: -245}, exp: 200/450, rotated: true}
+  - {name: tarantula, index: 9, value: 200, position: {x: 55, y: -145}, exp: 1500/1500}
+  - {name: crawler, index: 10, value: 100, position: {x: -135, y: -190}, exp: 145/450}
+  - {name: phantom_ray, index: 11, value: 200, level: 3, position: {x: 175, y: -210}, exp: 3562/3562}
+  - {name: crawler, index: 12, value: 100, position: {x: 135, y: -190}, exp: 75/450}
+  - {name: phantom_ray, index: 13, value: 200, position: {x: -175, y: -210}, exp: 956/1000}
+  - {name: crawler, index: 14, value: 100, position: {x: 80, y: -285}, exp: 85/450, rotated: true}
+  - {name: crawler, index: 15, value: 100, position: {x: 260, y: -155}, exp: 53/450, rotated: true}
+  - {name: mustang, index: 16, value: 200, position: {x: -175, y: -300}, exp: 524/1200}
 ---
 kind: action
 round: 6
@@ -607,7 +622,6 @@ blue:
 - {type: release_contraption, name: shield, position: {x: 166, y: -125}}
 - {type: release_contraption, name: missile, position: {x: -7, y: -13}}
 - {type: active_energy_tower_skill, name: enhanced_range}
-- {type: active_energy_tower_skill, name: deposit_supply}
 red:
 - {type: choose_reinforce_item, index: 0, name: farseer_1x_lv3}
 - {type: buy_unit, name: crawler}
@@ -621,7 +635,6 @@ red:
 - {type: upgrade_unit, index: 9}
 - {type: upgrade_unit, index: 11}
 - {type: unlock_unit, name: steel_ball}
-- {type: active_energy_tower_skill, name: deposit_supply}
 ---
 kind: state
 round: 7
@@ -632,10 +645,13 @@ reinforce_offers: [lightning_storm, additional_deployment_slot, ion_blast, mass_
 blue:
   random_state: [10035834862432194613, 11292098265340069118, 18369507724293959914, 17968047896640271682]
   reactor_core: 2391
-  supply: 1600
+  supply: 1400
+  reinforce_choice: -1
   unlocked_units: [wasp, mustang, fang, crawler, sledgehammer, scorpion, farseer, hound]
   blueprints: [field_recovery, attack_enhancement, defense_enhancement]
   tower_strengthen_levels: [0, 0]
+  equipment:
+  - {name: laser_sights, fitted: {unit: 12, slot: 0}}
   battle_skills:
   - {index: 0, name: intensive_training, cooldown: 0}
   - {index: 1, name: field_recovery, cooldown: 0}
@@ -646,26 +662,26 @@ blue:
     mustang: [aerial_specialization]
     scorpion: [convergent_fire]
   units:
-  - {name: hound, index: 0, position: {x: -120, y: -190}, level: 2, exp: 1062/1690, value: 100}
-  - {name: hound, index: 1, position: {x: 0, y: -190}, exp: 750/750, value: 100}
-  - {name: crawler, index: 5, position: {x: -120, y: -225}, exp: 450/450, rotated: true, value: 100}
-  - {name: crawler, index: 6, position: {x: 0, y: -225}, exp: 427/450, rotated: true, value: 100}
-  - {name: mustang, index: 7, position: {x: -165, y: -300}, exp: 1117/1200, value: 200}
-  - {name: mustang, index: 8, position: {x: 235, y: -300}, level: 3, exp: 3534/4274, value: 200}
-  - {name: crawler, index: 9, position: {x: 290, y: -205}, exp: 171/450, rotated: true, value: 100}
-  - {name: scorpion, index: 10, position: {x: -165, y: -165}, level: 2, exp: 3380/3380, value: 300}
-  - {name: crawler, index: 11, position: {x: -290, y: -265}, exp: 450/450, rotated: true, value: 100}
-  - {name: wasp, index: 12, position: {x: 185, y: -300}, level: 4, exp: 296/4041, equipment: [laser_sights], value: 200}
-  - {name: scorpion, index: 13, position: {x: 165, y: -155}, exp: 1500/1500, value: 300}
-  - {name: mustang, index: 14, position: {x: 5, y: -300}, exp: 219/1200, value: 200}
-  - {name: crawler, index: 15, position: {x: -170, y: -205}, exp: 112/450, rotated: true, value: 100}
-  - {name: scorpion, index: 16, position: {x: -5, y: -165}, exp: 343/1500, value: 300}
-  - {name: crawler, index: 17, position: {x: 170, y: -195}, exp: 122/450, rotated: true, value: 100}
-  - {name: crawler, index: 18, position: {x: 135, y: -190}, exp: 119/450, value: 100}
-  - {name: farseer, index: 19, position: {x: -215, y: -225}, level: 3, exp: 2905/6411, value: 300}
-  - {name: crawler, index: 20, position: {x: 290, y: -35}, exp: 28/450, rotated: true, value: 100}
-  - {name: farseer, index: 21, position: {x: 145, y: -225}, exp: 1800/1800, value: 300}
-  - {name: crawler, index: 22, position: {x: -290, y: -175}, exp: 164/450, rotated: true, value: 100}
+  - {name: hound, index: 0, value: 100, level: 2, position: {x: -120, y: -190}, exp: 1062/1690}
+  - {name: hound, index: 1, value: 100, position: {x: 0, y: -190}, exp: 750/750}
+  - {name: crawler, index: 5, value: 100, position: {x: -120, y: -225}, exp: 450/450, rotated: true}
+  - {name: crawler, index: 6, value: 100, position: {x: 0, y: -225}, exp: 427/450, rotated: true}
+  - {name: mustang, index: 7, value: 200, position: {x: -165, y: -300}, exp: 1117/1200}
+  - {name: mustang, index: 8, value: 200, level: 3, position: {x: 235, y: -300}, exp: 3534/4274}
+  - {name: crawler, index: 9, value: 100, position: {x: 290, y: -205}, exp: 171/450, rotated: true}
+  - {name: scorpion, index: 10, value: 300, level: 2, position: {x: -165, y: -165}, exp: 3380/3380}
+  - {name: crawler, index: 11, value: 100, position: {x: -290, y: -265}, exp: 450/450, rotated: true}
+  - {name: wasp, index: 12, value: 200, level: 4, position: {x: 185, y: -300}, exp: 296/4041}
+  - {name: scorpion, index: 13, value: 300, position: {x: 165, y: -155}, exp: 1500/1500}
+  - {name: mustang, index: 14, value: 200, position: {x: 5, y: -300}, exp: 219/1200}
+  - {name: crawler, index: 15, value: 100, position: {x: -170, y: -205}, exp: 112/450, rotated: true}
+  - {name: scorpion, index: 16, value: 300, position: {x: -5, y: -165}, exp: 343/1500}
+  - {name: crawler, index: 17, value: 100, position: {x: 170, y: -195}, exp: 122/450, rotated: true}
+  - {name: crawler, index: 18, value: 100, position: {x: 135, y: -190}, exp: 119/450}
+  - {name: farseer, index: 19, value: 300, level: 3, position: {x: -215, y: -225}, exp: 2905/6411}
+  - {name: crawler, index: 20, value: 100, position: {x: 290, y: -35}, exp: 28/450, rotated: true}
+  - {name: farseer, index: 21, value: 300, position: {x: 145, y: -225}, exp: 1800/1800}
+  - {name: crawler, index: 22, value: 100, position: {x: -290, y: -175}, exp: 164/450, rotated: true}
   constructions:
   - {name: defensive_wall, index: 0, position: {x: 140, y: -55}}
   contraptions:
@@ -673,10 +689,16 @@ blue:
 red:
   random_state: [17798997197044485698, 3783338692217388454, 3648017871869376781, 7875338427099259428]
   reactor_core: 4515
-  supply: 1600
+  supply: 1400
+  reinforce_choice: -1
   unlocked_units: [marksman, mustang, steel_ball, fang, crawler, sledgehammer, fire_badger, tarantula, phantom_ray, farseer]
   blueprints: [sticky_oil_bomb, field_recovery, attack_enhancement, defense_enhancement]
   tower_strengthen_levels: [0, 0]
+  equipment:
+  - {name: laser_sights, fitted: {unit: 13, slot: 0}}
+  - {name: secondary_fire_control_system, fitted: {unit: 3, slot: 0}}
+  - {name: secondary_fire_control_system, fitted: {unit: 4, slot: 0}}
+  - {name: secondary_fire_control_system, fitted: {unit: 7, slot: 0}}
   battle_skills:
   - {index: 0, name: field_recovery, cooldown: 0}
   - {index: 1, name: sticky_oil_bomb, cooldown: 2}
@@ -687,26 +709,26 @@ red:
     tarantula: [range_enhancement]
     phantom_ray: [armor_enhancement]
   units:
-  - {name: fang, index: 0, position: {x: 140, y: -225}, exp: 600/600, rotated: true, value: 100}
-  - {name: fang, index: 1, position: {x: -140, y: -225}, exp: 600/600, rotated: true, value: 100}
-  - {name: fang, index: 2, position: {x: 0, y: -105}, exp: 493/600, rotated: true, value: 100}
-  - {name: tarantula, index: 3, position: {x: -145, y: -145}, level: 2, exp: 1530/3380, equipment: [secondary_fire_control_system], value: 200}
-  - {name: tarantula, index: 4, position: {x: 145, y: -145}, level: 3, exp: 352/5343, equipment: [secondary_fire_control_system], value: 200}
-  - {name: crawler, index: 5, position: {x: -260, y: -285}, exp: 450/450, rotated: true, value: 100}
-  - {name: crawler, index: 6, position: {x: 260, y: -285}, exp: 450/450, rotated: true, value: 100}
-  - {name: tarantula, index: 7, position: {x: -55, y: -145}, level: 3, exp: 3008/5343, equipment: [secondary_fire_control_system], value: 200}
-  - {name: crawler, index: 8, position: {x: 0, y: -245}, exp: 229/450, rotated: true, value: 100}
-  - {name: tarantula, index: 9, position: {x: 55, y: -145}, level: 2, exp: 3003/3380, value: 200}
-  - {name: crawler, index: 10, position: {x: -135, y: -190}, exp: 198/450, value: 100}
-  - {name: phantom_ray, index: 11, position: {x: 175, y: -210}, level: 4, exp: 777/4490, value: 200}
-  - {name: crawler, index: 12, position: {x: 135, y: -190}, exp: 113/450, value: 100}
-  - {name: phantom_ray, index: 13, position: {x: -175, y: -210}, exp: 976/1000, equipment: [laser_sights], value: 200}
-  - {name: crawler, index: 14, position: {x: 80, y: -285}, exp: 153/450, rotated: true, value: 100}
-  - {name: crawler, index: 15, position: {x: 260, y: -155}, exp: 73/450, rotated: true, value: 100}
-  - {name: mustang, index: 16, position: {x: -175, y: -300}, exp: 1200/1200, value: 200}
-  - {name: farseer, index: 17, position: {x: -235, y: -295}, level: 3, exp: 3063/6411, value: 300}
-  - {name: crawler, index: 18, position: {x: -260, y: -165}, exp: 115/450, rotated: true, value: 100}
-  - {name: mustang, index: 19, position: {x: 175, y: -300}, exp: 1200/1200, value: 200}
+  - {name: fang, index: 0, value: 100, position: {x: 140, y: -225}, exp: 600/600, rotated: true}
+  - {name: fang, index: 1, value: 100, position: {x: -140, y: -225}, exp: 600/600, rotated: true}
+  - {name: fang, index: 2, value: 100, position: {x: 0, y: -105}, exp: 493/600, rotated: true}
+  - {name: tarantula, index: 3, value: 200, level: 2, position: {x: -145, y: -145}, exp: 1530/3380}
+  - {name: tarantula, index: 4, value: 200, level: 3, position: {x: 145, y: -145}, exp: 352/5343}
+  - {name: crawler, index: 5, value: 100, position: {x: -260, y: -285}, exp: 450/450, rotated: true}
+  - {name: crawler, index: 6, value: 100, position: {x: 260, y: -285}, exp: 450/450, rotated: true}
+  - {name: tarantula, index: 7, value: 200, level: 3, position: {x: -55, y: -145}, exp: 3008/5343}
+  - {name: crawler, index: 8, value: 100, position: {x: 0, y: -245}, exp: 229/450, rotated: true}
+  - {name: tarantula, index: 9, value: 200, level: 2, position: {x: 55, y: -145}, exp: 3003/3380}
+  - {name: crawler, index: 10, value: 100, position: {x: -135, y: -190}, exp: 198/450}
+  - {name: phantom_ray, index: 11, value: 200, level: 4, position: {x: 175, y: -210}, exp: 777/4490}
+  - {name: crawler, index: 12, value: 100, position: {x: 135, y: -190}, exp: 113/450}
+  - {name: phantom_ray, index: 13, value: 200, position: {x: -175, y: -210}, exp: 976/1000}
+  - {name: crawler, index: 14, value: 100, position: {x: 80, y: -285}, exp: 153/450, rotated: true}
+  - {name: crawler, index: 15, value: 100, position: {x: 260, y: -155}, exp: 73/450, rotated: true}
+  - {name: mustang, index: 16, value: 200, position: {x: -175, y: -300}, exp: 1200/1200}
+  - {name: farseer, index: 17, value: 300, level: 3, position: {x: -235, y: -295}, exp: 3063/6411}
+  - {name: crawler, index: 18, value: 100, position: {x: -260, y: -165}, exp: 115/450, rotated: true}
+  - {name: mustang, index: 19, value: 200, position: {x: 175, y: -300}, exp: 1200/1200}
 ---
 kind: action
 round: 7
@@ -727,7 +749,6 @@ blue:
 - {type: upgrade_unit, index: 21}
 - {type: release_contraption, name: shield, position: {x: -158, y: -187}}
 - {type: release_commander_skill, index: 2, name: wasp_swarm, target: {area: [{x: 180, y: -267}]}}
-- {type: active_energy_tower_skill, name: deposit_supply}
 red:
 - {type: choose_reinforce_item, index: 1, name: additional_deployment_slot}
 - {type: release_commander_skill, index: 0, name: field_recovery, target: {unit: 13}}
@@ -748,7 +769,6 @@ red:
 - {type: active_blueprint, name: attack_enhancement_ii}
 - {type: active_blueprint, name: defense_enhancement_ii}
 - {type: unlock_unit, name: void_eye}
-- {type: active_energy_tower_skill, name: deposit_supply}
 ---
 kind: state
 round: 8
@@ -759,10 +779,13 @@ reinforce_offers: [sabertooth_1x_lv5, arclight_2x_lv5, phoenix_1x_lv4, melting_p
 blue:
   random_state: [10035834862432194613, 11292098265340069118, 18369507724293959914, 17968047896640271682]
   reactor_core: 424
-  supply: 1800
+  supply: 1600
+  reinforce_choice: -1
   unlocked_units: [wasp, mustang, fang, crawler, sledgehammer, scorpion, farseer, hound]
   blueprints: [field_recovery, attack_enhancement, defense_enhancement]
   tower_strengthen_levels: [0, 0]
+  equipment:
+  - {name: laser_sights, fitted: {unit: 12, slot: 0}}
   battle_skills:
   - {index: 0, name: intensive_training, cooldown: 1}
   - {index: 1, name: field_recovery, cooldown: 0}
@@ -773,37 +796,43 @@ blue:
     mustang: [aerial_specialization, range_enhancement]
     scorpion: [convergent_fire]
   units:
-  - {name: hound, index: 1, position: {x: 0, y: -190}, exp: 750/750, value: 100}
-  - {name: crawler, index: 5, position: {x: -120, y: -225}, exp: 450/450, rotated: true, value: 100}
-  - {name: crawler, index: 6, position: {x: 0, y: -225}, exp: 450/450, rotated: true, value: 100}
-  - {name: mustang, index: 7, position: {x: -165, y: -300}, level: 2, exp: 238/2704, value: 200}
-  - {name: mustang, index: 8, position: {x: 235, y: -300}, level: 3, exp: 3859/4274, value: 200}
-  - {name: crawler, index: 9, position: {x: 290, y: -205}, exp: 198/450, rotated: true, value: 100}
-  - {name: scorpion, index: 10, position: {x: -165, y: -165}, level: 3, exp: 121/5343, value: 300}
-  - {name: crawler, index: 11, position: {x: -290, y: -265}, exp: 450/450, rotated: true, value: 100}
-  - {name: wasp, index: 12, position: {x: 185, y: -300}, level: 4, exp: 481/4041, equipment: [laser_sights], value: 200}
-  - {name: scorpion, index: 13, position: {x: 165, y: -155}, level: 2, exp: 259/3380, value: 300}
-  - {name: mustang, index: 14, position: {x: 5, y: -300}, exp: 325/1200, value: 200}
-  - {name: crawler, index: 15, position: {x: -170, y: -205}, exp: 164/450, rotated: true, value: 100}
-  - {name: scorpion, index: 16, position: {x: -5, y: -165}, exp: 500/1500, value: 300}
-  - {name: crawler, index: 17, position: {x: 170, y: -195}, exp: 161/450, rotated: true, value: 100}
-  - {name: crawler, index: 18, position: {x: 135, y: -190}, exp: 169/450, value: 100}
-  - {name: farseer, index: 19, position: {x: -215, y: -225}, level: 3, exp: 3176/6411, value: 300}
-  - {name: crawler, index: 20, position: {x: 290, y: -35}, exp: 28/450, rotated: true, value: 100}
-  - {name: farseer, index: 21, position: {x: 145, y: -225}, level: 2, exp: 277/4056, value: 300}
-  - {name: crawler, index: 22, position: {x: -290, y: -175}, exp: 231/450, rotated: true, value: 100}
-  - {name: crawler, index: 23, position: {x: -250, y: -155}, exp: 15/450, rotated: true, value: 100}
-  - {name: crawler, index: 24, position: {x: 90, y: -285}, exp: 36/450, rotated: true, value: 100}
-  - {name: crawler, index: 25, position: {x: -60, y: -225}, exp: 23/450, rotated: true, value: 100}
+  - {name: hound, index: 1, value: 100, position: {x: 0, y: -190}, exp: 750/750}
+  - {name: crawler, index: 5, value: 100, position: {x: -120, y: -225}, exp: 450/450, rotated: true}
+  - {name: crawler, index: 6, value: 100, position: {x: 0, y: -225}, exp: 450/450, rotated: true}
+  - {name: mustang, index: 7, value: 200, level: 2, position: {x: -165, y: -300}, exp: 238/2704}
+  - {name: mustang, index: 8, value: 200, level: 3, position: {x: 235, y: -300}, exp: 3859/4274}
+  - {name: crawler, index: 9, value: 100, position: {x: 290, y: -205}, exp: 198/450, rotated: true}
+  - {name: scorpion, index: 10, value: 300, level: 3, position: {x: -165, y: -165}, exp: 121/5343}
+  - {name: crawler, index: 11, value: 100, position: {x: -290, y: -265}, exp: 450/450, rotated: true}
+  - {name: wasp, index: 12, value: 200, level: 4, position: {x: 185, y: -300}, exp: 481/4041}
+  - {name: scorpion, index: 13, value: 300, level: 2, position: {x: 165, y: -155}, exp: 259/3380}
+  - {name: mustang, index: 14, value: 200, position: {x: 5, y: -300}, exp: 325/1200}
+  - {name: crawler, index: 15, value: 100, position: {x: -170, y: -205}, exp: 164/450, rotated: true}
+  - {name: scorpion, index: 16, value: 300, position: {x: -5, y: -165}, exp: 500/1500}
+  - {name: crawler, index: 17, value: 100, position: {x: 170, y: -195}, exp: 161/450, rotated: true}
+  - {name: crawler, index: 18, value: 100, position: {x: 135, y: -190}, exp: 169/450}
+  - {name: farseer, index: 19, value: 300, level: 3, position: {x: -215, y: -225}, exp: 3176/6411}
+  - {name: crawler, index: 20, value: 100, position: {x: 290, y: -35}, exp: 28/450, rotated: true}
+  - {name: farseer, index: 21, value: 300, level: 2, position: {x: 145, y: -225}, exp: 277/4056}
+  - {name: crawler, index: 22, value: 100, position: {x: -290, y: -175}, exp: 231/450, rotated: true}
+  - {name: crawler, index: 23, value: 100, position: {x: -250, y: -155}, exp: 15/450, rotated: true}
+  - {name: crawler, index: 24, value: 100, position: {x: 90, y: -285}, exp: 36/450, rotated: true}
+  - {name: crawler, index: 25, value: 100, position: {x: -60, y: -225}, exp: 23/450, rotated: true}
   constructions:
   - {name: defensive_wall, index: 0, position: {x: 140, y: -55}}
 red:
   random_state: [17798997197044485698, 3783338692217388454, 3648017871869376781, 7875338427099259428]
   reactor_core: 4515
-  supply: 1800
+  supply: 1600
+  reinforce_choice: -1
   unlocked_units: [marksman, mustang, steel_ball, fang, crawler, sledgehammer, fire_badger, tarantula, phantom_ray, farseer, void_eye]
   blueprints: [sticky_oil_bomb, field_recovery, attack_enhancement_ii, defense_enhancement_ii]
   tower_strengthen_levels: [0, 0]
+  equipment:
+  - {name: laser_sights, fitted: {unit: 16, slot: 0}}
+  - {name: secondary_fire_control_system, fitted: {unit: 3, slot: 0}}
+  - {name: secondary_fire_control_system, fitted: {unit: 4, slot: 0}}
+  - {name: secondary_fire_control_system, fitted: {unit: 7, slot: 0}}
   battle_skills:
   - {index: 0, name: field_recovery, cooldown: 0}
   - {index: 1, name: sticky_oil_bomb, cooldown: 1}
@@ -814,29 +843,29 @@ red:
     tarantula: [range_enhancement]
     phantom_ray: [armor_enhancement]
   units:
-  - {name: fang, index: 0, position: {x: 140, y: -225}, exp: 600/600, rotated: true, value: 100}
-  - {name: fang, index: 1, position: {x: -140, y: -225}, exp: 600/600, rotated: true, value: 100}
-  - {name: fang, index: 2, position: {x: 0, y: -105}, exp: 600/600, rotated: true, value: 100}
-  - {name: tarantula, index: 3, position: {x: -145, y: -145}, level: 2, exp: 2378/3380, equipment: [secondary_fire_control_system], value: 200}
-  - {name: tarantula, index: 4, position: {x: 145, y: -145}, level: 3, exp: 2914/5343, equipment: [secondary_fire_control_system], value: 200}
-  - {name: crawler, index: 5, position: {x: -260, y: -285}, exp: 450/450, rotated: true, value: 100}
-  - {name: crawler, index: 6, position: {x: 260, y: -285}, exp: 450/450, rotated: true, value: 100}
-  - {name: tarantula, index: 7, position: {x: -55, y: -145}, level: 3, exp: 4287/5343, equipment: [secondary_fire_control_system], value: 200}
-  - {name: crawler, index: 8, position: {x: 0, y: -245}, exp: 293/450, rotated: true, value: 100}
-  - {name: tarantula, index: 9, position: {x: 55, y: -145}, level: 2, exp: 3380/3380, value: 200}
-  - {name: crawler, index: 10, position: {x: -135, y: -190}, exp: 294/450, value: 100}
-  - {name: phantom_ray, index: 11, position: {x: 175, y: -210}, level: 4, exp: 2856/4490, value: 200}
-  - {name: crawler, index: 12, position: {x: 135, y: -190}, exp: 197/450, value: 100}
-  - {name: crawler, index: 14, position: {x: 80, y: -285}, exp: 246/450, rotated: true, value: 100}
-  - {name: crawler, index: 15, position: {x: 260, y: -155}, exp: 154/450, rotated: true, value: 100}
-  - {name: mustang, index: 16, position: {x: -175, y: -300}, level: 2, exp: 2704/2704, equipment: [laser_sights], value: 200}
-  - {name: farseer, index: 17, position: {x: -235, y: -295}, level: 3, exp: 5783/6411, value: 300}
-  - {name: crawler, index: 18, position: {x: -260, y: -165}, exp: 271/450, rotated: true, value: 100}
-  - {name: mustang, index: 19, position: {x: 175, y: -300}, level: 2, exp: 2704/2704, value: 200}
-  - {name: crawler, index: 20, position: {x: -160, y: -265}, exp: 146/450, rotated: true, value: 100}
-  - {name: crawler, index: 21, position: {x: 160, y: -265}, exp: 49/450, rotated: true, value: 100}
-  - {name: crawler, index: 22, position: {x: -60, y: -285}, exp: 40/450, rotated: true, value: 100}
-  - {name: tarantula, index: 23, position: {x: -235, y: -175}, exp: 1177/1500, value: 200}
+  - {name: fang, index: 0, value: 100, position: {x: 140, y: -225}, exp: 600/600, rotated: true}
+  - {name: fang, index: 1, value: 100, position: {x: -140, y: -225}, exp: 600/600, rotated: true}
+  - {name: fang, index: 2, value: 100, position: {x: 0, y: -105}, exp: 600/600, rotated: true}
+  - {name: tarantula, index: 3, value: 200, level: 2, position: {x: -145, y: -145}, exp: 2378/3380}
+  - {name: tarantula, index: 4, value: 200, level: 3, position: {x: 145, y: -145}, exp: 2914/5343}
+  - {name: crawler, index: 5, value: 100, position: {x: -260, y: -285}, exp: 450/450, rotated: true}
+  - {name: crawler, index: 6, value: 100, position: {x: 260, y: -285}, exp: 450/450, rotated: true}
+  - {name: tarantula, index: 7, value: 200, level: 3, position: {x: -55, y: -145}, exp: 4287/5343}
+  - {name: crawler, index: 8, value: 100, position: {x: 0, y: -245}, exp: 293/450, rotated: true}
+  - {name: tarantula, index: 9, value: 200, level: 2, position: {x: 55, y: -145}, exp: 3380/3380}
+  - {name: crawler, index: 10, value: 100, position: {x: -135, y: -190}, exp: 294/450}
+  - {name: phantom_ray, index: 11, value: 200, level: 4, position: {x: 175, y: -210}, exp: 2856/4490}
+  - {name: crawler, index: 12, value: 100, position: {x: 135, y: -190}, exp: 197/450}
+  - {name: crawler, index: 14, value: 100, position: {x: 80, y: -285}, exp: 246/450, rotated: true}
+  - {name: crawler, index: 15, value: 100, position: {x: 260, y: -155}, exp: 154/450, rotated: true}
+  - {name: mustang, index: 16, value: 200, level: 2, position: {x: -175, y: -300}, exp: 2704/2704}
+  - {name: farseer, index: 17, value: 300, level: 3, position: {x: -235, y: -295}, exp: 5783/6411}
+  - {name: crawler, index: 18, value: 100, position: {x: -260, y: -165}, exp: 271/450, rotated: true}
+  - {name: mustang, index: 19, value: 200, level: 2, position: {x: 175, y: -300}, exp: 2704/2704}
+  - {name: crawler, index: 20, value: 100, position: {x: -160, y: -265}, exp: 146/450, rotated: true}
+  - {name: crawler, index: 21, value: 100, position: {x: 160, y: -265}, exp: 49/450, rotated: true}
+  - {name: crawler, index: 22, value: 100, position: {x: -60, y: -285}, exp: 40/450, rotated: true}
+  - {name: tarantula, index: 23, value: 200, position: {x: -235, y: -175}, exp: 1177/1500}
   contraptions:
   - {name: shield, index: 1, position: {x: -165, y: -169}}
 ---
@@ -844,6 +873,7 @@ kind: action
 round: 8
 blue:
 - {type: choose_reinforce_item, index: 2, name: phoenix_1x_lv4}
+- {type: active_energy_tower_skill, name: rapid_resupply}
 - {type: release_commander_skill, index: 1, name: field_recovery, target: {unit: 1}}
 - {type: buy_unit, name: scorpion}
 - {type: buy_unit, name: fang}
@@ -862,6 +892,7 @@ blue:
 - {type: active_energy_tower_skill, name: high_mobility}
 red:
 - {type: choose_reinforce_item, index: 2, name: phoenix_1x_lv4}
+- {type: active_energy_tower_skill, name: rapid_resupply}
 - {type: release_commander_skill, index: 0, name: field_recovery, target: {unit: 17}}
 - {type: buy_unit, name: tarantula}
 - {type: buy_unit, name: crawler}

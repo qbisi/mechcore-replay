@@ -108,23 +108,23 @@ random_state: [3358366254485641646, 13214592226596548945, 16224684970604089027, 
 blue:
   random_state: [10533432382630494994, 835257180689936789, 9587997048667446893, 14103639395170096753]
   reactor_core: 4300
-  supply: 400
+  supply: 200
   unlocked_units: [marksman, fire_badger, typhoon]
   tower_strengthen_levels: [0, 0]
   next_index: {unit: 5, contraption: 0}
   officers: [typhoon_specialist]
   units:
-  - {name: marksman, index: 0, position: {x: 0, y: -160}, source: joined, value: 100}
-  - {name: marksman, index: 1, position: {x: -20, y: -160}, source: joined, value: 100}
-  - {name: marksman, index: 2, position: {x: 0, y: -180}, source: joined, value: 100}
-  - {name: fire_badger, index: 3, position: {x: 5, y: -140}, source: joined, value: 200}
-  - {name: fire_badger, index: 4, position: {x: 35, y: -160}, source: joined, value: 200}
+  - {name: marksman, index: 0, value: 100, source: joined, position: {x: 0, y: -160}}
+  - {name: marksman, index: 1, value: 100, source: joined, position: {x: -20, y: -160}}
+  - {name: marksman, index: 2, value: 100, source: joined, position: {x: 0, y: -180}}
+  - {name: fire_badger, index: 3, value: 200, source: joined, position: {x: 5, y: -140}}
+  - {name: fire_badger, index: 4, value: 200, source: joined, position: {x: 35, y: -160}}
   constructions:
   - {name: defensive_wall, index: 0, position: {x: 140, y: -55}}
 red:
   random_state: [7531215021622278112, 6028822008634472233, 15082642061813416389, 3601986621004687317]
   reactor_core: 4900
-  supply: 450
+  supply: 250
   unlocked_units: [fang, fire_badger]
   tower_strengthen_levels: [0, 0]
   battle_skills:
@@ -132,11 +132,11 @@ red:
   next_index: {unit: 5, contraption: 0}
   officers: [training_specialist]
   units:
-  - {name: fang, index: 0, position: {x: -5, y: -160}, source: joined, value: 100}
-  - {name: fang, index: 1, position: {x: -5, y: -140}, source: joined, value: 100}
-  - {name: fang, index: 2, position: {x: -5, y: -180}, source: joined, value: 100}
-  - {name: fire_badger, index: 3, position: {x: -5, y: -120}, source: joined, value: 200}
-  - {name: fire_badger, index: 4, position: {x: -5, y: -200}, source: joined, value: 200}
+  - {name: fang, index: 0, value: 100, source: joined, position: {x: -5, y: -160}}
+  - {name: fang, index: 1, value: 100, source: joined, position: {x: -5, y: -140}}
+  - {name: fang, index: 2, value: 100, source: joined, position: {x: -5, y: -180}}
+  - {name: fire_badger, index: 3, value: 200, source: joined, position: {x: -5, y: -120}}
+  - {name: fire_badger, index: 4, value: 200, source: joined, position: {x: -5, y: -200}}
   constructions:
   - {name: defensive_wall, index: 0, position: {x: -140, y: -55}}
 ---
@@ -151,7 +151,6 @@ blue:
 - {type: move_unit, index: 0, position: {x: 0, y: -170}}
 - {type: move_unit, index: 3, position: {x: -135, y: -150}}
 - {type: move_unit, index: 5, position: {x: 130, y: -150}}
-- {type: active_energy_tower_skill, name: deposit_supply}
 red:
 - {type: unlock_unit, name: tarantula}
 - {type: buy_unit, name: tarantula}
@@ -163,7 +162,6 @@ red:
 - {type: move_unit, index: 5, position: {x: -85, y: -125}}
 - {type: release_commander_skill, index: 0, name: intensive_training, target: {unit: 0}}
 - {type: upgrade_unit, index: 0}
-- {type: active_energy_tower_skill, name: deposit_supply}
 ---
 kind: state
 round: 2
@@ -174,7 +172,8 @@ reinforce_offers: [haste_module, improved_fortress, mass_produced_sandworm, anti
 blue:
   random_state: [10533432382630494994, 835257180689936789, 9587997048667446893, 14103639395170096753]
   reactor_core: 4300
-  supply: 600
+  supply: 400
+  reinforce_choice: -1
   unlocked_units: [marksman, fire_badger, typhoon]
   blueprints: [field_recovery]
   tower_strengthen_levels: [0, 0]
@@ -183,17 +182,18 @@ blue:
   next_index: {unit: 6, contraption: 0}
   officers: [typhoon_specialist]
   units:
-  - {name: marksman, index: 0, position: {x: 0, y: -170}, exp: 60/650, value: 100}
-  - {name: marksman, index: 1, position: {x: -120, y: -170}, exp: 227/650, value: 100}
-  - {name: marksman, index: 2, position: {x: 120, y: -170}, exp: 428/650, value: 100}
-  - {name: fire_badger, index: 3, position: {x: -135, y: -150}, exp: 654/1400, value: 200}
-  - {name: typhoon, index: 5, position: {x: 130, y: -150}, exp: 913/1950, value: 300}
+  - {name: marksman, index: 0, value: 100, position: {x: 0, y: -170}, exp: 60/650}
+  - {name: marksman, index: 1, value: 100, position: {x: -120, y: -170}, exp: 227/650}
+  - {name: marksman, index: 2, value: 100, position: {x: 120, y: -170}, exp: 428/650}
+  - {name: fire_badger, index: 3, value: 200, position: {x: -135, y: -150}, exp: 654/1400}
+  - {name: typhoon, index: 5, value: 300, position: {x: 130, y: -150}, exp: 913/1950}
   constructions:
   - {name: defensive_wall, index: 0, position: {x: 140, y: -55}}
 red:
   random_state: [7531215021622278112, 6028822008634472233, 15082642061813416389, 3601986621004687317]
   reactor_core: 4316
-  supply: 600
+  supply: 400
+  reinforce_choice: -1
   unlocked_units: [fang, fire_badger, tarantula]
   tower_strengthen_levels: [0, 0]
   battle_skills:
@@ -201,12 +201,12 @@ red:
   next_index: {unit: 6, contraption: 0}
   officers: [training_specialist]
   units:
-  - {name: fang, index: 0, position: {x: -45, y: -130}, level: 2, exp: 150/1352, value: 100}
-  - {name: fang, index: 1, position: {x: 145, y: -130}, value: 100}
-  - {name: fang, index: 2, position: {x: 45, y: -130}, exp: 50/600, value: 100}
-  - {name: fire_badger, index: 3, position: {x: 195, y: -160}, exp: 134/1400, value: 200}
-  - {name: fire_badger, index: 4, position: {x: -105, y: -160}, exp: 12/1400, value: 200}
-  - {name: tarantula, index: 5, position: {x: -85, y: -125}, exp: 12/1500, value: 200}
+  - {name: fang, index: 0, value: 100, level: 2, position: {x: -45, y: -130}, exp: 150/1352}
+  - {name: fang, index: 1, value: 100, position: {x: 145, y: -130}}
+  - {name: fang, index: 2, value: 100, position: {x: 45, y: -130}, exp: 50/600}
+  - {name: fire_badger, index: 3, value: 200, position: {x: 195, y: -160}, exp: 134/1400}
+  - {name: fire_badger, index: 4, value: 200, position: {x: -105, y: -160}, exp: 12/1400}
+  - {name: tarantula, index: 5, value: 200, position: {x: -85, y: -125}, exp: 12/1500}
   constructions:
   - {name: defensive_wall, index: 0, position: {x: -140, y: -55}}
 ---
@@ -219,7 +219,6 @@ blue:
 - {type: buy_unit, name: typhoon}
 - {type: move_unit, index: 6, position: {x: -130, y: -150}}
 - {type: move_unit, index: 7, position: {x: 0, y: -150}}
-- {type: active_energy_tower_skill, name: deposit_supply}
 red:
 - {type: choose_reinforce_item, index: 3, name: anti_interference_module}
 - {type: buy_unit, name: tarantula}
@@ -227,7 +226,6 @@ red:
 - {type: buy_unit, name: steel_ball}
 - {type: move_unit, index: 6, position: {x: 105, y: -125}}
 - {type: move_unit, index: 7, position: {x: -175, y: -220}}
-- {type: active_energy_tower_skill, name: deposit_supply}
 ---
 kind: state
 round: 3
@@ -238,7 +236,8 @@ reinforce_offers: [subsidized_crawler, shield_airdrop, elite_rhino, absorption_m
 blue:
   random_state: [10533432382630494994, 835257180689936789, 9587997048667446893, 14103639395170096753]
   reactor_core: 4300
-  supply: 800
+  supply: 600
+  reinforce_choice: -1
   unlocked_units: [marksman, fire_badger, typhoon]
   blueprints: [field_recovery]
   tower_strengthen_levels: [0, 0]
@@ -247,18 +246,19 @@ blue:
   next_index: {unit: 8, contraption: 0}
   officers: [typhoon_specialist, mass_produced_sandworm]
   units:
-  - {name: marksman, index: 0, position: {x: 0, y: -170}, exp: 253/650, value: 100}
-  - {name: marksman, index: 1, position: {x: -120, y: -170}, exp: 427/650, value: 100}
-  - {name: marksman, index: 2, position: {x: 120, y: -170}, exp: 650/650, value: 100}
-  - {name: typhoon, index: 5, position: {x: 130, y: -150}, exp: 1288/1950, value: 300}
-  - {name: typhoon, index: 6, position: {x: -130, y: -150}, exp: 817/1950, value: 300}
-  - {name: typhoon, index: 7, position: {x: 0, y: -150}, exp: 1198/1950, value: 300}
+  - {name: marksman, index: 0, value: 100, position: {x: 0, y: -170}, exp: 253/650}
+  - {name: marksman, index: 1, value: 100, position: {x: -120, y: -170}, exp: 427/650}
+  - {name: marksman, index: 2, value: 100, position: {x: 120, y: -170}, exp: 650/650}
+  - {name: typhoon, index: 5, value: 300, position: {x: 130, y: -150}, exp: 1288/1950}
+  - {name: typhoon, index: 6, value: 300, position: {x: -130, y: -150}, exp: 817/1950}
+  - {name: typhoon, index: 7, value: 300, position: {x: 0, y: -150}, exp: 1198/1950}
   constructions:
   - {name: defensive_wall, index: 0, position: {x: 140, y: -55}}
 red:
   random_state: [7531215021622278112, 6028822008634472233, 15082642061813416389, 3601986621004687317]
   reactor_core: 3616
-  supply: 800
+  supply: 600
+  reinforce_choice: -1
   unlocked_units: [steel_ball, fang, fire_badger, tarantula]
   tower_strengthen_levels: [0, 0]
   equipment:
@@ -268,14 +268,14 @@ red:
   next_index: {unit: 8, contraption: 0}
   officers: [training_specialist]
   units:
-  - {name: fang, index: 0, position: {x: -45, y: -130}, level: 2, exp: 150/1352, value: 100}
-  - {name: fang, index: 1, position: {x: 145, y: -130}, value: 100}
-  - {name: fang, index: 2, position: {x: 45, y: -130}, exp: 50/600, value: 100}
-  - {name: fire_badger, index: 3, position: {x: 195, y: -160}, exp: 134/1400, value: 200}
-  - {name: fire_badger, index: 4, position: {x: -105, y: -160}, exp: 515/1400, value: 200}
-  - {name: tarantula, index: 5, position: {x: -85, y: -125}, exp: 24/1500, value: 200}
-  - {name: tarantula, index: 6, position: {x: 105, y: -125}, value: 200}
-  - {name: steel_ball, index: 7, position: {x: -175, y: -220}, exp: 321/1000, value: 200}
+  - {name: fang, index: 0, value: 100, level: 2, position: {x: -45, y: -130}, exp: 150/1352}
+  - {name: fang, index: 1, value: 100, position: {x: 145, y: -130}}
+  - {name: fang, index: 2, value: 100, position: {x: 45, y: -130}, exp: 50/600}
+  - {name: fire_badger, index: 3, value: 200, position: {x: 195, y: -160}, exp: 134/1400}
+  - {name: fire_badger, index: 4, value: 200, position: {x: -105, y: -160}, exp: 515/1400}
+  - {name: tarantula, index: 5, value: 200, position: {x: -85, y: -125}, exp: 24/1500}
+  - {name: tarantula, index: 6, value: 200, position: {x: 105, y: -125}}
+  - {name: steel_ball, index: 7, value: 200, position: {x: -175, y: -220}, exp: 321/1000}
   constructions:
   - {name: defensive_wall, index: 0, position: {x: -140, y: -55}}
 ---
@@ -289,7 +289,6 @@ blue:
 - {type: move_unit, index: 8, position: {x: -160, y: -170}}
 - {type: move_unit, index: 9, position: {x: 160, y: -170}}
 - {type: upgrade_unit, index: 2}
-- {type: active_energy_tower_skill, name: deposit_supply}
 red:
 - {type: choose_reinforce_item, index: 0, name: subsidized_crawler}
 - {type: active_blueprint, name: field_recovery}
@@ -300,7 +299,6 @@ red:
 - {type: move_unit, index: 8, position: {x: 75, y: -165}}
 - {type: release_commander_skill, index: 0, name: intensive_training, target: {unit: 5}}
 - {type: upgrade_unit, index: 5}
-- {type: active_energy_tower_skill, name: deposit_supply}
 ---
 kind: state
 round: 4
@@ -311,7 +309,8 @@ reinforce_offers: [rhino_2x_lv1, crawler_3x_lv2, centurion_1x_lv2, sabertooth_1x
 blue:
   random_state: [10533432382630494994, 835257180689936789, 9587997048667446893, 14103639395170096753]
   reactor_core: 4300
-  supply: 1050
+  supply: 850
+  reinforce_choice: -1
   unlocked_units: [marksman, fire_badger, typhoon]
   blueprints: [field_recovery]
   tower_strengthen_levels: [0, 0]
@@ -322,21 +321,22 @@ blue:
   techs:
     typhoon: [range_enhancement]
   units:
-  - {name: marksman, index: 0, position: {x: 0, y: -170}, exp: 404/650, value: 100}
-  - {name: marksman, index: 1, position: {x: -120, y: -170}, exp: 650/650, value: 100}
-  - {name: marksman, index: 2, position: {x: 120, y: -170}, level: 2, exp: 1465/1465, value: 100}
-  - {name: typhoon, index: 5, position: {x: 130, y: -150}, exp: 1544/1950, value: 300}
-  - {name: typhoon, index: 6, position: {x: -130, y: -150}, exp: 1069/1950, value: 300}
-  - {name: typhoon, index: 7, position: {x: 0, y: -150}, exp: 1950/1950, value: 300}
-  - {name: marksman, index: 8, position: {x: -160, y: -170}, exp: 58/650, value: 100}
-  - {name: marksman, index: 9, position: {x: 160, y: -170}, exp: 324/650, value: 100}
-  - {name: typhoon, index: 10, position: {x: 0, y: -190}, source: delivered, value: 300}
+  - {name: marksman, index: 0, value: 100, position: {x: 0, y: -170}, exp: 404/650}
+  - {name: marksman, index: 1, value: 100, position: {x: -120, y: -170}, exp: 650/650}
+  - {name: marksman, index: 2, value: 100, level: 2, position: {x: 120, y: -170}, exp: 1465/1465}
+  - {name: typhoon, index: 5, value: 300, position: {x: 130, y: -150}, exp: 1544/1950}
+  - {name: typhoon, index: 6, value: 300, position: {x: -130, y: -150}, exp: 1069/1950}
+  - {name: typhoon, index: 7, value: 300, position: {x: 0, y: -150}, exp: 1950/1950}
+  - {name: marksman, index: 8, value: 100, position: {x: -160, y: -170}, exp: 58/650}
+  - {name: marksman, index: 9, value: 100, position: {x: 160, y: -170}, exp: 324/650}
+  - {name: typhoon, index: 10, value: 300, source: delivered, position: {x: 0, y: -190}}
   constructions:
   - {name: defensive_wall, index: 0, position: {x: 140, y: -55}}
 red:
   random_state: [7531215021622278112, 6028822008634472233, 15082642061813416389, 3601986621004687317]
   reactor_core: 3516
-  supply: 1000
+  supply: 800
+  reinforce_choice: -1
   unlocked_units: [steel_ball, fang, scorpion, fire_badger, tarantula]
   blueprints: [field_recovery]
   tower_strengthen_levels: [0, 0]
@@ -350,14 +350,14 @@ red:
   techs:
     tarantula: [spider_mine]
   units:
-  - {name: fang, index: 0, position: {x: -45, y: -130}, level: 2, exp: 150/1352, value: 100}
-  - {name: fang, index: 1, position: {x: 145, y: -130}, value: 100}
-  - {name: fang, index: 2, position: {x: 45, y: -130}, exp: 50/600, value: 100}
-  - {name: fire_badger, index: 4, position: {x: -105, y: -160}, exp: 802/1400, value: 200}
-  - {name: tarantula, index: 5, position: {x: -85, y: -125}, level: 2, exp: 12/3380, value: 200}
-  - {name: tarantula, index: 6, position: {x: 105, y: -125}, value: 200}
-  - {name: steel_ball, index: 7, position: {x: -175, y: -220}, exp: 720/1000, value: 200}
-  - {name: scorpion, index: 8, position: {x: 75, y: -165}, exp: 1500/1500, value: 300}
+  - {name: fang, index: 0, value: 100, level: 2, position: {x: -45, y: -130}, exp: 150/1352}
+  - {name: fang, index: 1, value: 100, position: {x: 145, y: -130}}
+  - {name: fang, index: 2, value: 100, position: {x: 45, y: -130}, exp: 50/600}
+  - {name: fire_badger, index: 4, value: 200, position: {x: -105, y: -160}, exp: 802/1400}
+  - {name: tarantula, index: 5, value: 200, level: 2, position: {x: -85, y: -125}, exp: 12/3380}
+  - {name: tarantula, index: 6, value: 200, position: {x: 105, y: -125}}
+  - {name: steel_ball, index: 7, value: 200, position: {x: -175, y: -220}, exp: 720/1000}
+  - {name: scorpion, index: 8, value: 300, position: {x: 75, y: -165}, exp: 1500/1500}
   constructions:
   - {name: defensive_wall, index: 0, position: {x: -140, y: -55}}
 ---
@@ -365,6 +365,7 @@ kind: action
 round: 4
 blue:
 - {type: choose_reinforce_item, index: 0, name: rhino_2x_lv1}
+- {type: active_energy_tower_skill, name: rapid_resupply}
 - {type: buy_unit, name: rhino}
 - {type: upgrade_technology, unit: marksman, tech: range_enhancement}
 - {type: upgrade_technology, unit: rhino, tech: combat_evolvement}
@@ -386,7 +387,6 @@ red:
 - {type: move_unit, index: 12, position: {x: -95, y: -165}}
 - {type: move_unit, index: 13, position: {x: 185, y: -220}}
 - {type: upgrade_unit, index: 8}
-- {type: active_energy_tower_skill, name: deposit_supply}
 ---
 kind: state
 round: 5
@@ -397,7 +397,8 @@ reinforce_offers: [smoke_bomb, quick_teleport, electromagnetic_blast, super_supp
 blue:
   random_state: [10533432382630494994, 835257180689936789, 9587997048667446893, 14103639395170096753]
   reactor_core: 4300
-  supply: 950
+  supply: 750
+  reinforce_choice: -1
   unlocked_units: [marksman, rhino, fire_badger, typhoon]
   blueprints: [field_recovery]
   tower_strengthen_levels: [0, 0]
@@ -410,24 +411,25 @@ blue:
     rhino: [combat_evolvement]
     typhoon: [range_enhancement]
   units:
-  - {name: marksman, index: 0, position: {x: 0, y: -170}, exp: 650/650, value: 100}
-  - {name: marksman, index: 1, position: {x: -120, y: -170}, level: 2, exp: 695/1465, value: 100}
-  - {name: marksman, index: 2, position: {x: 120, y: -170}, level: 3, exp: 1817/2315, value: 100}
-  - {name: typhoon, index: 5, position: {x: 130, y: -150}, exp: 1950/1950, value: 300}
-  - {name: typhoon, index: 6, position: {x: -130, y: -150}, exp: 1378/1950, value: 300}
-  - {name: typhoon, index: 7, position: {x: 0, y: -150}, level: 2, exp: 1595/4394, value: 300}
-  - {name: marksman, index: 8, position: {x: -160, y: -170}, exp: 208/650, value: 100}
-  - {name: marksman, index: 9, position: {x: 160, y: -170}, exp: 649/650, value: 100}
-  - {name: typhoon, index: 10, position: {x: 0, y: -190}, exp: 825/1950, value: 300}
-  - {name: rhino, index: 11, position: {x: -285, y: -285}, exp: 320/1150, value: 200}
-  - {name: rhino, index: 12, position: {x: 285, y: -285}, exp: 347/1150, value: 200}
-  - {name: rhino, index: 13, position: {x: 5, y: -295}, level: 2, exp: 332/2591, value: 200}
+  - {name: marksman, index: 0, value: 100, position: {x: 0, y: -170}, exp: 650/650}
+  - {name: marksman, index: 1, value: 100, level: 2, position: {x: -120, y: -170}, exp: 695/1465}
+  - {name: marksman, index: 2, value: 100, level: 3, position: {x: 120, y: -170}, exp: 1817/2315}
+  - {name: typhoon, index: 5, value: 300, position: {x: 130, y: -150}, exp: 1950/1950}
+  - {name: typhoon, index: 6, value: 300, position: {x: -130, y: -150}, exp: 1378/1950}
+  - {name: typhoon, index: 7, value: 300, level: 2, position: {x: 0, y: -150}, exp: 1595/4394}
+  - {name: marksman, index: 8, value: 100, position: {x: -160, y: -170}, exp: 208/650}
+  - {name: marksman, index: 9, value: 100, position: {x: 160, y: -170}, exp: 649/650}
+  - {name: typhoon, index: 10, value: 300, position: {x: 0, y: -190}, exp: 825/1950}
+  - {name: rhino, index: 11, value: 200, position: {x: -285, y: -285}, exp: 320/1150}
+  - {name: rhino, index: 12, value: 200, position: {x: 285, y: -285}, exp: 347/1150}
+  - {name: rhino, index: 13, value: 200, level: 2, position: {x: 5, y: -295}, exp: 332/2591}
   constructions:
   - {name: defensive_wall, index: 0, position: {x: 140, y: -55}}
 red:
   random_state: [7531215021622278112, 6028822008634472233, 15082642061813416389, 3601986621004687317]
   reactor_core: 2341
-  supply: 1200
+  supply: 1000
+  reinforce_choice: -1
   unlocked_units: [steel_ball, fang, crawler, scorpion, fire_badger, tarantula]
   blueprints: [field_recovery]
   tower_strengthen_levels: [0, 0]
@@ -442,18 +444,18 @@ red:
     scorpion: [range_enhancement]
     tarantula: [spider_mine]
   units:
-  - {name: fang, index: 0, position: {x: -45, y: -130}, level: 2, exp: 150/1352, value: 100}
-  - {name: fang, index: 1, position: {x: 145, y: -130}, exp: 66/600, value: 100}
-  - {name: fang, index: 2, position: {x: 45, y: -130}, exp: 50/600, value: 100}
-  - {name: tarantula, index: 5, position: {x: -85, y: -125}, level: 2, exp: 12/3380, value: 200}
-  - {name: tarantula, index: 6, position: {x: 105, y: -125}, value: 200}
-  - {name: steel_ball, index: 7, position: {x: -175, y: -220}, exp: 735/1000, value: 200}
-  - {name: scorpion, index: 8, position: {x: 75, y: -165}, level: 2, exp: 2550/3380, value: 300}
-  - {name: crawler, index: 9, position: {x: 225, y: -190}, level: 2, exp: 216/1014, value: 100}
-  - {name: crawler, index: 10, position: {x: -175, y: -190}, level: 2, exp: 21/1014, value: 100}
-  - {name: crawler, index: 11, position: {x: 45, y: -190}, level: 2, value: 100}
-  - {name: scorpion, index: 12, position: {x: -95, y: -165}, exp: 24/1500, value: 300}
-  - {name: steel_ball, index: 13, position: {x: 185, y: -220}, exp: 466/1000, value: 200}
+  - {name: fang, index: 0, value: 100, level: 2, position: {x: -45, y: -130}, exp: 150/1352}
+  - {name: fang, index: 1, value: 100, position: {x: 145, y: -130}, exp: 66/600}
+  - {name: fang, index: 2, value: 100, position: {x: 45, y: -130}, exp: 50/600}
+  - {name: tarantula, index: 5, value: 200, level: 2, position: {x: -85, y: -125}, exp: 12/3380}
+  - {name: tarantula, index: 6, value: 200, position: {x: 105, y: -125}}
+  - {name: steel_ball, index: 7, value: 200, position: {x: -175, y: -220}, exp: 735/1000}
+  - {name: scorpion, index: 8, value: 300, level: 2, position: {x: 75, y: -165}, exp: 2550/3380}
+  - {name: crawler, index: 9, value: 100, level: 2, position: {x: 225, y: -190}, exp: 216/1014}
+  - {name: crawler, index: 10, value: 100, level: 2, position: {x: -175, y: -190}, exp: 21/1014}
+  - {name: crawler, index: 11, value: 100, level: 2, position: {x: 45, y: -190}}
+  - {name: scorpion, index: 12, value: 300, position: {x: -95, y: -165}, exp: 24/1500}
+  - {name: steel_ball, index: 13, value: 200, position: {x: 185, y: -220}, exp: 466/1000}
   constructions:
   - {name: defensive_wall, index: 0, position: {x: -140, y: -55}}
 ---
@@ -461,6 +463,7 @@ kind: action
 round: 5
 blue:
 - {type: choose_reinforce_item, index: 3, name: super_supply_enhancement}
+- {type: active_energy_tower_skill, name: rapid_resupply}
 - {type: upgrade_technology, unit: rhino, tech: armor_enhancement}
 - {type: upgrade_unit, index: 0}
 - {type: upgrade_unit, index: 5}
@@ -474,7 +477,6 @@ red:
 - {type: upgrade_unit, index: 6}
 - {type: active_blueprint, name: attack_enhancement}
 - {type: active_blueprint, name: defense_enhancement}
-- {type: active_energy_tower_skill, name: deposit_supply}
 ---
 kind: state
 round: 6
@@ -485,7 +487,8 @@ reinforce_offers: [melting_point_1x_lv1, hound_2x_lv3, wraith_2x_lv1, void_eye_3
 blue:
   random_state: [10533432382630494994, 835257180689936789, 9587997048667446893, 14103639395170096753]
   reactor_core: 3728
-  supply: 1350
+  supply: 1150
+  reinforce_choice: -1
   unlocked_units: [marksman, rhino, fire_badger, typhoon]
   blueprints: [field_recovery]
   tower_strengthen_levels: [0, 0]
@@ -498,24 +501,25 @@ blue:
     rhino: [armor_enhancement, combat_evolvement]
     typhoon: [range_enhancement]
   units:
-  - {name: marksman, index: 0, position: {x: 0, y: -170}, level: 2, exp: 337/1465, value: 100}
-  - {name: marksman, index: 1, position: {x: -120, y: -170}, level: 2, exp: 1465/1465, value: 100}
-  - {name: marksman, index: 2, position: {x: 120, y: -170}, level: 3, exp: 2315/2315, value: 100}
-  - {name: typhoon, index: 5, position: {x: 130, y: -150}, level: 2, exp: 1592/4394, value: 300}
-  - {name: typhoon, index: 6, position: {x: -130, y: -150}, exp: 1399/1950, value: 300}
-  - {name: typhoon, index: 7, position: {x: 0, y: -150}, level: 2, exp: 2754/4394, value: 300}
-  - {name: marksman, index: 8, position: {x: -160, y: -170}, exp: 551/650, value: 100}
-  - {name: marksman, index: 9, position: {x: 160, y: -170}, exp: 650/650, value: 100}
-  - {name: typhoon, index: 10, position: {x: 0, y: -190}, exp: 1330/1950, value: 300}
-  - {name: rhino, index: 11, position: {x: -285, y: -285}, exp: 554/1150, value: 200}
-  - {name: rhino, index: 12, position: {x: 285, y: -285}, exp: 584/1150, value: 200}
-  - {name: rhino, index: 13, position: {x: 5, y: -295}, level: 2, exp: 1476/2591, value: 200}
+  - {name: marksman, index: 0, value: 100, level: 2, position: {x: 0, y: -170}, exp: 337/1465}
+  - {name: marksman, index: 1, value: 100, level: 2, position: {x: -120, y: -170}, exp: 1465/1465}
+  - {name: marksman, index: 2, value: 100, level: 3, position: {x: 120, y: -170}, exp: 2315/2315}
+  - {name: typhoon, index: 5, value: 300, level: 2, position: {x: 130, y: -150}, exp: 1592/4394}
+  - {name: typhoon, index: 6, value: 300, position: {x: -130, y: -150}, exp: 1399/1950}
+  - {name: typhoon, index: 7, value: 300, level: 2, position: {x: 0, y: -150}, exp: 2754/4394}
+  - {name: marksman, index: 8, value: 100, position: {x: -160, y: -170}, exp: 551/650}
+  - {name: marksman, index: 9, value: 100, position: {x: 160, y: -170}, exp: 650/650}
+  - {name: typhoon, index: 10, value: 300, position: {x: 0, y: -190}, exp: 1330/1950}
+  - {name: rhino, index: 11, value: 200, position: {x: -285, y: -285}, exp: 554/1150}
+  - {name: rhino, index: 12, value: 200, position: {x: 285, y: -285}, exp: 584/1150}
+  - {name: rhino, index: 13, value: 200, level: 2, position: {x: 5, y: -295}, exp: 1476/2591}
   constructions:
   - {name: defensive_wall, index: 0, position: {x: 140, y: -55}}
 red:
   random_state: [7531215021622278112, 6028822008634472233, 15082642061813416389, 3601986621004687317]
   reactor_core: 2341
-  supply: 1400
+  supply: 1200
+  reinforce_choice: -1
   unlocked_units: [steel_ball, fang, crawler, scorpion, fire_badger, tarantula]
   blueprints: [field_recovery, attack_enhancement, defense_enhancement]
   tower_strengthen_levels: [0, 0]
@@ -531,20 +535,20 @@ red:
     scorpion: [range_enhancement]
     tarantula: [spider_mine]
   units:
-  - {name: fang, index: 0, position: {x: -45, y: -130}, level: 2, exp: 150/1352, value: 100}
-  - {name: fang, index: 1, position: {x: 145, y: -130}, exp: 316/600, value: 100}
-  - {name: fang, index: 2, position: {x: 45, y: -130}, exp: 50/600, value: 100}
-  - {name: tarantula, index: 5, position: {x: -85, y: -125}, level: 2, exp: 12/3380, value: 200}
-  - {name: tarantula, index: 6, position: {x: 105, y: -125}, level: 2, value: 200}
-  - {name: steel_ball, index: 7, position: {x: -175, y: -220}, exp: 735/1000, value: 200}
-  - {name: scorpion, index: 8, position: {x: 75, y: -165}, level: 2, exp: 3380/3380, value: 300}
-  - {name: crawler, index: 9, position: {x: 225, y: -190}, level: 2, exp: 1014/1014, value: 100}
-  - {name: crawler, index: 10, position: {x: -175, y: -190}, level: 2, exp: 30/1014, value: 100}
-  - {name: crawler, index: 11, position: {x: 45, y: -190}, level: 2, value: 100}
-  - {name: scorpion, index: 12, position: {x: -95, y: -165}, exp: 348/1500, value: 300}
-  - {name: steel_ball, index: 13, position: {x: 185, y: -220}, exp: 916/1000, value: 200}
-  - {name: scorpion, index: 14, position: {x: -215, y: -165}, exp: 127/1500, value: 300}
-  - {name: scorpion, index: 15, position: {x: 185, y: -165}, exp: 850/1500, value: 300}
+  - {name: fang, index: 0, value: 100, level: 2, position: {x: -45, y: -130}, exp: 150/1352}
+  - {name: fang, index: 1, value: 100, position: {x: 145, y: -130}, exp: 316/600}
+  - {name: fang, index: 2, value: 100, position: {x: 45, y: -130}, exp: 50/600}
+  - {name: tarantula, index: 5, value: 200, level: 2, position: {x: -85, y: -125}, exp: 12/3380}
+  - {name: tarantula, index: 6, value: 200, level: 2, position: {x: 105, y: -125}}
+  - {name: steel_ball, index: 7, value: 200, position: {x: -175, y: -220}, exp: 735/1000}
+  - {name: scorpion, index: 8, value: 300, level: 2, position: {x: 75, y: -165}, exp: 3380/3380}
+  - {name: crawler, index: 9, value: 100, level: 2, position: {x: 225, y: -190}, exp: 1014/1014}
+  - {name: crawler, index: 10, value: 100, level: 2, position: {x: -175, y: -190}, exp: 30/1014}
+  - {name: crawler, index: 11, value: 100, level: 2, position: {x: 45, y: -190}}
+  - {name: scorpion, index: 12, value: 300, position: {x: -95, y: -165}, exp: 348/1500}
+  - {name: steel_ball, index: 13, value: 200, position: {x: 185, y: -220}, exp: 916/1000}
+  - {name: scorpion, index: 14, value: 300, position: {x: -215, y: -165}, exp: 127/1500}
+  - {name: scorpion, index: 15, value: 300, position: {x: 185, y: -165}, exp: 850/1500}
   constructions:
   - {name: defensive_wall, index: 0, position: {x: -140, y: -55}}
 ---
@@ -565,7 +569,6 @@ blue:
 - {type: upgrade_unit, index: 1}
 - {type: upgrade_unit, index: 2}
 - {type: upgrade_unit, index: 9}
-- {type: active_energy_tower_skill, name: deposit_supply}
 red:
 - {type: choose_reinforce_item, index: 0, name: melting_point_1x_lv1}
 - {type: buy_unit, name: crawler}
@@ -576,7 +579,6 @@ red:
 - {type: move_unit, index: 16, position: {x: -40, y: -200}}
 - {type: upgrade_unit, index: 8}
 - {type: upgrade_unit, index: 9}
-- {type: active_energy_tower_skill, name: deposit_supply}
 ---
 kind: state
 round: 7
@@ -587,7 +589,8 @@ reinforce_offers: [extended_range_stormcaller, mass_production_fire_control_syst
 blue:
   random_state: [10533432382630494994, 835257180689936789, 9587997048667446893, 14103639395170096753]
   reactor_core: 3728
-  supply: 1900
+  supply: 1700
+  reinforce_choice: -1
   unlocked_units: [marksman, melting_point, rhino, crawler, fire_badger, typhoon]
   blueprints: [field_recovery]
   tower_strengthen_levels: [0, 0]
@@ -600,27 +603,28 @@ blue:
     rhino: [armor_enhancement, combat_evolvement]
     typhoon: [field_reassembly, range_enhancement]
   units:
-  - {name: marksman, index: 0, position: {x: 0, y: -170}, level: 2, exp: 577/1465, value: 100}
-  - {name: marksman, index: 1, position: {x: -120, y: -170}, level: 3, exp: 543/2315, value: 100}
-  - {name: marksman, index: 2, position: {x: 120, y: -170}, level: 4, exp: 2637/2919, value: 100}
-  - {name: typhoon, index: 5, position: {x: 130, y: -150}, level: 2, exp: 4394/4394, value: 300}
-  - {name: typhoon, index: 6, position: {x: -130, y: -150}, exp: 1950/1950, value: 300}
-  - {name: typhoon, index: 7, position: {x: 0, y: -150}, level: 2, exp: 4256/4394, value: 300}
-  - {name: marksman, index: 8, position: {x: -160, y: -170}, exp: 650/650, value: 100}
-  - {name: marksman, index: 9, position: {x: 160, y: -170}, level: 2, exp: 1465/1465, value: 100}
-  - {name: typhoon, index: 10, position: {x: 0, y: -190}, exp: 1847/1950, value: 300}
-  - {name: rhino, index: 11, position: {x: -285, y: -285}, exp: 854/1150, value: 200}
-  - {name: rhino, index: 12, position: {x: 285, y: -285}, exp: 689/1150, value: 200}
-  - {name: rhino, index: 13, position: {x: 5, y: -295}, level: 2, exp: 1566/2591, value: 200}
-  - {name: rhino, index: 15, position: {x: -135, y: -285}, level: 2, exp: 9/2591, value: 200}
-  - {name: rhino, index: 16, position: {x: 135, y: -295}, level: 2, exp: 141/2591, value: 200}
-  - {name: crawler, index: 17, position: {x: -140, y: -205}, exp: 28/450, rotated: true, value: 100}
+  - {name: marksman, index: 0, value: 100, level: 2, position: {x: 0, y: -170}, exp: 577/1465}
+  - {name: marksman, index: 1, value: 100, level: 3, position: {x: -120, y: -170}, exp: 543/2315}
+  - {name: marksman, index: 2, value: 100, level: 4, position: {x: 120, y: -170}, exp: 2637/2919}
+  - {name: typhoon, index: 5, value: 300, level: 2, position: {x: 130, y: -150}, exp: 4394/4394}
+  - {name: typhoon, index: 6, value: 300, position: {x: -130, y: -150}, exp: 1950/1950}
+  - {name: typhoon, index: 7, value: 300, level: 2, position: {x: 0, y: -150}, exp: 4256/4394}
+  - {name: marksman, index: 8, value: 100, position: {x: -160, y: -170}, exp: 650/650}
+  - {name: marksman, index: 9, value: 100, level: 2, position: {x: 160, y: -170}, exp: 1465/1465}
+  - {name: typhoon, index: 10, value: 300, position: {x: 0, y: -190}, exp: 1847/1950}
+  - {name: rhino, index: 11, value: 200, position: {x: -285, y: -285}, exp: 854/1150}
+  - {name: rhino, index: 12, value: 200, position: {x: 285, y: -285}, exp: 689/1150}
+  - {name: rhino, index: 13, value: 200, level: 2, position: {x: 5, y: -295}, exp: 1566/2591}
+  - {name: rhino, index: 15, value: 200, level: 2, position: {x: -135, y: -285}, exp: 9/2591}
+  - {name: rhino, index: 16, value: 200, level: 2, position: {x: 135, y: -295}, exp: 141/2591}
+  - {name: crawler, index: 17, value: 100, position: {x: -140, y: -205}, exp: 28/450, rotated: true}
   constructions:
   - {name: defensive_wall, index: 0, position: {x: 140, y: -55}}
 red:
   random_state: [7531215021622278112, 6028822008634472233, 15082642061813416389, 3601986621004687317]
   reactor_core: 2110
-  supply: 1650
+  supply: 1450
+  reinforce_choice: -1
   unlocked_units: [melting_point, steel_ball, fang, crawler, scorpion, fire_badger, tarantula]
   blueprints: [field_recovery, attack_enhancement, defense_enhancement]
   tower_strengthen_levels: [0, 0]
@@ -638,22 +642,22 @@ red:
     scorpion: [doubleshot, range_enhancement]
     tarantula: [spider_mine]
   units:
-  - {name: fang, index: 0, position: {x: -45, y: -130}, level: 2, exp: 300/1352, value: 100}
-  - {name: fang, index: 1, position: {x: 145, y: -130}, exp: 600/600, value: 100}
-  - {name: fang, index: 2, position: {x: 45, y: -130}, exp: 57/600, value: 100}
-  - {name: tarantula, index: 5, position: {x: -85, y: -125}, level: 2, exp: 12/3380, value: 200}
-  - {name: tarantula, index: 6, position: {x: 105, y: -125}, level: 2, exp: 88/3380, value: 200}
-  - {name: steel_ball, index: 7, position: {x: -175, y: -220}, exp: 1000/1000, value: 200}
-  - {name: scorpion, index: 8, position: {x: 75, y: -165}, level: 3, exp: 3669/5343, value: 300}
-  - {name: crawler, index: 9, position: {x: 225, y: -190}, level: 3, exp: 242/1603, value: 100}
-  - {name: crawler, index: 10, position: {x: -175, y: -190}, level: 2, exp: 40/1014, value: 100}
-  - {name: crawler, index: 11, position: {x: 45, y: -190}, level: 2, exp: 16/1014, value: 100}
-  - {name: scorpion, index: 12, position: {x: -95, y: -165}, exp: 1500/1500, value: 300}
-  - {name: steel_ball, index: 13, position: {x: 185, y: -220}, exp: 1000/1000, value: 200}
-  - {name: scorpion, index: 14, position: {x: -215, y: -165}, exp: 1500/1500, value: 300}
-  - {name: scorpion, index: 15, position: {x: 185, y: -165}, exp: 1500/1500, value: 300}
-  - {name: melting_point, index: 16, position: {x: -40, y: -200}, exp: 1400/1400, value: 400}
-  - {name: crawler, index: 17, position: {x: -85, y: -190}, exp: 7/450, value: 100}
+  - {name: fang, index: 0, value: 100, level: 2, position: {x: -45, y: -130}, exp: 300/1352}
+  - {name: fang, index: 1, value: 100, position: {x: 145, y: -130}, exp: 600/600}
+  - {name: fang, index: 2, value: 100, position: {x: 45, y: -130}, exp: 57/600}
+  - {name: tarantula, index: 5, value: 200, level: 2, position: {x: -85, y: -125}, exp: 12/3380}
+  - {name: tarantula, index: 6, value: 200, level: 2, position: {x: 105, y: -125}, exp: 88/3380}
+  - {name: steel_ball, index: 7, value: 200, position: {x: -175, y: -220}, exp: 1000/1000}
+  - {name: scorpion, index: 8, value: 300, level: 3, position: {x: 75, y: -165}, exp: 3669/5343}
+  - {name: crawler, index: 9, value: 100, level: 3, position: {x: 225, y: -190}, exp: 242/1603}
+  - {name: crawler, index: 10, value: 100, level: 2, position: {x: -175, y: -190}, exp: 40/1014}
+  - {name: crawler, index: 11, value: 100, level: 2, position: {x: 45, y: -190}, exp: 16/1014}
+  - {name: scorpion, index: 12, value: 300, position: {x: -95, y: -165}, exp: 1500/1500}
+  - {name: steel_ball, index: 13, value: 200, position: {x: 185, y: -220}, exp: 1000/1000}
+  - {name: scorpion, index: 14, value: 300, position: {x: -215, y: -165}, exp: 1500/1500}
+  - {name: scorpion, index: 15, value: 300, position: {x: 185, y: -165}, exp: 1500/1500}
+  - {name: melting_point, index: 16, value: 400, position: {x: -40, y: -200}, exp: 1400/1400}
+  - {name: crawler, index: 17, value: 100, position: {x: -85, y: -190}, exp: 7/450}
   constructions:
   - {name: defensive_wall, index: 0, position: {x: -140, y: -55}}
 ---
@@ -673,7 +677,6 @@ blue:
 - {type: upgrade_unit, index: 6}
 - {type: upgrade_unit, index: 8}
 - {type: upgrade_unit, index: 9}
-- {type: active_energy_tower_skill, name: deposit_supply}
 red:
 - {type: choose_reinforce_item, index: 2, name: wasp_swarm}
 - {type: buy_unit, name: crawler}
@@ -690,7 +693,6 @@ red:
 - {type: release_commander_skill, index: 0, name: intensive_training, target: {unit: 16}}
 - {type: upgrade_unit, index: 16}
 - {type: release_commander_skill, index: 3, name: wasp_swarm, target: {area: [{x: -1, y: -190}]}}
-- {type: active_energy_tower_skill, name: deposit_supply}
 ---
 kind: state
 round: 8
@@ -701,10 +703,15 @@ reinforce_offers: [wasp_swarm, underground_threat, smoke_bomb, elite_mustang, re
 blue:
   random_state: [10533432382630494994, 835257180689936789, 9587997048667446893, 14103639395170096753]
   reactor_core: 3728
-  supply: 1950
+  supply: 1750
+  reinforce_choice: -1
   unlocked_units: [marksman, melting_point, rhino, crawler, fire_badger, typhoon]
   blueprints: [field_recovery]
   tower_strengthen_levels: [0, 0]
+  equipment:
+  - {name: secondary_fire_control_system, fitted: {unit: 5, slot: 0}}
+  - {name: secondary_fire_control_system, fitted: {unit: 6, slot: 0}}
+  - {name: secondary_fire_control_system, fitted: {unit: 7, slot: 0}}
   battle_skills:
   - {index: 0, name: field_recovery, cooldown: 0}
   next_index: {unit: 20, contraption: 0}
@@ -714,29 +721,30 @@ blue:
     rhino: [armor_enhancement, combat_evolvement]
     typhoon: [field_reassembly, wreckage_detonation, range_enhancement]
   units:
-  - {name: marksman, index: 0, position: {x: 0, y: -170}, level: 2, exp: 1465/1465, value: 100}
-  - {name: marksman, index: 1, position: {x: -120, y: -170}, level: 3, exp: 2315/2315, value: 100}
-  - {name: marksman, index: 2, position: {x: 120, y: -170}, level: 4, exp: 2919/2919, value: 100}
-  - {name: typhoon, index: 5, position: {x: 130, y: -150}, level: 3, exp: 1645/6946, equipment: [secondary_fire_control_system], value: 300}
-  - {name: typhoon, index: 6, position: {x: -130, y: -150}, level: 2, exp: 1659/4394, equipment: [secondary_fire_control_system], value: 300}
-  - {name: typhoon, index: 7, position: {x: 0, y: -150}, level: 2, exp: 4394/4394, equipment: [secondary_fire_control_system], value: 300}
-  - {name: marksman, index: 8, position: {x: -160, y: -170}, level: 2, exp: 1465/1465, value: 100}
-  - {name: marksman, index: 9, position: {x: 160, y: -170}, level: 3, exp: 2315/2315, value: 100}
-  - {name: typhoon, index: 10, position: {x: 0, y: -190}, exp: 1950/1950, value: 300}
-  - {name: rhino, index: 11, position: {x: -285, y: -285}, exp: 1150/1150, value: 200}
-  - {name: rhino, index: 12, position: {x: 285, y: -285}, exp: 715/1150, value: 200}
-  - {name: rhino, index: 13, position: {x: 5, y: -295}, level: 2, exp: 1583/2591, value: 200}
-  - {name: rhino, index: 15, position: {x: -135, y: -285}, level: 2, exp: 131/2591, value: 200}
-  - {name: rhino, index: 16, position: {x: 135, y: -295}, level: 2, exp: 276/2591, value: 200}
-  - {name: crawler, index: 17, position: {x: -140, y: -205}, exp: 192/450, rotated: true, value: 100}
-  - {name: typhoon, index: 18, position: {x: -70, y: -150}, exp: 1950/1950, value: 300}
-  - {name: typhoon, index: 19, position: {x: 60, y: -150}, exp: 1950/1950, value: 300}
+  - {name: marksman, index: 0, value: 100, level: 2, position: {x: 0, y: -170}, exp: 1465/1465}
+  - {name: marksman, index: 1, value: 100, level: 3, position: {x: -120, y: -170}, exp: 2315/2315}
+  - {name: marksman, index: 2, value: 100, level: 4, position: {x: 120, y: -170}, exp: 2919/2919}
+  - {name: typhoon, index: 5, value: 300, level: 3, position: {x: 130, y: -150}, exp: 1645/6946}
+  - {name: typhoon, index: 6, value: 300, level: 2, position: {x: -130, y: -150}, exp: 1659/4394}
+  - {name: typhoon, index: 7, value: 300, level: 2, position: {x: 0, y: -150}, exp: 4394/4394}
+  - {name: marksman, index: 8, value: 100, level: 2, position: {x: -160, y: -170}, exp: 1465/1465}
+  - {name: marksman, index: 9, value: 100, level: 3, position: {x: 160, y: -170}, exp: 2315/2315}
+  - {name: typhoon, index: 10, value: 300, position: {x: 0, y: -190}, exp: 1950/1950}
+  - {name: rhino, index: 11, value: 200, position: {x: -285, y: -285}, exp: 1150/1150}
+  - {name: rhino, index: 12, value: 200, position: {x: 285, y: -285}, exp: 715/1150}
+  - {name: rhino, index: 13, value: 200, level: 2, position: {x: 5, y: -295}, exp: 1583/2591}
+  - {name: rhino, index: 15, value: 200, level: 2, position: {x: -135, y: -285}, exp: 131/2591}
+  - {name: rhino, index: 16, value: 200, level: 2, position: {x: 135, y: -295}, exp: 276/2591}
+  - {name: crawler, index: 17, value: 100, position: {x: -140, y: -205}, exp: 192/450, rotated: true}
+  - {name: typhoon, index: 18, value: 300, position: {x: -70, y: -150}, exp: 1950/1950}
+  - {name: typhoon, index: 19, value: 300, position: {x: 60, y: -150}, exp: 1950/1950}
   constructions:
   - {name: defensive_wall, index: 0, position: {x: 140, y: -55}}
 red:
   random_state: [7531215021622278112, 6028822008634472233, 15082642061813416389, 3601986621004687317]
   reactor_core: 1517
-  supply: 1900
+  supply: 1700
+  reinforce_choice: -1
   unlocked_units: [melting_point, steel_ball, fang, crawler, scorpion, fire_badger, tarantula]
   blueprints: [field_recovery, attack_enhancement, defense_enhancement]
   tower_strengthen_levels: [0, 0]
@@ -755,24 +763,24 @@ red:
     scorpion: [doubleshot, range_enhancement]
     tarantula: [spider_mine]
   units:
-  - {name: fang, index: 0, position: {x: -45, y: -130}, level: 2, exp: 300/1352, value: 100}
-  - {name: fang, index: 1, position: {x: 145, y: -130}, level: 2, exp: 150/1352, value: 100}
-  - {name: fang, index: 2, position: {x: 45, y: -130}, exp: 58/600, value: 100}
-  - {name: tarantula, index: 5, position: {x: -85, y: -125}, level: 2, exp: 12/3380, value: 200}
-  - {name: tarantula, index: 6, position: {x: 105, y: -125}, level: 2, exp: 125/3380, value: 200}
-  - {name: steel_ball, index: 7, position: {x: -175, y: -220}, level: 2, exp: 1301/2253, value: 200}
-  - {name: scorpion, index: 8, position: {x: 75, y: -165}, level: 3, exp: 5343/5343, value: 300}
-  - {name: crawler, index: 9, position: {x: 225, y: -190}, level: 3, exp: 269/1603, value: 100}
-  - {name: crawler, index: 10, position: {x: -175, y: -190}, level: 2, exp: 425/1014, value: 100}
-  - {name: crawler, index: 11, position: {x: 45, y: -190}, level: 2, exp: 16/1014, value: 100}
-  - {name: scorpion, index: 12, position: {x: -95, y: -165}, level: 2, exp: 2865/3380, value: 300}
-  - {name: steel_ball, index: 13, position: {x: 185, y: -220}, level: 2, exp: 142/2253, value: 200}
-  - {name: scorpion, index: 14, position: {x: -215, y: -165}, level: 2, exp: 3380/3380, value: 300}
-  - {name: scorpion, index: 15, position: {x: 185, y: -165}, level: 2, exp: 1340/3380, value: 300}
-  - {name: melting_point, index: 16, position: {x: -40, y: -200}, level: 3, exp: 4987/4987, value: 400}
-  - {name: crawler, index: 17, position: {x: -85, y: -190}, exp: 14/450, value: 100}
-  - {name: crawler, index: 18, position: {x: 115, y: -190}, exp: 14/450, value: 100}
-  - {name: crawler, index: 19, position: {x: -255, y: -190}, exp: 1/450, value: 100}
+  - {name: fang, index: 0, value: 100, level: 2, position: {x: -45, y: -130}, exp: 300/1352}
+  - {name: fang, index: 1, value: 100, level: 2, position: {x: 145, y: -130}, exp: 150/1352}
+  - {name: fang, index: 2, value: 100, position: {x: 45, y: -130}, exp: 58/600}
+  - {name: tarantula, index: 5, value: 200, level: 2, position: {x: -85, y: -125}, exp: 12/3380}
+  - {name: tarantula, index: 6, value: 200, level: 2, position: {x: 105, y: -125}, exp: 125/3380}
+  - {name: steel_ball, index: 7, value: 200, level: 2, position: {x: -175, y: -220}, exp: 1301/2253}
+  - {name: scorpion, index: 8, value: 300, level: 3, position: {x: 75, y: -165}, exp: 5343/5343}
+  - {name: crawler, index: 9, value: 100, level: 3, position: {x: 225, y: -190}, exp: 269/1603}
+  - {name: crawler, index: 10, value: 100, level: 2, position: {x: -175, y: -190}, exp: 425/1014}
+  - {name: crawler, index: 11, value: 100, level: 2, position: {x: 45, y: -190}, exp: 16/1014}
+  - {name: scorpion, index: 12, value: 300, level: 2, position: {x: -95, y: -165}, exp: 2865/3380}
+  - {name: steel_ball, index: 13, value: 200, level: 2, position: {x: 185, y: -220}, exp: 142/2253}
+  - {name: scorpion, index: 14, value: 300, level: 2, position: {x: -215, y: -165}, exp: 3380/3380}
+  - {name: scorpion, index: 15, value: 300, level: 2, position: {x: 185, y: -165}, exp: 1340/3380}
+  - {name: melting_point, index: 16, value: 400, level: 3, position: {x: -40, y: -200}, exp: 4987/4987}
+  - {name: crawler, index: 17, value: 100, position: {x: -85, y: -190}, exp: 14/450}
+  - {name: crawler, index: 18, value: 100, position: {x: 115, y: -190}, exp: 14/450}
+  - {name: crawler, index: 19, value: 100, position: {x: -255, y: -190}, exp: 1/450}
   constructions:
   - {name: defensive_wall, index: 0, position: {x: -140, y: -55}}
 ---
@@ -798,7 +806,6 @@ blue:
 - {type: upgrade_unit, index: 18}
 - {type: upgrade_unit, index: 19}
 - {type: release_commander_skill, index: 1, name: underground_threat, target: {area: [{x: -2, y: 274}]}}
-- {type: active_energy_tower_skill, name: deposit_supply}
 red:
 - {type: choose_reinforce_item, index: 1, name: underground_threat}
 - {type: buy_unit, name: crawler}
@@ -810,7 +817,6 @@ red:
 - {type: upgrade_unit, index: 16}
 - {type: release_commander_skill, index: 4, name: underground_threat, target: {area: [{x: -2, y: -126}]}}
 - {type: release_commander_skill, index: 2, name: smoke_bomb, target: {area: [{x: -66, y: 111}, {x: 93, y: 109}]}}
-- {type: active_energy_tower_skill, name: deposit_supply}
 ---
 kind: state
 round: 9
@@ -821,10 +827,15 @@ reinforce_offers: [assault_vulcan, advanced_shield_device, improved_firepower_co
 blue:
   random_state: [10533432382630494994, 835257180689936789, 9587997048667446893, 14103639395170096753]
   reactor_core: 2628
-  supply: 2150
+  supply: 1950
+  reinforce_choice: -1
   unlocked_units: [marksman, melting_point, rhino, crawler, fire_badger, typhoon]
   blueprints: [field_recovery]
   tower_strengthen_levels: [0, 0]
+  equipment:
+  - {name: secondary_fire_control_system, fitted: {unit: 5, slot: 0}}
+  - {name: secondary_fire_control_system, fitted: {unit: 6, slot: 0}}
+  - {name: secondary_fire_control_system, fitted: {unit: 7, slot: 0}}
   battle_skills:
   - {index: 0, name: field_recovery, cooldown: 0}
   - {index: 1, name: underground_threat, cooldown: 3}
@@ -835,32 +846,33 @@ blue:
     rhino: [armor_enhancement, combat_evolvement]
     typhoon: [field_reassembly, wreckage_detonation, range_enhancement]
   units:
-  - {name: marksman, index: 0, position: {x: 0, y: -170}, level: 3, exp: 502/2315, value: 100}
-  - {name: marksman, index: 1, position: {x: -120, y: -170}, level: 4, exp: 386/2919, value: 100}
-  - {name: marksman, index: 2, position: {x: 120, y: -170}, level: 5, exp: 1551/3387, value: 100}
-  - {name: typhoon, index: 5, position: {x: 130, y: -150}, level: 3, exp: 3813/6946, equipment: [secondary_fire_control_system], value: 300}
-  - {name: typhoon, index: 6, position: {x: -130, y: -150}, level: 2, exp: 3507/4394, equipment: [secondary_fire_control_system], value: 300}
-  - {name: typhoon, index: 7, position: {x: 0, y: -150}, level: 3, exp: 1833/6946, equipment: [secondary_fire_control_system], value: 300}
-  - {name: marksman, index: 8, position: {x: -160, y: -170}, level: 3, exp: 786/2315, value: 100}
-  - {name: marksman, index: 9, position: {x: 160, y: -170}, level: 4, exp: 277/2919, value: 100}
-  - {name: typhoon, index: 10, position: {x: 0, y: -190}, level: 2, exp: 158/4394, value: 300}
-  - {name: rhino, index: 11, position: {x: -285, y: -285}, level: 2, exp: 76/2591, value: 200}
-  - {name: rhino, index: 12, position: {x: 285, y: -285}, exp: 716/1150, value: 200}
-  - {name: rhino, index: 13, position: {x: 5, y: -295}, level: 2, exp: 1760/2591, value: 200}
-  - {name: rhino, index: 15, position: {x: -135, y: -285}, level: 2, exp: 159/2591, value: 200}
-  - {name: rhino, index: 16, position: {x: 135, y: -295}, level: 2, exp: 283/2591, value: 200}
-  - {name: crawler, index: 17, position: {x: -140, y: -205}, exp: 380/450, rotated: true, value: 100}
-  - {name: typhoon, index: 18, position: {x: -70, y: -150}, level: 2, exp: 625/4394, value: 300}
-  - {name: typhoon, index: 19, position: {x: 60, y: -150}, level: 2, exp: 540/4394, value: 300}
-  - {name: typhoon, index: 20, position: {x: 60, y: -180}, exp: 240/1950, value: 300}
-  - {name: typhoon, index: 21, position: {x: -70, y: -180}, exp: 140/1950, value: 300}
-  - {name: crawler, index: 22, position: {x: 140, y: -205}, exp: 116/450, rotated: true, value: 100}
+  - {name: marksman, index: 0, value: 100, level: 3, position: {x: 0, y: -170}, exp: 502/2315}
+  - {name: marksman, index: 1, value: 100, level: 4, position: {x: -120, y: -170}, exp: 386/2919}
+  - {name: marksman, index: 2, value: 100, level: 5, position: {x: 120, y: -170}, exp: 1551/3387}
+  - {name: typhoon, index: 5, value: 300, level: 3, position: {x: 130, y: -150}, exp: 3813/6946}
+  - {name: typhoon, index: 6, value: 300, level: 2, position: {x: -130, y: -150}, exp: 3507/4394}
+  - {name: typhoon, index: 7, value: 300, level: 3, position: {x: 0, y: -150}, exp: 1833/6946}
+  - {name: marksman, index: 8, value: 100, level: 3, position: {x: -160, y: -170}, exp: 786/2315}
+  - {name: marksman, index: 9, value: 100, level: 4, position: {x: 160, y: -170}, exp: 277/2919}
+  - {name: typhoon, index: 10, value: 300, level: 2, position: {x: 0, y: -190}, exp: 158/4394}
+  - {name: rhino, index: 11, value: 200, level: 2, position: {x: -285, y: -285}, exp: 76/2591}
+  - {name: rhino, index: 12, value: 200, position: {x: 285, y: -285}, exp: 716/1150}
+  - {name: rhino, index: 13, value: 200, level: 2, position: {x: 5, y: -295}, exp: 1760/2591}
+  - {name: rhino, index: 15, value: 200, level: 2, position: {x: -135, y: -285}, exp: 159/2591}
+  - {name: rhino, index: 16, value: 200, level: 2, position: {x: 135, y: -295}, exp: 283/2591}
+  - {name: crawler, index: 17, value: 100, position: {x: -140, y: -205}, exp: 380/450, rotated: true}
+  - {name: typhoon, index: 18, value: 300, level: 2, position: {x: -70, y: -150}, exp: 625/4394}
+  - {name: typhoon, index: 19, value: 300, level: 2, position: {x: 60, y: -150}, exp: 540/4394}
+  - {name: typhoon, index: 20, value: 300, position: {x: 60, y: -180}, exp: 240/1950}
+  - {name: typhoon, index: 21, value: 300, position: {x: -70, y: -180}, exp: 140/1950}
+  - {name: crawler, index: 22, value: 100, position: {x: 140, y: -205}, exp: 116/450, rotated: true}
   constructions:
   - {name: defensive_wall, index: 0, position: {x: 140, y: -55}}
 red:
   random_state: [7531215021622278112, 6028822008634472233, 15082642061813416389, 3601986621004687317]
   reactor_core: 1517
-  supply: 2000
+  supply: 1800
+  reinforce_choice: -1
   unlocked_units: [melting_point, steel_ball, fang, crawler, scorpion, fire_badger, tarantula]
   blueprints: [field_recovery, attack_enhancement, defense_enhancement]
   tower_strengthen_levels: [0, 0]
@@ -880,25 +892,25 @@ red:
     scorpion: [doubleshot, range_enhancement, acid_attack]
     tarantula: [spider_mine]
   units:
-  - {name: fang, index: 0, position: {x: -45, y: -130}, level: 2, exp: 514/1352, value: 100}
-  - {name: fang, index: 1, position: {x: 145, y: -130}, level: 2, exp: 185/1352, value: 100}
-  - {name: fang, index: 2, position: {x: 45, y: -130}, exp: 158/600, value: 100}
-  - {name: tarantula, index: 5, position: {x: -85, y: -125}, level: 2, exp: 124/3380, value: 200}
-  - {name: tarantula, index: 6, position: {x: 105, y: -125}, level: 2, exp: 213/3380, value: 200}
-  - {name: steel_ball, index: 7, position: {x: -175, y: -220}, level: 2, exp: 1975/2253, value: 200}
-  - {name: scorpion, index: 8, position: {x: 75, y: -165}, level: 4, exp: 6735/6735, value: 300}
-  - {name: crawler, index: 9, position: {x: 225, y: -190}, level: 3, exp: 300/1603, value: 100}
-  - {name: crawler, index: 10, position: {x: -175, y: -190}, level: 2, exp: 590/1014, value: 100}
-  - {name: crawler, index: 11, position: {x: 45, y: -190}, level: 2, exp: 236/1014, value: 100}
-  - {name: scorpion, index: 12, position: {x: -95, y: -165}, level: 2, exp: 3380/3380, value: 300}
-  - {name: steel_ball, index: 13, position: {x: 185, y: -220}, level: 2, exp: 925/2253, value: 200}
-  - {name: scorpion, index: 14, position: {x: -215, y: -165}, level: 3, exp: 5343/5343, value: 300}
-  - {name: scorpion, index: 15, position: {x: 185, y: -165}, level: 2, exp: 3380/3380, value: 300}
-  - {name: melting_point, index: 16, position: {x: -40, y: -200}, level: 4, exp: 6286/6286, value: 400}
-  - {name: crawler, index: 17, position: {x: -85, y: -190}, exp: 268/450, value: 100}
-  - {name: crawler, index: 18, position: {x: 115, y: -190}, exp: 126/450, value: 100}
-  - {name: crawler, index: 19, position: {x: -255, y: -190}, exp: 5/450, value: 100}
-  - {name: crawler, index: 20, position: {x: 5, y: -170}, exp: 193/450, value: 100}
+  - {name: fang, index: 0, value: 100, level: 2, position: {x: -45, y: -130}, exp: 514/1352}
+  - {name: fang, index: 1, value: 100, level: 2, position: {x: 145, y: -130}, exp: 185/1352}
+  - {name: fang, index: 2, value: 100, position: {x: 45, y: -130}, exp: 158/600}
+  - {name: tarantula, index: 5, value: 200, level: 2, position: {x: -85, y: -125}, exp: 124/3380}
+  - {name: tarantula, index: 6, value: 200, level: 2, position: {x: 105, y: -125}, exp: 213/3380}
+  - {name: steel_ball, index: 7, value: 200, level: 2, position: {x: -175, y: -220}, exp: 1975/2253}
+  - {name: scorpion, index: 8, value: 300, level: 4, position: {x: 75, y: -165}, exp: 6735/6735}
+  - {name: crawler, index: 9, value: 100, level: 3, position: {x: 225, y: -190}, exp: 300/1603}
+  - {name: crawler, index: 10, value: 100, level: 2, position: {x: -175, y: -190}, exp: 590/1014}
+  - {name: crawler, index: 11, value: 100, level: 2, position: {x: 45, y: -190}, exp: 236/1014}
+  - {name: scorpion, index: 12, value: 300, level: 2, position: {x: -95, y: -165}, exp: 3380/3380}
+  - {name: steel_ball, index: 13, value: 200, level: 2, position: {x: 185, y: -220}, exp: 925/2253}
+  - {name: scorpion, index: 14, value: 300, level: 3, position: {x: -215, y: -165}, exp: 5343/5343}
+  - {name: scorpion, index: 15, value: 300, level: 2, position: {x: 185, y: -165}, exp: 3380/3380}
+  - {name: melting_point, index: 16, value: 400, level: 4, position: {x: -40, y: -200}, exp: 6286/6286}
+  - {name: crawler, index: 17, value: 100, position: {x: -85, y: -190}, exp: 268/450}
+  - {name: crawler, index: 18, value: 100, position: {x: 115, y: -190}, exp: 126/450}
+  - {name: crawler, index: 19, value: 100, position: {x: -255, y: -190}, exp: 5/450}
+  - {name: crawler, index: 20, value: 100, position: {x: 5, y: -170}, exp: 193/450}
   constructions:
   - {name: defensive_wall, index: 0, position: {x: -140, y: -55}}
 ---
@@ -917,7 +929,6 @@ blue:
 - {type: active_blueprint, name: attack_enhancement}
 - {type: active_blueprint, name: defense_enhancement}
 - {type: release_commander_skill, index: 2, name: orbital_javelin, target: {area: [{x: 41, y: 181}]}}
-- {type: active_energy_tower_skill, name: deposit_supply}
 red:
 - {type: choose_reinforce_item, index: 2, name: improved_firepower_control_system}
 - {type: buy_unit, name: crawler}
@@ -932,7 +943,6 @@ red:
 - {type: upgrade_unit, index: 16}
 - {type: release_commander_skill, index: 0, name: intensive_training, target: {unit: 16}}
 - {type: upgrade_unit, index: 16}
-- {type: active_energy_tower_skill, name: deposit_supply}
 ---
 kind: result
 round: 9

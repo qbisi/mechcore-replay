@@ -110,24 +110,24 @@ random_state: [14054379118389073018, 5194993250568151466, 14692924431203221286, 
 blue:
   random_state: [13594636721117953675, 12302539063080621854, 13561992526035273895, 6221995729187222004]
   reactor_core: 4000
-  supply: 400
+  supply: 200
   unlocked_units: [marksman, sledgehammer, typhoon]
   tower_strengthen_levels: [0, 0]
   next_index: {unit: 5, contraption: 0}
   officers: [typhoon_specialist]
   units:
-  - {name: marksman, index: 0, position: {x: 0, y: -160}, source: joined, value: 100}
-  - {name: marksman, index: 1, position: {x: -20, y: -160}, source: joined, value: 100}
-  - {name: marksman, index: 2, position: {x: 0, y: -180}, source: joined, value: 100}
-  - {name: sledgehammer, index: 3, position: {x: 5, y: -140}, source: joined, value: 200}
-  - {name: sledgehammer, index: 4, position: {x: 35, y: -160}, source: joined, value: 200}
+  - {name: marksman, index: 0, value: 100, source: joined, position: {x: 0, y: -160}}
+  - {name: marksman, index: 1, value: 100, source: joined, position: {x: -20, y: -160}}
+  - {name: marksman, index: 2, value: 100, source: joined, position: {x: 0, y: -180}}
+  - {name: sledgehammer, index: 3, value: 200, source: joined, position: {x: 5, y: -140}}
+  - {name: sledgehammer, index: 4, value: 200, source: joined, position: {x: 35, y: -160}}
   constructions:
   - {name: defensive_wall, index: 0, position: {x: 140, y: -55}}
   - {name: anti_armor_turret, index: 1, position: {x: -140, y: -100}}
 red:
   random_state: [4260970802731485335, 5694312419083443906, 6882326503236576318, 342405032772983369]
   reactor_core: 5200
-  supply: 400
+  supply: 200
   unlocked_units: [steel_ball, fang]
   tower_strengthen_levels: [0, 0]
   equipment:
@@ -135,11 +135,11 @@ red:
   next_index: {unit: 5, contraption: 0}
   officers: [secondary_equipment_expert]
   units:
-  - {name: fang, index: 0, position: {x: -5, y: -160}, source: joined, value: 100}
-  - {name: fang, index: 1, position: {x: -5, y: -140}, source: joined, value: 100}
-  - {name: fang, index: 2, position: {x: -5, y: -180}, source: joined, value: 100}
-  - {name: steel_ball, index: 3, position: {x: -5, y: -120}, source: joined, value: 200}
-  - {name: steel_ball, index: 4, position: {x: -5, y: -200}, source: joined, value: 200}
+  - {name: fang, index: 0, value: 100, source: joined, position: {x: -5, y: -160}}
+  - {name: fang, index: 1, value: 100, source: joined, position: {x: -5, y: -140}}
+  - {name: fang, index: 2, value: 100, source: joined, position: {x: -5, y: -180}}
+  - {name: steel_ball, index: 3, value: 200, source: joined, position: {x: -5, y: -120}}
+  - {name: steel_ball, index: 4, value: 200, source: joined, position: {x: -5, y: -200}}
   constructions:
   - {name: defensive_wall, index: 0, position: {x: 140, y: -55}}
   - {name: anti_armor_turret, index: 1, position: {x: -140, y: -100}}
@@ -157,7 +157,6 @@ blue:
 - {type: move_unit, index: 5, position: {x: -140, y: -135}, rotated: true}
 - {type: move_unit, index: 6, position: {x: 140, y: -135}, rotated: true}
 - {type: move_unit, index: 2, position: {x: 0, y: -190}}
-- {type: active_energy_tower_skill, name: deposit_supply}
 red:
 - {type: unlock_unit, name: arclight}
 - {type: buy_unit, name: arclight}
@@ -170,7 +169,6 @@ red:
 - {type: move_unit, index: 4, position: {x: 25, y: -300}}
 - {type: move_unit, index: 5, position: {x: 90, y: -120}}
 - {type: move_unit, index: 6, position: {x: -110, y: -120}}
-- {type: active_energy_tower_skill, name: deposit_supply}
 ---
 kind: state
 round: 2
@@ -179,40 +177,43 @@ reinforce_offers: [phoenix_1x_lv1, mustang_1x_lv1, rhino_1x_lv1, fire_badger_1x_
 blue:
   random_state: [13594636721117953675, 12302539063080621854, 13561992526035273895, 6221995729187222004]
   reactor_core: 4000
-  supply: 600
+  supply: 400
+  reinforce_choice: -1
   unlocked_units: [marksman, fang, sledgehammer, typhoon]
   tower_strengthen_levels: [0, 0]
   next_index: {unit: 7, contraption: 0}
   officers: [typhoon_specialist]
   units:
-  - {name: marksman, index: 0, position: {x: 110, y: -190}, exp: 238/650, value: 100}
-  - {name: marksman, index: 1, position: {x: -110, y: -190}, exp: 171/650, value: 100}
-  - {name: marksman, index: 2, position: {x: 0, y: -190}, exp: 148/650, value: 100}
-  - {name: sledgehammer, index: 3, position: {x: -95, y: -150}, exp: 470/1300, value: 200}
-  - {name: sledgehammer, index: 4, position: {x: 95, y: -150}, exp: 408/1300, value: 200}
-  - {name: fang, index: 5, position: {x: -140, y: -135}, exp: 321/600, rotated: true, value: 100}
-  - {name: fang, index: 6, position: {x: 140, y: -135}, exp: 94/600, rotated: true, value: 100}
+  - {name: marksman, index: 0, value: 100, position: {x: 110, y: -190}, exp: 238/650}
+  - {name: marksman, index: 1, value: 100, position: {x: -110, y: -190}, exp: 171/650}
+  - {name: marksman, index: 2, value: 100, position: {x: 0, y: -190}, exp: 148/650}
+  - {name: sledgehammer, index: 3, value: 200, position: {x: -95, y: -150}, exp: 470/1300}
+  - {name: sledgehammer, index: 4, value: 200, position: {x: 95, y: -150}, exp: 408/1300}
+  - {name: fang, index: 5, value: 100, position: {x: -140, y: -135}, exp: 321/600, rotated: true}
+  - {name: fang, index: 6, value: 100, position: {x: 140, y: -135}, exp: 94/600, rotated: true}
   constructions:
   - {name: defensive_wall, index: 0, position: {x: 140, y: -55}}
   - {name: anti_armor_turret, index: 1, position: {x: -140, y: -100}}
 red:
   random_state: [8134687536555625500, 3145394743574491755, 16236472830298369193, 11570144885141746437]
   reactor_core: 4630
-  supply: 600
+  supply: 400
+  reinforce_choice: -1
   unlocked_units: [steel_ball, fang, arclight]
   tower_strengthen_levels: [0, 0]
   equipment:
   - {name: secondary_laser_sight}
+  - {name: secondary_heavy_armor, fitted: {unit: 6, slot: 0}}
   next_index: {unit: 7, contraption: 0}
   officers: [secondary_equipment_expert]
   units:
-  - {name: fang, index: 0, position: {x: 170, y: -215}, exp: 60/600, rotated: true, value: 100}
-  - {name: fang, index: 1, position: {x: 0, y: -145}, rotated: true, value: 100}
-  - {name: fang, index: 2, position: {x: -170, y: -225}, exp: 60/600, rotated: true, value: 100}
-  - {name: steel_ball, index: 3, position: {x: -45, y: -300}, exp: 240/1000, value: 200}
-  - {name: steel_ball, index: 4, position: {x: 25, y: -300}, exp: 116/1000, value: 200}
-  - {name: arclight, index: 5, position: {x: 90, y: -120}, exp: 48/750, value: 100}
-  - {name: arclight, index: 6, position: {x: -110, y: -120}, exp: 168/750, equipment: [secondary_heavy_armor], value: 100}
+  - {name: fang, index: 0, value: 100, position: {x: 170, y: -215}, exp: 60/600, rotated: true}
+  - {name: fang, index: 1, value: 100, position: {x: 0, y: -145}, rotated: true}
+  - {name: fang, index: 2, value: 100, position: {x: -170, y: -225}, exp: 60/600, rotated: true}
+  - {name: steel_ball, index: 3, value: 200, position: {x: -45, y: -300}, exp: 240/1000}
+  - {name: steel_ball, index: 4, value: 200, position: {x: 25, y: -300}, exp: 116/1000}
+  - {name: arclight, index: 5, value: 100, position: {x: 90, y: -120}, exp: 48/750}
+  - {name: arclight, index: 6, value: 100, position: {x: -110, y: -120}, exp: 168/750}
   constructions:
   - {name: defensive_wall, index: 0, position: {x: 140, y: -55}}
   - {name: anti_armor_turret, index: 1, position: {x: -140, y: -100}}
@@ -228,7 +229,6 @@ blue:
 - {type: move_unit, index: 8, position: {x: 0, y: -155}, rotated: true}
 - {type: move_unit, index: 9, position: {x: 245, y: -300}}
 - {type: active_blueprint, name: attack_enhancement}
-- {type: active_energy_tower_skill, name: deposit_supply}
 red:
 - {type: choose_reinforce_item, index: 0, name: phoenix_1x_lv1}
 - {type: unlock_unit, name: crawler}
@@ -241,7 +241,6 @@ red:
 - {type: move_unit, index: 8, position: {x: -10, y: -285}, rotated: true}
 - {type: move_unit, index: 9, position: {x: -90, y: -245}, rotated: true}
 - {type: move_unit, index: 10, position: {x: 70, y: -245}, rotated: true}
-- {type: active_energy_tower_skill, name: deposit_supply}
 ---
 kind: state
 round: 3
@@ -252,48 +251,52 @@ reinforce_offers: [electromagnetic_impact, mass_produced_sandworm, strike_hound,
 blue:
   random_state: [13594636721117953675, 12302539063080621854, 13561992526035273895, 6221995729187222004]
   reactor_core: 3538
-  supply: 800
+  supply: 600
+  reinforce_choice: -1
   unlocked_units: [marksman, mustang, fang, crawler, sledgehammer, typhoon]
   blueprints: [attack_enhancement]
   tower_strengthen_levels: [0, 0]
   next_index: {unit: 10, contraption: 0}
   officers: [typhoon_specialist]
   units:
-  - {name: marksman, index: 0, position: {x: 110, y: -190}, exp: 239/650, value: 100}
-  - {name: marksman, index: 1, position: {x: -110, y: -190}, exp: 609/650, value: 100}
-  - {name: marksman, index: 2, position: {x: 0, y: -190}, exp: 303/650, value: 100}
-  - {name: sledgehammer, index: 3, position: {x: -95, y: -150}, exp: 1056/1300, value: 200}
-  - {name: sledgehammer, index: 4, position: {x: 95, y: -150}, exp: 540/1300, value: 200}
-  - {name: fang, index: 5, position: {x: -140, y: -135}, exp: 433/600, rotated: true, value: 100}
-  - {name: fang, index: 6, position: {x: 140, y: -135}, exp: 116/600, rotated: true, value: 100}
-  - {name: mustang, index: 7, position: {x: -5, y: -300}, exp: 115/1200, value: 200}
-  - {name: sledgehammer, index: 8, position: {x: 0, y: -155}, exp: 263/1300, rotated: true, value: 200}
-  - {name: crawler, index: 9, position: {x: 245, y: -300}, exp: 14/450, value: 100}
+  - {name: marksman, index: 0, value: 100, position: {x: 110, y: -190}, exp: 239/650}
+  - {name: marksman, index: 1, value: 100, position: {x: -110, y: -190}, exp: 609/650}
+  - {name: marksman, index: 2, value: 100, position: {x: 0, y: -190}, exp: 303/650}
+  - {name: sledgehammer, index: 3, value: 200, position: {x: -95, y: -150}, exp: 1056/1300}
+  - {name: sledgehammer, index: 4, value: 200, position: {x: 95, y: -150}, exp: 540/1300}
+  - {name: fang, index: 5, value: 100, position: {x: -140, y: -135}, exp: 433/600, rotated: true}
+  - {name: fang, index: 6, value: 100, position: {x: 140, y: -135}, exp: 116/600, rotated: true}
+  - {name: mustang, index: 7, value: 200, position: {x: -5, y: -300}, exp: 115/1200}
+  - {name: sledgehammer, index: 8, value: 200, position: {x: 0, y: -155}, exp: 263/1300, rotated: true}
+  - {name: crawler, index: 9, value: 100, position: {x: 245, y: -300}, exp: 14/450}
   constructions:
   - {name: defensive_wall, index: 0, position: {x: 140, y: -55}}
   - {name: anti_armor_turret, index: 1, position: {x: -140, y: -100}}
 red:
   random_state: [18146112947883887986, 13407518379089482462, 14844673003908964533, 14424415421729099505]
   reactor_core: 4630
-  supply: 800
+  supply: 600
+  reinforce_choice: -1
   unlocked_units: [steel_ball, fang, crawler, arclight, phoenix]
   tower_strengthen_levels: [0, 0]
   equipment:
   - {name: secondary_laser_sight}
+  - {name: secondary_laser_sight, fitted: {unit: 4, slot: 0}}
+  - {name: secondary_heavy_armor, fitted: {unit: 6, slot: 0}}
   next_index: {unit: 11, contraption: 0}
   officers: [secondary_equipment_expert]
   units:
-  - {name: fang, index: 0, position: {x: 170, y: -215}, exp: 126/600, rotated: true, value: 100}
-  - {name: fang, index: 1, position: {x: 0, y: -145}, exp: 421/600, rotated: true, value: 100}
-  - {name: fang, index: 2, position: {x: -170, y: -225}, exp: 60/600, rotated: true, value: 100}
-  - {name: steel_ball, index: 3, position: {x: -45, y: -300}, exp: 635/1000, value: 200}
-  - {name: steel_ball, index: 4, position: {x: 25, y: -300}, exp: 519/1000, equipment: [secondary_laser_sight], value: 200}
-  - {name: arclight, index: 5, position: {x: 90, y: -120}, exp: 108/750, value: 100}
-  - {name: arclight, index: 6, position: {x: -110, y: -120}, exp: 522/750, equipment: [secondary_heavy_armor], value: 100}
-  - {name: phoenix, index: 7, position: {x: -350, y: 290}, exp: 901/1300, value: 200}
-  - {name: crawler, index: 8, position: {x: -10, y: -285}, exp: 115/450, rotated: true, value: 100}
-  - {name: crawler, index: 9, position: {x: -90, y: -245}, exp: 349/450, rotated: true, value: 100}
-  - {name: crawler, index: 10, position: {x: 70, y: -245}, rotated: true, value: 100}
+  - {name: fang, index: 0, value: 100, position: {x: 170, y: -215}, exp: 126/600, rotated: true}
+  - {name: fang, index: 1, value: 100, position: {x: 0, y: -145}, exp: 421/600, rotated: true}
+  - {name: fang, index: 2, value: 100, position: {x: -170, y: -225}, exp: 60/600, rotated: true}
+  - {name: steel_ball, index: 3, value: 200, position: {x: -45, y: -300}, exp: 635/1000}
+  - {name: steel_ball, index: 4, value: 200, position: {x: 25, y: -300}, exp: 519/1000}
+  - {name: arclight, index: 5, value: 100, position: {x: 90, y: -120}, exp: 108/750}
+  - {name: arclight, index: 6, value: 100, position: {x: -110, y: -120}, exp: 522/750}
+  - {name: phoenix, index: 7, value: 200, position: {x: -350, y: 290}, exp: 901/1300}
+  - {name: crawler, index: 8, value: 100, position: {x: -10, y: -285}, exp: 115/450, rotated: true}
+  - {name: crawler, index: 9, value: 100, position: {x: -90, y: -245}, exp: 349/450, rotated: true}
+  - {name: crawler, index: 10, value: 100, position: {x: 70, y: -245}, rotated: true}
   constructions:
   - {name: defensive_wall, index: 0, position: {x: 140, y: -55}}
   - {name: anti_armor_turret, index: 1, position: {x: -140, y: -100}}
@@ -311,7 +314,6 @@ blue:
 - {type: move_unit, index: 12, position: {x: 200, y: -165}, rotated: true}
 - {type: release_commander_skill, index: 0, name: intensive_training, target: {unit: 3}}
 - {type: upgrade_unit, index: 3}
-- {type: active_energy_tower_skill, name: deposit_supply}
 red:
 - {type: choose_reinforce_item, index: 0, name: electromagnetic_impact}
 - {type: buy_unit, name: arclight}
@@ -323,7 +325,6 @@ red:
 - {type: release_contraption, name: shield, position: {x: 49, y: -141}}
 - {type: release_contraption, name: shield, position: {x: -79, y: -142}}
 - {type: release_commander_skill, index: 0, name: electromagnetic_impact, target: {area: [{x: -45, y: 146}]}}
-- {type: active_energy_tower_skill, name: deposit_supply}
 ---
 kind: state
 round: 4
@@ -334,7 +335,8 @@ reinforce_offers: [advanced_missile_device, electromagnetic_blast, improved_void
 blue:
   random_state: [13594636721117953675, 12302539063080621854, 13561992526035273895, 6221995729187222004]
   reactor_core: 3538
-  supply: 1000
+  supply: 800
+  reinforce_choice: -1
   unlocked_units: [marksman, mustang, fang, crawler, sledgehammer, typhoon]
   blueprints: [attack_enhancement]
   tower_strengthen_levels: [0, 0]
@@ -343,31 +345,35 @@ blue:
   next_index: {unit: 14, contraption: 0}
   officers: [typhoon_specialist]
   units:
-  - {name: marksman, index: 0, position: {x: 110, y: -190}, exp: 650/650, value: 100}
-  - {name: marksman, index: 1, position: {x: -110, y: -190}, exp: 650/650, value: 100}
-  - {name: marksman, index: 2, position: {x: 0, y: -190}, exp: 621/650, value: 100}
-  - {name: sledgehammer, index: 3, position: {x: -95, y: -150}, level: 2, exp: 586/2929, value: 200}
-  - {name: sledgehammer, index: 4, position: {x: 95, y: -150}, exp: 766/1300, value: 200}
-  - {name: fang, index: 5, position: {x: -140, y: -135}, exp: 600/600, rotated: true, value: 100}
-  - {name: fang, index: 6, position: {x: 140, y: -135}, exp: 159/600, rotated: true, value: 100}
-  - {name: mustang, index: 7, position: {x: -5, y: -300}, exp: 166/1200, value: 200}
-  - {name: sledgehammer, index: 8, position: {x: 0, y: -155}, exp: 415/1300, rotated: true, value: 200}
-  - {name: crawler, index: 9, position: {x: 245, y: -300}, exp: 46/450, value: 100}
-  - {name: fang, index: 10, position: {x: 140, y: -225}, exp: 405/600, rotated: true, value: 100}
-  - {name: fang, index: 11, position: {x: -140, y: -225}, exp: 93/600, rotated: true, value: 100}
-  - {name: sledgehammer, index: 12, position: {x: 200, y: -165}, exp: 304/1300, rotated: true, value: 200}
-  - {name: typhoon, index: 13, position: {x: -30, y: -160}, source: delivered, value: 300}
+  - {name: marksman, index: 0, value: 100, position: {x: 110, y: -190}, exp: 650/650}
+  - {name: marksman, index: 1, value: 100, position: {x: -110, y: -190}, exp: 650/650}
+  - {name: marksman, index: 2, value: 100, position: {x: 0, y: -190}, exp: 621/650}
+  - {name: sledgehammer, index: 3, value: 200, level: 2, position: {x: -95, y: -150}, exp: 586/2929}
+  - {name: sledgehammer, index: 4, value: 200, position: {x: 95, y: -150}, exp: 766/1300}
+  - {name: fang, index: 5, value: 100, position: {x: -140, y: -135}, exp: 600/600, rotated: true}
+  - {name: fang, index: 6, value: 100, position: {x: 140, y: -135}, exp: 159/600, rotated: true}
+  - {name: mustang, index: 7, value: 200, position: {x: -5, y: -300}, exp: 166/1200}
+  - {name: sledgehammer, index: 8, value: 200, position: {x: 0, y: -155}, exp: 415/1300, rotated: true}
+  - {name: crawler, index: 9, value: 100, position: {x: 245, y: -300}, exp: 46/450}
+  - {name: fang, index: 10, value: 100, position: {x: 140, y: -225}, exp: 405/600, rotated: true}
+  - {name: fang, index: 11, value: 100, position: {x: -140, y: -225}, exp: 93/600, rotated: true}
+  - {name: sledgehammer, index: 12, value: 200, position: {x: 200, y: -165}, exp: 304/1300, rotated: true}
+  - {name: typhoon, index: 13, value: 300, source: delivered, position: {x: -30, y: -160}}
   constructions:
   - {name: defensive_wall, index: 0, position: {x: 140, y: -55}}
   - {name: anti_armor_turret, index: 1, position: {x: -140, y: -100}}
 red:
   random_state: [9939218004934807901, 10358345153064288025, 1156629794567450055, 4865556963711328062]
   reactor_core: 3742
-  supply: 1050
+  supply: 850
+  reinforce_choice: -1
   unlocked_units: [steel_ball, fang, crawler, arclight, phoenix]
   tower_strengthen_levels: [0, 0]
   equipment:
   - {name: secondary_laser_sight}
+  - {name: secondary_laser_sight, fitted: {unit: 3, slot: 0}}
+  - {name: secondary_laser_sight, fitted: {unit: 4, slot: 0}}
+  - {name: secondary_heavy_armor, fitted: {unit: 6, slot: 0}}
   battle_skills:
   - {index: 0, name: electromagnetic_impact, cooldown: 2}
   next_index: {unit: 13, contraption: 2}
@@ -375,19 +381,19 @@ red:
   techs:
     arclight: [charged_shot]
   units:
-  - {name: fang, index: 0, position: {x: 170, y: -215}, exp: 235/600, rotated: true, value: 100}
-  - {name: fang, index: 1, position: {x: 0, y: -145}, exp: 593/600, rotated: true, value: 100}
-  - {name: fang, index: 2, position: {x: -170, y: -225}, exp: 209/600, rotated: true, value: 100}
-  - {name: steel_ball, index: 3, position: {x: -45, y: -300}, exp: 798/1000, equipment: [secondary_laser_sight], value: 200}
-  - {name: steel_ball, index: 4, position: {x: 25, y: -300}, exp: 777/1000, equipment: [secondary_laser_sight], value: 200}
-  - {name: arclight, index: 5, position: {x: 90, y: -120}, exp: 168/750, value: 100}
-  - {name: arclight, index: 6, position: {x: -110, y: -120}, exp: 726/750, equipment: [secondary_heavy_armor], value: 100}
-  - {name: phoenix, index: 7, position: {x: -350, y: 290}, exp: 1009/1300, value: 200}
-  - {name: crawler, index: 8, position: {x: -10, y: -285}, exp: 155/450, rotated: true, value: 100}
-  - {name: crawler, index: 9, position: {x: -90, y: -245}, exp: 361/450, rotated: true, value: 100}
-  - {name: crawler, index: 10, position: {x: 70, y: -245}, rotated: true, value: 100}
-  - {name: arclight, index: 11, position: {x: 20, y: -120}, exp: 750/750, value: 100}
-  - {name: arclight, index: 12, position: {x: -20, y: -120}, exp: 128/750, value: 100}
+  - {name: fang, index: 0, value: 100, position: {x: 170, y: -215}, exp: 235/600, rotated: true}
+  - {name: fang, index: 1, value: 100, position: {x: 0, y: -145}, exp: 593/600, rotated: true}
+  - {name: fang, index: 2, value: 100, position: {x: -170, y: -225}, exp: 209/600, rotated: true}
+  - {name: steel_ball, index: 3, value: 200, position: {x: -45, y: -300}, exp: 798/1000}
+  - {name: steel_ball, index: 4, value: 200, position: {x: 25, y: -300}, exp: 777/1000}
+  - {name: arclight, index: 5, value: 100, position: {x: 90, y: -120}, exp: 168/750}
+  - {name: arclight, index: 6, value: 100, position: {x: -110, y: -120}, exp: 726/750}
+  - {name: phoenix, index: 7, value: 200, position: {x: -350, y: 290}, exp: 1009/1300}
+  - {name: crawler, index: 8, value: 100, position: {x: -10, y: -285}, exp: 155/450, rotated: true}
+  - {name: crawler, index: 9, value: 100, position: {x: -90, y: -245}, exp: 361/450, rotated: true}
+  - {name: crawler, index: 10, value: 100, position: {x: 70, y: -245}, rotated: true}
+  - {name: arclight, index: 11, value: 100, position: {x: 20, y: -120}, exp: 750/750}
+  - {name: arclight, index: 12, value: 100, position: {x: -20, y: -120}, exp: 128/750}
   constructions:
   - {name: defensive_wall, index: 0, position: {x: 140, y: -55}}
   - {name: anti_armor_turret, index: 1, position: {x: -140, y: -100}}
@@ -412,7 +418,6 @@ blue:
 - {type: upgrade_unit, index: 0}
 - {type: upgrade_unit, index: 1}
 - {type: active_blueprint, name: defense_enhancement}
-- {type: active_energy_tower_skill, name: deposit_supply}
 red:
 - {type: choose_reinforce_item, index: 1, name: electromagnetic_blast}
 - {type: buy_unit, name: crawler}
@@ -428,7 +433,6 @@ red:
 - {type: move_unit, index: 15, position: {x: -70, y: -120}}
 - {type: upgrade_unit, index: 11}
 - {type: release_commander_skill, index: 1, name: electromagnetic_blast, target: {area: [{x: 27, y: 150}]}}
-- {type: active_energy_tower_skill, name: deposit_supply}
 ---
 kind: state
 round: 5
@@ -439,7 +443,8 @@ reinforce_offers: [raiden_1x_lv1, fortress_1x_lv1, tarantula_1x_lv3, void_eye_3x
 blue:
   random_state: [13594636721117953675, 12302539063080621854, 13561992526035273895, 6221995729187222004]
   reactor_core: 3538
-  supply: 1250
+  supply: 1050
+  reinforce_choice: -1
   unlocked_units: [marksman, mustang, fang, crawler, sledgehammer, typhoon, hound]
   blueprints: [attack_enhancement, defense_enhancement]
   tower_strengthen_levels: [0, 0]
@@ -450,34 +455,39 @@ blue:
   techs:
     sledgehammer: [mechanical_rage]
   units:
-  - {name: marksman, index: 0, position: {x: 110, y: -190}, level: 2, exp: 865/1465, value: 100}
-  - {name: marksman, index: 1, position: {x: -110, y: -190}, level: 2, exp: 658/1465, value: 100}
-  - {name: marksman, index: 2, position: {x: 0, y: -190}, exp: 650/650, value: 100}
-  - {name: sledgehammer, index: 3, position: {x: -95, y: -150}, level: 2, exp: 1060/2929, value: 200}
-  - {name: sledgehammer, index: 4, position: {x: 95, y: -150}, exp: 1178/1300, value: 200}
-  - {name: fang, index: 5, position: {x: -140, y: -135}, exp: 600/600, rotated: true, value: 100}
-  - {name: fang, index: 6, position: {x: 140, y: -135}, exp: 213/600, rotated: true, value: 100}
-  - {name: mustang, index: 7, position: {x: -5, y: -300}, exp: 743/1200, value: 200}
-  - {name: sledgehammer, index: 8, position: {x: 0, y: -155}, exp: 641/1300, rotated: true, value: 200}
-  - {name: crawler, index: 9, position: {x: 245, y: -300}, exp: 57/450, value: 100}
-  - {name: fang, index: 10, position: {x: 140, y: -225}, exp: 422/600, rotated: true, value: 100}
-  - {name: fang, index: 11, position: {x: -140, y: -225}, exp: 94/600, rotated: true, value: 100}
-  - {name: sledgehammer, index: 12, position: {x: 200, y: -165}, exp: 420/1300, rotated: true, value: 200}
-  - {name: typhoon, index: 13, position: {x: 350, y: 290}, exp: 1/1950, value: 300}
-  - {name: hound, index: 14, position: {x: -350, y: 290}, exp: 417/750, value: 100}
-  - {name: sledgehammer, index: 15, position: {x: -200, y: -165}, exp: 520/1300, rotated: true, value: 200}
-  - {name: fang, index: 16, position: {x: 5, y: -120}, exp: 56/600, value: 100}
+  - {name: marksman, index: 0, value: 100, level: 2, position: {x: 110, y: -190}, exp: 865/1465}
+  - {name: marksman, index: 1, value: 100, level: 2, position: {x: -110, y: -190}, exp: 658/1465}
+  - {name: marksman, index: 2, value: 100, position: {x: 0, y: -190}, exp: 650/650}
+  - {name: sledgehammer, index: 3, value: 200, level: 2, position: {x: -95, y: -150}, exp: 1060/2929}
+  - {name: sledgehammer, index: 4, value: 200, position: {x: 95, y: -150}, exp: 1178/1300}
+  - {name: fang, index: 5, value: 100, position: {x: -140, y: -135}, exp: 600/600, rotated: true}
+  - {name: fang, index: 6, value: 100, position: {x: 140, y: -135}, exp: 213/600, rotated: true}
+  - {name: mustang, index: 7, value: 200, position: {x: -5, y: -300}, exp: 743/1200}
+  - {name: sledgehammer, index: 8, value: 200, position: {x: 0, y: -155}, exp: 641/1300, rotated: true}
+  - {name: crawler, index: 9, value: 100, position: {x: 245, y: -300}, exp: 57/450}
+  - {name: fang, index: 10, value: 100, position: {x: 140, y: -225}, exp: 422/600, rotated: true}
+  - {name: fang, index: 11, value: 100, position: {x: -140, y: -225}, exp: 94/600, rotated: true}
+  - {name: sledgehammer, index: 12, value: 200, position: {x: 200, y: -165}, exp: 420/1300, rotated: true}
+  - {name: typhoon, index: 13, value: 300, position: {x: 350, y: 290}, exp: 1/1950}
+  - {name: hound, index: 14, value: 100, position: {x: -350, y: 290}, exp: 417/750}
+  - {name: sledgehammer, index: 15, value: 200, position: {x: -200, y: -165}, exp: 520/1300, rotated: true}
+  - {name: fang, index: 16, value: 100, position: {x: 5, y: -120}, exp: 56/600}
   constructions:
   - {name: defensive_wall, index: 0, position: {x: 140, y: -55}}
   - {name: anti_armor_turret, index: 1, position: {x: -140, y: -100}}
 red:
   random_state: [5020071382624924026, 1594875422411326339, 16280587576345050266, 289630641694824103]
   reactor_core: 3098
-  supply: 1200
+  supply: 1000
+  reinforce_choice: -1
   unlocked_units: [steel_ball, fang, crawler, arclight, phoenix]
   tower_strengthen_levels: [0, 0]
   equipment:
+  - {name: secondary_laser_sight, fitted: {unit: 3, slot: 0}}
+  - {name: secondary_laser_sight, fitted: {unit: 4, slot: 0}}
+  - {name: secondary_laser_sight, fitted: {unit: 15, slot: 0}}
   - {name: secondary_heavy_armor}
+  - {name: secondary_heavy_armor, fitted: {unit: 6, slot: 0}}
   battle_skills:
   - {index: 0, name: electromagnetic_impact, cooldown: 1}
   - {index: 1, name: electromagnetic_blast, cooldown: 4}
@@ -488,22 +498,22 @@ red:
     arclight: [charged_shot]
     phoenix: [jump_drive]
   units:
-  - {name: fang, index: 0, position: {x: 170, y: -215}, exp: 275/600, rotated: true, value: 100}
-  - {name: fang, index: 1, position: {x: 0, y: -145}, exp: 593/600, rotated: true, value: 100}
-  - {name: fang, index: 2, position: {x: -170, y: -225}, exp: 379/600, rotated: true, value: 100}
-  - {name: steel_ball, index: 3, position: {x: -45, y: -300}, exp: 1000/1000, equipment: [secondary_laser_sight], value: 200}
-  - {name: steel_ball, index: 4, position: {x: 25, y: -300}, exp: 1000/1000, equipment: [secondary_laser_sight], value: 200}
-  - {name: arclight, index: 5, position: {x: 90, y: -120}, exp: 480/750, value: 100}
-  - {name: arclight, index: 6, position: {x: -110, y: -120}, exp: 750/750, equipment: [secondary_heavy_armor], value: 100}
-  - {name: phoenix, index: 7, position: {x: -230, y: -280}, exp: 1300/1300, rotated: true, value: 200}
-  - {name: crawler, index: 8, position: {x: -10, y: -285}, exp: 203/450, rotated: true, value: 100}
-  - {name: crawler, index: 9, position: {x: -90, y: -245}, exp: 450/450, rotated: true, value: 100}
-  - {name: crawler, index: 10, position: {x: 70, y: -245}, rotated: true, value: 100}
-  - {name: arclight, index: 11, position: {x: 20, y: -120}, level: 2, exp: 884/1690, value: 100}
-  - {name: arclight, index: 12, position: {x: -20, y: -120}, exp: 541/750, value: 100}
-  - {name: crawler, index: 13, position: {x: 55, y: -150}, value: 100}
-  - {name: crawler, index: 14, position: {x: -65, y: -150}, exp: 12/450, value: 100}
-  - {name: arclight, index: 15, position: {x: -70, y: -120}, exp: 526/750, equipment: [secondary_laser_sight], value: 100}
+  - {name: fang, index: 0, value: 100, position: {x: 170, y: -215}, exp: 275/600, rotated: true}
+  - {name: fang, index: 1, value: 100, position: {x: 0, y: -145}, exp: 593/600, rotated: true}
+  - {name: fang, index: 2, value: 100, position: {x: -170, y: -225}, exp: 379/600, rotated: true}
+  - {name: steel_ball, index: 3, value: 200, position: {x: -45, y: -300}, exp: 1000/1000}
+  - {name: steel_ball, index: 4, value: 200, position: {x: 25, y: -300}, exp: 1000/1000}
+  - {name: arclight, index: 5, value: 100, position: {x: 90, y: -120}, exp: 480/750}
+  - {name: arclight, index: 6, value: 100, position: {x: -110, y: -120}, exp: 750/750}
+  - {name: phoenix, index: 7, value: 200, position: {x: -230, y: -280}, exp: 1300/1300, rotated: true}
+  - {name: crawler, index: 8, value: 100, position: {x: -10, y: -285}, exp: 203/450, rotated: true}
+  - {name: crawler, index: 9, value: 100, position: {x: -90, y: -245}, exp: 450/450, rotated: true}
+  - {name: crawler, index: 10, value: 100, position: {x: 70, y: -245}, rotated: true}
+  - {name: arclight, index: 11, value: 100, level: 2, position: {x: 20, y: -120}, exp: 884/1690}
+  - {name: arclight, index: 12, value: 100, position: {x: -20, y: -120}, exp: 541/750}
+  - {name: crawler, index: 13, value: 100, position: {x: 55, y: -150}}
+  - {name: crawler, index: 14, value: 100, position: {x: -65, y: -150}, exp: 12/450}
+  - {name: arclight, index: 15, value: 100, position: {x: -70, y: -120}, exp: 526/750}
   constructions:
   - {name: defensive_wall, index: 0, position: {x: 140, y: -55}}
   - {name: anti_armor_turret, index: 1, position: {x: -140, y: -100}}
@@ -528,7 +538,6 @@ blue:
 - {type: release_commander_skill, index: 0, name: intensive_training, target: {unit: 4}}
 - {type: upgrade_unit, index: 4}
 - {type: active_energy_tower_skill, name: enhanced_range}
-- {type: active_energy_tower_skill, name: deposit_supply}
 red:
 - {type: choose_reinforce_item, index: 4, name: refund_150}
 - {type: buy_unit, name: phoenix}
@@ -545,7 +554,6 @@ red:
 - {type: upgrade_unit, index: 7}
 - {type: upgrade_unit, index: 9}
 - {type: release_contraption, name: missile, position: {x: -296, y: -290}}
-- {type: active_energy_tower_skill, name: deposit_supply}
 ---
 kind: state
 round: 6
@@ -556,7 +564,8 @@ reinforce_offers: [assault_raiden, elite_tarantula, laser_sights, heavy_armor, r
 blue:
   random_state: [13594636721117953675, 12302539063080621854, 13561992526035273895, 6221995729187222004]
   reactor_core: 3538
-  supply: 1400
+  supply: 1200
+  reinforce_choice: -1
   unlocked_units: [fortress, marksman, mustang, fang, crawler, stormcaller, sledgehammer, typhoon, hound]
   blueprints: [field_recovery, attack_enhancement, defense_enhancement]
   tower_strengthen_levels: [0, 0]
@@ -569,36 +578,42 @@ blue:
     stormcaller: [high_explosive_ammo]
     sledgehammer: [range_enhancement, mechanical_rage]
   units:
-  - {name: marksman, index: 0, position: {x: 110, y: -190}, level: 2, exp: 1465/1465, value: 100}
-  - {name: marksman, index: 1, position: {x: -110, y: -190}, level: 2, exp: 1181/1465, value: 100}
-  - {name: marksman, index: 2, position: {x: 0, y: -190}, level: 2, exp: 1065/1465, value: 100}
-  - {name: sledgehammer, index: 3, position: {x: -95, y: -150}, level: 2, exp: 1663/2929, value: 200}
-  - {name: sledgehammer, index: 4, position: {x: 95, y: -150}, level: 2, exp: 1132/2929, value: 200}
-  - {name: fang, index: 5, position: {x: -140, y: -135}, exp: 600/600, rotated: true, value: 100}
-  - {name: fang, index: 6, position: {x: 140, y: -135}, exp: 264/600, rotated: true, value: 100}
-  - {name: mustang, index: 7, position: {x: -5, y: -300}, exp: 1200/1200, value: 200}
-  - {name: sledgehammer, index: 8, position: {x: 0, y: -155}, exp: 1085/1300, rotated: true, value: 200}
-  - {name: crawler, index: 9, position: {x: 245, y: -300}, exp: 116/450, value: 100}
-  - {name: fang, index: 10, position: {x: 140, y: -225}, exp: 589/600, rotated: true, value: 100}
-  - {name: fang, index: 11, position: {x: -140, y: -225}, exp: 107/600, rotated: true, value: 100}
-  - {name: sledgehammer, index: 12, position: {x: 200, y: -165}, exp: 971/1300, rotated: true, value: 200}
-  - {name: typhoon, index: 13, position: {x: 350, y: 290}, exp: 1/1950, value: 300}
-  - {name: hound, index: 14, position: {x: -350, y: 290}, exp: 453/750, value: 100}
-  - {name: sledgehammer, index: 15, position: {x: -200, y: -165}, exp: 1300/1300, rotated: true, value: 200}
-  - {name: fang, index: 16, position: {x: 5, y: -120}, exp: 101/600, value: 100}
-  - {name: fang, index: 18, position: {x: 310, y: 285}, value: 100}
-  - {name: stormcaller, index: 19, position: {x: -35, y: -150}, exp: 429/1100, value: 200}
+  - {name: marksman, index: 0, value: 100, level: 2, position: {x: 110, y: -190}, exp: 1465/1465}
+  - {name: marksman, index: 1, value: 100, level: 2, position: {x: -110, y: -190}, exp: 1181/1465}
+  - {name: marksman, index: 2, value: 100, level: 2, position: {x: 0, y: -190}, exp: 1065/1465}
+  - {name: sledgehammer, index: 3, value: 200, level: 2, position: {x: -95, y: -150}, exp: 1663/2929}
+  - {name: sledgehammer, index: 4, value: 200, level: 2, position: {x: 95, y: -150}, exp: 1132/2929}
+  - {name: fang, index: 5, value: 100, position: {x: -140, y: -135}, exp: 600/600, rotated: true}
+  - {name: fang, index: 6, value: 100, position: {x: 140, y: -135}, exp: 264/600, rotated: true}
+  - {name: mustang, index: 7, value: 200, position: {x: -5, y: -300}, exp: 1200/1200}
+  - {name: sledgehammer, index: 8, value: 200, position: {x: 0, y: -155}, exp: 1085/1300, rotated: true}
+  - {name: crawler, index: 9, value: 100, position: {x: 245, y: -300}, exp: 116/450}
+  - {name: fang, index: 10, value: 100, position: {x: 140, y: -225}, exp: 589/600, rotated: true}
+  - {name: fang, index: 11, value: 100, position: {x: -140, y: -225}, exp: 107/600, rotated: true}
+  - {name: sledgehammer, index: 12, value: 200, position: {x: 200, y: -165}, exp: 971/1300, rotated: true}
+  - {name: typhoon, index: 13, value: 300, position: {x: 350, y: 290}, exp: 1/1950}
+  - {name: hound, index: 14, value: 100, position: {x: -350, y: 290}, exp: 453/750}
+  - {name: sledgehammer, index: 15, value: 200, position: {x: -200, y: -165}, exp: 1300/1300, rotated: true}
+  - {name: fang, index: 16, value: 100, position: {x: 5, y: -120}, exp: 101/600}
+  - {name: fang, index: 18, value: 100, position: {x: 310, y: 285}}
+  - {name: stormcaller, index: 19, value: 200, position: {x: -35, y: -150}, exp: 429/1100}
   constructions:
   - {name: defensive_wall, index: 0, position: {x: 140, y: -55}}
   - {name: anti_armor_turret, index: 1, position: {x: -140, y: -100}}
 red:
   random_state: [6308482481606337630, 12860176931236957795, 16223355499924377056, 13449017619485488115]
   reactor_core: 1599
-  supply: 1400
+  supply: 1200
+  reinforce_choice: -1
   unlocked_units: [steel_ball, fang, crawler, arclight, phoenix, scorpion]
   tower_strengthen_levels: [0, 0]
   equipment:
+  - {name: secondary_laser_sight, fitted: {unit: 3, slot: 0}}
+  - {name: secondary_laser_sight, fitted: {unit: 4, slot: 0}}
+  - {name: secondary_laser_sight, fitted: {unit: 15, slot: 0}}
   - {name: secondary_heavy_armor}
+  - {name: secondary_heavy_armor, fitted: {unit: 6, slot: 0}}
+  - {name: secondary_heavy_armor, fitted: {unit: 18, slot: 0}}
   battle_skills:
   - {index: 0, name: electromagnetic_impact, cooldown: 0}
   - {index: 1, name: electromagnetic_blast, cooldown: 3}
@@ -609,25 +624,25 @@ red:
     arclight: [charged_shot]
     phoenix: [jump_drive]
   units:
-  - {name: fang, index: 0, position: {x: 170, y: -215}, exp: 303/600, rotated: true, value: 100}
-  - {name: fang, index: 1, position: {x: 0, y: -145}, exp: 600/600, rotated: true, value: 100}
-  - {name: fang, index: 2, position: {x: -170, y: -225}, exp: 407/600, rotated: true, value: 100}
-  - {name: steel_ball, index: 3, position: {x: -45, y: -300}, exp: 1000/1000, equipment: [secondary_laser_sight], value: 200}
-  - {name: steel_ball, index: 4, position: {x: 25, y: -300}, exp: 1000/1000, equipment: [secondary_laser_sight], value: 200}
-  - {name: arclight, index: 5, position: {x: 90, y: -120}, exp: 541/750, value: 100}
-  - {name: arclight, index: 6, position: {x: -110, y: -120}, level: 2, exp: 181/1690, equipment: [secondary_heavy_armor], value: 100}
-  - {name: phoenix, index: 7, position: {x: -210, y: -280}, level: 2, exp: 870/2929, rotated: true, value: 200}
-  - {name: crawler, index: 8, position: {x: -10, y: -285}, exp: 217/450, rotated: true, value: 100}
-  - {name: crawler, index: 9, position: {x: -90, y: -245}, level: 2, exp: 61/1014, rotated: true, value: 100}
-  - {name: crawler, index: 10, position: {x: 70, y: -245}, exp: 14/450, rotated: true, value: 100}
-  - {name: arclight, index: 11, position: {x: 20, y: -120}, level: 2, exp: 1134/1690, value: 100}
-  - {name: arclight, index: 12, position: {x: -20, y: -120}, exp: 637/750, value: 100}
-  - {name: crawler, index: 13, position: {x: 55, y: -150}, exp: 19/450, value: 100}
-  - {name: crawler, index: 14, position: {x: -65, y: -150}, exp: 49/450, value: 100}
-  - {name: arclight, index: 15, position: {x: -70, y: -120}, exp: 599/750, equipment: [secondary_laser_sight], value: 100}
-  - {name: phoenix, index: 16, position: {x: 240, y: -280}, exp: 403/1300, rotated: true, value: 200}
-  - {name: scorpion, index: 17, position: {x: 105, y: -145}, exp: 134/1500, value: 300}
-  - {name: scorpion, index: 18, position: {x: -165, y: -155}, exp: 328/1500, equipment: [secondary_heavy_armor], value: 300}
+  - {name: fang, index: 0, value: 100, position: {x: 170, y: -215}, exp: 303/600, rotated: true}
+  - {name: fang, index: 1, value: 100, position: {x: 0, y: -145}, exp: 600/600, rotated: true}
+  - {name: fang, index: 2, value: 100, position: {x: -170, y: -225}, exp: 407/600, rotated: true}
+  - {name: steel_ball, index: 3, value: 200, position: {x: -45, y: -300}, exp: 1000/1000}
+  - {name: steel_ball, index: 4, value: 200, position: {x: 25, y: -300}, exp: 1000/1000}
+  - {name: arclight, index: 5, value: 100, position: {x: 90, y: -120}, exp: 541/750}
+  - {name: arclight, index: 6, value: 100, level: 2, position: {x: -110, y: -120}, exp: 181/1690}
+  - {name: phoenix, index: 7, value: 200, level: 2, position: {x: -210, y: -280}, exp: 870/2929, rotated: true}
+  - {name: crawler, index: 8, value: 100, position: {x: -10, y: -285}, exp: 217/450, rotated: true}
+  - {name: crawler, index: 9, value: 100, level: 2, position: {x: -90, y: -245}, exp: 61/1014, rotated: true}
+  - {name: crawler, index: 10, value: 100, position: {x: 70, y: -245}, exp: 14/450, rotated: true}
+  - {name: arclight, index: 11, value: 100, level: 2, position: {x: 20, y: -120}, exp: 1134/1690}
+  - {name: arclight, index: 12, value: 100, position: {x: -20, y: -120}, exp: 637/750}
+  - {name: crawler, index: 13, value: 100, position: {x: 55, y: -150}, exp: 19/450}
+  - {name: crawler, index: 14, value: 100, position: {x: -65, y: -150}, exp: 49/450}
+  - {name: arclight, index: 15, value: 100, position: {x: -70, y: -120}, exp: 599/750}
+  - {name: phoenix, index: 16, value: 200, position: {x: 240, y: -280}, exp: 403/1300, rotated: true}
+  - {name: scorpion, index: 17, value: 300, position: {x: 105, y: -145}, exp: 134/1500}
+  - {name: scorpion, index: 18, value: 300, position: {x: -165, y: -155}, exp: 328/1500}
   constructions:
   - {name: defensive_wall, index: 0, position: {x: 140, y: -55}}
   - {name: anti_armor_turret, index: 1, position: {x: -140, y: -100}}
@@ -656,9 +671,9 @@ blue:
 - {type: active_energy_tower_skill, name: enhanced_range}
 - {type: active_blueprint, name: sticky_oil_bomb}
 - {type: release_commander_skill, index: 2, name: sticky_oil_bomb, target: {area: [{x: -53, y: 1}, {x: 51, y: 2}]}}
-- {type: active_energy_tower_skill, name: deposit_supply}
 red:
 - {type: choose_reinforce_item, index: 2, name: laser_sights}
+- {type: active_energy_tower_skill, name: rapid_resupply}
 - {type: unlock_unit, name: stormcaller}
 - {type: buy_unit, name: stormcaller}
 - {type: buy_unit, name: stormcaller}
@@ -688,10 +703,13 @@ reinforce_offers: [efficient_tech_research, mobile_beacon_card, advanced_missile
 blue:
   random_state: [13594636721117953675, 12302539063080621854, 13561992526035273895, 6221995729187222004]
   reactor_core: 3538
-  supply: 1650
+  supply: 1450
+  reinforce_choice: -1
   unlocked_units: [fortress, marksman, mustang, fang, crawler, stormcaller, sledgehammer, typhoon, hound]
   blueprints: [sticky_oil_bomb, field_recovery, attack_enhancement, defense_enhancement]
   tower_strengthen_levels: [0, 0]
+  equipment:
+  - {name: laser_sights, fitted: {unit: 7, slot: 0}}
   battle_skills:
   - {index: 0, name: intensive_training, cooldown: 0}
   - {index: 1, name: field_recovery, cooldown: 0}
@@ -704,38 +722,46 @@ blue:
     stormcaller: [high_explosive_ammo]
     sledgehammer: [range_enhancement, mechanical_rage]
   units:
-  - {name: marksman, index: 0, position: {x: 110, y: -190}, level: 3, exp: 658/2315, value: 100}
-  - {name: marksman, index: 1, position: {x: -110, y: -190}, level: 2, exp: 1465/1465, value: 100}
-  - {name: marksman, index: 2, position: {x: 0, y: -190}, level: 2, exp: 1465/1465, value: 100}
-  - {name: sledgehammer, index: 3, position: {x: -95, y: -150}, level: 2, exp: 2772/2929, value: 200}
-  - {name: sledgehammer, index: 4, position: {x: 95, y: -150}, level: 2, exp: 2249/2929, value: 200}
-  - {name: fang, index: 5, position: {x: -140, y: -135}, exp: 600/600, rotated: true, value: 100}
-  - {name: fang, index: 6, position: {x: 140, y: -135}, exp: 275/600, rotated: true, value: 100}
-  - {name: mustang, index: 7, position: {x: -5, y: -300}, level: 2, exp: 1450/2704, equipment: [laser_sights], value: 200}
-  - {name: sledgehammer, index: 8, position: {x: 0, y: -155}, exp: 1085/1300, rotated: true, value: 200}
-  - {name: crawler, index: 9, position: {x: 245, y: -300}, exp: 152/450, value: 100}
-  - {name: fang, index: 10, position: {x: 140, y: -225}, exp: 600/600, rotated: true, value: 100}
-  - {name: fang, index: 11, position: {x: -140, y: -225}, exp: 281/600, rotated: true, value: 100}
-  - {name: sledgehammer, index: 12, position: {x: 200, y: -165}, exp: 1300/1300, rotated: true, value: 200}
-  - {name: hound, index: 14, position: {x: -350, y: 290}, exp: 453/750, value: 100}
-  - {name: sledgehammer, index: 15, position: {x: -200, y: -165}, level: 2, exp: 1019/2929, rotated: true, value: 200}
-  - {name: fang, index: 16, position: {x: 5, y: -120}, exp: 101/600, value: 100}
-  - {name: fang, index: 18, position: {x: 310, y: 285}, value: 100}
-  - {name: stormcaller, index: 19, position: {x: -35, y: -150}, exp: 911/1100, value: 200}
-  - {name: crawler, index: 20, position: {x: -200, y: -215}, exp: 26/450, rotated: true, value: 100}
-  - {name: crawler, index: 21, position: {x: 200, y: -215}, exp: 3/450, rotated: true, value: 100}
-  - {name: crawler, index: 22, position: {x: -245, y: -300}, exp: 92/450, value: 100}
+  - {name: marksman, index: 0, value: 100, level: 3, position: {x: 110, y: -190}, exp: 658/2315}
+  - {name: marksman, index: 1, value: 100, level: 2, position: {x: -110, y: -190}, exp: 1465/1465}
+  - {name: marksman, index: 2, value: 100, level: 2, position: {x: 0, y: -190}, exp: 1465/1465}
+  - {name: sledgehammer, index: 3, value: 200, level: 2, position: {x: -95, y: -150}, exp: 2772/2929}
+  - {name: sledgehammer, index: 4, value: 200, level: 2, position: {x: 95, y: -150}, exp: 2249/2929}
+  - {name: fang, index: 5, value: 100, position: {x: -140, y: -135}, exp: 600/600, rotated: true}
+  - {name: fang, index: 6, value: 100, position: {x: 140, y: -135}, exp: 275/600, rotated: true}
+  - {name: mustang, index: 7, value: 200, level: 2, position: {x: -5, y: -300}, exp: 1450/2704}
+  - {name: sledgehammer, index: 8, value: 200, position: {x: 0, y: -155}, exp: 1085/1300, rotated: true}
+  - {name: crawler, index: 9, value: 100, position: {x: 245, y: -300}, exp: 152/450}
+  - {name: fang, index: 10, value: 100, position: {x: 140, y: -225}, exp: 600/600, rotated: true}
+  - {name: fang, index: 11, value: 100, position: {x: -140, y: -225}, exp: 281/600, rotated: true}
+  - {name: sledgehammer, index: 12, value: 200, position: {x: 200, y: -165}, exp: 1300/1300, rotated: true}
+  - {name: hound, index: 14, value: 100, position: {x: -350, y: 290}, exp: 453/750}
+  - {name: sledgehammer, index: 15, value: 200, level: 2, position: {x: -200, y: -165}, exp: 1019/2929, rotated: true}
+  - {name: fang, index: 16, value: 100, position: {x: 5, y: -120}, exp: 101/600}
+  - {name: fang, index: 18, value: 100, position: {x: 310, y: 285}}
+  - {name: stormcaller, index: 19, value: 200, position: {x: -35, y: -150}, exp: 911/1100}
+  - {name: crawler, index: 20, value: 100, position: {x: -200, y: -215}, exp: 26/450, rotated: true}
+  - {name: crawler, index: 21, value: 100, position: {x: 200, y: -215}, exp: 3/450, rotated: true}
+  - {name: crawler, index: 22, value: 100, position: {x: -245, y: -300}, exp: 92/450}
   constructions:
   - {name: defensive_wall, index: 0, position: {x: 140, y: -55}}
   - {name: anti_armor_turret, index: 1, position: {x: -140, y: -100}}
 red:
   random_state: [6868059697799240142, 346867827484501981, 13490561964508899774, 8624957454000691085]
   reactor_core: 1329
-  supply: 1300
+  supply: 1100
+  reinforce_choice: -1
   unlocked_units: [steel_ball, fang, crawler, stormcaller, arclight, phoenix, scorpion]
   tower_strengthen_levels: [1, 0]
   equipment:
+  - {name: laser_sights, fitted: {unit: 19, slot: 0}}
+  - {name: secondary_laser_sight, fitted: {unit: 3, slot: 0}}
+  - {name: secondary_laser_sight, fitted: {unit: 4, slot: 0}}
+  - {name: secondary_laser_sight, fitted: {unit: 15, slot: 0}}
   - {name: secondary_fire_control_system}
+  - {name: secondary_heavy_armor, fitted: {unit: 6, slot: 0}}
+  - {name: secondary_heavy_armor, fitted: {unit: 17, slot: 0}}
+  - {name: secondary_heavy_armor, fitted: {unit: 18, slot: 0}}
   battle_skills:
   - {index: 0, name: electromagnetic_impact, cooldown: 2}
   - {index: 1, name: electromagnetic_blast, cooldown: 2}
@@ -747,28 +773,28 @@ red:
     arclight: [charged_shot]
     phoenix: [jump_drive]
   units:
-  - {name: fang, index: 0, position: {x: 170, y: -215}, exp: 360/600, rotated: true, value: 100}
-  - {name: fang, index: 1, position: {x: 0, y: -145}, exp: 600/600, rotated: true, value: 100}
-  - {name: fang, index: 2, position: {x: -170, y: -225}, exp: 456/600, rotated: true, value: 100}
-  - {name: steel_ball, index: 3, position: {x: -45, y: -300}, level: 2, exp: 352/2253, equipment: [secondary_laser_sight], value: 200}
-  - {name: steel_ball, index: 4, position: {x: 25, y: -300}, level: 2, exp: 550/2253, equipment: [secondary_laser_sight], value: 200}
-  - {name: arclight, index: 5, position: {x: 90, y: -120}, exp: 711/750, value: 100}
-  - {name: arclight, index: 6, position: {x: -110, y: -120}, level: 2, exp: 307/1690, equipment: [secondary_heavy_armor], value: 100}
-  - {name: phoenix, index: 7, position: {x: -210, y: -280}, level: 2, exp: 2929/2929, rotated: true, value: 200}
-  - {name: crawler, index: 8, position: {x: -10, y: -285}, exp: 271/450, rotated: true, value: 100}
-  - {name: crawler, index: 9, position: {x: -90, y: -245}, level: 2, exp: 209/1014, rotated: true, value: 100}
-  - {name: crawler, index: 10, position: {x: 70, y: -245}, exp: 83/450, rotated: true, value: 100}
-  - {name: arclight, index: 11, position: {x: 20, y: -120}, level: 2, exp: 1191/1690, value: 100}
-  - {name: arclight, index: 12, position: {x: -20, y: -120}, exp: 686/750, value: 100}
-  - {name: crawler, index: 13, position: {x: 55, y: -150}, exp: 70/450, value: 100}
-  - {name: crawler, index: 14, position: {x: -65, y: -150}, exp: 98/450, value: 100}
-  - {name: arclight, index: 15, position: {x: -70, y: -120}, exp: 672/750, equipment: [secondary_laser_sight], value: 100}
-  - {name: phoenix, index: 16, position: {x: 240, y: -280}, exp: 758/1300, rotated: true, value: 200}
-  - {name: scorpion, index: 17, position: {x: 105, y: -145}, exp: 375/1500, equipment: [secondary_heavy_armor], value: 300}
-  - {name: scorpion, index: 18, position: {x: -165, y: -155}, exp: 760/1500, equipment: [secondary_heavy_armor], value: 300}
-  - {name: stormcaller, index: 19, position: {x: -65, y: -170}, exp: 1100/1100, equipment: [laser_sights], value: 200}
-  - {name: stormcaller, index: 20, position: {x: -125, y: -140}, exp: 684/1100, value: 200}
-  - {name: stormcaller, index: 21, position: {x: 55, y: -130}, exp: 1100/1100, value: 200}
+  - {name: fang, index: 0, value: 100, position: {x: 170, y: -215}, exp: 360/600, rotated: true}
+  - {name: fang, index: 1, value: 100, position: {x: 0, y: -145}, exp: 600/600, rotated: true}
+  - {name: fang, index: 2, value: 100, position: {x: -170, y: -225}, exp: 456/600, rotated: true}
+  - {name: steel_ball, index: 3, value: 200, level: 2, position: {x: -45, y: -300}, exp: 352/2253}
+  - {name: steel_ball, index: 4, value: 200, level: 2, position: {x: 25, y: -300}, exp: 550/2253}
+  - {name: arclight, index: 5, value: 100, position: {x: 90, y: -120}, exp: 711/750}
+  - {name: arclight, index: 6, value: 100, level: 2, position: {x: -110, y: -120}, exp: 307/1690}
+  - {name: phoenix, index: 7, value: 200, level: 2, position: {x: -210, y: -280}, exp: 2929/2929, rotated: true}
+  - {name: crawler, index: 8, value: 100, position: {x: -10, y: -285}, exp: 271/450, rotated: true}
+  - {name: crawler, index: 9, value: 100, level: 2, position: {x: -90, y: -245}, exp: 209/1014, rotated: true}
+  - {name: crawler, index: 10, value: 100, position: {x: 70, y: -245}, exp: 83/450, rotated: true}
+  - {name: arclight, index: 11, value: 100, level: 2, position: {x: 20, y: -120}, exp: 1191/1690}
+  - {name: arclight, index: 12, value: 100, position: {x: -20, y: -120}, exp: 686/750}
+  - {name: crawler, index: 13, value: 100, position: {x: 55, y: -150}, exp: 70/450}
+  - {name: crawler, index: 14, value: 100, position: {x: -65, y: -150}, exp: 98/450}
+  - {name: arclight, index: 15, value: 100, position: {x: -70, y: -120}, exp: 672/750}
+  - {name: phoenix, index: 16, value: 200, position: {x: 240, y: -280}, exp: 758/1300, rotated: true}
+  - {name: scorpion, index: 17, value: 300, position: {x: 105, y: -145}, exp: 375/1500}
+  - {name: scorpion, index: 18, value: 300, position: {x: -165, y: -155}, exp: 760/1500}
+  - {name: stormcaller, index: 19, value: 200, position: {x: -65, y: -170}, exp: 1100/1100}
+  - {name: stormcaller, index: 20, value: 200, position: {x: -125, y: -140}, exp: 684/1100}
+  - {name: stormcaller, index: 21, value: 200, position: {x: 55, y: -130}, exp: 1100/1100}
   constructions:
   - {name: defensive_wall, index: 0, position: {x: 140, y: -55}}
   - {name: anti_armor_turret, index: 1, position: {x: -140, y: -100}}
@@ -777,6 +803,7 @@ kind: action
 round: 7
 blue:
 - {type: choose_reinforce_item, index: 4, name: refund_50}
+- {type: active_energy_tower_skill, name: rapid_resupply}
 - {type: release_commander_skill, index: 1, name: field_recovery, target: {unit: 7}}
 - {type: buy_unit, name: crawler}
 - {type: buy_unit, name: stormcaller}
@@ -797,6 +824,7 @@ blue:
 - {type: strengthen_tower, tower: 1}
 red:
 - {type: choose_reinforce_item, index: 0, name: efficient_tech_research}
+- {type: active_energy_tower_skill, name: rapid_resupply}
 - {type: buy_unit, name: stormcaller}
 - {type: buy_unit, name: fang}
 - {type: upgrade_technology, unit: stormcaller, tech: heavy_missile}

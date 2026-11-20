@@ -58,6 +58,14 @@ Elo labels and final results are retained from the collected documents because
 native GRBR does not carry those labels. This exception does not change
 ordinary append-only publication.
 
+A subsequent one-time migration restored native Rapid Resupply and regenerated
+all 2,562 tournament matches for the current match schema. The migration
+decoded the inverse deposit convention through the previous GRBR writer
+and converted with mechcore master at commit `6a2088c1`. The original match
+headers, opening decisions and result segments were retained, including
+Elo labels and recorded technology loadouts. The standard append-only rule
+continues to govern ordinary publication.
+
 ## Tournament verification
 
 The `Tournament matches` workflow runs on additions under `tournaments/` on

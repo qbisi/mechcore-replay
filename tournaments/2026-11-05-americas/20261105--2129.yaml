@@ -108,23 +108,23 @@ random_state: [9392128385617492039, 18051593870708210618, 4079240684697094859, 3
 blue:
   random_state: [18212487654197763381, 9829079619889997909, 1199117110494492617, 12981716433094373491]
   reactor_core: 4500
-  supply: 400
+  supply: 200
   unlocked_units: [arclight, sabertooth]
   tower_strengthen_levels: [0, 0]
   next_index: {unit: 5, contraption: 0}
   officers: [speed_specialist]
   units:
-  - {name: arclight, index: 0, position: {x: 0, y: -160}, source: joined, value: 100}
-  - {name: arclight, index: 1, position: {x: -20, y: -160}, source: joined, value: 100}
-  - {name: arclight, index: 2, position: {x: 0, y: -180}, source: joined, value: 100}
-  - {name: sabertooth, index: 3, position: {x: -25, y: -185}, source: joined, value: 200}
-  - {name: sabertooth, index: 4, position: {x: -5, y: -135}, source: joined, value: 200}
+  - {name: arclight, index: 0, value: 100, source: joined, position: {x: 0, y: -160}}
+  - {name: arclight, index: 1, value: 100, source: joined, position: {x: -20, y: -160}}
+  - {name: arclight, index: 2, value: 100, source: joined, position: {x: 0, y: -180}}
+  - {name: sabertooth, index: 3, value: 200, source: joined, position: {x: -25, y: -185}}
+  - {name: sabertooth, index: 4, value: 200, source: joined, position: {x: -5, y: -135}}
   constructions:
   - {name: defensive_wall, index: 0, position: {x: -140, y: -55}}
 red:
   random_state: [7784604054638971404, 13773121440752643863, 7207711702215222174, 6268171374640486808]
   reactor_core: 4500
-  supply: 450
+  supply: 250
   unlocked_units: [crawler, sledgehammer]
   tower_strengthen_levels: [0, 0]
   battle_skills:
@@ -132,11 +132,11 @@ red:
   next_index: {unit: 5, contraption: 0}
   officers: [training_specialist]
   units:
-  - {name: crawler, index: 0, position: {x: -5, y: -160}, source: joined, value: 100}
-  - {name: crawler, index: 1, position: {x: -5, y: -140}, source: joined, value: 100}
-  - {name: crawler, index: 2, position: {x: -5, y: -180}, source: joined, value: 100}
-  - {name: sledgehammer, index: 3, position: {x: -5, y: -120}, source: joined, value: 200}
-  - {name: sledgehammer, index: 4, position: {x: -5, y: -200}, source: joined, value: 200}
+  - {name: crawler, index: 0, value: 100, source: joined, position: {x: -5, y: -160}}
+  - {name: crawler, index: 1, value: 100, source: joined, position: {x: -5, y: -140}}
+  - {name: crawler, index: 2, value: 100, source: joined, position: {x: -5, y: -180}}
+  - {name: sledgehammer, index: 3, value: 200, source: joined, position: {x: -5, y: -120}}
+  - {name: sledgehammer, index: 4, value: 200, source: joined, position: {x: -5, y: -200}}
   constructions:
   - {name: defensive_wall, index: 0, position: {x: -140, y: -55}}
 ---
@@ -153,7 +153,6 @@ blue:
 - {type: move_unit, index: 4, position: {x: -285, y: -25}}
 - {type: move_unit, index: 5, position: {x: -210, y: -125}, rotated: true}
 - {type: move_unit, index: 6, position: {x: -245, y: -20}}
-- {type: active_energy_tower_skill, name: deposit_supply}
 red:
 - {type: active_blueprint, name: field_recovery}
 - {type: release_commander_skill, index: 1, name: field_recovery, target: {unit: 3}}
@@ -169,7 +168,6 @@ red:
 - {type: move_unit, index: 5, position: {x: 150, y: -285}, rotated: true}
 - {type: move_unit, index: 6, position: {x: -120, y: -190}}
 - {type: move_unit, index: 7, position: {x: 120, y: -190}}
-- {type: active_energy_tower_skill, name: deposit_supply}
 ---
 kind: state
 round: 2
@@ -180,25 +178,27 @@ reinforce_offers: [advanced_shield_device, mobile_beacon_card, electromagnetic_i
 blue:
   random_state: [18212487654197763381, 9829079619889997909, 1199117110494492617, 12981716433094373491]
   reactor_core: 4500
-  supply: 600
+  supply: 400
+  reinforce_choice: -1
   unlocked_units: [crawler, arclight, sabertooth]
   tower_strengthen_levels: [0, 0]
   next_index: {unit: 7, contraption: 0}
   officers: [speed_specialist]
   units:
-  - {name: arclight, index: 0, position: {x: 140, y: -190}, exp: 344/750, value: 100}
-  - {name: arclight, index: 1, position: {x: -280, y: -50}, exp: 338/750, value: 100}
-  - {name: arclight, index: 2, position: {x: -210, y: -80}, exp: 163/750, value: 100}
-  - {name: sabertooth, index: 3, position: {x: -215, y: -55}, exp: 702/1300, value: 200}
-  - {name: sabertooth, index: 4, position: {x: -285, y: -25}, exp: 302/1300, value: 200}
-  - {name: crawler, index: 5, position: {x: -210, y: -125}, exp: 85/450, rotated: true, value: 100}
-  - {name: crawler, index: 6, position: {x: -245, y: -20}, exp: 29/450, value: 100}
+  - {name: arclight, index: 0, value: 100, position: {x: 140, y: -190}, exp: 344/750}
+  - {name: arclight, index: 1, value: 100, position: {x: -280, y: -50}, exp: 338/750}
+  - {name: arclight, index: 2, value: 100, position: {x: -210, y: -80}, exp: 163/750}
+  - {name: sabertooth, index: 3, value: 200, position: {x: -215, y: -55}, exp: 702/1300}
+  - {name: sabertooth, index: 4, value: 200, position: {x: -285, y: -25}, exp: 302/1300}
+  - {name: crawler, index: 5, value: 100, position: {x: -210, y: -125}, exp: 85/450, rotated: true}
+  - {name: crawler, index: 6, value: 100, position: {x: -245, y: -20}, exp: 29/450}
   constructions:
   - {name: defensive_wall, index: 0, position: {x: -140, y: -55}}
 red:
   random_state: [7784604054638971404, 13773121440752643863, 7207711702215222174, 6268171374640486808]
   reactor_core: 4000
-  supply: 600
+  supply: 400
+  reinforce_choice: -1
   unlocked_units: [crawler, sledgehammer, hound]
   blueprints: [field_recovery]
   tower_strengthen_levels: [0, 0]
@@ -208,13 +208,13 @@ red:
   next_index: {unit: 8, contraption: 0}
   officers: [training_specialist]
   units:
-  - {name: crawler, index: 0, position: {x: -150, y: -285}, rotated: true, value: 100}
-  - {name: crawler, index: 1, position: {x: 120, y: -225}, exp: 101/450, rotated: true, value: 100}
-  - {name: crawler, index: 2, position: {x: -120, y: -225}, rotated: true, value: 100}
-  - {name: sledgehammer, index: 4, position: {x: -10, y: -155}, exp: 540/1300, rotated: true, value: 200}
-  - {name: crawler, index: 5, position: {x: 150, y: -285}, exp: 61/450, rotated: true, value: 100}
-  - {name: hound, index: 6, position: {x: -120, y: -190}, exp: 100/750, value: 100}
-  - {name: hound, index: 7, position: {x: 120, y: -190}, exp: 181/750, value: 100}
+  - {name: crawler, index: 0, value: 100, position: {x: -150, y: -285}, rotated: true}
+  - {name: crawler, index: 1, value: 100, position: {x: 120, y: -225}, exp: 101/450, rotated: true}
+  - {name: crawler, index: 2, value: 100, position: {x: -120, y: -225}, rotated: true}
+  - {name: sledgehammer, index: 4, value: 200, position: {x: -10, y: -155}, exp: 540/1300, rotated: true}
+  - {name: crawler, index: 5, value: 100, position: {x: 150, y: -285}, exp: 61/450, rotated: true}
+  - {name: hound, index: 6, value: 100, position: {x: -120, y: -190}, exp: 100/750}
+  - {name: hound, index: 7, value: 100, position: {x: 120, y: -190}, exp: 181/750}
   constructions:
   - {name: defensive_wall, index: 0, position: {x: -140, y: -55}}
 ---
@@ -228,7 +228,6 @@ blue:
 - {type: move_unit, index: 7, position: {x: -245, y: -180}}
 - {type: move_unit, index: 8, position: {x: -310, y: 35}}
 - {type: release_commander_skill, index: 0, name: mobile_beacon_card, target: {area: [{x: -249, y: -37}, {x: -187, y: 96}, {x: -74, y: 103}]}}
-- {type: active_energy_tower_skill, name: deposit_supply}
 red:
 - {type: choose_reinforce_item, index: 4, name: refund_50}
 - {type: release_commander_skill, index: 0, name: intensive_training, target: {unit: 4}}
@@ -240,7 +239,6 @@ red:
 - {type: move_unit, index: 9, position: {x: 280, y: -190}}
 - {type: upgrade_unit, index: 8}
 - {type: release_contraption, name: missile, position: {x: 273, y: -10}}
-- {type: active_energy_tower_skill, name: deposit_supply}
 ---
 kind: state
 round: 3
@@ -251,7 +249,8 @@ reinforce_offers: [stormcaller_1x_lv2, phantom_ray_1x_lv2, farseer_1x_lv1, sledg
 blue:
   random_state: [18212487654197763381, 9829079619889997909, 1199117110494492617, 12981716433094373491]
   reactor_core: 4250
-  supply: 900
+  supply: 700
+  reinforce_choice: -1
   unlocked_units: [mustang, crawler, arclight, sabertooth]
   tower_strengthen_levels: [0, 0]
   battle_skills:
@@ -259,21 +258,22 @@ blue:
   next_index: {unit: 9, contraption: 0}
   officers: [speed_specialist]
   units:
-  - {name: arclight, index: 0, position: {x: 140, y: -190}, exp: 750/750, value: 100}
-  - {name: arclight, index: 1, position: {x: -280, y: -50}, exp: 338/750, value: 100}
-  - {name: arclight, index: 2, position: {x: -210, y: -80}, exp: 436/750, value: 100}
-  - {name: sabertooth, index: 3, position: {x: -215, y: -55}, exp: 799/1300, value: 200}
-  - {name: sabertooth, index: 4, position: {x: -285, y: -25}, exp: 432/1300, value: 200}
-  - {name: crawler, index: 5, position: {x: -210, y: -125}, exp: 166/450, rotated: true, value: 100}
-  - {name: crawler, index: 6, position: {x: -245, y: -20}, exp: 29/450, value: 100}
-  - {name: mustang, index: 7, position: {x: -245, y: -180}, exp: 280/1200, value: 200}
-  - {name: crawler, index: 8, position: {x: -310, y: 35}, value: 100}
+  - {name: arclight, index: 0, value: 100, position: {x: 140, y: -190}, exp: 750/750}
+  - {name: arclight, index: 1, value: 100, position: {x: -280, y: -50}, exp: 338/750}
+  - {name: arclight, index: 2, value: 100, position: {x: -210, y: -80}, exp: 436/750}
+  - {name: sabertooth, index: 3, value: 200, position: {x: -215, y: -55}, exp: 799/1300}
+  - {name: sabertooth, index: 4, value: 200, position: {x: -285, y: -25}, exp: 432/1300}
+  - {name: crawler, index: 5, value: 100, position: {x: -210, y: -125}, exp: 166/450, rotated: true}
+  - {name: crawler, index: 6, value: 100, position: {x: -245, y: -20}, exp: 29/450}
+  - {name: mustang, index: 7, value: 200, position: {x: -245, y: -180}, exp: 280/1200}
+  - {name: crawler, index: 8, value: 100, position: {x: -310, y: 35}}
   constructions:
   - {name: defensive_wall, index: 0, position: {x: -140, y: -55}}
 red:
   random_state: [7784604054638971404, 13773121440752643863, 7207711702215222174, 6268171374640486808]
   reactor_core: 4000
-  supply: 800
+  supply: 600
+  reinforce_choice: -1
   unlocked_units: [crawler, sledgehammer, hound, centurion]
   blueprints: [field_recovery]
   tower_strengthen_levels: [0, 0]
@@ -283,14 +283,14 @@ red:
   next_index: {unit: 10, contraption: 1}
   officers: [training_specialist]
   units:
-  - {name: crawler, index: 0, position: {x: -150, y: -285}, exp: 46/450, rotated: true, value: 100}
-  - {name: crawler, index: 1, position: {x: 120, y: -225}, exp: 197/450, rotated: true, value: 100}
-  - {name: crawler, index: 2, position: {x: -120, y: -225}, exp: 46/450, rotated: true, value: 100}
-  - {name: crawler, index: 5, position: {x: 150, y: -285}, exp: 153/450, rotated: true, value: 100}
-  - {name: hound, index: 6, position: {x: -120, y: -190}, exp: 146/750, value: 100}
-  - {name: hound, index: 7, position: {x: 120, y: -190}, exp: 401/750, value: 100}
-  - {name: centurion, index: 8, position: {x: 155, y: -195}, level: 2, exp: 1824/5070, value: 300}
-  - {name: hound, index: 9, position: {x: 280, y: -190}, exp: 272/750, value: 100}
+  - {name: crawler, index: 0, value: 100, position: {x: -150, y: -285}, exp: 46/450, rotated: true}
+  - {name: crawler, index: 1, value: 100, position: {x: 120, y: -225}, exp: 197/450, rotated: true}
+  - {name: crawler, index: 2, value: 100, position: {x: -120, y: -225}, exp: 46/450, rotated: true}
+  - {name: crawler, index: 5, value: 100, position: {x: 150, y: -285}, exp: 153/450, rotated: true}
+  - {name: hound, index: 6, value: 100, position: {x: -120, y: -190}, exp: 146/750}
+  - {name: hound, index: 7, value: 100, position: {x: 120, y: -190}, exp: 401/750}
+  - {name: centurion, index: 8, value: 300, level: 2, position: {x: 155, y: -195}, exp: 1824/5070}
+  - {name: hound, index: 9, value: 100, position: {x: 280, y: -190}, exp: 272/750}
   constructions:
   - {name: defensive_wall, index: 0, position: {x: -140, y: -55}}
 ---
@@ -307,7 +307,6 @@ blue:
 - {type: upgrade_unit, index: 0}
 - {type: release_contraption, name: interceptor, position: {x: -255, y: -45}}
 - {type: release_contraption, name: missile, position: {x: -273, y: -12}}
-- {type: active_energy_tower_skill, name: deposit_supply}
 red:
 - {type: choose_reinforce_item, index: 2, name: farseer_1x_lv1}
 - {type: release_commander_skill, index: 1, name: field_recovery, target: {unit: 10}}
@@ -321,7 +320,6 @@ red:
 - {type: move_unit, index: 11, position: {x: 120, y: -170}}
 - {type: move_unit, index: 13, position: {x: 180, y: -200}}
 - {type: move_unit, index: 12, position: {x: 10, y: -140}}
-- {type: active_energy_tower_skill, name: deposit_supply}
 ---
 kind: state
 round: 4
@@ -332,7 +330,8 @@ reinforce_offers: [advanced_targeting_system, mustang_production_line, absorptio
 blue:
   random_state: [18212487654197763381, 9829079619889997909, 1199117110494492617, 12981716433094373491]
   reactor_core: 4250
-  supply: 1000
+  supply: 800
+  reinforce_choice: -1
   unlocked_units: [mustang, crawler, arclight, sabertooth, farseer]
   tower_strengthen_levels: [0, 0]
   battle_skills:
@@ -342,18 +341,18 @@ blue:
   techs:
     sabertooth: [range_enhancement]
   units:
-  - {name: arclight, index: 0, position: {x: 140, y: -190}, level: 2, exp: 536/1690, value: 100}
-  - {name: arclight, index: 1, position: {x: -280, y: -50}, exp: 385/750, value: 100}
-  - {name: arclight, index: 2, position: {x: -210, y: -80}, exp: 664/750, value: 100}
-  - {name: sabertooth, index: 3, position: {x: -215, y: -55}, exp: 1300/1300, value: 200}
-  - {name: sabertooth, index: 4, position: {x: -285, y: -25}, exp: 1300/1300, value: 200}
-  - {name: crawler, index: 5, position: {x: -210, y: -125}, exp: 172/450, rotated: true, value: 100}
-  - {name: crawler, index: 6, position: {x: -245, y: -20}, exp: 39/450, value: 100}
-  - {name: mustang, index: 7, position: {x: -245, y: -180}, exp: 680/1200, value: 200}
-  - {name: crawler, index: 8, position: {x: -310, y: 35}, value: 100}
-  - {name: farseer, index: 9, position: {x: -255, y: -105}, exp: 375/1800, value: 300}
-  - {name: arclight, index: 10, position: {x: -350, y: 20}, exp: 241/750, value: 100}
-  - {name: crawler, index: 11, position: {x: -140, y: -215}, exp: 174/450, rotated: true, value: 100}
+  - {name: arclight, index: 0, value: 100, level: 2, position: {x: 140, y: -190}, exp: 536/1690}
+  - {name: arclight, index: 1, value: 100, position: {x: -280, y: -50}, exp: 385/750}
+  - {name: arclight, index: 2, value: 100, position: {x: -210, y: -80}, exp: 664/750}
+  - {name: sabertooth, index: 3, value: 200, position: {x: -215, y: -55}, exp: 1300/1300}
+  - {name: sabertooth, index: 4, value: 200, position: {x: -285, y: -25}, exp: 1300/1300}
+  - {name: crawler, index: 5, value: 100, position: {x: -210, y: -125}, exp: 172/450, rotated: true}
+  - {name: crawler, index: 6, value: 100, position: {x: -245, y: -20}, exp: 39/450}
+  - {name: mustang, index: 7, value: 200, position: {x: -245, y: -180}, exp: 680/1200}
+  - {name: crawler, index: 8, value: 100, position: {x: -310, y: 35}}
+  - {name: farseer, index: 9, value: 300, position: {x: -255, y: -105}, exp: 375/1800}
+  - {name: arclight, index: 10, value: 100, position: {x: -350, y: 20}, exp: 241/750}
+  - {name: crawler, index: 11, value: 100, position: {x: -140, y: -215}, exp: 174/450, rotated: true}
   constructions:
   - {name: defensive_wall, index: 0, position: {x: -140, y: -55}}
   contraptions:
@@ -361,7 +360,8 @@ blue:
 red:
   random_state: [7784604054638971404, 13773121440752643863, 7207711702215222174, 6268171374640486808]
   reactor_core: 3033
-  supply: 1000
+  supply: 800
+  reinforce_choice: -1
   unlocked_units: [crawler, sledgehammer, arclight, farseer, hound, centurion]
   blueprints: [field_recovery]
   tower_strengthen_levels: [0, 0]
@@ -374,17 +374,17 @@ red:
     arclight: [range_enhancement]
     hound: [incendiary_bomb]
   units:
-  - {name: crawler, index: 0, position: {x: -150, y: -285}, exp: 62/450, rotated: true, value: 100}
-  - {name: crawler, index: 1, position: {x: 120, y: -225}, exp: 218/450, rotated: true, value: 100}
-  - {name: crawler, index: 2, position: {x: -120, y: -225}, exp: 62/450, rotated: true, value: 100}
-  - {name: crawler, index: 5, position: {x: 150, y: -285}, exp: 172/450, rotated: true, value: 100}
-  - {name: hound, index: 6, position: {x: -120, y: -190}, exp: 162/750, value: 100}
-  - {name: hound, index: 7, position: {x: 120, y: -190}, exp: 424/750, value: 100}
-  - {name: centurion, index: 8, position: {x: 155, y: -195}, level: 2, exp: 1926/5070, value: 300}
-  - {name: hound, index: 9, position: {x: 280, y: -190}, exp: 334/750, value: 100}
-  - {name: arclight, index: 11, position: {x: 120, y: -170}, exp: 346/750, value: 100}
-  - {name: arclight, index: 12, position: {x: 10, y: -140}, exp: 296/750, value: 100}
-  - {name: arclight, index: 13, position: {x: 180, y: -200}, exp: 419/750, value: 100}
+  - {name: crawler, index: 0, value: 100, position: {x: -150, y: -285}, exp: 62/450, rotated: true}
+  - {name: crawler, index: 1, value: 100, position: {x: 120, y: -225}, exp: 218/450, rotated: true}
+  - {name: crawler, index: 2, value: 100, position: {x: -120, y: -225}, exp: 62/450, rotated: true}
+  - {name: crawler, index: 5, value: 100, position: {x: 150, y: -285}, exp: 172/450, rotated: true}
+  - {name: hound, index: 6, value: 100, position: {x: -120, y: -190}, exp: 162/750}
+  - {name: hound, index: 7, value: 100, position: {x: 120, y: -190}, exp: 424/750}
+  - {name: centurion, index: 8, value: 300, level: 2, position: {x: 155, y: -195}, exp: 1926/5070}
+  - {name: hound, index: 9, value: 100, position: {x: 280, y: -190}, exp: 334/750}
+  - {name: arclight, index: 11, value: 100, position: {x: 120, y: -170}, exp: 346/750}
+  - {name: arclight, index: 12, value: 100, position: {x: 10, y: -140}, exp: 296/750}
+  - {name: arclight, index: 13, value: 100, position: {x: 180, y: -200}, exp: 419/750}
   constructions:
   - {name: defensive_wall, index: 0, position: {x: -140, y: -55}}
 ---
@@ -398,9 +398,9 @@ blue:
 - {type: move_unit, index: 13, position: {x: -310, y: 195}}
 - {type: upgrade_unit, index: 3}
 - {type: upgrade_unit, index: 4}
-- {type: active_energy_tower_skill, name: deposit_supply}
 red:
 - {type: choose_reinforce_item, index: 4, name: refund_50}
+- {type: active_energy_tower_skill, name: rapid_resupply}
 - {type: release_commander_skill, index: 0, name: intensive_training, target: {unit: 0}}
 - {type: release_commander_skill, index: 1, name: field_recovery, target: {unit: 0}}
 - {type: unlock_unit, name: rhino}
@@ -424,7 +424,8 @@ reinforce_offers: [phantom_ray_1x_lv3, phoenix_1x_lv3, fang_3x_lv3, overlord_1x_
 blue:
   random_state: [18212487654197763381, 9829079619889997909, 1199117110494492617, 12981716433094373491]
   reactor_core: 3700
-  supply: 1200
+  supply: 1000
+  reinforce_choice: -1
   unlocked_units: [mustang, crawler, arclight, sabertooth, farseer]
   tower_strengthen_levels: [0, 0]
   battle_skills:
@@ -434,26 +435,27 @@ blue:
   techs:
     sabertooth: [range_enhancement]
   units:
-  - {name: arclight, index: 0, position: {x: 140, y: -190}, level: 2, exp: 1128/1690, value: 100}
-  - {name: arclight, index: 1, position: {x: -280, y: -50}, exp: 470/750, value: 100}
-  - {name: arclight, index: 2, position: {x: -210, y: -80}, exp: 750/750, value: 100}
-  - {name: sabertooth, index: 3, position: {x: -215, y: -55}, level: 2, exp: 371/2929, value: 200}
-  - {name: sabertooth, index: 4, position: {x: -285, y: -25}, level: 2, exp: 85/2929, value: 200}
-  - {name: crawler, index: 5, position: {x: -210, y: -125}, exp: 257/450, rotated: true, value: 100}
-  - {name: crawler, index: 6, position: {x: -245, y: -20}, exp: 39/450, value: 100}
-  - {name: mustang, index: 7, position: {x: -245, y: -180}, exp: 1200/1200, value: 200}
-  - {name: crawler, index: 8, position: {x: -310, y: 35}, value: 100}
-  - {name: farseer, index: 9, position: {x: -255, y: -105}, exp: 1800/1800, value: 300}
-  - {name: arclight, index: 10, position: {x: -350, y: 20}, exp: 649/750, value: 100}
-  - {name: crawler, index: 11, position: {x: -140, y: -215}, exp: 216/450, rotated: true, value: 100}
-  - {name: arclight, index: 12, position: {x: -150, y: -80}, exp: 445/750, value: 100}
-  - {name: crawler, index: 13, position: {x: -310, y: 195}, value: 100}
+  - {name: arclight, index: 0, value: 100, level: 2, position: {x: 140, y: -190}, exp: 1128/1690}
+  - {name: arclight, index: 1, value: 100, position: {x: -280, y: -50}, exp: 470/750}
+  - {name: arclight, index: 2, value: 100, position: {x: -210, y: -80}, exp: 750/750}
+  - {name: sabertooth, index: 3, value: 200, level: 2, position: {x: -215, y: -55}, exp: 371/2929}
+  - {name: sabertooth, index: 4, value: 200, level: 2, position: {x: -285, y: -25}, exp: 85/2929}
+  - {name: crawler, index: 5, value: 100, position: {x: -210, y: -125}, exp: 257/450, rotated: true}
+  - {name: crawler, index: 6, value: 100, position: {x: -245, y: -20}, exp: 39/450}
+  - {name: mustang, index: 7, value: 200, position: {x: -245, y: -180}, exp: 1200/1200}
+  - {name: crawler, index: 8, value: 100, position: {x: -310, y: 35}}
+  - {name: farseer, index: 9, value: 300, position: {x: -255, y: -105}, exp: 1800/1800}
+  - {name: arclight, index: 10, value: 100, position: {x: -350, y: 20}, exp: 649/750}
+  - {name: crawler, index: 11, value: 100, position: {x: -140, y: -215}, exp: 216/450, rotated: true}
+  - {name: arclight, index: 12, value: 100, position: {x: -150, y: -80}, exp: 445/750}
+  - {name: crawler, index: 13, value: 100, position: {x: -310, y: 195}}
   constructions:
   - {name: defensive_wall, index: 0, position: {x: -140, y: -55}}
 red:
   random_state: [7784604054638971404, 13773121440752643863, 7207711702215222174, 6268171374640486808]
   reactor_core: 3033
-  supply: 900
+  supply: 700
+  reinforce_choice: -1
   unlocked_units: [rhino, crawler, sledgehammer, arclight, farseer, hound, centurion]
   blueprints: [field_recovery, mobile_beacon]
   tower_strengthen_levels: [0, 0]
@@ -468,18 +470,18 @@ red:
     arclight: [range_enhancement]
     hound: [incendiary_bomb]
   units:
-  - {name: crawler, index: 1, position: {x: 120, y: -225}, exp: 239/450, rotated: true, value: 100}
-  - {name: crawler, index: 2, position: {x: -120, y: -225}, exp: 62/450, rotated: true, value: 100}
-  - {name: crawler, index: 5, position: {x: 150, y: -285}, exp: 330/450, rotated: true, value: 100}
-  - {name: hound, index: 6, position: {x: -120, y: -190}, exp: 162/750, value: 100}
-  - {name: hound, index: 7, position: {x: 120, y: -190}, exp: 455/750, value: 100}
-  - {name: centurion, index: 8, position: {x: 155, y: -195}, level: 2, exp: 3369/5070, value: 300}
-  - {name: hound, index: 9, position: {x: 280, y: -190}, exp: 604/750, value: 100}
-  - {name: arclight, index: 11, position: {x: 120, y: -170}, exp: 750/750, value: 100}
-  - {name: arclight, index: 12, position: {x: 10, y: -140}, exp: 750/750, value: 100}
-  - {name: arclight, index: 13, position: {x: 180, y: -200}, exp: 750/750, value: 100}
-  - {name: rhino, index: 14, position: {x: 235, y: -25}, level: 2, exp: 174/2591, value: 200}
-  - {name: rhino, index: 15, position: {x: 285, y: -45}, level: 3, exp: 1790/4096, value: 200}
+  - {name: crawler, index: 1, value: 100, position: {x: 120, y: -225}, exp: 239/450, rotated: true}
+  - {name: crawler, index: 2, value: 100, position: {x: -120, y: -225}, exp: 62/450, rotated: true}
+  - {name: crawler, index: 5, value: 100, position: {x: 150, y: -285}, exp: 330/450, rotated: true}
+  - {name: hound, index: 6, value: 100, position: {x: -120, y: -190}, exp: 162/750}
+  - {name: hound, index: 7, value: 100, position: {x: 120, y: -190}, exp: 455/750}
+  - {name: centurion, index: 8, value: 300, level: 2, position: {x: 155, y: -195}, exp: 3369/5070}
+  - {name: hound, index: 9, value: 100, position: {x: 280, y: -190}, exp: 604/750}
+  - {name: arclight, index: 11, value: 100, position: {x: 120, y: -170}, exp: 750/750}
+  - {name: arclight, index: 12, value: 100, position: {x: 10, y: -140}, exp: 750/750}
+  - {name: arclight, index: 13, value: 100, position: {x: 180, y: -200}, exp: 750/750}
+  - {name: rhino, index: 14, value: 200, level: 2, position: {x: 235, y: -25}, exp: 174/2591}
+  - {name: rhino, index: 15, value: 200, level: 3, position: {x: 285, y: -45}, exp: 1790/4096}
   constructions:
   - {name: defensive_wall, index: 0, position: {x: -140, y: -55}}
 ---
@@ -499,7 +501,6 @@ blue:
 - {type: release_contraption, name: missile, position: {x: -237, y: -12}}
 - {type: release_contraption, name: missile, position: {x: -298, y: -17}}
 - {type: release_contraption, name: interceptor, position: {x: -275, y: -75}}
-- {type: active_energy_tower_skill, name: deposit_supply}
 red:
 - {type: choose_reinforce_item, index: 2, name: fang_3x_lv3}
 - {type: release_commander_skill, index: 1, name: field_recovery, target: {unit: 17}}
@@ -512,7 +513,6 @@ red:
 - {type: move_unit, index: 20, position: {x: -65, y: -25}}
 - {type: unlock_unit, name: mustang}
 - {type: release_commander_skill, index: 2, name: mobile_beacon, target: {area: [{x: -70, y: -19}, {x: -138, y: 168}, {x: -142, y: 179}]}}
-- {type: active_energy_tower_skill, name: deposit_supply}
 ---
 kind: state
 round: 6
@@ -524,7 +524,8 @@ reinforce_offers: [efficient_tech_research, intensive_training, underground_thre
 blue:
   random_state: [18212487654197763381, 9829079619889997909, 1199117110494492617, 12981716433094373491]
   reactor_core: 3700
-  supply: 1450
+  supply: 1250
+  reinforce_choice: -1
   unlocked_units: [mustang, crawler, hacker, arclight, phoenix, sabertooth, farseer]
   tower_strengthen_levels: [0, 0]
   battle_skills:
@@ -534,23 +535,23 @@ blue:
   techs:
     sabertooth: [range_enhancement]
   units:
-  - {name: arclight, index: 0, position: {x: 140, y: -190}, level: 2, exp: 1139/1690, value: 100}
-  - {name: arclight, index: 1, position: {x: -280, y: -50}, exp: 750/750, value: 100}
-  - {name: arclight, index: 2, position: {x: -210, y: -80}, level: 2, exp: 572/1690, value: 100}
-  - {name: sabertooth, index: 3, position: {x: -215, y: -55}, level: 2, exp: 1844/2929, value: 200}
-  - {name: sabertooth, index: 4, position: {x: -285, y: -25}, level: 2, exp: 1205/2929, value: 200}
-  - {name: crawler, index: 5, position: {x: -210, y: -125}, exp: 450/450, rotated: true, value: 100}
-  - {name: crawler, index: 6, position: {x: -245, y: -20}, exp: 450/450, value: 100}
-  - {name: mustang, index: 7, position: {x: -245, y: -180}, level: 2, exp: 737/2704, value: 200}
-  - {name: crawler, index: 8, position: {x: -310, y: 35}, exp: 71/450, value: 100}
-  - {name: farseer, index: 9, position: {x: -255, y: -105}, level: 2, exp: 955/4056, value: 300}
-  - {name: arclight, index: 10, position: {x: -350, y: 20}, exp: 750/750, value: 100}
-  - {name: crawler, index: 11, position: {x: -140, y: -215}, exp: 255/450, rotated: true, value: 100}
-  - {name: arclight, index: 12, position: {x: -150, y: -80}, exp: 750/750, value: 100}
-  - {name: crawler, index: 13, position: {x: -310, y: 195}, exp: 40/450, value: 100}
-  - {name: phoenix, index: 14, position: {x: -160, y: -120}, level: 3, exp: 2861/4630, value: 200}
-  - {name: hacker, index: 15, position: {x: -245, y: -75}, exp: 560/560, value: 200}
-  - {name: crawler, index: 16, position: {x: -290, y: -285}, exp: 68/450, rotated: true, value: 100}
+  - {name: arclight, index: 0, value: 100, level: 2, position: {x: 140, y: -190}, exp: 1139/1690}
+  - {name: arclight, index: 1, value: 100, position: {x: -280, y: -50}, exp: 750/750}
+  - {name: arclight, index: 2, value: 100, level: 2, position: {x: -210, y: -80}, exp: 572/1690}
+  - {name: sabertooth, index: 3, value: 200, level: 2, position: {x: -215, y: -55}, exp: 1844/2929}
+  - {name: sabertooth, index: 4, value: 200, level: 2, position: {x: -285, y: -25}, exp: 1205/2929}
+  - {name: crawler, index: 5, value: 100, position: {x: -210, y: -125}, exp: 450/450, rotated: true}
+  - {name: crawler, index: 6, value: 100, position: {x: -245, y: -20}, exp: 450/450}
+  - {name: mustang, index: 7, value: 200, level: 2, position: {x: -245, y: -180}, exp: 737/2704}
+  - {name: crawler, index: 8, value: 100, position: {x: -310, y: 35}, exp: 71/450}
+  - {name: farseer, index: 9, value: 300, level: 2, position: {x: -255, y: -105}, exp: 955/4056}
+  - {name: arclight, index: 10, value: 100, position: {x: -350, y: 20}, exp: 750/750}
+  - {name: crawler, index: 11, value: 100, position: {x: -140, y: -215}, exp: 255/450, rotated: true}
+  - {name: arclight, index: 12, value: 100, position: {x: -150, y: -80}, exp: 750/750}
+  - {name: crawler, index: 13, value: 100, position: {x: -310, y: 195}, exp: 40/450}
+  - {name: phoenix, index: 14, value: 200, level: 3, position: {x: -160, y: -120}, exp: 2861/4630}
+  - {name: hacker, index: 15, value: 200, position: {x: -245, y: -75}, exp: 560/560}
+  - {name: crawler, index: 16, value: 100, position: {x: -290, y: -285}, exp: 68/450, rotated: true}
   constructions:
   - {name: defensive_wall, index: 0, position: {x: -140, y: -55}}
   contraptions:
@@ -558,7 +559,8 @@ blue:
 red:
   random_state: [7784604054638971404, 13773121440752643863, 7207711702215222174, 6268171374640486808]
   reactor_core: 2083
-  supply: 1400
+  supply: 1200
+  reinforce_choice: -1
   unlocked_units: [rhino, mustang, fang, crawler, sledgehammer, arclight, farseer, hound, centurion]
   blueprints: [field_recovery, mobile_beacon]
   tower_strengthen_levels: [0, 0]
@@ -573,22 +575,22 @@ red:
     arclight: [range_enhancement]
     hound: [incendiary_bomb]
   units:
-  - {name: crawler, index: 1, position: {x: 120, y: -225}, exp: 450/450, rotated: true, value: 100}
-  - {name: crawler, index: 2, position: {x: -120, y: -225}, exp: 117/450, rotated: true, value: 100}
-  - {name: crawler, index: 5, position: {x: 150, y: -285}, exp: 450/450, rotated: true, value: 100}
-  - {name: hound, index: 6, position: {x: -120, y: -190}, exp: 191/750, value: 100}
-  - {name: hound, index: 7, position: {x: 120, y: -190}, exp: 532/750, value: 100}
-  - {name: centurion, index: 8, position: {x: 155, y: -195}, level: 2, exp: 3542/5070, value: 300}
-  - {name: hound, index: 9, position: {x: 280, y: -190}, exp: 750/750, value: 100}
-  - {name: arclight, index: 11, position: {x: 120, y: -170}, exp: 750/750, value: 100}
-  - {name: arclight, index: 12, position: {x: 10, y: -140}, exp: 750/750, value: 100}
-  - {name: arclight, index: 13, position: {x: 180, y: -200}, exp: 750/750, value: 100}
-  - {name: rhino, index: 14, position: {x: 235, y: -25}, level: 2, exp: 977/2591, value: 200}
-  - {name: rhino, index: 15, position: {x: 285, y: -45}, level: 3, exp: 3205/4096, value: 200}
-  - {name: fang, index: 16, position: {x: 195, y: -20}, level: 3, exp: 19/2137, value: 100}
-  - {name: fang, index: 18, position: {x: 310, y: 35}, level: 3, value: 100}
-  - {name: rhino, index: 19, position: {x: 285, y: -215}, level: 2, exp: 280/2591, value: 200}
-  - {name: rhino, index: 20, position: {x: -65, y: -25}, level: 2, exp: 952/2591, value: 200}
+  - {name: crawler, index: 1, value: 100, position: {x: 120, y: -225}, exp: 450/450, rotated: true}
+  - {name: crawler, index: 2, value: 100, position: {x: -120, y: -225}, exp: 117/450, rotated: true}
+  - {name: crawler, index: 5, value: 100, position: {x: 150, y: -285}, exp: 450/450, rotated: true}
+  - {name: hound, index: 6, value: 100, position: {x: -120, y: -190}, exp: 191/750}
+  - {name: hound, index: 7, value: 100, position: {x: 120, y: -190}, exp: 532/750}
+  - {name: centurion, index: 8, value: 300, level: 2, position: {x: 155, y: -195}, exp: 3542/5070}
+  - {name: hound, index: 9, value: 100, position: {x: 280, y: -190}, exp: 750/750}
+  - {name: arclight, index: 11, value: 100, position: {x: 120, y: -170}, exp: 750/750}
+  - {name: arclight, index: 12, value: 100, position: {x: 10, y: -140}, exp: 750/750}
+  - {name: arclight, index: 13, value: 100, position: {x: 180, y: -200}, exp: 750/750}
+  - {name: rhino, index: 14, value: 200, level: 2, position: {x: 235, y: -25}, exp: 977/2591}
+  - {name: rhino, index: 15, value: 200, level: 3, position: {x: 285, y: -45}, exp: 3205/4096}
+  - {name: fang, index: 16, value: 100, level: 3, position: {x: 195, y: -20}, exp: 19/2137}
+  - {name: fang, index: 18, value: 100, level: 3, position: {x: 310, y: 35}}
+  - {name: rhino, index: 19, value: 200, level: 2, position: {x: 285, y: -215}, exp: 280/2591}
+  - {name: rhino, index: 20, value: 200, level: 2, position: {x: -65, y: -25}, exp: 952/2591}
   constructions:
   - {name: defensive_wall, index: 0, position: {x: -140, y: -55}}
 ---
@@ -610,9 +612,9 @@ blue:
 - {type: release_contraption, name: missile, position: {x: -296, y: -26}}
 - {type: release_contraption, name: missile, position: {x: -246, y: -23}}
 - {type: release_contraption, name: missile, position: {x: 60, y: -18}}
-- {type: active_energy_tower_skill, name: deposit_supply}
 red:
 - {type: choose_reinforce_item, index: 0, name: efficient_tech_research}
+- {type: active_energy_tower_skill, name: rapid_resupply}
 - {type: release_commander_skill, index: 0, name: intensive_training, target: {unit: 16}}
 - {type: release_commander_skill, index: 1, name: field_recovery, target: {unit: 16}}
 - {type: buy_unit, name: crawler}
@@ -639,7 +641,8 @@ reinforce_offers: [photon_coating, improved_steel_ball, improved_firepower_contr
 blue:
   random_state: [18212487654197763381, 9829079619889997909, 1199117110494492617, 12981716433094373491]
   reactor_core: 3700
-  supply: 1600
+  supply: 1400
+  reinforce_choice: -1
   unlocked_units: [mustang, crawler, hacker, arclight, phoenix, sabertooth, farseer]
   tower_strengthen_levels: [0, 0]
   battle_skills:
@@ -651,25 +654,25 @@ blue:
     hacker: [enhanced_control]
     sabertooth: [range_enhancement]
   units:
-  - {name: arclight, index: 0, position: {x: 140, y: -190}, level: 2, exp: 1406/1690, value: 100}
-  - {name: arclight, index: 1, position: {x: -280, y: -50}, level: 2, exp: 599/1690, value: 100}
-  - {name: arclight, index: 2, position: {x: -210, y: -80}, level: 2, exp: 1247/1690, value: 100}
-  - {name: sabertooth, index: 3, position: {x: -215, y: -55}, level: 2, exp: 2929/2929, value: 200}
-  - {name: sabertooth, index: 4, position: {x: -285, y: -25}, level: 2, exp: 1574/2929, value: 200}
-  - {name: crawler, index: 5, position: {x: -210, y: -125}, exp: 450/450, rotated: true, value: 100}
-  - {name: crawler, index: 6, position: {x: -245, y: -20}, exp: 450/450, value: 100}
-  - {name: mustang, index: 7, position: {x: -245, y: -180}, level: 2, exp: 1763/2704, value: 200}
-  - {name: crawler, index: 8, position: {x: -310, y: 35}, exp: 147/450, value: 100}
-  - {name: farseer, index: 9, position: {x: -255, y: -105}, level: 2, exp: 3006/4056, value: 300}
-  - {name: arclight, index: 10, position: {x: -350, y: 20}, level: 2, exp: 371/1690, value: 100}
-  - {name: crawler, index: 11, position: {x: -140, y: -215}, exp: 423/450, rotated: true, value: 100}
-  - {name: arclight, index: 12, position: {x: -150, y: -80}, level: 2, exp: 848/1690, value: 100}
-  - {name: crawler, index: 13, position: {x: -310, y: 195}, exp: 40/450, value: 100}
-  - {name: phoenix, index: 14, position: {x: -160, y: -120}, level: 3, exp: 4630/4630, value: 200}
-  - {name: hacker, index: 15, position: {x: -245, y: -75}, level: 3, exp: 1083/1995, value: 200}
-  - {name: crawler, index: 16, position: {x: -290, y: -285}, exp: 87/450, rotated: true, value: 100}
-  - {name: hacker, index: 17, position: {x: 95, y: -165}, exp: 52/560, value: 200}
-  - {name: sabertooth, index: 18, position: {x: 95, y: -125}, exp: 267/1300, value: 200}
+  - {name: arclight, index: 0, value: 100, level: 2, position: {x: 140, y: -190}, exp: 1406/1690}
+  - {name: arclight, index: 1, value: 100, level: 2, position: {x: -280, y: -50}, exp: 599/1690}
+  - {name: arclight, index: 2, value: 100, level: 2, position: {x: -210, y: -80}, exp: 1247/1690}
+  - {name: sabertooth, index: 3, value: 200, level: 2, position: {x: -215, y: -55}, exp: 2929/2929}
+  - {name: sabertooth, index: 4, value: 200, level: 2, position: {x: -285, y: -25}, exp: 1574/2929}
+  - {name: crawler, index: 5, value: 100, position: {x: -210, y: -125}, exp: 450/450, rotated: true}
+  - {name: crawler, index: 6, value: 100, position: {x: -245, y: -20}, exp: 450/450}
+  - {name: mustang, index: 7, value: 200, level: 2, position: {x: -245, y: -180}, exp: 1763/2704}
+  - {name: crawler, index: 8, value: 100, position: {x: -310, y: 35}, exp: 147/450}
+  - {name: farseer, index: 9, value: 300, level: 2, position: {x: -255, y: -105}, exp: 3006/4056}
+  - {name: arclight, index: 10, value: 100, level: 2, position: {x: -350, y: 20}, exp: 371/1690}
+  - {name: crawler, index: 11, value: 100, position: {x: -140, y: -215}, exp: 423/450, rotated: true}
+  - {name: arclight, index: 12, value: 100, level: 2, position: {x: -150, y: -80}, exp: 848/1690}
+  - {name: crawler, index: 13, value: 100, position: {x: -310, y: 195}, exp: 40/450}
+  - {name: phoenix, index: 14, value: 200, level: 3, position: {x: -160, y: -120}, exp: 4630/4630}
+  - {name: hacker, index: 15, value: 200, level: 3, position: {x: -245, y: -75}, exp: 1083/1995}
+  - {name: crawler, index: 16, value: 100, position: {x: -290, y: -285}, exp: 87/450, rotated: true}
+  - {name: hacker, index: 17, value: 200, position: {x: 95, y: -165}, exp: 52/560}
+  - {name: sabertooth, index: 18, value: 200, position: {x: 95, y: -125}, exp: 267/1300}
   constructions:
   - {name: defensive_wall, index: 0, position: {x: -140, y: -55}}
   contraptions:
@@ -677,7 +680,8 @@ blue:
 red:
   random_state: [7784604054638971404, 13773121440752643863, 7207711702215222174, 6268171374640486808]
   reactor_core: 841
-  supply: 1300
+  supply: 1100
+  reinforce_choice: -1
   unlocked_units: [rhino, mustang, fang, crawler, sledgehammer, arclight, farseer, hound, void_eye, centurion]
   blueprints: [field_recovery, mobile_beacon, defense_enhancement]
   tower_strengthen_levels: [0, 0]
@@ -693,23 +697,23 @@ red:
     farseer: [photon_emission]
     hound: [incendiary_bomb]
   units:
-  - {name: crawler, index: 1, position: {x: 120, y: -225}, exp: 450/450, rotated: true, value: 100}
-  - {name: crawler, index: 2, position: {x: -120, y: -225}, exp: 450/450, rotated: true, value: 100}
-  - {name: crawler, index: 5, position: {x: 150, y: -285}, exp: 450/450, rotated: true, value: 100}
-  - {name: hound, index: 6, position: {x: -120, y: -190}, exp: 191/750, value: 100}
-  - {name: hound, index: 7, position: {x: 120, y: -190}, exp: 750/750, value: 100}
-  - {name: centurion, index: 8, position: {x: 155, y: -195}, level: 2, exp: 5070/5070, value: 300}
-  - {name: hound, index: 9, position: {x: 280, y: -190}, exp: 750/750, value: 100}
-  - {name: arclight, index: 11, position: {x: 120, y: -170}, level: 2, exp: 706/1690, value: 100}
-  - {name: arclight, index: 12, position: {x: 10, y: -140}, level: 2, exp: 1200/1690, value: 100}
-  - {name: arclight, index: 13, position: {x: 180, y: -200}, level: 3, exp: 386/2671, value: 100}
-  - {name: rhino, index: 14, position: {x: 235, y: -25}, level: 2, exp: 1625/2591, value: 200}
-  - {name: rhino, index: 15, position: {x: 285, y: -45}, level: 3, exp: 4096/4096, value: 200}
-  - {name: fang, index: 18, position: {x: 310, y: 35}, level: 3, value: 100}
-  - {name: rhino, index: 19, position: {x: 285, y: -215}, level: 2, exp: 2184/2591, value: 200}
-  - {name: rhino, index: 20, position: {x: -65, y: -25}, level: 2, exp: 1194/2591, value: 200}
-  - {name: crawler, index: 21, position: {x: 195, y: -20}, exp: 8/450, value: 100}
-  - {name: farseer, index: 22, position: {x: 205, y: -85}, exp: 320/1800, value: 300}
+  - {name: crawler, index: 1, value: 100, position: {x: 120, y: -225}, exp: 450/450, rotated: true}
+  - {name: crawler, index: 2, value: 100, position: {x: -120, y: -225}, exp: 450/450, rotated: true}
+  - {name: crawler, index: 5, value: 100, position: {x: 150, y: -285}, exp: 450/450, rotated: true}
+  - {name: hound, index: 6, value: 100, position: {x: -120, y: -190}, exp: 191/750}
+  - {name: hound, index: 7, value: 100, position: {x: 120, y: -190}, exp: 750/750}
+  - {name: centurion, index: 8, value: 300, level: 2, position: {x: 155, y: -195}, exp: 5070/5070}
+  - {name: hound, index: 9, value: 100, position: {x: 280, y: -190}, exp: 750/750}
+  - {name: arclight, index: 11, value: 100, level: 2, position: {x: 120, y: -170}, exp: 706/1690}
+  - {name: arclight, index: 12, value: 100, level: 2, position: {x: 10, y: -140}, exp: 1200/1690}
+  - {name: arclight, index: 13, value: 100, level: 3, position: {x: 180, y: -200}, exp: 386/2671}
+  - {name: rhino, index: 14, value: 200, level: 2, position: {x: 235, y: -25}, exp: 1625/2591}
+  - {name: rhino, index: 15, value: 200, level: 3, position: {x: 285, y: -45}, exp: 4096/4096}
+  - {name: fang, index: 18, value: 100, level: 3, position: {x: 310, y: 35}}
+  - {name: rhino, index: 19, value: 200, level: 2, position: {x: 285, y: -215}, exp: 2184/2591}
+  - {name: rhino, index: 20, value: 200, level: 2, position: {x: -65, y: -25}, exp: 1194/2591}
+  - {name: crawler, index: 21, value: 100, position: {x: 195, y: -20}, exp: 8/450}
+  - {name: farseer, index: 22, value: 300, position: {x: 205, y: -85}, exp: 320/1800}
   constructions:
   - {name: defensive_wall, index: 0, position: {x: -140, y: -55}}
 ---
@@ -717,6 +721,7 @@ kind: action
 round: 7
 blue:
 - {type: choose_reinforce_item, index: 3, name: ion_blast}
+- {type: active_energy_tower_skill, name: rapid_resupply}
 - {type: buy_unit, name: phoenix}
 - {type: buy_unit, name: phoenix}
 - {type: active_energy_tower_skill, name: mass_recruitment}
@@ -737,6 +742,7 @@ blue:
 - {type: release_commander_skill, index: 0, name: mobile_beacon_card, target: {area: [{x: 279, y: 0}, {x: 201, y: 110}, {x: 4, y: 146}]}}
 red:
 - {type: choose_reinforce_item, index: 4, name: refund_50}
+- {type: active_energy_tower_skill, name: rapid_resupply}
 - {type: release_commander_skill, index: 1, name: field_recovery, target: {construction: 0}}
 - {type: active_energy_tower_skill, name: elite_recruitment}
 - {type: buy_unit, name: rhino}

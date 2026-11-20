@@ -108,23 +108,23 @@ random_state: [9431516608418434181, 7737466487496449158, 11097432807844961740, 1
 blue:
   random_state: [13447296213731641271, 14011709425182881373, 10990815559025347572, 3132714508454634143]
   reactor_core: 5500
-  supply: 500
+  supply: 300
   unlocked_units: [sledgehammer, vortex]
   tower_strengthen_levels: [0, 0]
   next_index: {unit: 5, contraption: 0}
   officers: [elite_specialist]
   units:
-  - {name: vortex, index: 0, position: {x: 0, y: -160}, source: joined, value: 100}
-  - {name: vortex, index: 1, position: {x: -20, y: -160}, source: joined, value: 100}
-  - {name: vortex, index: 2, position: {x: 0, y: -180}, source: joined, value: 100}
-  - {name: sledgehammer, index: 3, position: {x: 5, y: -140}, source: joined, value: 200}
-  - {name: sledgehammer, index: 4, position: {x: 35, y: -160}, source: joined, value: 200}
+  - {name: vortex, index: 0, value: 100, source: joined, position: {x: 0, y: -160}}
+  - {name: vortex, index: 1, value: 100, source: joined, position: {x: -20, y: -160}}
+  - {name: vortex, index: 2, value: 100, source: joined, position: {x: 0, y: -180}}
+  - {name: sledgehammer, index: 3, value: 200, source: joined, position: {x: 5, y: -140}}
+  - {name: sledgehammer, index: 4, value: 200, source: joined, position: {x: 35, y: -160}}
   constructions:
   - {name: defensive_wall, index: 0, position: {x: 140, y: -55}}
 red:
   random_state: [17176407751395096792, 1481390795227766269, 1252526242962375060, 4385018518599496945]
   reactor_core: 4700
-  supply: 450
+  supply: 250
   unlocked_units: [fire_badger, void_eye]
   tower_strengthen_levels: [0, 0]
   battle_skills:
@@ -132,11 +132,11 @@ red:
   next_index: {unit: 5, contraption: 0}
   officers: [training_specialist]
   units:
-  - {name: void_eye, index: 0, position: {x: 0, y: -160}, source: joined, value: 100}
-  - {name: void_eye, index: 1, position: {x: 0, y: -140}, source: joined, value: 100}
-  - {name: void_eye, index: 2, position: {x: 0, y: -180}, source: joined, value: 100}
-  - {name: fire_badger, index: 3, position: {x: -5, y: -120}, source: joined, value: 200}
-  - {name: fire_badger, index: 4, position: {x: -5, y: -200}, source: joined, value: 200}
+  - {name: void_eye, index: 0, value: 100, source: joined, position: {x: 0, y: -160}}
+  - {name: void_eye, index: 1, value: 100, source: joined, position: {x: 0, y: -140}}
+  - {name: void_eye, index: 2, value: 100, source: joined, position: {x: 0, y: -180}}
+  - {name: fire_badger, index: 3, value: 200, source: joined, position: {x: -5, y: -120}}
+  - {name: fire_badger, index: 4, value: 200, source: joined, position: {x: -5, y: -200}}
   constructions:
   - {name: defensive_wall, index: 0, position: {x: 140, y: -55}}
 ---
@@ -149,7 +149,6 @@ blue:
 - {type: move_unit, index: 2, position: {x: 190, y: -150}}
 - {type: move_unit, index: 3, position: {x: 155, y: -130}}
 - {type: move_unit, index: 4, position: {x: 105, y: -130}}
-- {type: active_energy_tower_skill, name: deposit_supply}
 red:
 - {type: unlock_unit, name: marksman}
 - {type: buy_unit, name: marksman}
@@ -163,7 +162,6 @@ red:
 - {type: move_unit, index: 6, position: {x: -110, y: -170}}
 - {type: release_commander_skill, index: 0, name: intensive_training, target: {unit: 6}}
 - {type: upgrade_unit, index: 6}
-- {type: active_energy_tower_skill, name: deposit_supply}
 ---
 kind: state
 round: 2
@@ -174,7 +172,8 @@ reinforce_offers: [mass_produced_sandworm, shield_airdrop, missile_strike, deplo
 blue:
   random_state: [13447296213731641271, 14011709425182881373, 10990815559025347572, 3132714508454634143]
   reactor_core: 5500
-  supply: 700
+  supply: 500
+  reinforce_choice: -1
   unlocked_units: [sledgehammer, vortex]
   tower_strengthen_levels: [0, 0]
   next_index: {unit: 5, contraption: 0}
@@ -182,17 +181,18 @@ blue:
   techs:
     sledgehammer: [damage_sharing]
   units:
-  - {name: vortex, index: 0, position: {x: 140, y: -110}, value: 100}
-  - {name: vortex, index: 1, position: {x: 90, y: -150}, exp: 554/750, value: 100}
-  - {name: vortex, index: 2, position: {x: 190, y: -150}, exp: 382/750, value: 100}
-  - {name: sledgehammer, index: 3, position: {x: 155, y: -130}, exp: 555/1300, value: 200}
-  - {name: sledgehammer, index: 4, position: {x: 105, y: -130}, exp: 905/1300, value: 200}
+  - {name: vortex, index: 0, value: 100, position: {x: 140, y: -110}}
+  - {name: vortex, index: 1, value: 100, position: {x: 90, y: -150}, exp: 554/750}
+  - {name: vortex, index: 2, value: 100, position: {x: 190, y: -150}, exp: 382/750}
+  - {name: sledgehammer, index: 3, value: 200, position: {x: 155, y: -130}, exp: 555/1300}
+  - {name: sledgehammer, index: 4, value: 200, position: {x: 105, y: -130}, exp: 905/1300}
   constructions:
   - {name: defensive_wall, index: 0, position: {x: 140, y: -55}}
 red:
   random_state: [17176407751395096792, 1481390795227766269, 1252526242962375060, 4385018518599496945]
   reactor_core: 4100
-  supply: 600
+  supply: 400
+  reinforce_choice: -1
   unlocked_units: [marksman, fire_badger, void_eye]
   tower_strengthen_levels: [0, 0]
   battle_skills:
@@ -200,13 +200,13 @@ red:
   next_index: {unit: 7, contraption: 0}
   officers: [training_specialist]
   units:
-  - {name: void_eye, index: 0, position: {x: -190, y: -140}, exp: 37/650, value: 100}
-  - {name: void_eye, index: 1, position: {x: 150, y: -110}, value: 100}
-  - {name: void_eye, index: 2, position: {x: -80, y: -140}, exp: 125/650, value: 100}
-  - {name: fire_badger, index: 3, position: {x: -135, y: -140}, exp: 25/1400, value: 200}
-  - {name: fire_badger, index: 4, position: {x: 145, y: -140}, value: 200}
-  - {name: marksman, index: 5, position: {x: 110, y: -110}, exp: 200/650, value: 100}
-  - {name: marksman, index: 6, position: {x: -110, y: -170}, level: 2, exp: 49/1465, value: 100}
+  - {name: void_eye, index: 0, value: 100, position: {x: -190, y: -140}, exp: 37/650}
+  - {name: void_eye, index: 1, value: 100, position: {x: 150, y: -110}}
+  - {name: void_eye, index: 2, value: 100, position: {x: -80, y: -140}, exp: 125/650}
+  - {name: fire_badger, index: 3, value: 200, position: {x: -135, y: -140}, exp: 25/1400}
+  - {name: fire_badger, index: 4, value: 200, position: {x: 145, y: -140}}
+  - {name: marksman, index: 5, value: 100, position: {x: 110, y: -110}, exp: 200/650}
+  - {name: marksman, index: 6, value: 100, level: 2, position: {x: -110, y: -170}, exp: 49/1465}
   constructions:
   - {name: defensive_wall, index: 0, position: {x: 140, y: -55}}
 ---
@@ -222,7 +222,6 @@ blue:
 - {type: release_contraption, name: shield, position: {x: 131, y: -148}}
 - {type: release_contraption, name: missile, position: {x: 141, y: -15}}
 - {type: release_commander_skill, index: 0, name: missile_strike, target: {area: [{x: -138, y: 102}]}}
-- {type: active_energy_tower_skill, name: deposit_supply}
 red:
 - {type: choose_reinforce_item, index: 3, name: deployment_module}
 - {type: unlock_unit, name: steel_ball}
@@ -232,7 +231,6 @@ red:
 - {type: move_unit, index: 5, position: {x: -170, y: -170}}
 - {type: move_unit, index: 7, position: {x: -225, y: -300}}
 - {type: move_unit, index: 8, position: {x: -155, y: -300}}
-- {type: active_energy_tower_skill, name: deposit_supply}
 ---
 kind: state
 round: 3
@@ -243,7 +241,8 @@ reinforce_offers: [efficient_giant_manufacturing, absorption_module, electromagn
 blue:
   random_state: [13447296213731641271, 14011709425182881373, 10990815559025347572, 3132714508454634143]
   reactor_core: 5500
-  supply: 800
+  supply: 600
+  reinforce_choice: -1
   unlocked_units: [marksman, sledgehammer, vortex]
   tower_strengthen_levels: [0, 0]
   battle_skills:
@@ -253,13 +252,13 @@ blue:
   techs:
     sledgehammer: [damage_sharing]
   units:
-  - {name: vortex, index: 0, position: {x: 140, y: -110}, exp: 208/750, value: 100}
-  - {name: vortex, index: 1, position: {x: 90, y: -150}, exp: 750/750, value: 100}
-  - {name: vortex, index: 2, position: {x: 190, y: -150}, exp: 597/750, value: 100}
-  - {name: sledgehammer, index: 3, position: {x: 155, y: -130}, exp: 849/1300, value: 200}
-  - {name: sledgehammer, index: 4, position: {x: 105, y: -130}, exp: 1300/1300, value: 200}
-  - {name: marksman, index: 5, position: {x: 210, y: -170}, level: 2, exp: 984/1465, value: 100}
-  - {name: marksman, index: 6, position: {x: 70, y: -170}, level: 2, exp: 795/1465, value: 100}
+  - {name: vortex, index: 0, value: 100, position: {x: 140, y: -110}, exp: 208/750}
+  - {name: vortex, index: 1, value: 100, position: {x: 90, y: -150}, exp: 750/750}
+  - {name: vortex, index: 2, value: 100, position: {x: 190, y: -150}, exp: 597/750}
+  - {name: sledgehammer, index: 3, value: 200, position: {x: 155, y: -130}, exp: 849/1300}
+  - {name: sledgehammer, index: 4, value: 200, position: {x: 105, y: -130}, exp: 1300/1300}
+  - {name: marksman, index: 5, value: 100, level: 2, position: {x: 210, y: -170}, exp: 984/1465}
+  - {name: marksman, index: 6, value: 100, level: 2, position: {x: 70, y: -170}, exp: 795/1465}
   constructions:
   - {name: defensive_wall, index: 0, position: {x: 140, y: -55}}
   contraptions:
@@ -267,23 +266,26 @@ blue:
 red:
   random_state: [17176407751395096792, 1481390795227766269, 1252526242962375060, 4385018518599496945]
   reactor_core: 3300
-  supply: 800
+  supply: 600
+  reinforce_choice: -1
   unlocked_units: [marksman, steel_ball, fire_badger, void_eye]
   tower_strengthen_levels: [0, 0]
+  equipment:
+  - {name: deployment_module, fitted: {unit: 5, slot: 0}}
   battle_skills:
   - {index: 0, name: intensive_training, cooldown: 0}
   next_index: {unit: 9, contraption: 0}
   officers: [training_specialist]
   units:
-  - {name: void_eye, index: 0, position: {x: -190, y: -140}, exp: 37/650, value: 100}
-  - {name: void_eye, index: 1, position: {x: 150, y: -110}, value: 100}
-  - {name: void_eye, index: 2, position: {x: -80, y: -140}, exp: 175/650, value: 100}
-  - {name: fire_badger, index: 3, position: {x: -135, y: -140}, exp: 25/1400, value: 200}
-  - {name: fire_badger, index: 4, position: {x: 145, y: -140}, exp: 200/1400, value: 200}
-  - {name: marksman, index: 5, position: {x: -170, y: -170}, exp: 200/650, equipment: [deployment_module], value: 100}
-  - {name: marksman, index: 6, position: {x: -110, y: -170}, level: 2, exp: 199/1465, value: 100}
-  - {name: steel_ball, index: 7, position: {x: -225, y: -300}, value: 200}
-  - {name: steel_ball, index: 8, position: {x: -155, y: -300}, value: 200}
+  - {name: void_eye, index: 0, value: 100, position: {x: -190, y: -140}, exp: 37/650}
+  - {name: void_eye, index: 1, value: 100, position: {x: 150, y: -110}}
+  - {name: void_eye, index: 2, value: 100, position: {x: -80, y: -140}, exp: 175/650}
+  - {name: fire_badger, index: 3, value: 200, position: {x: -135, y: -140}, exp: 25/1400}
+  - {name: fire_badger, index: 4, value: 200, position: {x: 145, y: -140}, exp: 200/1400}
+  - {name: marksman, index: 5, value: 100, position: {x: -170, y: -170}, exp: 200/650}
+  - {name: marksman, index: 6, value: 100, level: 2, position: {x: -110, y: -170}, exp: 199/1465}
+  - {name: steel_ball, index: 7, value: 200, position: {x: -225, y: -300}}
+  - {name: steel_ball, index: 8, value: 200, position: {x: -155, y: -300}}
   constructions:
   - {name: defensive_wall, index: 0, position: {x: 140, y: -55}}
 ---
@@ -298,7 +300,6 @@ blue:
 - {type: upgrade_unit, index: 1}
 - {type: upgrade_unit, index: 4}
 - {type: release_contraption, name: missile, position: {x: -135, y: -77}}
-- {type: active_energy_tower_skill, name: deposit_supply}
 red:
 - {type: choose_reinforce_item, index: 3, name: mass_produced_laser_sight}
 - {type: buy_unit, name: steel_ball}
@@ -311,7 +312,6 @@ red:
 - {type: upgrade_unit, index: 9}
 - {type: release_contraption, name: missile, position: {x: -266, y: -16}}
 - {type: unlock_unit, name: crawler}
-- {type: active_energy_tower_skill, name: deposit_supply}
 ---
 kind: state
 round: 4
@@ -322,7 +322,8 @@ reinforce_offers: [sandworm_1x_lv1, phantom_ray_1x_lv3, rhino_2x_lv1, tarantula_
 blue:
   random_state: [13447296213731641271, 14011709425182881373, 10990815559025347572, 3132714508454634143]
   reactor_core: 5034
-  supply: 1000
+  supply: 800
+  reinforce_choice: -1
   unlocked_units: [marksman, sledgehammer, vortex]
   tower_strengthen_levels: [0, 0]
   equipment:
@@ -334,15 +335,15 @@ blue:
   techs:
     sledgehammer: [damage_sharing]
   units:
-  - {name: vortex, index: 0, position: {x: 140, y: -110}, exp: 208/750, value: 100}
-  - {name: vortex, index: 1, position: {x: 90, y: -150}, level: 2, exp: 384/1690, value: 100}
-  - {name: vortex, index: 2, position: {x: 190, y: -150}, exp: 750/750, value: 100}
-  - {name: sledgehammer, index: 3, position: {x: 155, y: -130}, exp: 1142/1300, value: 200}
-  - {name: sledgehammer, index: 4, position: {x: 105, y: -130}, level: 2, exp: 468/2929, value: 200}
-  - {name: marksman, index: 5, position: {x: 210, y: -170}, level: 2, exp: 984/1465, value: 100}
-  - {name: marksman, index: 6, position: {x: 70, y: -170}, level: 2, exp: 1271/1465, value: 100}
-  - {name: marksman, index: 7, position: {x: 50, y: -170}, level: 2, exp: 1025/1465, value: 100}
-  - {name: marksman, index: 8, position: {x: 230, y: -170}, level: 2, value: 100}
+  - {name: vortex, index: 0, value: 100, position: {x: 140, y: -110}, exp: 208/750}
+  - {name: vortex, index: 1, value: 100, level: 2, position: {x: 90, y: -150}, exp: 384/1690}
+  - {name: vortex, index: 2, value: 100, position: {x: 190, y: -150}, exp: 750/750}
+  - {name: sledgehammer, index: 3, value: 200, position: {x: 155, y: -130}, exp: 1142/1300}
+  - {name: sledgehammer, index: 4, value: 200, level: 2, position: {x: 105, y: -130}, exp: 468/2929}
+  - {name: marksman, index: 5, value: 100, level: 2, position: {x: 210, y: -170}, exp: 984/1465}
+  - {name: marksman, index: 6, value: 100, level: 2, position: {x: 70, y: -170}, exp: 1271/1465}
+  - {name: marksman, index: 7, value: 100, level: 2, position: {x: 50, y: -170}, exp: 1025/1465}
+  - {name: marksman, index: 8, value: 100, level: 2, position: {x: 230, y: -170}}
   constructions:
   - {name: defensive_wall, index: 0, position: {x: 140, y: -55}}
   contraptions:
@@ -350,9 +351,15 @@ blue:
 red:
   random_state: [17176407751395096792, 1481390795227766269, 1252526242962375060, 4385018518599496945]
   reactor_core: 3300
-  supply: 1000
+  supply: 800
+  reinforce_choice: -1
   unlocked_units: [marksman, steel_ball, crawler, fire_badger, void_eye]
   tower_strengthen_levels: [0, 0]
+  equipment:
+  - {name: secondary_laser_sight, fitted: {unit: 7, slot: 0}}
+  - {name: secondary_laser_sight, fitted: {unit: 8, slot: 0}}
+  - {name: secondary_laser_sight, fitted: {unit: 9, slot: 0}}
+  - {name: deployment_module, fitted: {unit: 5, slot: 0}}
   battle_skills:
   - {index: 0, name: intensive_training, cooldown: 1}
   next_index: {unit: 10, contraption: 1}
@@ -360,16 +367,16 @@ red:
   techs:
     steel_ball: [kinetic_charge]
   units:
-  - {name: void_eye, index: 0, position: {x: -190, y: -140}, exp: 386/650, value: 100}
-  - {name: void_eye, index: 1, position: {x: 150, y: -110}, exp: 122/650, value: 100}
-  - {name: void_eye, index: 2, position: {x: -80, y: -140}, exp: 422/650, value: 100}
-  - {name: fire_badger, index: 3, position: {x: -135, y: -140}, exp: 147/1400, value: 200}
-  - {name: fire_badger, index: 4, position: {x: 145, y: -140}, exp: 322/1400, value: 200}
-  - {name: marksman, index: 5, position: {x: -170, y: -170}, exp: 650/650, equipment: [deployment_module], value: 100}
-  - {name: marksman, index: 6, position: {x: -110, y: -170}, level: 2, exp: 948/1465, value: 100}
-  - {name: steel_ball, index: 7, position: {x: -225, y: -300}, exp: 1000/1000, equipment: [secondary_laser_sight], value: 200}
-  - {name: steel_ball, index: 8, position: {x: -155, y: -300}, exp: 1000/1000, equipment: [secondary_laser_sight], value: 200}
-  - {name: steel_ball, index: 9, position: {x: -85, y: -300}, level: 2, exp: 372/2253, equipment: [secondary_laser_sight], value: 200}
+  - {name: void_eye, index: 0, value: 100, position: {x: -190, y: -140}, exp: 386/650}
+  - {name: void_eye, index: 1, value: 100, position: {x: 150, y: -110}, exp: 122/650}
+  - {name: void_eye, index: 2, value: 100, position: {x: -80, y: -140}, exp: 422/650}
+  - {name: fire_badger, index: 3, value: 200, position: {x: -135, y: -140}, exp: 147/1400}
+  - {name: fire_badger, index: 4, value: 200, position: {x: 145, y: -140}, exp: 322/1400}
+  - {name: marksman, index: 5, value: 100, position: {x: -170, y: -170}, exp: 650/650}
+  - {name: marksman, index: 6, value: 100, level: 2, position: {x: -110, y: -170}, exp: 948/1465}
+  - {name: steel_ball, index: 7, value: 200, position: {x: -225, y: -300}, exp: 1000/1000}
+  - {name: steel_ball, index: 8, value: 200, position: {x: -155, y: -300}, exp: 1000/1000}
+  - {name: steel_ball, index: 9, value: 200, level: 2, position: {x: -85, y: -300}, exp: 372/2253}
   constructions:
   - {name: defensive_wall, index: 0, position: {x: 140, y: -55}}
 ---
@@ -383,7 +390,6 @@ blue:
 - {type: move_unit, index: 9, position: {x: -255, y: -295}}
 - {type: move_unit, index: 10, position: {x: -285, y: -295}}
 - {type: move_unit, index: 11, position: {x: 180, y: -180}}
-- {type: active_energy_tower_skill, name: deposit_supply}
 red:
 - {type: choose_reinforce_item, index: 0, name: sandworm_1x_lv1}
 - {type: active_energy_tower_skill, name: elite_recruitment}
@@ -397,7 +403,6 @@ red:
 - {type: upgrade_unit, index: 8}
 - {type: release_contraption, name: missile, position: {x: -13, y: -15}}
 - {type: unlock_unit, name: mustang}
-- {type: active_energy_tower_skill, name: deposit_supply}
 ---
 kind: state
 round: 5
@@ -408,9 +413,12 @@ reinforce_offers: [enhancement_module, improved_wasp, amplifying_core, elite_hac
 blue:
   random_state: [13447296213731641271, 14011709425182881373, 10990815559025347572, 3132714508454634143]
   reactor_core: 3465
-  supply: 1200
+  supply: 1000
+  reinforce_choice: -1
   unlocked_units: [marksman, melting_point, rhino, sledgehammer, vortex]
   tower_strengthen_levels: [0, 0]
+  equipment:
+  - {name: absorption_module, fitted: {unit: 11, slot: 0}}
   battle_skills:
   - {index: 0, name: missile_strike, cooldown: 0}
   next_index: {unit: 12, contraption: 3}
@@ -418,26 +426,32 @@ blue:
   techs:
     sledgehammer: [damage_sharing]
   units:
-  - {name: vortex, index: 0, position: {x: 140, y: -110}, exp: 208/750, value: 100}
-  - {name: vortex, index: 1, position: {x: 90, y: -150}, level: 2, exp: 508/1690, value: 100}
-  - {name: vortex, index: 2, position: {x: 190, y: -150}, exp: 750/750, value: 100}
-  - {name: sledgehammer, index: 3, position: {x: 155, y: -130}, exp: 1300/1300, value: 200}
-  - {name: sledgehammer, index: 4, position: {x: 105, y: -130}, level: 2, exp: 770/2929, value: 200}
-  - {name: marksman, index: 5, position: {x: 210, y: -170}, level: 2, exp: 1243/1465, value: 100}
-  - {name: marksman, index: 6, position: {x: 70, y: -170}, level: 2, exp: 1271/1465, value: 100}
-  - {name: marksman, index: 7, position: {x: 50, y: -170}, level: 2, exp: 1025/1465, value: 100}
-  - {name: marksman, index: 8, position: {x: 230, y: -170}, level: 2, exp: 240/1465, value: 100}
-  - {name: rhino, index: 9, position: {x: -255, y: -295}, value: 200}
-  - {name: rhino, index: 10, position: {x: -285, y: -295}, value: 200}
-  - {name: melting_point, index: 11, position: {x: 180, y: -180}, level: 2, exp: 281/3154, equipment: [absorption_module], value: 400}
+  - {name: vortex, index: 0, value: 100, position: {x: 140, y: -110}, exp: 208/750}
+  - {name: vortex, index: 1, value: 100, level: 2, position: {x: 90, y: -150}, exp: 508/1690}
+  - {name: vortex, index: 2, value: 100, position: {x: 190, y: -150}, exp: 750/750}
+  - {name: sledgehammer, index: 3, value: 200, position: {x: 155, y: -130}, exp: 1300/1300}
+  - {name: sledgehammer, index: 4, value: 200, level: 2, position: {x: 105, y: -130}, exp: 770/2929}
+  - {name: marksman, index: 5, value: 100, level: 2, position: {x: 210, y: -170}, exp: 1243/1465}
+  - {name: marksman, index: 6, value: 100, level: 2, position: {x: 70, y: -170}, exp: 1271/1465}
+  - {name: marksman, index: 7, value: 100, level: 2, position: {x: 50, y: -170}, exp: 1025/1465}
+  - {name: marksman, index: 8, value: 100, level: 2, position: {x: 230, y: -170}, exp: 240/1465}
+  - {name: rhino, index: 9, value: 200, position: {x: -255, y: -295}}
+  - {name: rhino, index: 10, value: 200, position: {x: -285, y: -295}}
+  - {name: melting_point, index: 11, value: 400, level: 2, position: {x: 180, y: -180}, exp: 281/3154}
   constructions:
   - {name: defensive_wall, index: 0, position: {x: 140, y: -55}}
 red:
   random_state: [17176407751395096792, 1481390795227766269, 1252526242962375060, 4385018518599496945]
   reactor_core: 3300
-  supply: 1200
+  supply: 1000
+  reinforce_choice: -1
   unlocked_units: [marksman, mustang, steel_ball, crawler, fire_badger, sandworm, void_eye]
   tower_strengthen_levels: [0, 0]
+  equipment:
+  - {name: secondary_laser_sight, fitted: {unit: 7, slot: 0}}
+  - {name: secondary_laser_sight, fitted: {unit: 8, slot: 0}}
+  - {name: secondary_laser_sight, fitted: {unit: 9, slot: 0}}
+  - {name: deployment_module, fitted: {unit: 5, slot: 0}}
   battle_skills:
   - {index: 0, name: intensive_training, cooldown: 0}
   next_index: {unit: 13, contraption: 2}
@@ -445,19 +459,19 @@ red:
   techs:
     steel_ball: [kinetic_charge]
   units:
-  - {name: void_eye, index: 0, position: {x: -190, y: -140}, exp: 479/650, value: 100}
-  - {name: void_eye, index: 1, position: {x: 150, y: -110}, exp: 348/650, value: 100}
-  - {name: void_eye, index: 2, position: {x: -80, y: -140}, exp: 650/650, value: 100}
-  - {name: fire_badger, index: 3, position: {x: -135, y: -140}, exp: 243/1400, value: 200}
-  - {name: fire_badger, index: 4, position: {x: 145, y: -140}, exp: 748/1400, value: 200}
-  - {name: marksman, index: 5, position: {x: -170, y: -170}, level: 2, exp: 483/1465, equipment: [deployment_module], value: 100}
-  - {name: marksman, index: 6, position: {x: -110, y: -170}, level: 2, exp: 1462/1465, value: 100}
-  - {name: steel_ball, index: 7, position: {x: -225, y: -300}, level: 2, exp: 2253/2253, equipment: [secondary_laser_sight], value: 200}
-  - {name: steel_ball, index: 8, position: {x: -155, y: -300}, level: 2, exp: 1127/2253, equipment: [secondary_laser_sight], value: 200}
-  - {name: steel_ball, index: 9, position: {x: -85, y: -300}, level: 2, exp: 1182/2253, equipment: [secondary_laser_sight], value: 200}
-  - {name: sandworm, index: 10, position: {x: 280, y: -170}, exp: 426/2000, value: 400}
-  - {name: crawler, index: 11, position: {x: -85, y: -270}, level: 2, exp: 729/1014, value: 100}
-  - {name: crawler, index: 12, position: {x: -225, y: -270}, level: 2, exp: 642/1014, value: 100}
+  - {name: void_eye, index: 0, value: 100, position: {x: -190, y: -140}, exp: 479/650}
+  - {name: void_eye, index: 1, value: 100, position: {x: 150, y: -110}, exp: 348/650}
+  - {name: void_eye, index: 2, value: 100, position: {x: -80, y: -140}, exp: 650/650}
+  - {name: fire_badger, index: 3, value: 200, position: {x: -135, y: -140}, exp: 243/1400}
+  - {name: fire_badger, index: 4, value: 200, position: {x: 145, y: -140}, exp: 748/1400}
+  - {name: marksman, index: 5, value: 100, level: 2, position: {x: -170, y: -170}, exp: 483/1465}
+  - {name: marksman, index: 6, value: 100, level: 2, position: {x: -110, y: -170}, exp: 1462/1465}
+  - {name: steel_ball, index: 7, value: 200, level: 2, position: {x: -225, y: -300}, exp: 2253/2253}
+  - {name: steel_ball, index: 8, value: 200, level: 2, position: {x: -155, y: -300}, exp: 1127/2253}
+  - {name: steel_ball, index: 9, value: 200, level: 2, position: {x: -85, y: -300}, exp: 1182/2253}
+  - {name: sandworm, index: 10, value: 400, position: {x: 280, y: -170}, exp: 426/2000}
+  - {name: crawler, index: 11, value: 100, level: 2, position: {x: -85, y: -270}, exp: 729/1014}
+  - {name: crawler, index: 12, value: 100, level: 2, position: {x: -225, y: -270}, exp: 642/1014}
   constructions:
   - {name: defensive_wall, index: 0, position: {x: 140, y: -55}}
 ---
@@ -472,7 +486,6 @@ blue:
 - {type: release_contraption, name: missile, position: {x: 161, y: -78}}
 - {type: release_contraption, name: missile, position: {x: 143, y: -129}}
 - {type: release_commander_skill, index: 0, name: missile_strike, target: {area: [{x: 136, y: 134}]}}
-- {type: active_energy_tower_skill, name: deposit_supply}
 red:
 - {type: choose_reinforce_item, index: 3, name: elite_hacker}
 - {type: buy_unit, name: marksman}
@@ -485,7 +498,6 @@ red:
 - {type: upgrade_unit, index: 6}
 - {type: upgrade_unit, index: 7}
 - {type: unlock_unit, name: hacker}
-- {type: active_energy_tower_skill, name: deposit_supply}
 ---
 kind: state
 round: 6
@@ -496,9 +508,12 @@ reinforce_offers: [additional_deployment_slot, shield_airdrop, orbital_bombardme
 blue:
   random_state: [13447296213731641271, 14011709425182881373, 10990815559025347572, 3132714508454634143]
   reactor_core: 2915
-  supply: 1400
+  supply: 1200
+  reinforce_choice: -1
   unlocked_units: [marksman, melting_point, rhino, sledgehammer, vortex]
   tower_strengthen_levels: [0, 0]
+  equipment:
+  - {name: absorption_module, fitted: {unit: 11, slot: 0}}
   battle_skills:
   - {index: 0, name: missile_strike, cooldown: 2}
   next_index: {unit: 13, contraption: 6}
@@ -507,27 +522,33 @@ blue:
     melting_point: [range_enhancement]
     sledgehammer: [damage_sharing]
   units:
-  - {name: vortex, index: 0, position: {x: 140, y: -110}, exp: 220/750, value: 100}
-  - {name: vortex, index: 1, position: {x: 90, y: -150}, level: 2, exp: 781/1690, value: 100}
-  - {name: vortex, index: 2, position: {x: 190, y: -150}, exp: 750/750, value: 100}
-  - {name: sledgehammer, index: 3, position: {x: 155, y: -130}, exp: 1300/1300, value: 200}
-  - {name: sledgehammer, index: 4, position: {x: 105, y: -130}, level: 2, exp: 1426/2929, value: 200}
-  - {name: marksman, index: 5, position: {x: 210, y: -170}, level: 2, exp: 1393/1465, value: 100}
-  - {name: marksman, index: 6, position: {x: 70, y: -170}, level: 2, exp: 1465/1465, value: 100}
-  - {name: marksman, index: 7, position: {x: 50, y: -170}, level: 2, exp: 1419/1465, value: 100}
-  - {name: marksman, index: 8, position: {x: 230, y: -170}, level: 2, exp: 506/1465, value: 100}
-  - {name: rhino, index: 9, position: {x: -255, y: -295}, exp: 94/1150, value: 200}
-  - {name: rhino, index: 10, position: {x: -285, y: -295}, exp: 94/1150, value: 200}
-  - {name: melting_point, index: 11, position: {x: 180, y: -180}, level: 2, exp: 1587/3154, equipment: [absorption_module], value: 400}
-  - {name: melting_point, index: 12, position: {x: -200, y: -190}, level: 2, exp: 1794/3154, value: 400}
+  - {name: vortex, index: 0, value: 100, position: {x: 140, y: -110}, exp: 220/750}
+  - {name: vortex, index: 1, value: 100, level: 2, position: {x: 90, y: -150}, exp: 781/1690}
+  - {name: vortex, index: 2, value: 100, position: {x: 190, y: -150}, exp: 750/750}
+  - {name: sledgehammer, index: 3, value: 200, position: {x: 155, y: -130}, exp: 1300/1300}
+  - {name: sledgehammer, index: 4, value: 200, level: 2, position: {x: 105, y: -130}, exp: 1426/2929}
+  - {name: marksman, index: 5, value: 100, level: 2, position: {x: 210, y: -170}, exp: 1393/1465}
+  - {name: marksman, index: 6, value: 100, level: 2, position: {x: 70, y: -170}, exp: 1465/1465}
+  - {name: marksman, index: 7, value: 100, level: 2, position: {x: 50, y: -170}, exp: 1419/1465}
+  - {name: marksman, index: 8, value: 100, level: 2, position: {x: 230, y: -170}, exp: 506/1465}
+  - {name: rhino, index: 9, value: 200, position: {x: -255, y: -295}, exp: 94/1150}
+  - {name: rhino, index: 10, value: 200, position: {x: -285, y: -295}, exp: 94/1150}
+  - {name: melting_point, index: 11, value: 400, level: 2, position: {x: 180, y: -180}, exp: 1587/3154}
+  - {name: melting_point, index: 12, value: 400, level: 2, position: {x: -200, y: -190}, exp: 1794/3154}
   constructions:
   - {name: defensive_wall, index: 0, position: {x: 140, y: -55}}
 red:
   random_state: [17176407751395096792, 1481390795227766269, 1252526242962375060, 4385018518599496945]
   reactor_core: 3300
-  supply: 1400
+  supply: 1200
+  reinforce_choice: -1
   unlocked_units: [marksman, mustang, steel_ball, crawler, hacker, fire_badger, sandworm, void_eye]
   tower_strengthen_levels: [0, 0]
+  equipment:
+  - {name: secondary_laser_sight, fitted: {unit: 7, slot: 0}}
+  - {name: secondary_laser_sight, fitted: {unit: 8, slot: 0}}
+  - {name: secondary_laser_sight, fitted: {unit: 9, slot: 0}}
+  - {name: deployment_module, fitted: {unit: 5, slot: 0}}
   battle_skills:
   - {index: 0, name: intensive_training, cooldown: 1}
   next_index: {unit: 15, contraption: 2}
@@ -536,21 +557,21 @@ red:
     steel_ball: [energy_absorption, kinetic_charge]
     sandworm: [mechanical_rage]
   units:
-  - {name: void_eye, index: 0, position: {x: -190, y: -140}, exp: 479/650, value: 100}
-  - {name: void_eye, index: 1, position: {x: 150, y: -110}, exp: 348/650, value: 100}
-  - {name: void_eye, index: 2, position: {x: -80, y: -140}, exp: 650/650, value: 100}
-  - {name: fire_badger, index: 3, position: {x: -135, y: -140}, exp: 243/1400, value: 200}
-  - {name: fire_badger, index: 4, position: {x: 145, y: -140}, exp: 748/1400, value: 200}
-  - {name: marksman, index: 5, position: {x: -170, y: -170}, level: 2, exp: 1465/1465, equipment: [deployment_module], value: 100}
-  - {name: marksman, index: 6, position: {x: -110, y: -170}, level: 3, exp: 610/2315, value: 100}
-  - {name: steel_ball, index: 7, position: {x: -225, y: -300}, level: 3, exp: 3562/3562, equipment: [secondary_laser_sight], value: 200}
-  - {name: steel_ball, index: 8, position: {x: -155, y: -300}, level: 2, exp: 2253/2253, equipment: [secondary_laser_sight], value: 200}
-  - {name: steel_ball, index: 9, position: {x: -85, y: -300}, level: 2, exp: 2253/2253, equipment: [secondary_laser_sight], value: 200}
-  - {name: sandworm, index: 10, position: {x: 280, y: -170}, exp: 1226/2000, value: 400}
-  - {name: crawler, index: 11, position: {x: -85, y: -270}, level: 2, exp: 890/1014, value: 100}
-  - {name: crawler, index: 12, position: {x: -225, y: -270}, level: 2, exp: 803/1014, value: 100}
-  - {name: marksman, index: 13, position: {x: 220, y: -110}, value: 100}
-  - {name: marksman, index: 14, position: {x: 190, y: -110}, value: 100}
+  - {name: void_eye, index: 0, value: 100, position: {x: -190, y: -140}, exp: 479/650}
+  - {name: void_eye, index: 1, value: 100, position: {x: 150, y: -110}, exp: 348/650}
+  - {name: void_eye, index: 2, value: 100, position: {x: -80, y: -140}, exp: 650/650}
+  - {name: fire_badger, index: 3, value: 200, position: {x: -135, y: -140}, exp: 243/1400}
+  - {name: fire_badger, index: 4, value: 200, position: {x: 145, y: -140}, exp: 748/1400}
+  - {name: marksman, index: 5, value: 100, level: 2, position: {x: -170, y: -170}, exp: 1465/1465}
+  - {name: marksman, index: 6, value: 100, level: 3, position: {x: -110, y: -170}, exp: 610/2315}
+  - {name: steel_ball, index: 7, value: 200, level: 3, position: {x: -225, y: -300}, exp: 3562/3562}
+  - {name: steel_ball, index: 8, value: 200, level: 2, position: {x: -155, y: -300}, exp: 2253/2253}
+  - {name: steel_ball, index: 9, value: 200, level: 2, position: {x: -85, y: -300}, exp: 2253/2253}
+  - {name: sandworm, index: 10, value: 400, position: {x: 280, y: -170}, exp: 1226/2000}
+  - {name: crawler, index: 11, value: 100, level: 2, position: {x: -85, y: -270}, exp: 890/1014}
+  - {name: crawler, index: 12, value: 100, level: 2, position: {x: -225, y: -270}, exp: 803/1014}
+  - {name: marksman, index: 13, value: 100, position: {x: 220, y: -110}}
+  - {name: marksman, index: 14, value: 100, position: {x: 190, y: -110}}
   constructions:
   - {name: defensive_wall, index: 0, position: {x: 140, y: -55}}
 ---
@@ -575,7 +596,6 @@ blue:
 - {type: release_contraption, name: missile, position: {x: -177, y: -76}}
 - {type: release_contraption, name: shield, position: {x: 106, y: -142}}
 - {type: release_contraption, name: missile, position: {x: 132, y: -60}}
-- {type: active_energy_tower_skill, name: deposit_supply}
 red:
 - {type: choose_reinforce_item, index: 3, name: advanced_offensive_tactics}
 - {type: active_energy_tower_skill, name: elite_recruitment}
@@ -587,7 +607,6 @@ red:
 - {type: release_contraption, name: interceptor, position: {x: 5, y: -65}}
 - {type: release_contraption, name: missile, position: {x: -263, y: -20}}
 - {type: unlock_unit, name: sabertooth}
-- {type: active_energy_tower_skill, name: deposit_supply}
 ---
 kind: state
 round: 7
@@ -598,9 +617,12 @@ reinforce_offers: [typhoon_1x_lv3, phantom_ray_2x_lv2, wasp_2x_lv2, tarantula_2x
 blue:
   random_state: [13447296213731641271, 14011709425182881373, 10990815559025347572, 3132714508454634143]
   reactor_core: 2815
-  supply: 1600
+  supply: 1400
+  reinforce_choice: -1
   unlocked_units: [marksman, melting_point, rhino, crawler, sledgehammer, vortex]
   tower_strengthen_levels: [0, 0]
+  equipment:
+  - {name: absorption_module, fitted: {unit: 11, slot: 0}}
   battle_skills:
   - {index: 0, name: missile_strike, cooldown: 1}
   next_index: {unit: 17, contraption: 10}
@@ -609,31 +631,37 @@ blue:
     melting_point: [range_enhancement]
     sledgehammer: [damage_sharing]
   units:
-  - {name: vortex, index: 0, position: {x: 140, y: -110}, exp: 286/750, value: 100}
-  - {name: vortex, index: 1, position: {x: 90, y: -150}, level: 2, exp: 1310/1690, value: 100}
-  - {name: vortex, index: 2, position: {x: 190, y: -150}, level: 2, exp: 1102/1690, value: 100}
-  - {name: sledgehammer, index: 3, position: {x: 155, y: -130}, level: 2, exp: 523/2929, value: 200}
-  - {name: sledgehammer, index: 4, position: {x: 105, y: -130}, level: 2, exp: 1968/2929, value: 200}
-  - {name: marksman, index: 5, position: {x: 210, y: -170}, level: 2, exp: 1465/1465, value: 100}
-  - {name: marksman, index: 6, position: {x: 70, y: -170}, level: 3, exp: 678/2315, value: 100}
-  - {name: marksman, index: 7, position: {x: 50, y: -170}, level: 2, exp: 1465/1465, value: 100}
-  - {name: marksman, index: 8, position: {x: 230, y: -170}, level: 2, exp: 620/1465, value: 100}
-  - {name: rhino, index: 9, position: {x: -255, y: -295}, exp: 208/1150, value: 200}
-  - {name: rhino, index: 10, position: {x: -285, y: -295}, exp: 391/1150, value: 200}
-  - {name: melting_point, index: 11, position: {x: 180, y: -180}, level: 2, exp: 3154/3154, equipment: [absorption_module], value: 400}
-  - {name: melting_point, index: 12, position: {x: -200, y: -190}, level: 2, exp: 3154/3154, value: 400}
-  - {name: crawler, index: 13, position: {x: 165, y: -300}, level: 2, exp: 1014/1014, value: 100}
-  - {name: crawler, index: 14, position: {x: 115, y: -300}, level: 2, exp: 745/1014, value: 100}
-  - {name: crawler, index: 15, position: {x: 215, y: -300}, level: 2, exp: 475/1014, value: 100}
-  - {name: crawler, index: 16, position: {x: -195, y: -300}, level: 2, exp: 297/1014, value: 100}
+  - {name: vortex, index: 0, value: 100, position: {x: 140, y: -110}, exp: 286/750}
+  - {name: vortex, index: 1, value: 100, level: 2, position: {x: 90, y: -150}, exp: 1310/1690}
+  - {name: vortex, index: 2, value: 100, level: 2, position: {x: 190, y: -150}, exp: 1102/1690}
+  - {name: sledgehammer, index: 3, value: 200, level: 2, position: {x: 155, y: -130}, exp: 523/2929}
+  - {name: sledgehammer, index: 4, value: 200, level: 2, position: {x: 105, y: -130}, exp: 1968/2929}
+  - {name: marksman, index: 5, value: 100, level: 2, position: {x: 210, y: -170}, exp: 1465/1465}
+  - {name: marksman, index: 6, value: 100, level: 3, position: {x: 70, y: -170}, exp: 678/2315}
+  - {name: marksman, index: 7, value: 100, level: 2, position: {x: 50, y: -170}, exp: 1465/1465}
+  - {name: marksman, index: 8, value: 100, level: 2, position: {x: 230, y: -170}, exp: 620/1465}
+  - {name: rhino, index: 9, value: 200, position: {x: -255, y: -295}, exp: 208/1150}
+  - {name: rhino, index: 10, value: 200, position: {x: -285, y: -295}, exp: 391/1150}
+  - {name: melting_point, index: 11, value: 400, level: 2, position: {x: 180, y: -180}, exp: 3154/3154}
+  - {name: melting_point, index: 12, value: 400, level: 2, position: {x: -200, y: -190}, exp: 3154/3154}
+  - {name: crawler, index: 13, value: 100, level: 2, position: {x: 165, y: -300}, exp: 1014/1014}
+  - {name: crawler, index: 14, value: 100, level: 2, position: {x: 115, y: -300}, exp: 745/1014}
+  - {name: crawler, index: 15, value: 100, level: 2, position: {x: 215, y: -300}, exp: 475/1014}
+  - {name: crawler, index: 16, value: 100, level: 2, position: {x: -195, y: -300}, exp: 297/1014}
   constructions:
   - {name: defensive_wall, index: 0, position: {x: 140, y: -55}}
 red:
   random_state: [17176407751395096792, 1481390795227766269, 1252526242962375060, 4385018518599496945]
   reactor_core: 3300
-  supply: 1600
+  supply: 1400
+  reinforce_choice: -1
   unlocked_units: [marksman, mustang, steel_ball, crawler, hacker, fire_badger, sabertooth, sandworm, void_eye]
   tower_strengthen_levels: [0, 0]
+  equipment:
+  - {name: secondary_laser_sight, fitted: {unit: 7, slot: 0}}
+  - {name: secondary_laser_sight, fitted: {unit: 8, slot: 0}}
+  - {name: secondary_laser_sight, fitted: {unit: 9, slot: 0}}
+  - {name: deployment_module, fitted: {unit: 5, slot: 0}}
   battle_skills:
   - {index: 0, name: intensive_training, cooldown: 0}
   next_index: {unit: 16, contraption: 4}
@@ -642,22 +670,22 @@ red:
     steel_ball: [energy_absorption, kinetic_charge]
     sandworm: [mechanical_rage]
   units:
-  - {name: void_eye, index: 0, position: {x: -190, y: -140}, exp: 589/650, value: 100}
-  - {name: void_eye, index: 1, position: {x: 150, y: -110}, exp: 458/650, value: 100}
-  - {name: void_eye, index: 2, position: {x: -80, y: -140}, exp: 650/650, value: 100}
-  - {name: fire_badger, index: 3, position: {x: -135, y: -140}, exp: 243/1400, value: 200}
-  - {name: fire_badger, index: 4, position: {x: 145, y: -140}, exp: 1050/1400, value: 200}
-  - {name: marksman, index: 5, position: {x: -170, y: -170}, level: 2, exp: 1465/1465, equipment: [deployment_module], value: 100}
-  - {name: marksman, index: 6, position: {x: -110, y: -170}, level: 3, exp: 2315/2315, value: 100}
-  - {name: steel_ball, index: 7, position: {x: -225, y: -300}, level: 4, exp: 783/4490, equipment: [secondary_laser_sight], value: 200}
-  - {name: steel_ball, index: 8, position: {x: -155, y: -300}, level: 3, exp: 1347/3562, equipment: [secondary_laser_sight], value: 200}
-  - {name: steel_ball, index: 9, position: {x: -85, y: -300}, level: 3, exp: 1823/3562, equipment: [secondary_laser_sight], value: 200}
-  - {name: sandworm, index: 10, position: {x: 280, y: -170}, exp: 2000/2000, value: 400}
-  - {name: crawler, index: 11, position: {x: -85, y: -270}, level: 2, exp: 1014/1014, value: 100}
-  - {name: crawler, index: 12, position: {x: -225, y: -270}, level: 2, exp: 1014/1014, value: 100}
-  - {name: marksman, index: 13, position: {x: 220, y: -110}, value: 100}
-  - {name: marksman, index: 14, position: {x: 190, y: -110}, value: 100}
-  - {name: steel_ball, index: 15, position: {x: 205, y: -300}, level: 2, exp: 2253/2253, value: 200}
+  - {name: void_eye, index: 0, value: 100, position: {x: -190, y: -140}, exp: 589/650}
+  - {name: void_eye, index: 1, value: 100, position: {x: 150, y: -110}, exp: 458/650}
+  - {name: void_eye, index: 2, value: 100, position: {x: -80, y: -140}, exp: 650/650}
+  - {name: fire_badger, index: 3, value: 200, position: {x: -135, y: -140}, exp: 243/1400}
+  - {name: fire_badger, index: 4, value: 200, position: {x: 145, y: -140}, exp: 1050/1400}
+  - {name: marksman, index: 5, value: 100, level: 2, position: {x: -170, y: -170}, exp: 1465/1465}
+  - {name: marksman, index: 6, value: 100, level: 3, position: {x: -110, y: -170}, exp: 2315/2315}
+  - {name: steel_ball, index: 7, value: 200, level: 4, position: {x: -225, y: -300}, exp: 783/4490}
+  - {name: steel_ball, index: 8, value: 200, level: 3, position: {x: -155, y: -300}, exp: 1347/3562}
+  - {name: steel_ball, index: 9, value: 200, level: 3, position: {x: -85, y: -300}, exp: 1823/3562}
+  - {name: sandworm, index: 10, value: 400, position: {x: 280, y: -170}, exp: 2000/2000}
+  - {name: crawler, index: 11, value: 100, level: 2, position: {x: -85, y: -270}, exp: 1014/1014}
+  - {name: crawler, index: 12, value: 100, level: 2, position: {x: -225, y: -270}, exp: 1014/1014}
+  - {name: marksman, index: 13, value: 100, position: {x: 220, y: -110}}
+  - {name: marksman, index: 14, value: 100, position: {x: 190, y: -110}}
+  - {name: steel_ball, index: 15, value: 200, level: 2, position: {x: 205, y: -300}, exp: 2253/2253}
   constructions:
   - {name: defensive_wall, index: 0, position: {x: 140, y: -55}}
 ---
@@ -676,7 +704,6 @@ blue:
 - {type: release_contraption, name: interceptor, position: {x: 115, y: -155}}
 - {type: release_contraption, name: missile, position: {x: 199, y: -14}}
 - {type: release_contraption, name: missile, position: {x: -154, y: -104}}
-- {type: active_energy_tower_skill, name: deposit_supply}
 red:
 - {type: choose_reinforce_item, index: 2, name: wasp_2x_lv2}
 - {type: upgrade_technology, unit: sandworm, tech: burrow_maintenance}
@@ -693,7 +720,6 @@ red:
 - {type: upgrade_unit, index: 15}
 - {type: release_contraption, name: missile, position: {x: -137, y: -15}}
 - {type: unlock_unit, name: arclight}
-- {type: active_energy_tower_skill, name: deposit_supply}
 ---
 kind: state
 round: 8
@@ -705,9 +731,12 @@ reinforce_offers: [elite_mustang, absorption_module, missile_strike, underground
 blue:
   random_state: [13447296213731641271, 14011709425182881373, 10990815559025347572, 3132714508454634143]
   reactor_core: 2465
-  supply: 1800
+  supply: 1600
+  reinforce_choice: -1
   unlocked_units: [marksman, melting_point, rhino, wasp, crawler, sledgehammer, vortex]
   tower_strengthen_levels: [0, 0]
+  equipment:
+  - {name: absorption_module, fitted: {unit: 11, slot: 0}}
   battle_skills:
   - {index: 0, name: missile_strike, cooldown: 0}
   next_index: {unit: 19, contraption: 13}
@@ -716,33 +745,39 @@ blue:
     melting_point: [electromagnetic_barrage, range_enhancement]
     sledgehammer: [damage_sharing]
   units:
-  - {name: vortex, index: 0, position: {x: 140, y: -110}, exp: 356/750, value: 100}
-  - {name: vortex, index: 1, position: {x: 90, y: -150}, level: 2, exp: 1628/1690, value: 100}
-  - {name: vortex, index: 2, position: {x: 190, y: -150}, level: 2, exp: 1690/1690, value: 100}
-  - {name: sledgehammer, index: 3, position: {x: 155, y: -130}, level: 2, exp: 1016/2929, value: 200}
-  - {name: sledgehammer, index: 4, position: {x: 105, y: -130}, level: 2, exp: 2429/2929, value: 200}
-  - {name: marksman, index: 5, position: {x: 210, y: -170}, level: 3, exp: 532/2315, value: 100}
-  - {name: marksman, index: 6, position: {x: 70, y: -170}, level: 3, exp: 956/2315, value: 100}
-  - {name: marksman, index: 7, position: {x: 50, y: -170}, level: 3, exp: 297/2315, value: 100}
-  - {name: marksman, index: 8, position: {x: 230, y: -170}, level: 2, exp: 989/1465, value: 100}
-  - {name: rhino, index: 9, position: {x: -255, y: -295}, exp: 307/1150, value: 200}
-  - {name: rhino, index: 10, position: {x: -285, y: -295}, exp: 490/1150, value: 200}
-  - {name: melting_point, index: 11, position: {x: 180, y: -180}, level: 3, exp: 1591/4987, equipment: [absorption_module], value: 400}
-  - {name: melting_point, index: 12, position: {x: -200, y: -190}, level: 3, exp: 1437/4987, value: 400}
-  - {name: crawler, index: 13, position: {x: 165, y: -300}, level: 3, exp: 528/1603, value: 100}
-  - {name: crawler, index: 14, position: {x: 115, y: -300}, level: 2, exp: 1014/1014, value: 100}
-  - {name: crawler, index: 15, position: {x: 215, y: -300}, level: 2, exp: 965/1014, value: 100}
-  - {name: crawler, index: 16, position: {x: -195, y: -300}, level: 2, exp: 798/1014, value: 100}
-  - {name: wasp, index: 17, position: {x: -225, y: -270}, level: 2, exp: 2028/2028, value: 200}
-  - {name: wasp, index: 18, position: {x: -275, y: -270}, level: 2, exp: 2028/2028, value: 200}
+  - {name: vortex, index: 0, value: 100, position: {x: 140, y: -110}, exp: 356/750}
+  - {name: vortex, index: 1, value: 100, level: 2, position: {x: 90, y: -150}, exp: 1628/1690}
+  - {name: vortex, index: 2, value: 100, level: 2, position: {x: 190, y: -150}, exp: 1690/1690}
+  - {name: sledgehammer, index: 3, value: 200, level: 2, position: {x: 155, y: -130}, exp: 1016/2929}
+  - {name: sledgehammer, index: 4, value: 200, level: 2, position: {x: 105, y: -130}, exp: 2429/2929}
+  - {name: marksman, index: 5, value: 100, level: 3, position: {x: 210, y: -170}, exp: 532/2315}
+  - {name: marksman, index: 6, value: 100, level: 3, position: {x: 70, y: -170}, exp: 956/2315}
+  - {name: marksman, index: 7, value: 100, level: 3, position: {x: 50, y: -170}, exp: 297/2315}
+  - {name: marksman, index: 8, value: 100, level: 2, position: {x: 230, y: -170}, exp: 989/1465}
+  - {name: rhino, index: 9, value: 200, position: {x: -255, y: -295}, exp: 307/1150}
+  - {name: rhino, index: 10, value: 200, position: {x: -285, y: -295}, exp: 490/1150}
+  - {name: melting_point, index: 11, value: 400, level: 3, position: {x: 180, y: -180}, exp: 1591/4987}
+  - {name: melting_point, index: 12, value: 400, level: 3, position: {x: -200, y: -190}, exp: 1437/4987}
+  - {name: crawler, index: 13, value: 100, level: 3, position: {x: 165, y: -300}, exp: 528/1603}
+  - {name: crawler, index: 14, value: 100, level: 2, position: {x: 115, y: -300}, exp: 1014/1014}
+  - {name: crawler, index: 15, value: 100, level: 2, position: {x: 215, y: -300}, exp: 965/1014}
+  - {name: crawler, index: 16, value: 100, level: 2, position: {x: -195, y: -300}, exp: 798/1014}
+  - {name: wasp, index: 17, value: 200, level: 2, position: {x: -225, y: -270}, exp: 2028/2028}
+  - {name: wasp, index: 18, value: 200, level: 2, position: {x: -275, y: -270}, exp: 2028/2028}
   constructions:
   - {name: defensive_wall, index: 0, position: {x: 140, y: -55}}
 red:
   random_state: [17176407751395096792, 1481390795227766269, 1252526242962375060, 4385018518599496945]
   reactor_core: 3300
-  supply: 1800
+  supply: 1600
+  reinforce_choice: -1
   unlocked_units: [marksman, wasp, mustang, steel_ball, crawler, hacker, arclight, fire_badger, sabertooth, sandworm, void_eye]
   tower_strengthen_levels: [0, 0]
+  equipment:
+  - {name: secondary_laser_sight, fitted: {unit: 7, slot: 0}}
+  - {name: secondary_laser_sight, fitted: {unit: 8, slot: 0}}
+  - {name: secondary_laser_sight, fitted: {unit: 9, slot: 0}}
+  - {name: deployment_module, fitted: {unit: 5, slot: 0}}
   battle_skills:
   - {index: 0, name: intensive_training, cooldown: 1}
   next_index: {unit: 18, contraption: 5}
@@ -752,24 +787,24 @@ red:
     crawler: [replicate]
     sandworm: [burrow_maintenance, mechanical_rage]
   units:
-  - {name: void_eye, index: 0, position: {x: -190, y: -140}, exp: 589/650, value: 100}
-  - {name: void_eye, index: 1, position: {x: 150, y: -110}, exp: 476/650, value: 100}
-  - {name: void_eye, index: 2, position: {x: -80, y: -140}, exp: 650/650, value: 100}
-  - {name: fire_badger, index: 3, position: {x: -135, y: -140}, exp: 243/1400, value: 200}
-  - {name: fire_badger, index: 4, position: {x: 145, y: -140}, exp: 1050/1400, value: 200}
-  - {name: marksman, index: 5, position: {x: -170, y: -170}, level: 3, equipment: [deployment_module], value: 100}
-  - {name: marksman, index: 6, position: {x: -110, y: -170}, level: 4, exp: 2719/2919, value: 100}
-  - {name: steel_ball, index: 7, position: {x: -225, y: -300}, level: 5, exp: 5210/5210, equipment: [secondary_laser_sight], value: 200}
-  - {name: steel_ball, index: 8, position: {x: -155, y: -300}, level: 3, exp: 3562/3562, equipment: [secondary_laser_sight], value: 200}
-  - {name: steel_ball, index: 9, position: {x: -85, y: -300}, level: 3, exp: 3562/3562, equipment: [secondary_laser_sight], value: 200}
-  - {name: sandworm, index: 10, position: {x: 280, y: -170}, level: 2, exp: 1149/4506, value: 400}
-  - {name: crawler, index: 11, position: {x: -85, y: -270}, level: 3, exp: 530/1603, value: 100}
-  - {name: crawler, index: 12, position: {x: -225, y: -270}, level: 3, exp: 444/1603, value: 100}
-  - {name: marksman, index: 13, position: {x: 220, y: -110}, value: 100}
-  - {name: marksman, index: 14, position: {x: 190, y: -110}, exp: 102/650, value: 100}
-  - {name: steel_ball, index: 15, position: {x: 205, y: -300}, level: 3, exp: 3562/3562, value: 200}
-  - {name: wasp, index: 16, position: {x: 265, y: -300}, level: 2, exp: 634/2028, value: 200}
-  - {name: wasp, index: 17, position: {x: -155, y: -270}, level: 2, exp: 734/2028, value: 200}
+  - {name: void_eye, index: 0, value: 100, position: {x: -190, y: -140}, exp: 589/650}
+  - {name: void_eye, index: 1, value: 100, position: {x: 150, y: -110}, exp: 476/650}
+  - {name: void_eye, index: 2, value: 100, position: {x: -80, y: -140}, exp: 650/650}
+  - {name: fire_badger, index: 3, value: 200, position: {x: -135, y: -140}, exp: 243/1400}
+  - {name: fire_badger, index: 4, value: 200, position: {x: 145, y: -140}, exp: 1050/1400}
+  - {name: marksman, index: 5, value: 100, level: 3, position: {x: -170, y: -170}}
+  - {name: marksman, index: 6, value: 100, level: 4, position: {x: -110, y: -170}, exp: 2719/2919}
+  - {name: steel_ball, index: 7, value: 200, level: 5, position: {x: -225, y: -300}, exp: 5210/5210}
+  - {name: steel_ball, index: 8, value: 200, level: 3, position: {x: -155, y: -300}, exp: 3562/3562}
+  - {name: steel_ball, index: 9, value: 200, level: 3, position: {x: -85, y: -300}, exp: 3562/3562}
+  - {name: sandworm, index: 10, value: 400, level: 2, position: {x: 280, y: -170}, exp: 1149/4506}
+  - {name: crawler, index: 11, value: 100, level: 3, position: {x: -85, y: -270}, exp: 530/1603}
+  - {name: crawler, index: 12, value: 100, level: 3, position: {x: -225, y: -270}, exp: 444/1603}
+  - {name: marksman, index: 13, value: 100, position: {x: 220, y: -110}}
+  - {name: marksman, index: 14, value: 100, position: {x: 190, y: -110}, exp: 102/650}
+  - {name: steel_ball, index: 15, value: 200, level: 3, position: {x: 205, y: -300}, exp: 3562/3562}
+  - {name: wasp, index: 16, value: 200, level: 2, position: {x: 265, y: -300}, exp: 634/2028}
+  - {name: wasp, index: 17, value: 200, level: 2, position: {x: -155, y: -270}, exp: 734/2028}
   constructions:
   - {name: defensive_wall, index: 0, position: {x: 140, y: -55}}
 ---
@@ -794,7 +829,6 @@ blue:
 - {type: release_contraption, name: shield, position: {x: 141, y: -157}}
 - {type: release_contraption, name: missile, position: {x: -160, y: -85}}
 - {type: release_commander_skill, index: 0, name: missile_strike, target: {area: [{x: 164, y: 245}]}}
-- {type: active_energy_tower_skill, name: deposit_supply}
 red:
 - {type: choose_reinforce_item, index: 0, name: elite_mustang}
 - {type: buy_unit, name: mustang}
@@ -811,7 +845,6 @@ red:
 - {type: upgrade_unit, index: 9}
 - {type: upgrade_unit, index: 15}
 - {type: active_energy_tower_skill, name: enhanced_range}
-- {type: active_energy_tower_skill, name: deposit_supply}
 ---
 kind: state
 round: 9
@@ -823,9 +856,13 @@ reinforce_offers: [fang_3x_lv4, sabertooth_1x_lv6, typhoon_1x_lv4, centurion_1x_
 blue:
   random_state: [13447296213731641271, 14011709425182881373, 10990815559025347572, 3132714508454634143]
   reactor_core: 2465
-  supply: 2000
+  supply: 1800
+  reinforce_choice: -1
   unlocked_units: [marksman, melting_point, rhino, wasp, crawler, sledgehammer, vortex]
   tower_strengthen_levels: [0, 0]
+  equipment:
+  - {name: absorption_module, fitted: {unit: 11, slot: 0}}
+  - {name: absorption_module, fitted: {unit: 12, slot: 0}}
   battle_skills:
   - {index: 0, name: missile_strike, cooldown: 2}
   next_index: {unit: 22, contraption: 15}
@@ -837,28 +874,28 @@ blue:
     sledgehammer: [damage_sharing]
     vortex: [emergency_armor]
   units:
-  - {name: vortex, index: 0, position: {x: 140, y: -110}, exp: 421/750, value: 100}
-  - {name: vortex, index: 1, position: {x: 90, y: -150}, level: 2, exp: 1690/1690, value: 100}
-  - {name: vortex, index: 2, position: {x: 190, y: -150}, level: 3, exp: 1973/2671, value: 100}
-  - {name: sledgehammer, index: 3, position: {x: 155, y: -130}, level: 2, exp: 1611/2929, value: 200}
-  - {name: sledgehammer, index: 4, position: {x: 105, y: -130}, level: 2, exp: 2929/2929, value: 200}
-  - {name: marksman, index: 5, position: {x: 210, y: -170}, level: 3, exp: 2315/2315, value: 100}
-  - {name: marksman, index: 6, position: {x: 70, y: -170}, level: 3, exp: 2266/2315, value: 100}
-  - {name: marksman, index: 7, position: {x: 50, y: -170}, level: 3, exp: 2315/2315, value: 100}
-  - {name: marksman, index: 8, position: {x: 230, y: -170}, level: 2, exp: 1445/1465, value: 100}
-  - {name: rhino, index: 9, position: {x: -255, y: -295}, exp: 622/1150, value: 200}
-  - {name: rhino, index: 10, position: {x: -285, y: -295}, exp: 1079/1150, value: 200}
-  - {name: melting_point, index: 11, position: {x: 180, y: -180}, level: 3, exp: 4987/4987, equipment: [absorption_module], value: 400}
-  - {name: melting_point, index: 12, position: {x: -200, y: -190}, level: 3, exp: 3412/4987, equipment: [absorption_module], value: 400}
-  - {name: crawler, index: 13, position: {x: 165, y: -300}, level: 3, exp: 1528/1603, value: 100}
-  - {name: crawler, index: 14, position: {x: 115, y: -300}, level: 3, exp: 1271/1603, value: 100}
-  - {name: crawler, index: 15, position: {x: 215, y: -300}, level: 2, exp: 1014/1014, value: 100}
-  - {name: crawler, index: 16, position: {x: -195, y: -300}, level: 2, exp: 1014/1014, value: 100}
-  - {name: wasp, index: 17, position: {x: -225, y: -270}, level: 3, exp: 2052/3206, value: 200}
-  - {name: wasp, index: 18, position: {x: -275, y: -270}, level: 3, exp: 2011/3206, value: 200}
-  - {name: crawler, index: 19, position: {x: -145, y: -300}, level: 2, exp: 325/1014, value: 100}
-  - {name: crawler, index: 20, position: {x: -175, y: -280}, level: 2, exp: 215/1014, value: 100}
-  - {name: wasp, index: 21, position: {x: -125, y: -280}, level: 2, exp: 2028/2028, value: 200}
+  - {name: vortex, index: 0, value: 100, position: {x: 140, y: -110}, exp: 421/750}
+  - {name: vortex, index: 1, value: 100, level: 2, position: {x: 90, y: -150}, exp: 1690/1690}
+  - {name: vortex, index: 2, value: 100, level: 3, position: {x: 190, y: -150}, exp: 1973/2671}
+  - {name: sledgehammer, index: 3, value: 200, level: 2, position: {x: 155, y: -130}, exp: 1611/2929}
+  - {name: sledgehammer, index: 4, value: 200, level: 2, position: {x: 105, y: -130}, exp: 2929/2929}
+  - {name: marksman, index: 5, value: 100, level: 3, position: {x: 210, y: -170}, exp: 2315/2315}
+  - {name: marksman, index: 6, value: 100, level: 3, position: {x: 70, y: -170}, exp: 2266/2315}
+  - {name: marksman, index: 7, value: 100, level: 3, position: {x: 50, y: -170}, exp: 2315/2315}
+  - {name: marksman, index: 8, value: 100, level: 2, position: {x: 230, y: -170}, exp: 1445/1465}
+  - {name: rhino, index: 9, value: 200, position: {x: -255, y: -295}, exp: 622/1150}
+  - {name: rhino, index: 10, value: 200, position: {x: -285, y: -295}, exp: 1079/1150}
+  - {name: melting_point, index: 11, value: 400, level: 3, position: {x: 180, y: -180}, exp: 4987/4987}
+  - {name: melting_point, index: 12, value: 400, level: 3, position: {x: -200, y: -190}, exp: 3412/4987}
+  - {name: crawler, index: 13, value: 100, level: 3, position: {x: 165, y: -300}, exp: 1528/1603}
+  - {name: crawler, index: 14, value: 100, level: 3, position: {x: 115, y: -300}, exp: 1271/1603}
+  - {name: crawler, index: 15, value: 100, level: 2, position: {x: 215, y: -300}, exp: 1014/1014}
+  - {name: crawler, index: 16, value: 100, level: 2, position: {x: -195, y: -300}, exp: 1014/1014}
+  - {name: wasp, index: 17, value: 200, level: 3, position: {x: -225, y: -270}, exp: 2052/3206}
+  - {name: wasp, index: 18, value: 200, level: 3, position: {x: -275, y: -270}, exp: 2011/3206}
+  - {name: crawler, index: 19, value: 100, level: 2, position: {x: -145, y: -300}, exp: 325/1014}
+  - {name: crawler, index: 20, value: 100, level: 2, position: {x: -175, y: -280}, exp: 215/1014}
+  - {name: wasp, index: 21, value: 200, level: 2, position: {x: -125, y: -280}, exp: 2028/2028}
   constructions:
   - {name: defensive_wall, index: 0, position: {x: 140, y: -55}}
   contraptions:
@@ -866,9 +903,15 @@ blue:
 red:
   random_state: [17176407751395096792, 1481390795227766269, 1252526242962375060, 4385018518599496945]
   reactor_core: 1688
-  supply: 2000
+  supply: 1800
+  reinforce_choice: -1
   unlocked_units: [marksman, wasp, mustang, steel_ball, crawler, hacker, arclight, fire_badger, sabertooth, sandworm, void_eye]
   tower_strengthen_levels: [0, 0]
+  equipment:
+  - {name: secondary_laser_sight, fitted: {unit: 7, slot: 0}}
+  - {name: secondary_laser_sight, fitted: {unit: 8, slot: 0}}
+  - {name: secondary_laser_sight, fitted: {unit: 9, slot: 0}}
+  - {name: deployment_module, fitted: {unit: 5, slot: 0}}
   battle_skills:
   - {index: 0, name: intensive_training, cooldown: 0}
   next_index: {unit: 21, contraption: 5}
@@ -879,27 +922,27 @@ red:
     crawler: [replicate]
     sandworm: [burrow_maintenance, mechanical_rage]
   units:
-  - {name: void_eye, index: 0, position: {x: -190, y: -140}, exp: 650/650, value: 100}
-  - {name: void_eye, index: 1, position: {x: 150, y: -110}, exp: 631/650, value: 100}
-  - {name: void_eye, index: 2, position: {x: -80, y: -140}, level: 2, exp: 91/1465, value: 100}
-  - {name: fire_badger, index: 3, position: {x: -135, y: -140}, exp: 243/1400, value: 200}
-  - {name: fire_badger, index: 4, position: {x: 145, y: -140}, exp: 1369/1400, value: 200}
-  - {name: marksman, index: 5, position: {x: -170, y: -170}, level: 3, exp: 2315/2315, equipment: [deployment_module], value: 100}
-  - {name: marksman, index: 6, position: {x: -110, y: -170}, level: 4, exp: 2919/2919, value: 100}
-  - {name: steel_ball, index: 7, position: {x: -225, y: -300}, level: 6, exp: 521/5799, equipment: [secondary_laser_sight], value: 200}
-  - {name: steel_ball, index: 8, position: {x: -155, y: -300}, level: 4, exp: 705/4490, equipment: [secondary_laser_sight], value: 200}
-  - {name: steel_ball, index: 9, position: {x: -85, y: -300}, level: 4, exp: 364/4490, equipment: [secondary_laser_sight], value: 200}
-  - {name: sandworm, index: 10, position: {x: 280, y: -170}, level: 2, exp: 1593/4506, value: 400}
-  - {name: crawler, index: 11, position: {x: -85, y: -270}, level: 3, exp: 774/1603, value: 100}
-  - {name: crawler, index: 12, position: {x: -225, y: -270}, level: 3, exp: 648/1603, value: 100}
-  - {name: marksman, index: 13, position: {x: 220, y: -110}, exp: 102/650, value: 100}
-  - {name: marksman, index: 14, position: {x: 190, y: -110}, exp: 258/650, value: 100}
-  - {name: steel_ball, index: 15, position: {x: 205, y: -300}, level: 4, exp: 524/4490, value: 200}
-  - {name: wasp, index: 16, position: {x: 265, y: -300}, level: 2, exp: 903/2028, value: 200}
-  - {name: wasp, index: 17, position: {x: -155, y: -270}, level: 2, exp: 734/2028, value: 200}
-  - {name: mustang, index: 18, position: {x: 205, y: -140}, level: 2, exp: 455/2704, value: 200}
-  - {name: mustang, index: 19, position: {x: -215, y: -170}, level: 2, exp: 348/2704, value: 200}
-  - {name: steel_ball, index: 20, position: {x: 145, y: -300}, exp: 99/1000, value: 200}
+  - {name: void_eye, index: 0, value: 100, position: {x: -190, y: -140}, exp: 650/650}
+  - {name: void_eye, index: 1, value: 100, position: {x: 150, y: -110}, exp: 631/650}
+  - {name: void_eye, index: 2, value: 100, level: 2, position: {x: -80, y: -140}, exp: 91/1465}
+  - {name: fire_badger, index: 3, value: 200, position: {x: -135, y: -140}, exp: 243/1400}
+  - {name: fire_badger, index: 4, value: 200, position: {x: 145, y: -140}, exp: 1369/1400}
+  - {name: marksman, index: 5, value: 100, level: 3, position: {x: -170, y: -170}, exp: 2315/2315}
+  - {name: marksman, index: 6, value: 100, level: 4, position: {x: -110, y: -170}, exp: 2919/2919}
+  - {name: steel_ball, index: 7, value: 200, level: 6, position: {x: -225, y: -300}, exp: 521/5799}
+  - {name: steel_ball, index: 8, value: 200, level: 4, position: {x: -155, y: -300}, exp: 705/4490}
+  - {name: steel_ball, index: 9, value: 200, level: 4, position: {x: -85, y: -300}, exp: 364/4490}
+  - {name: sandworm, index: 10, value: 400, level: 2, position: {x: 280, y: -170}, exp: 1593/4506}
+  - {name: crawler, index: 11, value: 100, level: 3, position: {x: -85, y: -270}, exp: 774/1603}
+  - {name: crawler, index: 12, value: 100, level: 3, position: {x: -225, y: -270}, exp: 648/1603}
+  - {name: marksman, index: 13, value: 100, position: {x: 220, y: -110}, exp: 102/650}
+  - {name: marksman, index: 14, value: 100, position: {x: 190, y: -110}, exp: 258/650}
+  - {name: steel_ball, index: 15, value: 200, level: 4, position: {x: 205, y: -300}, exp: 524/4490}
+  - {name: wasp, index: 16, value: 200, level: 2, position: {x: 265, y: -300}, exp: 903/2028}
+  - {name: wasp, index: 17, value: 200, level: 2, position: {x: -155, y: -270}, exp: 734/2028}
+  - {name: mustang, index: 18, value: 200, level: 2, position: {x: 205, y: -140}, exp: 455/2704}
+  - {name: mustang, index: 19, value: 200, level: 2, position: {x: -215, y: -170}, exp: 348/2704}
+  - {name: steel_ball, index: 20, value: 200, position: {x: 145, y: -300}, exp: 99/1000}
   constructions:
   - {name: defensive_wall, index: 0, position: {x: 140, y: -55}}
 ---
@@ -930,9 +973,9 @@ blue:
 - {type: upgrade_unit, index: 21}
 - {type: release_contraption, name: interceptor, position: {x: 55, y: -125}}
 - {type: release_contraption, name: missile, position: {x: -148, y: -78}}
-- {type: active_energy_tower_skill, name: deposit_supply}
 red:
 - {type: choose_reinforce_item, index: 2, name: typhoon_1x_lv4}
+- {type: active_energy_tower_skill, name: rapid_resupply}
 - {type: active_energy_tower_skill, name: elite_recruitment}
 - {type: buy_unit, name: typhoon}
 - {type: buy_unit, name: typhoon}
@@ -960,9 +1003,13 @@ reinforce_offers: [mass_produced_scorpion, advanced_offensive_tactics, smoke_bom
 blue:
   random_state: [13447296213731641271, 14011709425182881373, 10990815559025347572, 3132714508454634143]
   reactor_core: 2465
-  supply: 2200
+  supply: 2000
+  reinforce_choice: -1
   unlocked_units: [marksman, melting_point, rhino, wasp, fang, crawler, sledgehammer, vortex]
   tower_strengthen_levels: [0, 0]
+  equipment:
+  - {name: absorption_module, fitted: {unit: 11, slot: 0}}
+  - {name: absorption_module, fitted: {unit: 12, slot: 0}}
   battle_skills:
   - {index: 0, name: missile_strike, cooldown: 1}
   next_index: {unit: 29, contraption: 17}
@@ -975,35 +1022,35 @@ blue:
     sledgehammer: [damage_sharing]
     vortex: [emergency_armor]
   units:
-  - {name: vortex, index: 0, position: {x: 140, y: -110}, exp: 421/750, value: 100}
-  - {name: vortex, index: 1, position: {x: 90, y: -150}, level: 3, exp: 2671/2671, value: 100}
-  - {name: vortex, index: 2, position: {x: 190, y: -150}, level: 3, exp: 2671/2671, value: 100}
-  - {name: sledgehammer, index: 3, position: {x: 155, y: -130}, level: 2, exp: 2335/2929, value: 200}
-  - {name: sledgehammer, index: 4, position: {x: 105, y: -130}, level: 3, exp: 1732/4630, value: 200}
-  - {name: marksman, index: 5, position: {x: 210, y: -170}, level: 4, exp: 2919/2919, value: 100}
-  - {name: marksman, index: 6, position: {x: 70, y: -170}, level: 3, exp: 2315/2315, value: 100}
-  - {name: marksman, index: 7, position: {x: 50, y: -170}, level: 4, exp: 1215/2919, value: 100}
-  - {name: marksman, index: 8, position: {x: 230, y: -170}, level: 2, exp: 1465/1465, value: 100}
-  - {name: rhino, index: 9, position: {x: -255, y: -295}, exp: 799/1150, value: 200}
-  - {name: rhino, index: 10, position: {x: -285, y: -295}, exp: 1150/1150, value: 200}
-  - {name: melting_point, index: 11, position: {x: 180, y: -180}, level: 4, exp: 1952/6286, equipment: [absorption_module], value: 400}
-  - {name: melting_point, index: 12, position: {x: -200, y: -190}, level: 3, exp: 4604/4987, equipment: [absorption_module], value: 400}
-  - {name: crawler, index: 13, position: {x: 165, y: -300}, level: 3, exp: 1603/1603, value: 100}
-  - {name: crawler, index: 14, position: {x: 115, y: -300}, level: 3, exp: 1603/1603, value: 100}
-  - {name: crawler, index: 15, position: {x: 215, y: -300}, level: 3, exp: 1603/1603, value: 100}
-  - {name: crawler, index: 16, position: {x: -195, y: -300}, level: 3, exp: 284/1603, value: 100}
-  - {name: wasp, index: 17, position: {x: -225, y: -270}, level: 3, exp: 3206/3206, value: 200}
-  - {name: wasp, index: 18, position: {x: -275, y: -270}, level: 3, exp: 3206/3206, value: 200}
-  - {name: crawler, index: 19, position: {x: -145, y: -300}, level: 2, exp: 548/1014, value: 100}
-  - {name: crawler, index: 20, position: {x: -175, y: -280}, level: 2, exp: 517/1014, value: 100}
-  - {name: wasp, index: 21, position: {x: -125, y: -280}, level: 3, exp: 765/3206, value: 200}
-  - {name: fang, index: 22, position: {x: 135, y: -190}, level: 4, exp: 1154/2694, value: 100}
-  - {name: fang, index: 23, position: {x: 85, y: -190}, level: 4, exp: 1729/2694, value: 100}
-  - {name: fang, index: 24, position: {x: 105, y: -170}, level: 4, exp: 2436/2694, value: 100}
-  - {name: crawler, index: 25, position: {x: -175, y: -260}, level: 2, exp: 120/1014, value: 100}
-  - {name: crawler, index: 26, position: {x: 165, y: -280}, level: 2, exp: 1014/1014, value: 100}
-  - {name: crawler, index: 27, position: {x: -95, y: -300}, level: 2, exp: 130/1014, value: 100}
-  - {name: crawler, index: 28, position: {x: 115, y: -280}, level: 2, exp: 290/1014, value: 100}
+  - {name: vortex, index: 0, value: 100, position: {x: 140, y: -110}, exp: 421/750}
+  - {name: vortex, index: 1, value: 100, level: 3, position: {x: 90, y: -150}, exp: 2671/2671}
+  - {name: vortex, index: 2, value: 100, level: 3, position: {x: 190, y: -150}, exp: 2671/2671}
+  - {name: sledgehammer, index: 3, value: 200, level: 2, position: {x: 155, y: -130}, exp: 2335/2929}
+  - {name: sledgehammer, index: 4, value: 200, level: 3, position: {x: 105, y: -130}, exp: 1732/4630}
+  - {name: marksman, index: 5, value: 100, level: 4, position: {x: 210, y: -170}, exp: 2919/2919}
+  - {name: marksman, index: 6, value: 100, level: 3, position: {x: 70, y: -170}, exp: 2315/2315}
+  - {name: marksman, index: 7, value: 100, level: 4, position: {x: 50, y: -170}, exp: 1215/2919}
+  - {name: marksman, index: 8, value: 100, level: 2, position: {x: 230, y: -170}, exp: 1465/1465}
+  - {name: rhino, index: 9, value: 200, position: {x: -255, y: -295}, exp: 799/1150}
+  - {name: rhino, index: 10, value: 200, position: {x: -285, y: -295}, exp: 1150/1150}
+  - {name: melting_point, index: 11, value: 400, level: 4, position: {x: 180, y: -180}, exp: 1952/6286}
+  - {name: melting_point, index: 12, value: 400, level: 3, position: {x: -200, y: -190}, exp: 4604/4987}
+  - {name: crawler, index: 13, value: 100, level: 3, position: {x: 165, y: -300}, exp: 1603/1603}
+  - {name: crawler, index: 14, value: 100, level: 3, position: {x: 115, y: -300}, exp: 1603/1603}
+  - {name: crawler, index: 15, value: 100, level: 3, position: {x: 215, y: -300}, exp: 1603/1603}
+  - {name: crawler, index: 16, value: 100, level: 3, position: {x: -195, y: -300}, exp: 284/1603}
+  - {name: wasp, index: 17, value: 200, level: 3, position: {x: -225, y: -270}, exp: 3206/3206}
+  - {name: wasp, index: 18, value: 200, level: 3, position: {x: -275, y: -270}, exp: 3206/3206}
+  - {name: crawler, index: 19, value: 100, level: 2, position: {x: -145, y: -300}, exp: 548/1014}
+  - {name: crawler, index: 20, value: 100, level: 2, position: {x: -175, y: -280}, exp: 517/1014}
+  - {name: wasp, index: 21, value: 200, level: 3, position: {x: -125, y: -280}, exp: 765/3206}
+  - {name: fang, index: 22, value: 100, level: 4, position: {x: 135, y: -190}, exp: 1154/2694}
+  - {name: fang, index: 23, value: 100, level: 4, position: {x: 85, y: -190}, exp: 1729/2694}
+  - {name: fang, index: 24, value: 100, level: 4, position: {x: 105, y: -170}, exp: 2436/2694}
+  - {name: crawler, index: 25, value: 100, level: 2, position: {x: -175, y: -260}, exp: 120/1014}
+  - {name: crawler, index: 26, value: 100, level: 2, position: {x: 165, y: -280}, exp: 1014/1014}
+  - {name: crawler, index: 27, value: 100, level: 2, position: {x: -95, y: -300}, exp: 130/1014}
+  - {name: crawler, index: 28, value: 100, level: 2, position: {x: 115, y: -280}, exp: 290/1014}
   constructions:
   - {name: defensive_wall, index: 0, position: {x: 140, y: -55}}
   contraptions:
@@ -1011,9 +1058,15 @@ blue:
 red:
   random_state: [17176407751395096792, 1481390795227766269, 1252526242962375060, 4385018518599496945]
   reactor_core: 480
-  supply: 1900
+  supply: 1700
+  reinforce_choice: -1
   unlocked_units: [marksman, wasp, mustang, steel_ball, crawler, hacker, arclight, fire_badger, sabertooth, typhoon, sandworm, tarantula, void_eye]
   tower_strengthen_levels: [0, 0]
+  equipment:
+  - {name: secondary_laser_sight, fitted: {unit: 7, slot: 0}}
+  - {name: secondary_laser_sight, fitted: {unit: 8, slot: 0}}
+  - {name: secondary_laser_sight, fitted: {unit: 9, slot: 0}}
+  - {name: deployment_module, fitted: {unit: 5, slot: 0}}
   battle_skills:
   - {index: 0, name: intensive_training, cooldown: 1}
   next_index: {unit: 25, contraption: 5}
@@ -1025,31 +1078,31 @@ red:
     typhoon: [range_enhancement]
     sandworm: [burrow_maintenance, mechanical_rage]
   units:
-  - {name: void_eye, index: 0, position: {x: -190, y: -140}, exp: 650/650, value: 100}
-  - {name: void_eye, index: 1, position: {x: 150, y: -110}, exp: 650/650, value: 100}
-  - {name: void_eye, index: 2, position: {x: -80, y: -140}, level: 2, exp: 207/1465, value: 100}
-  - {name: fire_badger, index: 3, position: {x: -135, y: -140}, exp: 259/1400, value: 200}
-  - {name: fire_badger, index: 4, position: {x: 145, y: -140}, exp: 1400/1400, value: 200}
-  - {name: marksman, index: 5, position: {x: -170, y: -170}, level: 4, exp: 335/2919, equipment: [deployment_module], value: 100}
-  - {name: marksman, index: 6, position: {x: -110, y: -170}, level: 5, exp: 279/3387, value: 100}
-  - {name: steel_ball, index: 7, position: {x: -225, y: -300}, level: 6, exp: 1294/5799, equipment: [secondary_laser_sight], value: 200}
-  - {name: steel_ball, index: 8, position: {x: -155, y: -300}, level: 4, exp: 1220/4490, equipment: [secondary_laser_sight], value: 200}
-  - {name: steel_ball, index: 9, position: {x: -85, y: -300}, level: 4, exp: 770/4490, equipment: [secondary_laser_sight], value: 200}
-  - {name: sandworm, index: 10, position: {x: 280, y: -170}, level: 2, exp: 1945/4506, value: 400}
-  - {name: crawler, index: 11, position: {x: -85, y: -270}, level: 3, exp: 924/1603, value: 100}
-  - {name: crawler, index: 12, position: {x: -225, y: -270}, level: 3, exp: 874/1603, value: 100}
-  - {name: marksman, index: 13, position: {x: 220, y: -110}, exp: 288/650, value: 100}
-  - {name: marksman, index: 14, position: {x: 190, y: -110}, exp: 486/650, value: 100}
-  - {name: steel_ball, index: 15, position: {x: 205, y: -300}, level: 4, exp: 4437/4490, value: 200}
-  - {name: wasp, index: 16, position: {x: 265, y: -300}, level: 2, exp: 1167/2028, value: 200}
-  - {name: wasp, index: 17, position: {x: -155, y: -270}, level: 2, exp: 1383/2028, value: 200}
-  - {name: mustang, index: 18, position: {x: 205, y: -140}, level: 2, exp: 1220/2704, value: 200}
-  - {name: mustang, index: 19, position: {x: -215, y: -170}, level: 2, exp: 796/2704, value: 200}
-  - {name: steel_ball, index: 20, position: {x: 145, y: -300}, exp: 773/1000, value: 200}
-  - {name: typhoon, index: 21, position: {x: 240, y: -200}, level: 4, exp: 2973/8756, value: 300}
-  - {name: typhoon, index: 22, position: {x: 190, y: -200}, level: 2, exp: 2185/4394, value: 300}
-  - {name: typhoon, index: 23, position: {x: 100, y: -200}, level: 2, exp: 4368/4394, value: 300}
-  - {name: marksman, index: 24, position: {x: 170, y: -170}, level: 3, exp: 2019/2315, value: 100}
+  - {name: void_eye, index: 0, value: 100, position: {x: -190, y: -140}, exp: 650/650}
+  - {name: void_eye, index: 1, value: 100, position: {x: 150, y: -110}, exp: 650/650}
+  - {name: void_eye, index: 2, value: 100, level: 2, position: {x: -80, y: -140}, exp: 207/1465}
+  - {name: fire_badger, index: 3, value: 200, position: {x: -135, y: -140}, exp: 259/1400}
+  - {name: fire_badger, index: 4, value: 200, position: {x: 145, y: -140}, exp: 1400/1400}
+  - {name: marksman, index: 5, value: 100, level: 4, position: {x: -170, y: -170}, exp: 335/2919}
+  - {name: marksman, index: 6, value: 100, level: 5, position: {x: -110, y: -170}, exp: 279/3387}
+  - {name: steel_ball, index: 7, value: 200, level: 6, position: {x: -225, y: -300}, exp: 1294/5799}
+  - {name: steel_ball, index: 8, value: 200, level: 4, position: {x: -155, y: -300}, exp: 1220/4490}
+  - {name: steel_ball, index: 9, value: 200, level: 4, position: {x: -85, y: -300}, exp: 770/4490}
+  - {name: sandworm, index: 10, value: 400, level: 2, position: {x: 280, y: -170}, exp: 1945/4506}
+  - {name: crawler, index: 11, value: 100, level: 3, position: {x: -85, y: -270}, exp: 924/1603}
+  - {name: crawler, index: 12, value: 100, level: 3, position: {x: -225, y: -270}, exp: 874/1603}
+  - {name: marksman, index: 13, value: 100, position: {x: 220, y: -110}, exp: 288/650}
+  - {name: marksman, index: 14, value: 100, position: {x: 190, y: -110}, exp: 486/650}
+  - {name: steel_ball, index: 15, value: 200, level: 4, position: {x: 205, y: -300}, exp: 4437/4490}
+  - {name: wasp, index: 16, value: 200, level: 2, position: {x: 265, y: -300}, exp: 1167/2028}
+  - {name: wasp, index: 17, value: 200, level: 2, position: {x: -155, y: -270}, exp: 1383/2028}
+  - {name: mustang, index: 18, value: 200, level: 2, position: {x: 205, y: -140}, exp: 1220/2704}
+  - {name: mustang, index: 19, value: 200, level: 2, position: {x: -215, y: -170}, exp: 796/2704}
+  - {name: steel_ball, index: 20, value: 200, position: {x: 145, y: -300}, exp: 773/1000}
+  - {name: typhoon, index: 21, value: 300, level: 4, position: {x: 240, y: -200}, exp: 2973/8756}
+  - {name: typhoon, index: 22, value: 300, level: 2, position: {x: 190, y: -200}, exp: 2185/4394}
+  - {name: typhoon, index: 23, value: 300, level: 2, position: {x: 100, y: -200}, exp: 4368/4394}
+  - {name: marksman, index: 24, value: 100, level: 3, position: {x: 170, y: -170}, exp: 2019/2315}
   constructions:
   - {name: defensive_wall, index: 0, position: {x: 140, y: -55}}
 ---
@@ -1083,7 +1136,6 @@ blue:
 - {type: release_contraption, name: shield, position: {x: -200, y: -110}}
 - {type: release_contraption, name: shield, position: {x: 153, y: -85}}
 - {type: release_commander_skill, index: 1, name: smoke_bomb, target: {area: [{x: -37, y: 50}, {x: -196, y: 52}]}}
-- {type: active_energy_tower_skill, name: deposit_supply}
 red:
 - {type: choose_reinforce_item, index: 3, name: electromagnetic_impact}
 - {type: active_energy_tower_skill, name: elite_recruitment}
@@ -1100,7 +1152,6 @@ red:
 - {type: release_contraption, name: missile, position: {x: -267, y: -18}}
 - {type: unlock_unit, name: fang}
 - {type: release_commander_skill, index: 1, name: electromagnetic_impact, target: {area: [{x: 197, y: 214}]}}
-- {type: active_energy_tower_skill, name: deposit_supply}
 ---
 kind: result
 round: 10

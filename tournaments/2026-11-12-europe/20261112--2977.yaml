@@ -108,7 +108,7 @@ random_state: [14976376433298093736, 11498551268646544615, 2717183996753838295, 
 blue:
   random_state: [17042781766639039471, 9569434890162040514, 12545998638459507927, 11496577517901217327]
   reactor_core: 4900
-  supply: 450
+  supply: 250
   unlocked_units: [sledgehammer, hound]
   tower_strengthen_levels: [0, 0]
   battle_skills:
@@ -116,17 +116,17 @@ blue:
   next_index: {unit: 5, contraption: 0}
   officers: [training_specialist]
   units:
-  - {name: hound, index: 0, position: {x: 0, y: -160}, source: joined, value: 100}
-  - {name: hound, index: 1, position: {x: 0, y: -180}, source: joined, value: 100}
-  - {name: hound, index: 2, position: {x: 0, y: -140}, source: joined, value: 100}
-  - {name: sledgehammer, index: 3, position: {x: 5, y: -200}, source: joined, value: 200}
-  - {name: sledgehammer, index: 4, position: {x: 5, y: -120}, source: joined, value: 200}
+  - {name: hound, index: 0, value: 100, source: joined, position: {x: 0, y: -160}}
+  - {name: hound, index: 1, value: 100, source: joined, position: {x: 0, y: -180}}
+  - {name: hound, index: 2, value: 100, source: joined, position: {x: 0, y: -140}}
+  - {name: sledgehammer, index: 3, value: 200, source: joined, position: {x: 5, y: -200}}
+  - {name: sledgehammer, index: 4, value: 200, source: joined, position: {x: 5, y: -120}}
   constructions:
   - {name: defensive_wall, index: 0, position: {x: -140, y: -55}}
 red:
   random_state: [1415828682130207053, 11805862926670912811, 10688483807061581658, 4357780377004078273]
   reactor_core: 4600
-  supply: 400
+  supply: 200
   unlocked_units: [fang, sledgehammer]
   tower_strengthen_levels: [0, 0]
   equipment:
@@ -134,11 +134,11 @@ red:
   next_index: {unit: 5, contraption: 0}
   officers: [secondary_equipment_expert]
   units:
-  - {name: fang, index: 0, position: {x: -5, y: -160}, source: joined, value: 100}
-  - {name: fang, index: 1, position: {x: -5, y: -140}, source: joined, value: 100}
-  - {name: fang, index: 2, position: {x: -5, y: -180}, source: joined, value: 100}
-  - {name: sledgehammer, index: 3, position: {x: -5, y: -120}, source: joined, value: 200}
-  - {name: sledgehammer, index: 4, position: {x: -5, y: -200}, source: joined, value: 200}
+  - {name: fang, index: 0, value: 100, source: joined, position: {x: -5, y: -160}}
+  - {name: fang, index: 1, value: 100, source: joined, position: {x: -5, y: -140}}
+  - {name: fang, index: 2, value: 100, source: joined, position: {x: -5, y: -180}}
+  - {name: sledgehammer, index: 3, value: 200, source: joined, position: {x: -5, y: -120}}
+  - {name: sledgehammer, index: 4, value: 200, source: joined, position: {x: -5, y: -200}}
   constructions:
   - {name: defensive_wall, index: 0, position: {x: -140, y: -55}}
 ---
@@ -157,7 +157,6 @@ blue:
 - {type: move_unit, index: 6, position: {x: 220, y: -170}}
 - {type: release_commander_skill, index: 0, name: intensive_training, target: {unit: 5}}
 - {type: upgrade_unit, index: 5}
-- {type: active_energy_tower_skill, name: deposit_supply}
 red:
 - {type: buy_unit, name: fang}
 - {type: buy_unit, name: fang}
@@ -170,7 +169,6 @@ red:
 - {type: move_unit, index: 5, position: {x: 85, y: -130}}
 - {type: move_unit, index: 6, position: {x: 250, y: -145}, rotated: true}
 - {type: unlock_unit, name: steel_ball}
-- {type: active_energy_tower_skill, name: deposit_supply}
 ---
 kind: state
 round: 2
@@ -181,7 +179,8 @@ reinforce_offers: [extended_range_arclight, extended_range_fortress, extended_ra
 blue:
   random_state: [17042781766639039471, 9569434890162040514, 12545998638459507927, 11496577517901217327]
   reactor_core: 4900
-  supply: 600
+  supply: 400
+  reinforce_choice: -1
   unlocked_units: [marksman, sledgehammer, hound]
   tower_strengthen_levels: [0, 0]
   battle_skills:
@@ -189,33 +188,35 @@ blue:
   next_index: {unit: 7, contraption: 0}
   officers: [training_specialist]
   units:
-  - {name: hound, index: 0, position: {x: -280, y: -190}, exp: 216/750, value: 100}
-  - {name: hound, index: 1, position: {x: 70, y: -150}, exp: 198/750, value: 100}
-  - {name: hound, index: 2, position: {x: 280, y: -170}, exp: 350/750, value: 100}
-  - {name: sledgehammer, index: 3, position: {x: 155, y: -130}, exp: 353/1300, value: 200}
-  - {name: sledgehammer, index: 4, position: {x: 245, y: -130}, exp: 450/1300, value: 200}
-  - {name: marksman, index: 5, position: {x: 160, y: -170}, level: 2, exp: 366/1465, value: 100}
-  - {name: marksman, index: 6, position: {x: 220, y: -170}, exp: 203/650, value: 100}
+  - {name: hound, index: 0, value: 100, position: {x: -280, y: -190}, exp: 216/750}
+  - {name: hound, index: 1, value: 100, position: {x: 70, y: -150}, exp: 198/750}
+  - {name: hound, index: 2, value: 100, position: {x: 280, y: -170}, exp: 350/750}
+  - {name: sledgehammer, index: 3, value: 200, position: {x: 155, y: -130}, exp: 353/1300}
+  - {name: sledgehammer, index: 4, value: 200, position: {x: 245, y: -130}, exp: 450/1300}
+  - {name: marksman, index: 5, value: 100, level: 2, position: {x: 160, y: -170}, exp: 366/1465}
+  - {name: marksman, index: 6, value: 100, position: {x: 220, y: -170}, exp: 203/650}
   constructions:
   - {name: defensive_wall, index: 0, position: {x: -140, y: -55}}
 red:
   random_state: [10090635255103658151, 2604714472814277436, 3774897830529052183, 6142157782385443306]
   reactor_core: 4120
-  supply: 600
+  supply: 400
+  reinforce_choice: -1
   unlocked_units: [steel_ball, fang, sledgehammer]
   tower_strengthen_levels: [0, 0]
   equipment:
+  - {name: small_amplifying_core, fitted: {unit: 3, slot: 0}}
   - {name: secondary_laser_sight}
   next_index: {unit: 7, contraption: 0}
   officers: [secondary_equipment_expert]
   units:
-  - {name: fang, index: 0, position: {x: -250, y: -145}, rotated: true, value: 100}
-  - {name: fang, index: 1, position: {x: -85, y: -130}, exp: 40/600, value: 100}
-  - {name: fang, index: 2, position: {x: -5, y: -190}, exp: 130/600, value: 100}
-  - {name: sledgehammer, index: 3, position: {x: -175, y: -150}, exp: 190/1300, equipment: [small_amplifying_core], value: 200}
-  - {name: sledgehammer, index: 4, position: {x: 175, y: -150}, exp: 504/1300, value: 200}
-  - {name: fang, index: 5, position: {x: 85, y: -130}, exp: 186/600, value: 100}
-  - {name: fang, index: 6, position: {x: 250, y: -145}, exp: 30/600, rotated: true, value: 100}
+  - {name: fang, index: 0, value: 100, position: {x: -250, y: -145}, rotated: true}
+  - {name: fang, index: 1, value: 100, position: {x: -85, y: -130}, exp: 40/600}
+  - {name: fang, index: 2, value: 100, position: {x: -5, y: -190}, exp: 130/600}
+  - {name: sledgehammer, index: 3, value: 200, position: {x: -175, y: -150}, exp: 190/1300}
+  - {name: sledgehammer, index: 4, value: 200, position: {x: 175, y: -150}, exp: 504/1300}
+  - {name: fang, index: 5, value: 100, position: {x: 85, y: -130}, exp: 186/600}
+  - {name: fang, index: 6, value: 100, position: {x: 250, y: -145}, exp: 30/600, rotated: true}
   constructions:
   - {name: defensive_wall, index: 0, position: {x: -140, y: -55}}
 ---
@@ -223,6 +224,7 @@ kind: action
 round: 2
 blue:
 - {type: choose_reinforce_item, index: 3, name: extended_range_phantom_ray}
+- {type: active_energy_tower_skill, name: rapid_resupply}
 - {type: unlock_unit, name: phantom_ray}
 - {type: buy_unit, name: phantom_ray}
 - {type: buy_unit, name: phantom_ray}
@@ -237,7 +239,6 @@ red:
 - {type: move_unit, index: 7, position: {x: -125, y: -300}}
 - {type: move_unit, index: 8, position: {x: -105, y: -170}}
 - {type: unlock_unit, name: wasp}
-- {type: active_energy_tower_skill, name: deposit_supply}
 ---
 kind: state
 round: 3
@@ -248,7 +249,8 @@ reinforce_offers: [mobile_beacon_card, rhino_assault, improved_firepower_control
 blue:
   random_state: [17042781766639039471, 9569434890162040514, 12545998638459507927, 11496577517901217327]
   reactor_core: 4900
-  supply: 500
+  supply: 300
+  reinforce_choice: -1
   unlocked_units: [marksman, sledgehammer, phantom_ray, hound]
   tower_strengthen_levels: [0, 0]
   battle_skills:
@@ -258,37 +260,40 @@ blue:
   techs:
     phantom_ray: [stealth_cloak]
   units:
-  - {name: hound, index: 0, position: {x: -280, y: -190}, exp: 404/750, value: 100}
-  - {name: hound, index: 1, position: {x: 70, y: -150}, exp: 382/750, value: 100}
-  - {name: hound, index: 2, position: {x: 280, y: -170}, exp: 567/750, value: 100}
-  - {name: sledgehammer, index: 3, position: {x: 155, y: -130}, exp: 518/1300, value: 200}
-  - {name: sledgehammer, index: 4, position: {x: 245, y: -130}, exp: 990/1300, value: 200}
-  - {name: marksman, index: 5, position: {x: 160, y: -170}, level: 2, exp: 827/1465, value: 100}
-  - {name: marksman, index: 6, position: {x: 220, y: -170}, exp: 400/650, value: 100}
-  - {name: phantom_ray, index: 7, position: {x: -225, y: -190}, exp: 524/1000, value: 200}
-  - {name: phantom_ray, index: 8, position: {x: -175, y: -190}, exp: 448/1000, value: 200}
+  - {name: hound, index: 0, value: 100, position: {x: -280, y: -190}, exp: 404/750}
+  - {name: hound, index: 1, value: 100, position: {x: 70, y: -150}, exp: 382/750}
+  - {name: hound, index: 2, value: 100, position: {x: 280, y: -170}, exp: 567/750}
+  - {name: sledgehammer, index: 3, value: 200, position: {x: 155, y: -130}, exp: 518/1300}
+  - {name: sledgehammer, index: 4, value: 200, position: {x: 245, y: -130}, exp: 990/1300}
+  - {name: marksman, index: 5, value: 100, level: 2, position: {x: 160, y: -170}, exp: 827/1465}
+  - {name: marksman, index: 6, value: 100, position: {x: 220, y: -170}, exp: 400/650}
+  - {name: phantom_ray, index: 7, value: 200, position: {x: -225, y: -190}, exp: 524/1000}
+  - {name: phantom_ray, index: 8, value: 200, position: {x: -175, y: -190}, exp: 448/1000}
   constructions:
   - {name: defensive_wall, index: 0, position: {x: -140, y: -55}}
 red:
   random_state: [18235566078890158705, 11263446446714045836, 2624604680752674480, 13140041512857295618]
   reactor_core: 3412
-  supply: 800
+  supply: 600
+  reinforce_choice: -1
   unlocked_units: [wasp, steel_ball, fang, sledgehammer]
   tower_strengthen_levels: [0, 0]
   equipment:
+  - {name: small_amplifying_core, fitted: {unit: 3, slot: 0}}
+  - {name: secondary_laser_sight, fitted: {unit: 4, slot: 0}}
   - {name: secondary_fire_control_system}
   next_index: {unit: 9, contraption: 0}
   officers: [secondary_equipment_expert]
   units:
-  - {name: fang, index: 0, position: {x: -250, y: -145}, rotated: true, value: 100}
-  - {name: fang, index: 1, position: {x: -85, y: -130}, exp: 60/600, value: 100}
-  - {name: fang, index: 2, position: {x: -5, y: -190}, exp: 240/600, value: 100}
-  - {name: sledgehammer, index: 3, position: {x: -175, y: -150}, exp: 390/1300, equipment: [small_amplifying_core], value: 200}
-  - {name: sledgehammer, index: 4, position: {x: 175, y: -150}, exp: 614/1300, equipment: [secondary_laser_sight], value: 200}
-  - {name: fang, index: 5, position: {x: 85, y: -130}, exp: 454/600, value: 100}
-  - {name: fang, index: 6, position: {x: 250, y: -145}, exp: 40/600, rotated: true, value: 100}
-  - {name: steel_ball, index: 7, position: {x: -125, y: -300}, exp: 60/1000, value: 200}
-  - {name: sledgehammer, index: 8, position: {x: -105, y: -170}, exp: 370/1300, value: 200}
+  - {name: fang, index: 0, value: 100, position: {x: -250, y: -145}, rotated: true}
+  - {name: fang, index: 1, value: 100, position: {x: -85, y: -130}, exp: 60/600}
+  - {name: fang, index: 2, value: 100, position: {x: -5, y: -190}, exp: 240/600}
+  - {name: sledgehammer, index: 3, value: 200, position: {x: -175, y: -150}, exp: 390/1300}
+  - {name: sledgehammer, index: 4, value: 200, position: {x: 175, y: -150}, exp: 614/1300}
+  - {name: fang, index: 5, value: 100, position: {x: 85, y: -130}, exp: 454/600}
+  - {name: fang, index: 6, value: 100, position: {x: 250, y: -145}, exp: 40/600, rotated: true}
+  - {name: steel_ball, index: 7, value: 200, position: {x: -125, y: -300}, exp: 60/1000}
+  - {name: sledgehammer, index: 8, value: 200, position: {x: -105, y: -170}, exp: 370/1300}
   constructions:
   - {name: defensive_wall, index: 0, position: {x: -140, y: -55}}
 ---
@@ -303,7 +308,6 @@ blue:
 - {type: move_unit, index: 10, position: {x: 60, y: -170}}
 - {type: release_commander_skill, index: 0, name: intensive_training, target: {unit: 10}}
 - {type: upgrade_unit, index: 10}
-- {type: active_energy_tower_skill, name: deposit_supply}
 red:
 - {type: choose_reinforce_item, index: 1, name: rhino_assault}
 - {type: buy_unit, name: wasp}
@@ -315,7 +319,6 @@ red:
 - {type: release_contraption, name: missile, position: {x: 199, y: -74}}
 - {type: unlock_unit, name: mustang}
 - {type: release_commander_skill, index: 0, name: rhino_assault, target: {area: [{x: -337, y: 257}]}}
-- {type: active_energy_tower_skill, name: deposit_supply}
 ---
 kind: state
 round: 4
@@ -326,9 +329,12 @@ reinforce_offers: [sabertooth_1x_lv3, phoenix_2x_lv1, raiden_1x_lv1, wraith_1x_l
 blue:
   random_state: [17042781766639039471, 9569434890162040514, 12545998638459507927, 11496577517901217327]
   reactor_core: 3834
-  supply: 1000
+  supply: 800
+  reinforce_choice: -1
   unlocked_units: [marksman, sledgehammer, phantom_ray, hound]
   tower_strengthen_levels: [0, 0]
+  equipment:
+  - {name: improved_firepower_control_system, fitted: {unit: 8, slot: 0}}
   battle_skills:
   - {index: 0, name: intensive_training, cooldown: 1}
   next_index: {unit: 11, contraption: 0}
@@ -336,27 +342,31 @@ blue:
   techs:
     phantom_ray: [stealth_cloak]
   units:
-  - {name: hound, index: 0, position: {x: -280, y: -190}, exp: 548/750, value: 100}
-  - {name: hound, index: 1, position: {x: 70, y: -150}, exp: 527/750, value: 100}
-  - {name: hound, index: 2, position: {x: 280, y: -170}, exp: 567/750, value: 100}
-  - {name: sledgehammer, index: 3, position: {x: 155, y: -130}, exp: 707/1300, value: 200}
-  - {name: sledgehammer, index: 4, position: {x: 245, y: -130}, exp: 1182/1300, value: 200}
-  - {name: marksman, index: 5, position: {x: 160, y: -170}, level: 2, exp: 927/1465, value: 100}
-  - {name: marksman, index: 6, position: {x: 220, y: -170}, exp: 400/650, value: 100}
-  - {name: phantom_ray, index: 7, position: {x: -225, y: -190}, exp: 812/1000, value: 200}
-  - {name: phantom_ray, index: 8, position: {x: -175, y: -190}, exp: 520/1000, equipment: [improved_firepower_control_system], value: 200}
-  - {name: marksman, index: 9, position: {x: 120, y: -170}, exp: 87/650, value: 100}
-  - {name: marksman, index: 10, position: {x: 60, y: -170}, level: 2, exp: 222/1465, value: 100}
+  - {name: hound, index: 0, value: 100, position: {x: -280, y: -190}, exp: 548/750}
+  - {name: hound, index: 1, value: 100, position: {x: 70, y: -150}, exp: 527/750}
+  - {name: hound, index: 2, value: 100, position: {x: 280, y: -170}, exp: 567/750}
+  - {name: sledgehammer, index: 3, value: 200, position: {x: 155, y: -130}, exp: 707/1300}
+  - {name: sledgehammer, index: 4, value: 200, position: {x: 245, y: -130}, exp: 1182/1300}
+  - {name: marksman, index: 5, value: 100, level: 2, position: {x: 160, y: -170}, exp: 927/1465}
+  - {name: marksman, index: 6, value: 100, position: {x: 220, y: -170}, exp: 400/650}
+  - {name: phantom_ray, index: 7, value: 200, position: {x: -225, y: -190}, exp: 812/1000}
+  - {name: phantom_ray, index: 8, value: 200, position: {x: -175, y: -190}, exp: 520/1000}
+  - {name: marksman, index: 9, value: 100, position: {x: 120, y: -170}, exp: 87/650}
+  - {name: marksman, index: 10, value: 100, level: 2, position: {x: 60, y: -170}, exp: 222/1465}
   constructions:
   - {name: defensive_wall, index: 0, position: {x: -140, y: -55}}
 red:
   random_state: [15493715624392209663, 4986059193497213261, 4667454052041628865, 275217942195461143]
   reactor_core: 3412
-  supply: 1000
+  supply: 800
+  reinforce_choice: -1
   unlocked_units: [wasp, mustang, steel_ball, fang, sledgehammer]
   tower_strengthen_levels: [0, 0]
   equipment:
+  - {name: small_amplifying_core, fitted: {unit: 3, slot: 0}}
+  - {name: secondary_laser_sight, fitted: {unit: 4, slot: 0}}
   - {name: secondary_fire_control_system}
+  - {name: secondary_fire_control_system, fitted: {unit: 7, slot: 0}}
   battle_skills:
   - {index: 0, name: rhino_assault, cooldown: 3}
   next_index: {unit: 11, contraption: 1}
@@ -364,17 +374,17 @@ red:
   techs:
     wasp: [electromagnetic_shot]
   units:
-  - {name: fang, index: 0, position: {x: -250, y: -145}, exp: 48/600, rotated: true, value: 100}
-  - {name: fang, index: 1, position: {x: -85, y: -130}, exp: 148/600, value: 100}
-  - {name: fang, index: 2, position: {x: -5, y: -190}, exp: 600/600, value: 100}
-  - {name: sledgehammer, index: 3, position: {x: -175, y: -150}, exp: 682/1300, equipment: [small_amplifying_core], value: 200}
-  - {name: sledgehammer, index: 4, position: {x: 175, y: -150}, exp: 873/1300, equipment: [secondary_laser_sight], value: 200}
-  - {name: fang, index: 5, position: {x: 85, y: -130}, exp: 600/600, value: 100}
-  - {name: fang, index: 6, position: {x: 250, y: -145}, exp: 98/600, rotated: true, value: 100}
-  - {name: steel_ball, index: 7, position: {x: -125, y: -300}, exp: 162/1000, equipment: [secondary_fire_control_system], value: 200}
-  - {name: sledgehammer, index: 8, position: {x: -105, y: -170}, exp: 728/1300, value: 200}
-  - {name: wasp, index: 9, position: {x: -225, y: -300}, exp: 512/900, value: 200}
-  - {name: wasp, index: 10, position: {x: -275, y: -300}, exp: 458/900, value: 200}
+  - {name: fang, index: 0, value: 100, position: {x: -250, y: -145}, exp: 48/600, rotated: true}
+  - {name: fang, index: 1, value: 100, position: {x: -85, y: -130}, exp: 148/600}
+  - {name: fang, index: 2, value: 100, position: {x: -5, y: -190}, exp: 600/600}
+  - {name: sledgehammer, index: 3, value: 200, position: {x: -175, y: -150}, exp: 682/1300}
+  - {name: sledgehammer, index: 4, value: 200, position: {x: 175, y: -150}, exp: 873/1300}
+  - {name: fang, index: 5, value: 100, position: {x: 85, y: -130}, exp: 600/600}
+  - {name: fang, index: 6, value: 100, position: {x: 250, y: -145}, exp: 98/600, rotated: true}
+  - {name: steel_ball, index: 7, value: 200, position: {x: -125, y: -300}, exp: 162/1000}
+  - {name: sledgehammer, index: 8, value: 200, position: {x: -105, y: -170}, exp: 728/1300}
+  - {name: wasp, index: 9, value: 200, position: {x: -225, y: -300}, exp: 512/900}
+  - {name: wasp, index: 10, value: 200, position: {x: -275, y: -300}, exp: 458/900}
   constructions:
   - {name: defensive_wall, index: 0, position: {x: -140, y: -55}}
 ---
@@ -382,6 +392,7 @@ kind: action
 round: 4
 blue:
 - {type: choose_reinforce_item, index: 1, name: phoenix_2x_lv1}
+- {type: active_energy_tower_skill, name: rapid_resupply}
 - {type: unlock_unit, name: wraith}
 - {type: buy_unit, name: wraith}
 - {type: buy_unit, name: wraith}
@@ -406,7 +417,6 @@ red:
 - {type: move_unit, index: 14, position: {x: -275, y: -280}}
 - {type: move_unit, index: 15, position: {x: -225, y: -280}}
 - {type: unlock_unit, name: fire_badger}
-- {type: active_energy_tower_skill, name: deposit_supply}
 ---
 kind: state
 round: 5
@@ -417,10 +427,13 @@ reinforce_offers: [steel_ball_production_line, mass_produced_laser_sight, mass_p
 blue:
   random_state: [17042781766639039471, 9569434890162040514, 12545998638459507927, 11496577517901217327]
   reactor_core: 3834
-  supply: 900
+  supply: 700
+  reinforce_choice: -1
   unlocked_units: [marksman, sledgehammer, phoenix, wraith, phantom_ray, hound]
   blueprints: [defense_enhancement]
   tower_strengthen_levels: [0, 0]
+  equipment:
+  - {name: improved_firepower_control_system, fitted: {unit: 8, slot: 0}}
   battle_skills:
   - {index: 0, name: intensive_training, cooldown: 0}
   next_index: {unit: 15, contraption: 1}
@@ -429,31 +442,36 @@ blue:
     wraith: [degeneration_beam]
     phantom_ray: [stealth_cloak]
   units:
-  - {name: hound, index: 0, position: {x: -280, y: -190}, exp: 680/750, value: 100}
-  - {name: hound, index: 1, position: {x: 70, y: -150}, exp: 625/750, value: 100}
-  - {name: hound, index: 2, position: {x: 280, y: -170}, exp: 750/750, value: 100}
-  - {name: sledgehammer, index: 3, position: {x: 155, y: -130}, exp: 1016/1300, value: 200}
-  - {name: sledgehammer, index: 4, position: {x: 245, y: -130}, exp: 1300/1300, value: 200}
-  - {name: marksman, index: 5, position: {x: 160, y: -170}, level: 2, exp: 1295/1465, value: 100}
-  - {name: marksman, index: 6, position: {x: 220, y: -170}, exp: 565/650, value: 100}
-  - {name: phantom_ray, index: 7, position: {x: -225, y: -190}, exp: 1000/1000, value: 200}
-  - {name: phantom_ray, index: 8, position: {x: -175, y: -190}, exp: 1000/1000, equipment: [improved_firepower_control_system], value: 200}
-  - {name: marksman, index: 9, position: {x: 120, y: -170}, exp: 206/650, value: 100}
-  - {name: marksman, index: 10, position: {x: 60, y: -170}, level: 2, exp: 643/1465, value: 100}
-  - {name: phoenix, index: 11, position: {x: 90, y: -190}, exp: 355/1300, value: 200}
-  - {name: phoenix, index: 12, position: {x: 190, y: -190}, exp: 290/1300, value: 200}
-  - {name: wraith, index: 13, position: {x: 195, y: -135}, exp: 1430/2250, value: 300}
-  - {name: wraith, index: 14, position: {x: -195, y: -145}, exp: 174/2250, value: 300}
+  - {name: hound, index: 0, value: 100, position: {x: -280, y: -190}, exp: 680/750}
+  - {name: hound, index: 1, value: 100, position: {x: 70, y: -150}, exp: 625/750}
+  - {name: hound, index: 2, value: 100, position: {x: 280, y: -170}, exp: 750/750}
+  - {name: sledgehammer, index: 3, value: 200, position: {x: 155, y: -130}, exp: 1016/1300}
+  - {name: sledgehammer, index: 4, value: 200, position: {x: 245, y: -130}, exp: 1300/1300}
+  - {name: marksman, index: 5, value: 100, level: 2, position: {x: 160, y: -170}, exp: 1295/1465}
+  - {name: marksman, index: 6, value: 100, position: {x: 220, y: -170}, exp: 565/650}
+  - {name: phantom_ray, index: 7, value: 200, position: {x: -225, y: -190}, exp: 1000/1000}
+  - {name: phantom_ray, index: 8, value: 200, position: {x: -175, y: -190}, exp: 1000/1000}
+  - {name: marksman, index: 9, value: 100, position: {x: 120, y: -170}, exp: 206/650}
+  - {name: marksman, index: 10, value: 100, level: 2, position: {x: 60, y: -170}, exp: 643/1465}
+  - {name: phoenix, index: 11, value: 200, position: {x: 90, y: -190}, exp: 355/1300}
+  - {name: phoenix, index: 12, value: 200, position: {x: 190, y: -190}, exp: 290/1300}
+  - {name: wraith, index: 13, value: 300, position: {x: 195, y: -135}, exp: 1430/2250}
+  - {name: wraith, index: 14, value: 300, position: {x: -195, y: -145}, exp: 174/2250}
   constructions:
   - {name: defensive_wall, index: 0, position: {x: -140, y: -55}}
 red:
   random_state: [10513498765429977509, 15199814309385335155, 9445242556694472766, 16189113397288451620]
   reactor_core: 1827
-  supply: 1200
+  supply: 1000
+  reinforce_choice: -1
   unlocked_units: [wasp, mustang, steel_ball, fang, sledgehammer, phoenix, fire_badger]
   tower_strengthen_levels: [0, 0]
   equipment:
   - {name: small_amplifying_core}
+  - {name: small_amplifying_core, fitted: {unit: 3, slot: 0}}
+  - {name: secondary_laser_sight, fitted: {unit: 4, slot: 0}}
+  - {name: secondary_fire_control_system, fitted: {unit: 7, slot: 0}}
+  - {name: secondary_fire_control_system, fitted: {unit: 13, slot: 0}}
   battle_skills:
   - {index: 0, name: rhino_assault, cooldown: 2}
   next_index: {unit: 16, contraption: 1}
@@ -462,22 +480,22 @@ red:
     wasp: [electromagnetic_shot]
     steel_ball: [kinetic_charge]
   units:
-  - {name: fang, index: 0, position: {x: -250, y: -145}, exp: 48/600, rotated: true, value: 100}
-  - {name: fang, index: 1, position: {x: -85, y: -130}, exp: 168/600, value: 100}
-  - {name: fang, index: 2, position: {x: -5, y: -190}, exp: 600/600, value: 100}
-  - {name: sledgehammer, index: 3, position: {x: -175, y: -150}, exp: 852/1300, equipment: [small_amplifying_core], value: 200}
-  - {name: sledgehammer, index: 4, position: {x: 175, y: -150}, exp: 873/1300, equipment: [secondary_laser_sight], value: 200}
-  - {name: fang, index: 5, position: {x: 85, y: -130}, exp: 600/600, value: 100}
-  - {name: fang, index: 6, position: {x: 250, y: -145}, exp: 98/600, rotated: true, value: 100}
-  - {name: steel_ball, index: 7, position: {x: -125, y: -300}, exp: 295/1000, equipment: [secondary_fire_control_system], value: 200}
-  - {name: sledgehammer, index: 8, position: {x: -105, y: -170}, exp: 831/1300, value: 200}
-  - {name: wasp, index: 9, position: {x: -225, y: -300}, exp: 530/900, value: 200}
-  - {name: wasp, index: 10, position: {x: -275, y: -300}, exp: 546/900, value: 200}
-  - {name: phoenix, index: 11, position: {x: 170, y: -300}, exp: 364/1300, value: 200}
-  - {name: phoenix, index: 12, position: {x: 210, y: -300}, exp: 450/1300, value: 200}
-  - {name: steel_ball, index: 13, position: {x: -75, y: -300}, exp: 133/1000, equipment: [secondary_fire_control_system], value: 200}
-  - {name: wasp, index: 14, position: {x: -275, y: -280}, exp: 28/900, value: 200}
-  - {name: wasp, index: 15, position: {x: -225, y: -280}, exp: 5/900, value: 200}
+  - {name: fang, index: 0, value: 100, position: {x: -250, y: -145}, exp: 48/600, rotated: true}
+  - {name: fang, index: 1, value: 100, position: {x: -85, y: -130}, exp: 168/600}
+  - {name: fang, index: 2, value: 100, position: {x: -5, y: -190}, exp: 600/600}
+  - {name: sledgehammer, index: 3, value: 200, position: {x: -175, y: -150}, exp: 852/1300}
+  - {name: sledgehammer, index: 4, value: 200, position: {x: 175, y: -150}, exp: 873/1300}
+  - {name: fang, index: 5, value: 100, position: {x: 85, y: -130}, exp: 600/600}
+  - {name: fang, index: 6, value: 100, position: {x: 250, y: -145}, exp: 98/600, rotated: true}
+  - {name: steel_ball, index: 7, value: 200, position: {x: -125, y: -300}, exp: 295/1000}
+  - {name: sledgehammer, index: 8, value: 200, position: {x: -105, y: -170}, exp: 831/1300}
+  - {name: wasp, index: 9, value: 200, position: {x: -225, y: -300}, exp: 530/900}
+  - {name: wasp, index: 10, value: 200, position: {x: -275, y: -300}, exp: 546/900}
+  - {name: phoenix, index: 11, value: 200, position: {x: 170, y: -300}, exp: 364/1300}
+  - {name: phoenix, index: 12, value: 200, position: {x: 210, y: -300}, exp: 450/1300}
+  - {name: steel_ball, index: 13, value: 200, position: {x: -75, y: -300}, exp: 133/1000}
+  - {name: wasp, index: 14, value: 200, position: {x: -275, y: -280}, exp: 28/900}
+  - {name: wasp, index: 15, value: 200, position: {x: -225, y: -280}, exp: 5/900}
   constructions:
   - {name: defensive_wall, index: 0, position: {x: -140, y: -55}}
 ---
@@ -485,6 +503,7 @@ kind: action
 round: 5
 blue:
 - {type: choose_reinforce_item, index: 2, name: mass_production_fire_control_system}
+- {type: active_energy_tower_skill, name: rapid_resupply}
 - {type: buy_unit, name: phoenix}
 - {type: buy_unit, name: phoenix}
 - {type: use_equipment, name: secondary_fire_control_system, index: 5}
@@ -510,7 +529,6 @@ red:
 - {type: move_unit, index: 16, position: {x: 65, y: -190}}
 - {type: upgrade_unit, index: 2}
 - {type: unlock_unit, name: tarantula}
-- {type: active_energy_tower_skill, name: deposit_supply}
 ---
 kind: state
 round: 6
@@ -521,10 +539,16 @@ reinforce_offers: [mustang_2x_lv2, sandworm_1x_lv1, stormcaller_2x_lv2, tarantul
 blue:
   random_state: [17042781766639039471, 9569434890162040514, 12545998638459507927, 11496577517901217327]
   reactor_core: 3834
-  supply: 1100
+  supply: 900
+  reinforce_choice: -1
   unlocked_units: [marksman, sledgehammer, phoenix, wraith, phantom_ray, hound]
   blueprints: [attack_enhancement, defense_enhancement]
   tower_strengthen_levels: [0, 0]
+  equipment:
+  - {name: improved_firepower_control_system, fitted: {unit: 8, slot: 0}}
+  - {name: secondary_fire_control_system, fitted: {unit: 5, slot: 0}}
+  - {name: secondary_fire_control_system, fitted: {unit: 11, slot: 0}}
+  - {name: secondary_fire_control_system, fitted: {unit: 12, slot: 0}}
   battle_skills:
   - {index: 0, name: intensive_training, cooldown: 1}
   next_index: {unit: 17, contraption: 1}
@@ -533,32 +557,41 @@ blue:
     wraith: [degeneration_beam]
     phantom_ray: [stealth_cloak]
   units:
-  - {name: hound, index: 0, position: {x: -280, y: -190}, exp: 680/750, value: 100}
-  - {name: hound, index: 1, position: {x: 70, y: -150}, exp: 750/750, value: 100}
-  - {name: hound, index: 2, position: {x: 280, y: -170}, level: 2, exp: 8/1690, value: 100}
-  - {name: sledgehammer, index: 3, position: {x: 155, y: -130}, exp: 1195/1300, value: 200}
-  - {name: sledgehammer, index: 4, position: {x: 245, y: -130}, exp: 1300/1300, value: 200}
-  - {name: marksman, index: 5, position: {x: 160, y: -170}, level: 3, exp: 497/2315, equipment: [secondary_fire_control_system], value: 100}
-  - {name: marksman, index: 6, position: {x: 220, y: -170}, exp: 650/650, value: 100}
-  - {name: phantom_ray, index: 7, position: {x: -225, y: -190}, level: 2, exp: 872/2253, value: 200}
-  - {name: phantom_ray, index: 8, position: {x: -175, y: -190}, level: 2, exp: 557/2253, equipment: [improved_firepower_control_system], value: 200}
-  - {name: marksman, index: 9, position: {x: 120, y: -170}, exp: 650/650, value: 100}
-  - {name: marksman, index: 10, position: {x: 60, y: -170}, level: 2, exp: 1219/1465, value: 100}
-  - {name: phoenix, index: 11, position: {x: 90, y: -190}, exp: 1252/1300, equipment: [secondary_fire_control_system], value: 200}
-  - {name: phoenix, index: 12, position: {x: 190, y: -190}, exp: 746/1300, equipment: [secondary_fire_control_system], value: 200}
-  - {name: wraith, index: 13, position: {x: 195, y: -135}, exp: 1538/2250, value: 300}
-  - {name: wraith, index: 14, position: {x: -195, y: -145}, exp: 354/2250, value: 300}
-  - {name: phoenix, index: 15, position: {x: -160, y: -140}, exp: 131/1300, value: 200}
-  - {name: phoenix, index: 16, position: {x: -230, y: -140}, exp: 600/1300, value: 200}
+  - {name: hound, index: 0, value: 100, position: {x: -280, y: -190}, exp: 680/750}
+  - {name: hound, index: 1, value: 100, position: {x: 70, y: -150}, exp: 750/750}
+  - {name: hound, index: 2, value: 100, level: 2, position: {x: 280, y: -170}, exp: 8/1690}
+  - {name: sledgehammer, index: 3, value: 200, position: {x: 155, y: -130}, exp: 1195/1300}
+  - {name: sledgehammer, index: 4, value: 200, position: {x: 245, y: -130}, exp: 1300/1300}
+  - {name: marksman, index: 5, value: 100, level: 3, position: {x: 160, y: -170}, exp: 497/2315}
+  - {name: marksman, index: 6, value: 100, position: {x: 220, y: -170}, exp: 650/650}
+  - {name: phantom_ray, index: 7, value: 200, level: 2, position: {x: -225, y: -190}, exp: 872/2253}
+  - {name: phantom_ray, index: 8, value: 200, level: 2, position: {x: -175, y: -190}, exp: 557/2253}
+  - {name: marksman, index: 9, value: 100, position: {x: 120, y: -170}, exp: 650/650}
+  - {name: marksman, index: 10, value: 100, level: 2, position: {x: 60, y: -170}, exp: 1219/1465}
+  - {name: phoenix, index: 11, value: 200, position: {x: 90, y: -190}, exp: 1252/1300}
+  - {name: phoenix, index: 12, value: 200, position: {x: 190, y: -190}, exp: 746/1300}
+  - {name: wraith, index: 13, value: 300, position: {x: 195, y: -135}, exp: 1538/2250}
+  - {name: wraith, index: 14, value: 300, position: {x: -195, y: -145}, exp: 354/2250}
+  - {name: phoenix, index: 15, value: 200, position: {x: -160, y: -140}, exp: 131/1300}
+  - {name: phoenix, index: 16, value: 200, position: {x: -230, y: -140}, exp: 600/1300}
   constructions:
   - {name: defensive_wall, index: 0, position: {x: -140, y: -55}}
 red:
   random_state: [11798495502270267122, 13836144331835369704, 4600823928162425243, 6479244225799597413]
   reactor_core: 892
-  supply: 1400
+  supply: 1200
+  reinforce_choice: -1
   unlocked_units: [wasp, mustang, steel_ball, fang, sledgehammer, phoenix, fire_badger, tarantula]
   tower_strengthen_levels: [0, 0]
   equipment:
+  - {name: small_amplifying_core, fitted: {unit: 3, slot: 0}}
+  - {name: small_amplifying_core, fitted: {unit: 15, slot: 0}}
+  - {name: secondary_laser_sight, fitted: {unit: 4, slot: 0}}
+  - {name: secondary_fire_control_system, fitted: {unit: 7, slot: 0}}
+  - {name: secondary_fire_control_system, fitted: {unit: 9, slot: 0}}
+  - {name: secondary_fire_control_system, fitted: {unit: 10, slot: 0}}
+  - {name: secondary_fire_control_system, fitted: {unit: 13, slot: 0}}
+  - {name: secondary_fire_control_system, fitted: {unit: 14, slot: 0}}
   - {name: secondary_heavy_armor}
   battle_skills:
   - {index: 0, name: rhino_assault, cooldown: 1}
@@ -569,23 +602,23 @@ red:
     steel_ball: [kinetic_charge]
     fang: [mechanical_rage]
   units:
-  - {name: fang, index: 0, position: {x: -250, y: -145}, exp: 48/600, rotated: true, value: 100}
-  - {name: fang, index: 1, position: {x: -85, y: -130}, exp: 168/600, value: 100}
-  - {name: fang, index: 2, position: {x: -5, y: -190}, level: 2, exp: 126/1352, value: 100}
-  - {name: sledgehammer, index: 3, position: {x: -175, y: -150}, exp: 898/1300, equipment: [small_amplifying_core], value: 200}
-  - {name: sledgehammer, index: 4, position: {x: 175, y: -150}, exp: 913/1300, equipment: [secondary_laser_sight], value: 200}
-  - {name: fang, index: 5, position: {x: 85, y: -130}, exp: 600/600, value: 100}
-  - {name: fang, index: 6, position: {x: 250, y: -145}, exp: 148/600, rotated: true, value: 100}
-  - {name: steel_ball, index: 7, position: {x: -125, y: -300}, exp: 488/1000, equipment: [secondary_fire_control_system], value: 200}
-  - {name: sledgehammer, index: 8, position: {x: -105, y: -170}, exp: 997/1300, value: 200}
-  - {name: wasp, index: 9, position: {x: -225, y: -300}, exp: 900/900, equipment: [secondary_fire_control_system], value: 200}
-  - {name: wasp, index: 10, position: {x: -275, y: -300}, exp: 900/900, equipment: [secondary_fire_control_system], value: 200}
-  - {name: phoenix, index: 11, position: {x: 170, y: -300}, exp: 1036/1300, value: 200}
-  - {name: phoenix, index: 12, position: {x: 210, y: -300}, exp: 1090/1300, value: 200}
-  - {name: steel_ball, index: 13, position: {x: -75, y: -300}, exp: 233/1000, equipment: [secondary_fire_control_system], value: 200}
-  - {name: wasp, index: 14, position: {x: -275, y: -280}, exp: 806/900, equipment: [secondary_fire_control_system], value: 200}
-  - {name: wasp, index: 15, position: {x: -225, y: -280}, exp: 816/900, equipment: [small_amplifying_core], value: 200}
-  - {name: fang, index: 16, position: {x: 65, y: -190}, exp: 24/600, value: 100}
+  - {name: fang, index: 0, value: 100, position: {x: -250, y: -145}, exp: 48/600, rotated: true}
+  - {name: fang, index: 1, value: 100, position: {x: -85, y: -130}, exp: 168/600}
+  - {name: fang, index: 2, value: 100, level: 2, position: {x: -5, y: -190}, exp: 126/1352}
+  - {name: sledgehammer, index: 3, value: 200, position: {x: -175, y: -150}, exp: 898/1300}
+  - {name: sledgehammer, index: 4, value: 200, position: {x: 175, y: -150}, exp: 913/1300}
+  - {name: fang, index: 5, value: 100, position: {x: 85, y: -130}, exp: 600/600}
+  - {name: fang, index: 6, value: 100, position: {x: 250, y: -145}, exp: 148/600, rotated: true}
+  - {name: steel_ball, index: 7, value: 200, position: {x: -125, y: -300}, exp: 488/1000}
+  - {name: sledgehammer, index: 8, value: 200, position: {x: -105, y: -170}, exp: 997/1300}
+  - {name: wasp, index: 9, value: 200, position: {x: -225, y: -300}, exp: 900/900}
+  - {name: wasp, index: 10, value: 200, position: {x: -275, y: -300}, exp: 900/900}
+  - {name: phoenix, index: 11, value: 200, position: {x: 170, y: -300}, exp: 1036/1300}
+  - {name: phoenix, index: 12, value: 200, position: {x: 210, y: -300}, exp: 1090/1300}
+  - {name: steel_ball, index: 13, value: 200, position: {x: -75, y: -300}, exp: 233/1000}
+  - {name: wasp, index: 14, value: 200, position: {x: -275, y: -280}, exp: 806/900}
+  - {name: wasp, index: 15, value: 200, position: {x: -225, y: -280}, exp: 816/900}
+  - {name: fang, index: 16, value: 100, position: {x: 65, y: -190}, exp: 24/600}
   constructions:
   - {name: defensive_wall, index: 0, position: {x: -140, y: -55}}
 ---
@@ -593,6 +626,7 @@ kind: action
 round: 6
 blue:
 - {type: choose_reinforce_item, index: 0, name: mustang_2x_lv2}
+- {type: active_energy_tower_skill, name: rapid_resupply}
 - {type: active_energy_tower_skill, name: elite_recruitment}
 - {type: buy_unit, name: mustang}
 - {type: buy_unit, name: mustang}
@@ -606,6 +640,7 @@ blue:
 - {type: release_contraption, name: missile, position: {x: 42, y: -13}}
 red:
 - {type: choose_reinforce_item, index: 0, name: mustang_2x_lv2}
+- {type: active_energy_tower_skill, name: rapid_resupply}
 - {type: buy_unit, name: mustang}
 - {type: buy_unit, name: mustang}
 - {type: upgrade_technology, unit: wasp, tech: energy_shield}
@@ -626,10 +661,16 @@ reinforce_offers: [advanced_shield_device, mass_production_heavy_armor, orbital_
 blue:
   random_state: [17042781766639039471, 9569434890162040514, 12545998638459507927, 11496577517901217327]
   reactor_core: 3834
-  supply: 1300
+  supply: 1100
+  reinforce_choice: -1
   unlocked_units: [marksman, mustang, sledgehammer, phoenix, wraith, phantom_ray, hound]
   blueprints: [attack_enhancement, defense_enhancement]
   tower_strengthen_levels: [0, 0]
+  equipment:
+  - {name: improved_firepower_control_system, fitted: {unit: 8, slot: 0}}
+  - {name: secondary_fire_control_system, fitted: {unit: 5, slot: 0}}
+  - {name: secondary_fire_control_system, fitted: {unit: 11, slot: 0}}
+  - {name: secondary_fire_control_system, fitted: {unit: 12, slot: 0}}
   battle_skills:
   - {index: 0, name: intensive_training, cooldown: 0}
   next_index: {unit: 21, contraption: 2}
@@ -638,38 +679,48 @@ blue:
     wraith: [degeneration_beam]
     phantom_ray: [stealth_cloak]
   units:
-  - {name: hound, index: 0, position: {x: -280, y: -190}, exp: 750/750, value: 100}
-  - {name: hound, index: 1, position: {x: 70, y: -150}, level: 2, exp: 312/1690, value: 100}
-  - {name: hound, index: 2, position: {x: 280, y: -170}, level: 2, exp: 30/1690, value: 100}
-  - {name: sledgehammer, index: 3, position: {x: 155, y: -130}, exp: 1300/1300, value: 200}
-  - {name: sledgehammer, index: 4, position: {x: 245, y: -130}, exp: 1300/1300, value: 200}
-  - {name: marksman, index: 5, position: {x: 160, y: -170}, level: 3, exp: 1018/2315, equipment: [secondary_fire_control_system], value: 100}
-  - {name: marksman, index: 6, position: {x: 220, y: -170}, level: 2, exp: 209/1465, value: 100}
-  - {name: phantom_ray, index: 7, position: {x: -225, y: -190}, level: 2, exp: 1610/2253, value: 200}
-  - {name: phantom_ray, index: 8, position: {x: -175, y: -190}, level: 2, exp: 1111/2253, equipment: [improved_firepower_control_system], value: 200}
-  - {name: marksman, index: 9, position: {x: 120, y: -170}, level: 2, exp: 763/1465, value: 100}
-  - {name: marksman, index: 10, position: {x: 60, y: -170}, level: 2, exp: 1357/1465, value: 100}
-  - {name: phoenix, index: 11, position: {x: 90, y: -190}, exp: 1300/1300, equipment: [secondary_fire_control_system], value: 200}
-  - {name: phoenix, index: 12, position: {x: 190, y: -190}, exp: 1300/1300, equipment: [secondary_fire_control_system], value: 200}
-  - {name: wraith, index: 13, position: {x: 195, y: -135}, exp: 1874/2250, value: 300}
-  - {name: wraith, index: 14, position: {x: -195, y: -145}, exp: 723/2250, value: 300}
-  - {name: phoenix, index: 15, position: {x: -160, y: -140}, exp: 169/1300, value: 200}
-  - {name: phoenix, index: 16, position: {x: -230, y: -140}, exp: 626/1300, value: 200}
-  - {name: mustang, index: 17, position: {x: 155, y: -110}, level: 2, exp: 963/2704, value: 200}
-  - {name: mustang, index: 18, position: {x: 225, y: -110}, level: 2, exp: 896/2704, value: 200}
-  - {name: mustang, index: 19, position: {x: 105, y: -110}, level: 2, exp: 813/2704, value: 200}
-  - {name: mustang, index: 20, position: {x: 55, y: -110}, level: 2, exp: 1051/2704, value: 200}
+  - {name: hound, index: 0, value: 100, position: {x: -280, y: -190}, exp: 750/750}
+  - {name: hound, index: 1, value: 100, level: 2, position: {x: 70, y: -150}, exp: 312/1690}
+  - {name: hound, index: 2, value: 100, level: 2, position: {x: 280, y: -170}, exp: 30/1690}
+  - {name: sledgehammer, index: 3, value: 200, position: {x: 155, y: -130}, exp: 1300/1300}
+  - {name: sledgehammer, index: 4, value: 200, position: {x: 245, y: -130}, exp: 1300/1300}
+  - {name: marksman, index: 5, value: 100, level: 3, position: {x: 160, y: -170}, exp: 1018/2315}
+  - {name: marksman, index: 6, value: 100, level: 2, position: {x: 220, y: -170}, exp: 209/1465}
+  - {name: phantom_ray, index: 7, value: 200, level: 2, position: {x: -225, y: -190}, exp: 1610/2253}
+  - {name: phantom_ray, index: 8, value: 200, level: 2, position: {x: -175, y: -190}, exp: 1111/2253}
+  - {name: marksman, index: 9, value: 100, level: 2, position: {x: 120, y: -170}, exp: 763/1465}
+  - {name: marksman, index: 10, value: 100, level: 2, position: {x: 60, y: -170}, exp: 1357/1465}
+  - {name: phoenix, index: 11, value: 200, position: {x: 90, y: -190}, exp: 1300/1300}
+  - {name: phoenix, index: 12, value: 200, position: {x: 190, y: -190}, exp: 1300/1300}
+  - {name: wraith, index: 13, value: 300, position: {x: 195, y: -135}, exp: 1874/2250}
+  - {name: wraith, index: 14, value: 300, position: {x: -195, y: -145}, exp: 723/2250}
+  - {name: phoenix, index: 15, value: 200, position: {x: -160, y: -140}, exp: 169/1300}
+  - {name: phoenix, index: 16, value: 200, position: {x: -230, y: -140}, exp: 626/1300}
+  - {name: mustang, index: 17, value: 200, level: 2, position: {x: 155, y: -110}, exp: 963/2704}
+  - {name: mustang, index: 18, value: 200, level: 2, position: {x: 225, y: -110}, exp: 896/2704}
+  - {name: mustang, index: 19, value: 200, level: 2, position: {x: 105, y: -110}, exp: 813/2704}
+  - {name: mustang, index: 20, value: 200, level: 2, position: {x: 55, y: -110}, exp: 1051/2704}
   constructions:
   - {name: defensive_wall, index: 0, position: {x: -140, y: -55}}
 red:
   random_state: [4203424813806599039, 6658042286342213505, 3137097923187304297, 13308615449097248891]
   reactor_core: 592
-  supply: 1300
+  supply: 1100
+  reinforce_choice: -1
   unlocked_units: [marksman, wasp, mustang, steel_ball, fang, sledgehammer, phoenix, fire_badger, tarantula]
   blueprints: [attack_enhancement]
   tower_strengthen_levels: [0, 0]
   equipment:
   - {name: small_amplifying_core}
+  - {name: small_amplifying_core, fitted: {unit: 3, slot: 0}}
+  - {name: small_amplifying_core, fitted: {unit: 15, slot: 0}}
+  - {name: secondary_laser_sight, fitted: {unit: 4, slot: 0}}
+  - {name: secondary_fire_control_system, fitted: {unit: 7, slot: 0}}
+  - {name: secondary_fire_control_system, fitted: {unit: 9, slot: 0}}
+  - {name: secondary_fire_control_system, fitted: {unit: 10, slot: 0}}
+  - {name: secondary_fire_control_system, fitted: {unit: 13, slot: 0}}
+  - {name: secondary_fire_control_system, fitted: {unit: 14, slot: 0}}
+  - {name: secondary_heavy_armor, fitted: {unit: 2, slot: 0}}
   battle_skills:
   - {index: 0, name: rhino_assault, cooldown: 0}
   next_index: {unit: 21, contraption: 1}
@@ -679,27 +730,27 @@ red:
     steel_ball: [kinetic_charge]
     fang: [mechanical_rage]
   units:
-  - {name: fang, index: 0, position: {x: -250, y: -145}, exp: 150/600, rotated: true, value: 100}
-  - {name: fang, index: 1, position: {x: -85, y: -130}, exp: 168/600, value: 100}
-  - {name: fang, index: 2, position: {x: -5, y: -190}, level: 2, exp: 763/1352, equipment: [secondary_heavy_armor], value: 100}
-  - {name: sledgehammer, index: 3, position: {x: -175, y: -150}, exp: 1300/1300, equipment: [small_amplifying_core], value: 200}
-  - {name: sledgehammer, index: 4, position: {x: 175, y: -150}, exp: 1300/1300, equipment: [secondary_laser_sight], value: 200}
-  - {name: fang, index: 5, position: {x: 85, y: -130}, exp: 600/600, value: 100}
-  - {name: fang, index: 6, position: {x: 250, y: -145}, exp: 600/600, rotated: true, value: 100}
-  - {name: steel_ball, index: 7, position: {x: -125, y: -300}, exp: 743/1000, equipment: [secondary_fire_control_system], value: 200}
-  - {name: sledgehammer, index: 8, position: {x: -105, y: -170}, exp: 1300/1300, value: 200}
-  - {name: wasp, index: 9, position: {x: -225, y: -300}, exp: 900/900, equipment: [secondary_fire_control_system], value: 200}
-  - {name: wasp, index: 10, position: {x: -275, y: -300}, exp: 900/900, equipment: [secondary_fire_control_system], value: 200}
-  - {name: phoenix, index: 11, position: {x: 170, y: -300}, exp: 1300/1300, value: 200}
-  - {name: phoenix, index: 12, position: {x: 210, y: -300}, exp: 1300/1300, value: 200}
-  - {name: steel_ball, index: 13, position: {x: -75, y: -300}, exp: 615/1000, equipment: [secondary_fire_control_system], value: 200}
-  - {name: wasp, index: 14, position: {x: -275, y: -280}, exp: 900/900, equipment: [secondary_fire_control_system], value: 200}
-  - {name: wasp, index: 15, position: {x: -225, y: -280}, exp: 900/900, equipment: [small_amplifying_core], value: 200}
-  - {name: fang, index: 16, position: {x: 65, y: -190}, exp: 177/600, value: 100}
-  - {name: mustang, index: 17, position: {x: 245, y: -190}, level: 2, exp: 666/2704, value: 200}
-  - {name: mustang, index: 18, position: {x: 175, y: -190}, level: 2, exp: 1664/2704, value: 200}
-  - {name: mustang, index: 19, position: {x: 175, y: -230}, exp: 865/1200, value: 200}
-  - {name: mustang, index: 20, position: {x: 245, y: -230}, exp: 1103/1200, value: 200}
+  - {name: fang, index: 0, value: 100, position: {x: -250, y: -145}, exp: 150/600, rotated: true}
+  - {name: fang, index: 1, value: 100, position: {x: -85, y: -130}, exp: 168/600}
+  - {name: fang, index: 2, value: 100, level: 2, position: {x: -5, y: -190}, exp: 763/1352}
+  - {name: sledgehammer, index: 3, value: 200, position: {x: -175, y: -150}, exp: 1300/1300}
+  - {name: sledgehammer, index: 4, value: 200, position: {x: 175, y: -150}, exp: 1300/1300}
+  - {name: fang, index: 5, value: 100, position: {x: 85, y: -130}, exp: 600/600}
+  - {name: fang, index: 6, value: 100, position: {x: 250, y: -145}, exp: 600/600, rotated: true}
+  - {name: steel_ball, index: 7, value: 200, position: {x: -125, y: -300}, exp: 743/1000}
+  - {name: sledgehammer, index: 8, value: 200, position: {x: -105, y: -170}, exp: 1300/1300}
+  - {name: wasp, index: 9, value: 200, position: {x: -225, y: -300}, exp: 900/900}
+  - {name: wasp, index: 10, value: 200, position: {x: -275, y: -300}, exp: 900/900}
+  - {name: phoenix, index: 11, value: 200, position: {x: 170, y: -300}, exp: 1300/1300}
+  - {name: phoenix, index: 12, value: 200, position: {x: 210, y: -300}, exp: 1300/1300}
+  - {name: steel_ball, index: 13, value: 200, position: {x: -75, y: -300}, exp: 615/1000}
+  - {name: wasp, index: 14, value: 200, position: {x: -275, y: -280}, exp: 900/900}
+  - {name: wasp, index: 15, value: 200, position: {x: -225, y: -280}, exp: 900/900}
+  - {name: fang, index: 16, value: 100, position: {x: 65, y: -190}, exp: 177/600}
+  - {name: mustang, index: 17, value: 200, level: 2, position: {x: 245, y: -190}, exp: 666/2704}
+  - {name: mustang, index: 18, value: 200, level: 2, position: {x: 175, y: -190}, exp: 1664/2704}
+  - {name: mustang, index: 19, value: 200, position: {x: 175, y: -230}, exp: 865/1200}
+  - {name: mustang, index: 20, value: 200, position: {x: 245, y: -230}, exp: 1103/1200}
   constructions:
   - {name: defensive_wall, index: 0, position: {x: -140, y: -55}}
 ---
@@ -707,6 +758,7 @@ kind: action
 round: 7
 blue:
 - {type: choose_reinforce_item, index: 3, name: intensive_training}
+- {type: active_energy_tower_skill, name: rapid_resupply}
 - {type: buy_unit, name: marksman}
 - {type: buy_unit, name: marksman}
 - {type: upgrade_technology, unit: phoenix, tech: elite_marksman}
@@ -723,6 +775,7 @@ blue:
 - {type: upgrade_unit, index: 12}
 red:
 - {type: choose_reinforce_item, index: 2, name: orbital_javelin}
+- {type: active_energy_tower_skill, name: rapid_resupply}
 - {type: buy_unit, name: fang}
 - {type: buy_unit, name: wasp}
 - {type: upgrade_technology, unit: mustang, tech: aerial_specialization}
@@ -743,10 +796,16 @@ reinforce_offers: [steel_ball_production_line, super_supply_enhancement, tank_pr
 blue:
   random_state: [17042781766639039471, 9569434890162040514, 12545998638459507927, 11496577517901217327]
   reactor_core: 1815
-  supply: 1500
+  supply: 1300
+  reinforce_choice: -1
   unlocked_units: [marksman, mustang, sledgehammer, phoenix, wraith, phantom_ray, hound]
   blueprints: [attack_enhancement, defense_enhancement]
   tower_strengthen_levels: [0, 0]
+  equipment:
+  - {name: improved_firepower_control_system, fitted: {unit: 8, slot: 0}}
+  - {name: secondary_fire_control_system, fitted: {unit: 5, slot: 0}}
+  - {name: secondary_fire_control_system, fitted: {unit: 11, slot: 0}}
+  - {name: secondary_fire_control_system, fitted: {unit: 12, slot: 0}}
   battle_skills:
   - {index: 0, name: intensive_training, cooldown: 1}
   - {index: 1, name: intensive_training, cooldown: 1}
@@ -757,40 +816,51 @@ blue:
     wraith: [degeneration_beam]
     phantom_ray: [stealth_cloak]
   units:
-  - {name: hound, index: 0, position: {x: -280, y: -190}, level: 2, exp: 123/1690, value: 100}
-  - {name: hound, index: 1, position: {x: 70, y: -150}, level: 2, exp: 526/1690, value: 100}
-  - {name: hound, index: 2, position: {x: 280, y: -170}, level: 2, exp: 120/1690, value: 100}
-  - {name: sledgehammer, index: 3, position: {x: 155, y: -130}, level: 2, value: 200}
-  - {name: sledgehammer, index: 4, position: {x: 245, y: -130}, level: 2, exp: 269/2929, value: 200}
-  - {name: marksman, index: 5, position: {x: 160, y: -170}, level: 3, exp: 1471/2315, equipment: [secondary_fire_control_system], value: 100}
-  - {name: marksman, index: 6, position: {x: 220, y: -170}, level: 2, exp: 458/1465, value: 100}
-  - {name: phantom_ray, index: 7, position: {x: -225, y: -190}, level: 2, exp: 1646/2253, value: 200}
-  - {name: phantom_ray, index: 8, position: {x: -175, y: -190}, level: 2, exp: 1195/2253, equipment: [improved_firepower_control_system], value: 200}
-  - {name: marksman, index: 9, position: {x: 120, y: -170}, level: 2, exp: 1060/1465, value: 100}
-  - {name: marksman, index: 10, position: {x: 60, y: -170}, level: 2, exp: 1465/1465, value: 100}
-  - {name: phoenix, index: 11, position: {x: 90, y: -190}, level: 3, exp: 307/4630, equipment: [secondary_fire_control_system], value: 200}
-  - {name: phoenix, index: 12, position: {x: 190, y: -190}, level: 3, exp: 289/4630, equipment: [secondary_fire_control_system], value: 200}
-  - {name: wraith, index: 13, position: {x: 195, y: -135}, exp: 2136/2250, value: 300}
-  - {name: wraith, index: 14, position: {x: -195, y: -145}, exp: 723/2250, value: 300}
-  - {name: phoenix, index: 15, position: {x: -160, y: -140}, exp: 181/1300, value: 200}
-  - {name: phoenix, index: 16, position: {x: -230, y: -140}, exp: 626/1300, value: 200}
-  - {name: mustang, index: 17, position: {x: 155, y: -110}, level: 2, exp: 1133/2704, value: 200}
-  - {name: mustang, index: 18, position: {x: 225, y: -110}, level: 2, exp: 1222/2704, value: 200}
-  - {name: mustang, index: 19, position: {x: 105, y: -110}, level: 2, exp: 1357/2704, value: 200}
-  - {name: mustang, index: 20, position: {x: 55, y: -110}, level: 2, exp: 1837/2704, value: 200}
-  - {name: marksman, index: 21, position: {x: -170, y: -160}, exp: 48/650, value: 100}
-  - {name: marksman, index: 22, position: {x: -220, y: -160}, exp: 113/650, value: 100}
+  - {name: hound, index: 0, value: 100, level: 2, position: {x: -280, y: -190}, exp: 123/1690}
+  - {name: hound, index: 1, value: 100, level: 2, position: {x: 70, y: -150}, exp: 526/1690}
+  - {name: hound, index: 2, value: 100, level: 2, position: {x: 280, y: -170}, exp: 120/1690}
+  - {name: sledgehammer, index: 3, value: 200, level: 2, position: {x: 155, y: -130}}
+  - {name: sledgehammer, index: 4, value: 200, level: 2, position: {x: 245, y: -130}, exp: 269/2929}
+  - {name: marksman, index: 5, value: 100, level: 3, position: {x: 160, y: -170}, exp: 1471/2315}
+  - {name: marksman, index: 6, value: 100, level: 2, position: {x: 220, y: -170}, exp: 458/1465}
+  - {name: phantom_ray, index: 7, value: 200, level: 2, position: {x: -225, y: -190}, exp: 1646/2253}
+  - {name: phantom_ray, index: 8, value: 200, level: 2, position: {x: -175, y: -190}, exp: 1195/2253}
+  - {name: marksman, index: 9, value: 100, level: 2, position: {x: 120, y: -170}, exp: 1060/1465}
+  - {name: marksman, index: 10, value: 100, level: 2, position: {x: 60, y: -170}, exp: 1465/1465}
+  - {name: phoenix, index: 11, value: 200, level: 3, position: {x: 90, y: -190}, exp: 307/4630}
+  - {name: phoenix, index: 12, value: 200, level: 3, position: {x: 190, y: -190}, exp: 289/4630}
+  - {name: wraith, index: 13, value: 300, position: {x: 195, y: -135}, exp: 2136/2250}
+  - {name: wraith, index: 14, value: 300, position: {x: -195, y: -145}, exp: 723/2250}
+  - {name: phoenix, index: 15, value: 200, position: {x: -160, y: -140}, exp: 181/1300}
+  - {name: phoenix, index: 16, value: 200, position: {x: -230, y: -140}, exp: 626/1300}
+  - {name: mustang, index: 17, value: 200, level: 2, position: {x: 155, y: -110}, exp: 1133/2704}
+  - {name: mustang, index: 18, value: 200, level: 2, position: {x: 225, y: -110}, exp: 1222/2704}
+  - {name: mustang, index: 19, value: 200, level: 2, position: {x: 105, y: -110}, exp: 1357/2704}
+  - {name: mustang, index: 20, value: 200, level: 2, position: {x: 55, y: -110}, exp: 1837/2704}
+  - {name: marksman, index: 21, value: 100, position: {x: -170, y: -160}, exp: 48/650}
+  - {name: marksman, index: 22, value: 100, position: {x: -220, y: -160}, exp: 113/650}
   constructions:
   - {name: defensive_wall, index: 0, position: {x: -140, y: -55}}
 red:
   random_state: [16033445289868366981, 5600995001728619415, 3279364358092807190, 6196773432900863208]
   reactor_core: 592
-  supply: 1500
+  supply: 1300
+  reinforce_choice: -1
   unlocked_units: [marksman, wasp, mustang, steel_ball, fang, sledgehammer, phoenix, fire_badger, tarantula, void_eye]
   blueprints: [attack_enhancement]
   tower_strengthen_levels: [0, 0]
   equipment:
+  - {name: small_amplifying_core, fitted: {unit: 3, slot: 0}}
+  - {name: small_amplifying_core, fitted: {unit: 15, slot: 0}}
+  - {name: small_amplifying_core, fitted: {unit: 18, slot: 0}}
+  - {name: secondary_laser_sight, fitted: {unit: 4, slot: 0}}
   - {name: secondary_fire_control_system}
+  - {name: secondary_fire_control_system, fitted: {unit: 7, slot: 0}}
+  - {name: secondary_fire_control_system, fitted: {unit: 9, slot: 0}}
+  - {name: secondary_fire_control_system, fitted: {unit: 10, slot: 0}}
+  - {name: secondary_fire_control_system, fitted: {unit: 13, slot: 0}}
+  - {name: secondary_fire_control_system, fitted: {unit: 14, slot: 0}}
+  - {name: secondary_heavy_armor, fitted: {unit: 2, slot: 0}}
   battle_skills:
   - {index: 0, name: rhino_assault, cooldown: 3}
   - {index: 1, name: orbital_javelin, cooldown: 3}
@@ -802,29 +872,29 @@ red:
     steel_ball: [kinetic_charge]
     fang: [mechanical_rage]
   units:
-  - {name: fang, index: 0, position: {x: -250, y: -145}, exp: 379/600, rotated: true, value: 100}
-  - {name: fang, index: 1, position: {x: -85, y: -130}, exp: 295/600, value: 100}
-  - {name: fang, index: 2, position: {x: -5, y: -190}, level: 2, exp: 1226/1352, equipment: [secondary_heavy_armor], value: 100}
-  - {name: sledgehammer, index: 3, position: {x: -175, y: -150}, exp: 1300/1300, equipment: [small_amplifying_core], value: 200}
-  - {name: sledgehammer, index: 4, position: {x: 175, y: -150}, exp: 1300/1300, equipment: [secondary_laser_sight], value: 200}
-  - {name: fang, index: 5, position: {x: 85, y: -130}, exp: 600/600, value: 100}
-  - {name: fang, index: 6, position: {x: 250, y: -145}, exp: 600/600, rotated: true, value: 100}
-  - {name: steel_ball, index: 7, position: {x: -125, y: -300}, exp: 1000/1000, equipment: [secondary_fire_control_system], value: 200}
-  - {name: sledgehammer, index: 8, position: {x: -105, y: -170}, exp: 1300/1300, value: 200}
-  - {name: wasp, index: 9, position: {x: -225, y: -300}, exp: 900/900, equipment: [secondary_fire_control_system], value: 200}
-  - {name: wasp, index: 10, position: {x: -275, y: -300}, exp: 900/900, equipment: [secondary_fire_control_system], value: 200}
-  - {name: phoenix, index: 11, position: {x: 170, y: -300}, exp: 1300/1300, value: 200}
-  - {name: phoenix, index: 12, position: {x: 210, y: -300}, exp: 1300/1300, value: 200}
-  - {name: steel_ball, index: 13, position: {x: -75, y: -300}, exp: 1000/1000, equipment: [secondary_fire_control_system], value: 200}
-  - {name: wasp, index: 14, position: {x: -275, y: -280}, exp: 900/900, equipment: [secondary_fire_control_system], value: 200}
-  - {name: wasp, index: 15, position: {x: -225, y: -280}, exp: 900/900, equipment: [small_amplifying_core], value: 200}
-  - {name: fang, index: 16, position: {x: 65, y: -190}, exp: 571/600, value: 100}
-  - {name: mustang, index: 17, position: {x: 245, y: -190}, level: 2, exp: 2557/2704, value: 200}
-  - {name: mustang, index: 18, position: {x: 175, y: -190}, level: 2, exp: 2704/2704, equipment: [small_amplifying_core], value: 200}
-  - {name: mustang, index: 19, position: {x: 175, y: -230}, exp: 1200/1200, value: 200}
-  - {name: mustang, index: 20, position: {x: 245, y: -230}, exp: 1200/1200, value: 200}
-  - {name: fang, index: 21, position: {x: -5, y: -150}, exp: 229/600, value: 100}
-  - {name: wasp, index: 22, position: {x: -175, y: -300}, exp: 900/900, value: 200}
+  - {name: fang, index: 0, value: 100, position: {x: -250, y: -145}, exp: 379/600, rotated: true}
+  - {name: fang, index: 1, value: 100, position: {x: -85, y: -130}, exp: 295/600}
+  - {name: fang, index: 2, value: 100, level: 2, position: {x: -5, y: -190}, exp: 1226/1352}
+  - {name: sledgehammer, index: 3, value: 200, position: {x: -175, y: -150}, exp: 1300/1300}
+  - {name: sledgehammer, index: 4, value: 200, position: {x: 175, y: -150}, exp: 1300/1300}
+  - {name: fang, index: 5, value: 100, position: {x: 85, y: -130}, exp: 600/600}
+  - {name: fang, index: 6, value: 100, position: {x: 250, y: -145}, exp: 600/600, rotated: true}
+  - {name: steel_ball, index: 7, value: 200, position: {x: -125, y: -300}, exp: 1000/1000}
+  - {name: sledgehammer, index: 8, value: 200, position: {x: -105, y: -170}, exp: 1300/1300}
+  - {name: wasp, index: 9, value: 200, position: {x: -225, y: -300}, exp: 900/900}
+  - {name: wasp, index: 10, value: 200, position: {x: -275, y: -300}, exp: 900/900}
+  - {name: phoenix, index: 11, value: 200, position: {x: 170, y: -300}, exp: 1300/1300}
+  - {name: phoenix, index: 12, value: 200, position: {x: 210, y: -300}, exp: 1300/1300}
+  - {name: steel_ball, index: 13, value: 200, position: {x: -75, y: -300}, exp: 1000/1000}
+  - {name: wasp, index: 14, value: 200, position: {x: -275, y: -280}, exp: 900/900}
+  - {name: wasp, index: 15, value: 200, position: {x: -225, y: -280}, exp: 900/900}
+  - {name: fang, index: 16, value: 100, position: {x: 65, y: -190}, exp: 571/600}
+  - {name: mustang, index: 17, value: 200, level: 2, position: {x: 245, y: -190}, exp: 2557/2704}
+  - {name: mustang, index: 18, value: 200, level: 2, position: {x: 175, y: -190}, exp: 2704/2704}
+  - {name: mustang, index: 19, value: 200, position: {x: 175, y: -230}, exp: 1200/1200}
+  - {name: mustang, index: 20, value: 200, position: {x: 245, y: -230}, exp: 1200/1200}
+  - {name: fang, index: 21, value: 100, position: {x: -5, y: -150}, exp: 229/600}
+  - {name: wasp, index: 22, value: 200, position: {x: -175, y: -300}, exp: 900/900}
   constructions:
   - {name: defensive_wall, index: 0, position: {x: -140, y: -55}}
 ---
@@ -832,6 +902,7 @@ kind: action
 round: 8
 blue:
 - {type: choose_reinforce_item, index: 3, name: acid_blast}
+- {type: active_energy_tower_skill, name: rapid_resupply}
 - {type: unlock_unit, name: stormcaller}
 - {type: active_energy_tower_skill, name: elite_recruitment}
 - {type: buy_unit, name: stormcaller}
@@ -847,6 +918,7 @@ blue:
 - {type: release_commander_skill, index: 2, name: acid_blast, target: {area: [{x: -237, y: 169}, {x: -116, y: 98}]}}
 red:
 - {type: choose_reinforce_item, index: 3, name: acid_blast}
+- {type: active_energy_tower_skill, name: rapid_resupply}
 - {type: buy_unit, name: wasp}
 - {type: buy_unit, name: fang}
 - {type: upgrade_technology, unit: wasp, tech: ground_specialization}
